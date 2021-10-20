@@ -27,11 +27,25 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7306140220797664583}
+  - {fileID: 5514270918049620762}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7128677794399902380
+--- !u!64 &4997580164184567301
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5173915258001897888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1128277470102373112, guid: 80cc293d418f05044911e427909a4d00, type: 3}
+--- !u!1001 &5407725094139069681
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -84,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 80cc293d418f05044911e427909a4d00, type: 3}
       propertyPath: m_Name
-      value: SM_Stone2
+      value: SM_StoneWall_Small_Placeholder
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 80cc293d418f05044911e427909a4d00, type: 3}
       propertyPath: m_Layer
@@ -96,8 +110,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80cc293d418f05044911e427909a4d00, type: 3}
---- !u!4 &7306140220797664583 stripped
+--- !u!1 &5173915258001897888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 80cc293d418f05044911e427909a4d00, type: 3}
+  m_PrefabInstance: {fileID: 5407725094139069681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5514270918049620762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 80cc293d418f05044911e427909a4d00, type: 3}
-  m_PrefabInstance: {fileID: 7128677794399902380}
+  m_PrefabInstance: {fileID: 5407725094139069681}
   m_PrefabAsset: {fileID: 0}
