@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C422147A-8241-4651-9F0B-EFBA615BD38A}" SchemaVersion="103" RootDocumentID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}" ParentDocumentID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}">
+	<AudioObjects>
+		<WorkUnit Name="3D_SFX" ID="{C422147A-8241-4651-9F0B-EFBA615BD38A}" OwnerID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}" PersistMode="Nested">
+			<ChildrenList>
+				<ActorMixer Name="Hazards" ID="{8F973C57-0D73-4032-B118-6887446F0A45}" ShortID="717663553">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="att_generic_25m" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="ES_The Weight Of Water - Alan Ellis WAV" ID="{605D2758-078E-4022-8DB5-DD59789FAFC0}" ShortID="730219492">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ES_The Weight Of Water - Alan Ellis WAV" ID="{0EE3BADE-975B-4176-B2F0-F6905B3A2155}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="5.71792454632283"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>ES_The Weight Of Water - Alan Ellis WAV.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="828466945"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ES_The Weight Of Water - Alan Ellis WAV" ID="{0EE3BADE-975B-4176-B2F0-F6905B3A2155}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
