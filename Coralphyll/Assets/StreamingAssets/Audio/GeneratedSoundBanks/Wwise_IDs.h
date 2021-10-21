@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
+        static const AkUniqueID MUSIC_DEFAULT = 1927040848U;
         static const AkUniqueID SFX_3D_EMITTER = 300857671U;
         static const AkUniqueID SFX_3D_EMITTER_STOP = 1821030210U;
         static const AkUniqueID SFX_OCEAN = 3800442705U;

@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class WwAudioPlayerMovement : MonoBehaviour
 {
-
     AkSoundEngine akSoundEngine;
 
     void Start()
     {
         akSoundEngine = GetComponent<AkSoundEngine>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
