@@ -13,14 +13,23 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
+        static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
         static const AkUniqueID SFX_3D_EMITTER = 300857671U;
         static const AkUniqueID SFX_3D_EMITTER_STOP = 1821030210U;
+        static const AkUniqueID SFX_OCEAN = 3800442705U;
+        static const AkUniqueID SFX_OCEAN_STOP = 3455222708U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID RTPC_SPEEDOFCHARACTER = 2977442876U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID LEVEL1 = 2678230382U;
+        static const AkUniqueID MAIN = 3161908922U;
     } // namespace BANKS
 
     namespace BUSSES

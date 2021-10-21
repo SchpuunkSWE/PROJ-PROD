@@ -80,11 +80,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: fb0a94bfc3d13c44b709210121b9525f
     GuidInternal: 
-    m_lastTime: -8585668637006835015
+    m_lastTime: -8585667794624471563
     List:
-    - name: Level1
+    - name: Main
       guid: ab3d7330fedd484d8137c5b314a393e4
-      id: 2678230382
+      id: 3161908922
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -92,11 +92,27 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: fb0a94bfc3d13c44b709210121b9525f
-      - ElementName: Level1
+      - ElementName: Main
         ObjectType: 7
         guid: ab3d7330fedd484d8137c5b314a393e4
-      Path: SoundBanks\Default Work Unit\Level1
+      Path: SoundBanks\Default Work Unit\Main
   EventWwu:
+  - PhysicalPath: Events\character_movement.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 4f36ad1605cbde44a0b1ea85f7191265
+    - ElementName: character_movement
+      ObjectType: 12
+      guid: a2ceba880656a04aac66b5c51cae867d
+    ParentPath: Events\Default Work Unit\character_movement
+    guid: a2ceba880656a04aac66b5c51cae867d
+    GuidInternal: 
+    m_lastTime: -8585667928483836649
+    List: []
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Events
@@ -108,7 +124,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 4f36ad1605cbde44a0b1ea85f7191265
     GuidInternal: 
-    m_lastTime: -8585668683520254830
+    m_lastTime: -8585667928483856663
     List:
     - name: SFX_3D_Emitter
       guid: 28cefdd21696324ba3bd3488502bacb0
@@ -144,6 +160,105 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: SFX_Ocean
+      guid: cbcfc8b3238c5842859f7bcf0e56398e
+      id: 3800442705
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4f36ad1605cbde44a0b1ea85f7191265
+      - ElementName: SFX_Ocean
+        ObjectType: 3
+        guid: cbcfc8b3238c5842859f7bcf0e56398e
+      Path: Events\Default Work Unit\SFX_Ocean
+      maxAttenuation: 50
+      maxDuration: 122.31467
+      minDuration: 122.31467
+    - name: SFX_Ocean_stop
+      guid: 37815ccc8ca82943b0c9550b57c3793e
+      id: 3455222708
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4f36ad1605cbde44a0b1ea85f7191265
+      - ElementName: SFX_Ocean_stop
+        ObjectType: 3
+        guid: 37815ccc8ca82943b0c9550b57c3793e
+      Path: Events\Default Work Unit\SFX_Ocean_stop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events\swimSounds.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 4f36ad1605cbde44a0b1ea85f7191265
+    - ElementName: character_movement
+      ObjectType: 12
+      guid: a2ceba880656a04aac66b5c51cae867d
+    - ElementName: swimSounds
+      ObjectType: 12
+      guid: e02e8455301c034786d042e7349a3e16
+    ParentPath: Events\Default Work Unit\character_movement\swimSounds
+    guid: e02e8455301c034786d042e7349a3e16
+    GuidInternal: 
+    m_lastTime: -8585667794624431527
+    List:
+    - name: fs_player_swim
+      guid: d9ecfe1bebc95c4a89e03ff8db6cea5d
+      id: 2996183927
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4f36ad1605cbde44a0b1ea85f7191265
+      - ElementName: character_movement
+        ObjectType: 12
+        guid: a2ceba880656a04aac66b5c51cae867d
+      - ElementName: swimSounds
+        ObjectType: 12
+        guid: e02e8455301c034786d042e7349a3e16
+      - ElementName: fs_player_swim
+        ObjectType: 3
+        guid: d9ecfe1bebc95c4a89e03ff8db6cea5d
+      Path: Events\Default Work Unit\character_movement\swimSounds\fs_player_swim
+      maxAttenuation: 25
+      maxDuration: 1.864276
+      minDuration: 1.396629
+    - name: fs_player_swim_sprint
+      guid: 556d4373cba72a49b0e7dd9d5e397034
+      id: 976861018
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 4f36ad1605cbde44a0b1ea85f7191265
+      - ElementName: character_movement
+        ObjectType: 12
+        guid: a2ceba880656a04aac66b5c51cae867d
+      - ElementName: swimSounds
+        ObjectType: 12
+        guid: e02e8455301c034786d042e7349a3e16
+      - ElementName: fs_player_swim_sprint
+        ObjectType: 3
+        guid: 556d4373cba72a49b0e7dd9d5e397034
+      Path: Events\Default Work Unit\character_movement\swimSounds\fs_player_swim_sprint
+      maxAttenuation: 25
+      maxDuration: 1.479677
+      minDuration: 1.108505
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -156,8 +271,41 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 0d38579c9c719346ad3fdb25574e5a9d
     GuidInternal: 
-    m_lastTime: -8585669712813521519
+    m_lastTime: -8585667809525129228
     List: []
+  - PhysicalPath: Game Parameters\Locomotion.wwu
+    PathAndIcons:
+    - ElementName: Game Parameters
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 0d38579c9c719346ad3fdb25574e5a9d
+    - ElementName: Locomotion
+      ObjectType: 12
+      guid: 3214c27d37c90f4bbb974e034173e9bd
+    ParentPath: Game Parameters\Default Work Unit\Locomotion
+    guid: 3214c27d37c90f4bbb974e034173e9bd
+    GuidInternal: 
+    m_lastTime: -8585667809525089191
+    List:
+    - name: RTPC_SpeedOfCharacter
+      guid: 66de7de64ef7fa44ab8edf027d6f0997
+      id: 2977442876
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 0d38579c9c719346ad3fdb25574e5a9d
+      - ElementName: Locomotion
+        ObjectType: 12
+        guid: 3214c27d37c90f4bbb974e034173e9bd
+      - ElementName: RTPC_SpeedOfCharacter
+        ObjectType: 13
+        guid: 66de7de64ef7fa44ab8edf027d6f0997
+      Path: Game Parameters\Default Work Unit\Locomotion\RTPC_SpeedOfCharacter
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:

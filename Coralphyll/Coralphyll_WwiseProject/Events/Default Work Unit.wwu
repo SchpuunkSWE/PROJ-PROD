@@ -55,6 +55,65 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="SFX_Ocean" ID="{B3C8CFCB-8C23-4258-859F-7BCF0E56398E}">
+					<ChildrenList>
+						<Action Name="" ID="{1660118A-5C5B-4724-BCAE-0D9B814D46CB}" ShortID="210282037">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1.5">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E71B078A-43AF-47EF-8422-E6A94BEE1758}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ES_Underwater Amb Shallow - SFX Producer" ID="{3C2CF300-BB8F-438D-8820-9136BCD31118}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{5880C7BE-2745-43C6-BB59-87E239B19377}" ShortID="162587442">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="36"/>
+								<Property Name="SeekPercent" Type="Real64" Value="50">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7CF8E173-98BC-4AD8-B62C-ACC36A21169A}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="40"/>
+													<Property Name="Min" Type="Real64" Value="-40"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ES_Underwater Amb Shallow - SFX Producer" ID="{3C2CF300-BB8F-438D-8820-9136BCD31118}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SFX_Ocean_stop" ID="{CC5C8137-A88C-4329-B0C9-550B57C3793E}">
+					<ChildrenList>
+						<Action Name="" ID="{56FD05BC-27D9-4CCE-8917-8421C3A6842F}" ShortID="267788511">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ES_Underwater Amb Shallow - SFX Producer" ID="{3C2CF300-BB8F-438D-8820-9136BCD31118}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<WorkUnit Name="character_movement" ID="{88BACEA2-5606-4AA0-AC66-B5C51CAE867D}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

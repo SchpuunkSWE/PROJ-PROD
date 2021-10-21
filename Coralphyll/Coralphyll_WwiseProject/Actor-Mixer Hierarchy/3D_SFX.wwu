@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<ActorMixer Name="Hazards" ID="{8F973C57-0D73-4032-B118-6887446F0A45}" ShortID="717663553">
 					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -47,6 +47,54 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="ES_The Weight Of Water - Alan Ellis WAV" ID="{0EE3BADE-975B-4176-B2F0-F6905B3A2155}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
+				<ActorMixer Name="Ocean" ID="{469E94C1-0E26-488F-8FD9-F67C91A2372B}" ShortID="1071495551">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="ES_Underwater Amb Shallow - SFX Producer" ID="{3C2CF300-BB8F-438D-8820-9136BCD31118}" ShortID="838276367">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-17</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_generic_50m" ID="{68B0F555-6B9E-4EA7-9769-249BDC757634}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ES_Underwater Amb Shallow - SFX Producer" ID="{A39D33C3-2157-49AC-AD3A-265923E140B7}">
+									<Language>SFX</Language>
+									<AudioFile>ES_Underwater Amb Shallow - SFX Producer.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="709785133"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ES_Underwater Amb Shallow - SFX Producer" ID="{A39D33C3-2157-49AC-AD3A-265923E140B7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

@@ -11,16 +11,32 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="512747729">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3511820735">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2678230382" Language="SFX" Hash="3615977907">
-			<ObjectPath>\SoundBanks\Default Work Unit\Level1</ObjectPath>
-			<ShortName>Level1</ShortName>
-			<Path>Level1.bnk</Path>
+		<SoundBank Id="3161908922" Language="SFX" Hash="2271611948">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2996183927" Name="fs_player_swim" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim" MaxAttenuation="25.000000" DurationType="OneShot" DurationMin="1.396629" DurationMax="1.864276">
+					<IncludedMemoryFiles>
+						<File Id="402119525" Language="SFX">
+							<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
+							<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_A3B67A8F.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="976861018" Name="fs_player_swim_sprint" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim_sprint" MaxAttenuation="25.000000" DurationType="OneShot" DurationMin="1.108505" DurationMax="1.479677">
+					<IncludedMemoryFiles>
+						<File Id="402119525" Language="SFX">
+							<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
+							<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_A3B67A8F.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="300857671" Name="SFX_3D_Emitter" ObjectPath="\Events\Default Work Unit\SFX_3D_Emitter" MaxAttenuation="25.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="828466945" Language="SFX">
@@ -30,8 +46,25 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1821030210" Name="SFX_3D_Emitter_stop" ObjectPath="\Events\Default Work Unit\SFX_3D_Emitter_stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3800442705" Name="SFX_Ocean" ObjectPath="\Events\Default Work Unit\SFX_Ocean" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="122.314667" DurationMax="122.314667">
+					<IncludedMemoryFiles>
+						<File Id="709785133" Language="SFX">
+							<ShortName>ES_Underwater Amb Shallow - SFX Producer.wav</ShortName>
+							<Path>SFX\ES_Underwater Amb Shallow - SFX Producer_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3455222708" Name="SFX_Ocean_stop" ObjectPath="\Events\Default Work Unit\SFX_Ocean_stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="402119525" Language="SFX">
+					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
+					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_A3B67A8F.wem</Path>
+				</File>
+				<File Id="709785133" Language="SFX">
+					<ShortName>ES_Underwater Amb Shallow - SFX Producer.wav</ShortName>
+					<Path>SFX\ES_Underwater Amb Shallow - SFX Producer_10C4C929.wem</Path>
+				</File>
 				<File Id="828466945" Language="SFX">
 					<ShortName>ES_The Weight Of Water - Alan Ellis WAV.wav</ShortName>
 					<Path>SFX\ES_The Weight Of Water - Alan Ellis WAV_688E50E8.wem</Path>
