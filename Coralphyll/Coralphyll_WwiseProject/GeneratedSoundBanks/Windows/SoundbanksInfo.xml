@@ -11,12 +11,12 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="4259560241">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2989672770">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="4164673869">
+		<SoundBank Id="3161908922" Language="SFX" Hash="477915843">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -25,7 +25,7 @@
 					<IncludedMemoryFiles>
 						<File Id="402119525" Language="SFX">
 							<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
-							<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_A3B67A8F.wem</Path>
+							<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -33,15 +33,7 @@
 					<IncludedMemoryFiles>
 						<File Id="402119525" Language="SFX">
 							<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
-							<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_A3B67A8F.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1927040848" Name="Music_default" ObjectPath="\Events\Default Work Unit\Music\Music_default" DurationType="OneShot" DurationMin="241.924896" DurationMax="241.924896">
-					<IncludedMemoryFiles>
-						<File Id="561370207" Language="SFX">
-							<ShortName>ES_From the Coral Reef - John Abbot.wav</ShortName>
-							<Path>SFX\ES_From the Coral Reef - John Abbot_D79FB2B7.wem</Path>
+							<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -67,11 +59,7 @@
 			<IncludedMemoryFiles>
 				<File Id="402119525" Language="SFX">
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
-					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_A3B67A8F.wem</Path>
-				</File>
-				<File Id="561370207" Language="SFX">
-					<ShortName>ES_From the Coral Reef - John Abbot.wav</ShortName>
-					<Path>SFX\ES_From the Coral Reef - John Abbot_D79FB2B7.wem</Path>
+					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
 				</File>
 				<File Id="709785133" Language="SFX">
 					<ShortName>ES_Underwater Amb Shallow - SFX Producer.wav</ShortName>
@@ -82,6 +70,26 @@
 					<Path>SFX\ES_The Weight Of Water - Alan Ellis WAV_688E50E8.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
+			<GameParameters>
+				<GameParameter Id="1824124715" Name="RTPC_PlayerAlive" ObjectPath="\Game Parameters\Default Work Unit\MusicCues\RTPC_PlayerAlive"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="444815956" Name="PlayerLife" ObjectPath="\States\Default Work Unit\PlayerLife" GUID="{E5007303-F886-48F0-9BBF-63CC74A9BE15}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\PlayerLife\None" GUID="{71334147-F197-498B-AC33-632DAF1FD8A6}"/>
+						<State Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive" GUID="{92F785FF-4936-44BE-8F68-D51E2B08776F}"/>
+						<State Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead" GUID="{7474C406-E888-41DB-B549-88F6FEF467D7}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="1647429799" Name="Player_status" ObjectPath="\Switches\Music\Player_status" GUID="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
+					<Switches>
+						<Switch Id="2874639328" Name="Healthy" ObjectPath="\Switches\Music\Player_status\Healthy" GUID="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}"/>
+						<Switch Id="2791675679" Name="Defeated" ObjectPath="\Switches\Music\Player_status\Defeated" GUID="{51CA0FE0-26FC-4478-8B6B-941E2531099C}"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

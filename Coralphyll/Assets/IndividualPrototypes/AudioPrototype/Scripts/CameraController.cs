@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour
         }
 
         // Basically a copy-paste of the code that controls the character, except this part when holding down left-click you only rotate the camera and not the player.
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(2))
         {
             Cursor.lockState = CursorLockMode.Locked;
             lookInput.x = Input.GetAxis("Mouse X");
@@ -99,7 +99,7 @@ public class CameraController : MonoBehaviour
             followTransform.transform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower, Vector3.up);
 
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(2))
         {
             Cursor.lockState = CursorLockMode.None;
         }
