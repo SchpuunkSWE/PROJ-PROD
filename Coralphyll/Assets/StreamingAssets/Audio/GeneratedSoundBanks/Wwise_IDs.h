@@ -19,8 +19,10 @@ namespace AK
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
         static const AkUniqueID MUSICSTATE_INITIATE = 2595492705U;
-        static const AkUniqueID SFX_3D_EMITTER = 300857671U;
-        static const AkUniqueID SFX_3D_EMITTER_STOP = 1821030210U;
+        static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;
+        static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
+        static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
+        static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT_STOP = 1255022652U;
     } // namespace EVENTS
 
     namespace STATES

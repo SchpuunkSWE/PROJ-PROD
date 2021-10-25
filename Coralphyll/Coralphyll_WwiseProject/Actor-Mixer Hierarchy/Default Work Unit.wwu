@@ -693,6 +693,7 @@
 					<ChildrenList>
 						<Sound Name="Ambience_underwater_background_1" ID="{EDD46C41-3589-4324-BAC1-5CD3953C2AF0}" ShortID="775682808">
 							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -744,61 +745,6 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="Ambience_underwater_background" ID="{C22E8A3B-FEA4-41D3-A65F-34F72E0CBF7A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Ambience_underwater_background_01" ID="{E3A93CCD-4EBA-404C-8A0E-380074736922}" ShortID="680726602">
-							<PropertyList>
-								<Property Name="Pitch" Type="int32">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{F88F3283-D18B-41CF-AE43-53E52605E19A}">
-												<PropertyList>
-													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="100"/>
-													<Property Name="Min" Type="Real64" Value="-100"/>
-												</PropertyList>
-											</Modifier>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{27B8C75D-3F18-4B19-87E6-B464423EF94D}">
-												<PropertyList>
-													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Min" Type="Real64" Value="-1"/>
-												</PropertyList>
-											</Modifier>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Ambience_underwater_background" ID="{A9669CD3-9BB4-433F-804E-919F0FED8DC4}">
-									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.18"/>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.3"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>Ambience_underwater_background.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="781440480"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="Ambience_underwater_background" ID="{A9669CD3-9BB4-433F-804E-919F0FED8DC4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

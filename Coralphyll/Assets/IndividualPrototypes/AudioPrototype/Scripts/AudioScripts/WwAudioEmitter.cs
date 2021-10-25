@@ -5,29 +5,29 @@ using UnityEngine;
 public class WwAudioEmitter : MonoBehaviour
 {
 
-    public string EventName = "SFX_3D_Emitter";
-    public string StopEvent = "SFX_3D_Emitter_stop";
+    public string EventName;
+    public string StopEvent;
     private bool IsInCollider = false;
     // Start is called before the first frame update
     void Start()
     {
         //  AkSoundEngine.StopPlayingID
-        AkSoundEngine.RegisterGameObj(gameObject);
+        AkSoundEngine.RegisterGameObj(this.gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered");
+        Debug.Log("Entered " + EventName);
         if (other.tag!="Player" || IsInCollider)
         {
             return;
         }
         IsInCollider = true;
-        AkSoundEngine.PostEvent(EventName, gameObject);
+        AkSoundEngine.PostEvent(EventName, this.gameObject);
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exited");
+        Debug.Log("Exited " + StopEvent);
         if (other.tag != "Player" || !IsInCollider)
         {
             return;

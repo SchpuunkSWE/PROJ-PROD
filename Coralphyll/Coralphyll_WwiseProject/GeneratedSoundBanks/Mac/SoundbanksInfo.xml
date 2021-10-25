@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Language="SFX" Hash="2679031297">
+		<SoundBank Id="474740052" Language="SFX" Hash="2634250800">
 			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Music</ObjectPath>
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
@@ -178,7 +178,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2559491992">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2057745443">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -187,7 +187,7 @@
 					<IncludedMemoryFiles>
 						<File Id="781440480" Language="SFX">
 							<ShortName>Ambience_underwater_background.wav</ShortName>
-							<Path>SFX\Ambience_underwater_background_D8E3AD6E.wem</Path>
+							<Path>SFX\Ambience_underwater_background_B79E7010.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -207,7 +207,16 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="300857671" Name="SFX_3D_Emitter" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter" MaxAttenuation="25.000000" DurationType="Infinite">
+				<Event Id="2090281704" Name="SFX_3D_Emitter_Friendly_Fish_1" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Friendly_Fish_1" MaxAttenuation="15.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="473816975" Language="SFX">
+							<ShortName>FOLEY_Friendly_fish_1.wav</ShortName>
+							<Path>SFX\FOLEY_Friendly_fish_1_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3857701063" Name="SFX_3D_Emitter_Friendly_Fish_1_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Friendly_Fish_1_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1644260233" Name="SFX_3D_Emitter_Water_Sprout" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout" MaxAttenuation="25.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="112291669" Language="SFX">
 							<ShortName>Ambience_underwater_sprout.wav</ShortName>
@@ -215,7 +224,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1821030210" Name="SFX_3D_Emitter_stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1255022652" Name="SFX_3D_Emitter_Water_Sprout_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="112291669" Language="SFX">
@@ -226,9 +235,13 @@
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
 					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
 				</File>
+				<File Id="473816975" Language="SFX">
+					<ShortName>FOLEY_Friendly_fish_1.wav</ShortName>
+					<Path>SFX\FOLEY_Friendly_fish_1_D79FB2B7.wem</Path>
+				</File>
 				<File Id="781440480" Language="SFX">
 					<ShortName>Ambience_underwater_background.wav</ShortName>
-					<Path>SFX\Ambience_underwater_background_D8E3AD6E.wem</Path>
+					<Path>SFX\Ambience_underwater_background_B79E7010.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
