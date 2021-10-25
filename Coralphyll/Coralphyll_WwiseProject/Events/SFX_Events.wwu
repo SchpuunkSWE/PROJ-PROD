@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{58C4E395-B93A-41EC-A6B3-4A2D46E4D907}" SchemaVersion="103" RootDocumentID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" ParentDocumentID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}">
+	<Events>
+		<WorkUnit Name="SFX_Events" ID="{58C4E395-B93A-41EC-A6B3-4A2D46E4D907}" OwnerID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="SFX_3D_Emitter_stop" ID="{9852FECB-36AF-4A8E-9D3A-75C10999A8C4}">
+					<ChildrenList>
+						<Action Name="" ID="{785AE880-9AA8-4B9E-806B-931680F9550F}" ShortID="730523190">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Water_Sprout" ID="{605D2758-078E-4022-8DB5-DD59789FAFC0}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SFX_3D_Emitter" ID="{D2FDCE28-9616-4B32-A3BD-3488502BACB0}">
+					<ChildrenList>
+						<Action Name="" ID="{CA5BA62B-7EE3-4A0D-A2BA-FD24C76EAC39}" ShortID="560517356">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Water_Sprout" ID="{605D2758-078E-4022-8DB5-DD59789FAFC0}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{76358440-CAD4-4B54-8059-91656BF9CC8C}" ShortID="533316942">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="36"/>
+								<Property Name="SeekPercent" Type="Real64" Value="50">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E1FAAA20-A7EC-4611-8F11-048362DC757E}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="40"/>
+													<Property Name="Min" Type="Real64" Value="-40"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Water_Sprout" ID="{605D2758-078E-4022-8DB5-DD59789FAFC0}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

@@ -13,7 +13,7 @@ public class player_animation_events : MonoBehaviour
     public string RTPC_SpeedOfCharacter = "RTPC_SpeedOfCharacter";
     public string RTPC_playerAlive = "RTPC_PlayerAlive";
     public string wwise_stateGroup_playerLife = "playerLife";
-    public string EventName = "Music_default";
+    public string MusicPlay = "Music_default";
     public float playerSpeed;
     public float playerAlive = 1;
     public float time;
@@ -27,7 +27,7 @@ public class player_animation_events : MonoBehaviour
         anim = GetComponent<Animator>();
         AkSoundEngine.SetRTPCValue(RTPC_playerAlive, playerAlive);
         AkSoundEngine.SetState(wwise_stateGroup_playerLife, "Alive");
-        AkSoundEngine.PostEvent(EventName, gameObject);
+        //AkSoundEngine.PostEvent(MusicPlay, gameObject);
     }
     private void Update()
     {

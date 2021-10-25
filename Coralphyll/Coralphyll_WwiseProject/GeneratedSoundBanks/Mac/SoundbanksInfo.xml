@@ -16,11 +16,19 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="477915843">
+		<SoundBank Id="3161908922" Language="SFX" Hash="1302012661">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2160339820" Name="Background_Ambience" ObjectPath="\Events\Default Work Unit\Ambience\Background_Ambience" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="781440480" Language="SFX">
+							<ShortName>Ambience_underwater_background.wav</ShortName>
+							<Path>SFX\Ambience_underwater_background_D8E3AD6E.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2996183927" Name="fs_player_swim" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim" MaxAttenuation="25.000000" DurationType="OneShot" DurationMin="1.396629" DurationMax="1.864276">
 					<IncludedMemoryFiles>
 						<File Id="402119525" Language="SFX">
@@ -37,59 +45,33 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="300857671" Name="SFX_3D_Emitter" ObjectPath="\Events\Default Work Unit\SFX_3D_Emitter" MaxAttenuation="25.000000" DurationType="Infinite">
+				<Event Id="300857671" Name="SFX_3D_Emitter" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter" MaxAttenuation="25.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="828466945" Language="SFX">
-							<ShortName>ES_The Weight Of Water - Alan Ellis WAV.wav</ShortName>
-							<Path>SFX\ES_The Weight Of Water - Alan Ellis WAV_688E50E8.wem</Path>
+						<File Id="112291669" Language="SFX">
+							<ShortName>Ambience_underwater_sprout.wav</ShortName>
+							<Path>SFX\Ambience_underwater_sprout_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1821030210" Name="SFX_3D_Emitter_stop" ObjectPath="\Events\Default Work Unit\SFX_3D_Emitter_stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3800442705" Name="SFX_Ocean" ObjectPath="\Events\Default Work Unit\SFX_Ocean" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="122.314667" DurationMax="122.314667">
-					<IncludedMemoryFiles>
-						<File Id="709785133" Language="SFX">
-							<ShortName>ES_Underwater Amb Shallow - SFX Producer.wav</ShortName>
-							<Path>SFX\ES_Underwater Amb Shallow - SFX Producer_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3455222708" Name="SFX_Ocean_stop" ObjectPath="\Events\Default Work Unit\SFX_Ocean_stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1821030210" Name="SFX_3D_Emitter_stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="112291669" Language="SFX">
+					<ShortName>Ambience_underwater_sprout.wav</ShortName>
+					<Path>SFX\Ambience_underwater_sprout_D79FB2B7.wem</Path>
+				</File>
 				<File Id="402119525" Language="SFX">
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
 					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
 				</File>
-				<File Id="709785133" Language="SFX">
-					<ShortName>ES_Underwater Amb Shallow - SFX Producer.wav</ShortName>
-					<Path>SFX\ES_Underwater Amb Shallow - SFX Producer_10C4C929.wem</Path>
-				</File>
-				<File Id="828466945" Language="SFX">
-					<ShortName>ES_The Weight Of Water - Alan Ellis WAV.wav</ShortName>
-					<Path>SFX\ES_The Weight Of Water - Alan Ellis WAV_688E50E8.wem</Path>
+				<File Id="781440480" Language="SFX">
+					<ShortName>Ambience_underwater_background.wav</ShortName>
+					<Path>SFX\Ambience_underwater_background_D8E3AD6E.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 			<GameParameters>
 				<GameParameter Id="1824124715" Name="RTPC_PlayerAlive" ObjectPath="\Game Parameters\Default Work Unit\MusicCues\RTPC_PlayerAlive"/>
 			</GameParameters>
-			<StateGroups>
-				<StateGroup Id="444815956" Name="PlayerLife" ObjectPath="\States\Default Work Unit\PlayerLife" GUID="{E5007303-F886-48F0-9BBF-63CC74A9BE15}">
-					<States>
-						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\PlayerLife\None" GUID="{71334147-F197-498B-AC33-632DAF1FD8A6}"/>
-						<State Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive" GUID="{92F785FF-4936-44BE-8F68-D51E2B08776F}"/>
-						<State Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead" GUID="{7474C406-E888-41DB-B549-88F6FEF467D7}"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
-			<SwitchGroups>
-				<SwitchGroup Id="1647429799" Name="Player_status" ObjectPath="\Switches\Music\Player_status" GUID="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
-					<Switches>
-						<Switch Id="2874639328" Name="Healthy" ObjectPath="\Switches\Music\Player_status\Healthy" GUID="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}"/>
-						<Switch Id="2791675679" Name="Defeated" ObjectPath="\Switches\Music\Player_status\Defeated" GUID="{51CA0FE0-26FC-4478-8B6B-941E2531099C}"/>
-					</Switches>
-				</SwitchGroup>
-			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

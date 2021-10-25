@@ -257,7 +257,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22296
+  m_Name: pb_Mesh22300
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -421,7 +421,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22334
+  m_Name: pb_Mesh22338
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3425,7 +3425,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22322
+  m_Name: pb_Mesh22326
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4635,8 +4635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769f8a328f8315a4da5d619ff1cd34a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventName: SFX_Ocean
-  StopEvent: SFX_Ocean_stop
+  EventName: SFX_3D_Emitter
+  StopEvent: SFX_3D_Emitter_stop
 --- !u!114 &1349496208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4745,7 +4745,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22272
+  m_Name: pb_Mesh22280
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5004,7 +5004,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22308
+  m_Name: pb_Mesh22312
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5332,7 +5332,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22260
+  m_Name: pb_Mesh22268
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6165,7 +6165,6 @@ GameObject:
   - component: {fileID: 567511889}
   - component: {fileID: 567511890}
   - component: {fileID: 567511894}
-  - component: {fileID: 5252014351818717852}
   m_Layer: 0
   m_Name: Main_Camera
   m_TagString: MainCamera
@@ -6207,19 +6206,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5252014351818717852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5252014351818717850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73d89f3d0328b4489516fc0ac62d158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventName: Music_default
 --- !u!4 &5252014352171071048
 Transform:
   m_ObjectHideFlags: 0
@@ -6586,7 +6572,7 @@ MonoBehaviour:
   RTPC_SpeedOfCharacter: RTPC_SpeedOfCharacter
   RTPC_playerAlive: RTPC_PlayerAlive
   wwise_stateGroup_playerLife: playerLife
-  EventName: Music_default
+  MusicPlay: Music_default
   playerSpeed: 0
   playerAlive: 1
   time: 0
