@@ -2769,30 +2769,6 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
---- !u!114 &567511894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5252014351818717850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1473826c351a956419e4e54e9a8a194b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9f67aef17ea704b4b902670ab2140631, type: 2}
-  decodeBank: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  bankNameInternal: 
-  valueGuidInternal: 
 --- !u!1 &596633369
 GameObject:
   m_ObjectHideFlags: 0
@@ -4915,6 +4891,7 @@ GameObject:
   - component: {fileID: 1654940135}
   - component: {fileID: 1654940134}
   - component: {fileID: 1654940133}
+  - component: {fileID: 1654940137}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4933,8 +4910,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6711346, y: 1.9087512, z: 1.5374768}
+  m_Center: {x: 0.036710262, y: 0.45437473, z: 0.05470546}
 --- !u!23 &1654940134
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4992,12 +4969,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654940132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.12, y: 5.52, z: 43.21}
-  m_LocalScale: {x: 1.3589, y: 1.3589, z: 1.3589}
+  m_LocalPosition: {x: 22.3, y: 4.8682, z: 46.22}
+  m_LocalScale: {x: 2.7933547, y: 2.7933547, z: 2.7933547}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1654940137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654940132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb7ededda7a32f4f904c41c9319cdde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wwise_stateGroup_gameState_combat: MusicState_Combat
+  wwise_stateGroup_gameState_exploring: MusicState_Exploring
+  isInCollider: 0
+  akGameObj: {fileID: 5252014351818717850}
 --- !u!43 &1712953075
 Mesh:
   m_ObjectHideFlags: 0
@@ -6164,7 +6157,9 @@ GameObject:
   - component: {fileID: 567511888}
   - component: {fileID: 567511889}
   - component: {fileID: 567511890}
-  - component: {fileID: 567511894}
+  - component: {fileID: 5252014351818717852}
+  - component: {fileID: 5252014351818717853}
+  - component: {fileID: 5252014351818717854}
   m_Layer: 0
   m_Name: Main_Camera
   m_TagString: MainCamera
@@ -6206,6 +6201,67 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5252014351818717852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5252014351818717850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1473826c351a956419e4e54e9a8a194b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9f67aef17ea704b4b902670ab2140631, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!114 &5252014351818717853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5252014351818717850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1473826c351a956419e4e54e9a8a194b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c965f1737232b8949b6ee1622b7f1a39, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!114 &5252014351818717854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5252014351818717850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73d89f3d0328b4489516fc0ac62d158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wwise_stateGroup_gameState: MusicState_Initiate
 --- !u!4 &5252014352171071048
 Transform:
   m_ObjectHideFlags: 0
@@ -6572,7 +6628,6 @@ MonoBehaviour:
   RTPC_SpeedOfCharacter: RTPC_SpeedOfCharacter
   RTPC_playerAlive: RTPC_PlayerAlive
   wwise_stateGroup_playerLife: playerLife
-  MusicPlay: Music_default
   playerSpeed: 0
   playerAlive: 1
   time: 0

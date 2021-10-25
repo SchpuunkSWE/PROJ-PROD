@@ -18,6 +18,20 @@
 						<State Name="Victory" ID="{71016D14-1C72-437D-9D62-829C3176B568}"/>
 						<State Name="Defeat" ID="{34F51EA6-18B9-4EDA-960F-3BB515F47A66}"/>
 					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="Combat" ID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}"/>
+							<EndState Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}"/>
+							<EndState Name="Combat" ID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
 				</StateGroup>
 				<StateGroup Name="Gameplay_Switch" ID="{9218FF3C-9292-46C4-BD25-0B1D11CB4BF0}">
 					<ChildrenList>
