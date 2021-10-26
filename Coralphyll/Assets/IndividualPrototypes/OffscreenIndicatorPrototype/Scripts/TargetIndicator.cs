@@ -7,8 +7,10 @@ public class TargetIndicator : MonoBehaviour
 {
     public Image TargetIndicatorImage;
     public Image OffScreenTargetIndicator;
-    public float OutOfSightOffset = 20f;
-    private float outOfSightOffest { get { return OutOfSightOffset /* canvasRect.localScale.x*/; } }
+    public float IndicatorOutOfSightOffset = 20f;
+    //public float distanceToObject = 5f;
+    
+    private float outOfSightOffset { get { return IndicatorOutOfSightOffset /* canvasRect.localScale.x*/; } }
 
     private GameObject target;
     private Camera mainCamera;
@@ -19,7 +21,9 @@ public class TargetIndicator : MonoBehaviour
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        
     }
+
 
 
     public void InitialiseTargetIndicator(GameObject target, Camera mainCamera, Canvas canvas)
@@ -31,8 +35,12 @@ public class TargetIndicator : MonoBehaviour
 
     public void UpdateTargetIndicator()
     {
-        SetIndicatorPosition();
+        /*float distanceBetweenObjects = Vector3.Distance(mainCamera.transform.position, target.transform.position);
+        if (distanceBetweenObjects > distanceToObject) 
+        {
+        }*/ 
 
+        SetIndicatorPosition();
         //Adjust distance display
         //Turn on or off when in range/out of range
         //Do stuff if picked as main target
@@ -55,15 +63,15 @@ public class TargetIndicator : MonoBehaviour
             indicatorPosition.z = 0f;
 
             //Target is in sight, change indicator parts around accordingly
-            targetOutOfSight(false, indicatorPosition);
+            TargetOutOfSight(false, indicatorPosition);
         }
 
         //In case the target is in front of the ship, but out of sight
         else if (indicatorPosition.z >= 0f)
         {
             //Set indicatorposition and set targetIndicator to outOfSight form.
-            indicatorPosition = OutOfRangeindicatorPositionB(indicatorPosition);
-            targetOutOfSight(true, indicatorPosition);
+            indicatorPosition = OutOfRangeIndicatorPosition(indicatorPosition);
+            TargetOutOfSight(true, indicatorPosition);
         }
         else
         {
@@ -71,8 +79,8 @@ public class TargetIndicator : MonoBehaviour
             indicatorPosition *= -1f;
 
             //Set indicatorposition and set targetIndicator to outOfSight form.
-            indicatorPosition = OutOfRangeindicatorPositionB(indicatorPosition);
-            targetOutOfSight(true, indicatorPosition);
+            indicatorPosition = OutOfRangeIndicatorPosition(indicatorPosition);
+            TargetOutOfSight(true, indicatorPosition);
 
         }
 
@@ -81,7 +89,7 @@ public class TargetIndicator : MonoBehaviour
 
     }
 
-    private Vector3 OutOfRangeindicatorPositionB(Vector3 indicatorPosition)
+    private Vector3 OutOfRangeIndicatorPosition(Vector3 indicatorPosition)
     {
         //Set indicatorPosition.z to 0f; We don't need that and it'll actually cause issues if it's outside the camera range (which easily happens in my case)
         indicatorPosition.z = 0f;
@@ -92,14 +100,14 @@ public class TargetIndicator : MonoBehaviour
 
         //Calculate if Vector to target intersects (first) with y border of canvas rect or if Vector intersects (first) with x border:
         //This is required to see which border needs to be set to the max value and at which border the indicator needs to be moved (up & down or left & right)
-        float divX = (canvasRect.rect.width / 2f - outOfSightOffest) / Mathf.Abs(indicatorPosition.x);
-        float divY = (canvasRect.rect.height / 2f - outOfSightOffest) / Mathf.Abs(indicatorPosition.y);
+        float divX = (canvasRect.rect.width / 2f - outOfSightOffset) / Mathf.Abs(indicatorPosition.x);
+        float divY = (canvasRect.rect.height / 2f - outOfSightOffset) / Mathf.Abs(indicatorPosition.y);
 
         //In case it intersects with x border first, put the x-one to the border and adjust the y-one accordingly (Trigonometry)
         if (divX < divY)
         {
             float angle = Vector3.SignedAngle(Vector3.right, indicatorPosition, Vector3.forward);
-            indicatorPosition.x = Mathf.Sign(indicatorPosition.x) * (canvasRect.rect.width * 0.5f - outOfSightOffest) * canvasRect.localScale.x;
+            indicatorPosition.x = Mathf.Sign(indicatorPosition.x) * (canvasRect.rect.width * 0.5f - outOfSightOffset) * canvasRect.localScale.x;
             indicatorPosition.y = Mathf.Tan(Mathf.Deg2Rad * angle) * indicatorPosition.x;
         }
 
@@ -108,7 +116,7 @@ public class TargetIndicator : MonoBehaviour
         {
             float angle = Vector3.SignedAngle(Vector3.up, indicatorPosition, Vector3.forward);
 
-            indicatorPosition.y = Mathf.Sign(indicatorPosition.y) * (canvasRect.rect.height / 2f - outOfSightOffest) * canvasRect.localScale.y;
+            indicatorPosition.y = Mathf.Sign(indicatorPosition.y) * (canvasRect.rect.height / 2f - outOfSightOffset) * canvasRect.localScale.y;
             indicatorPosition.x = -Mathf.Tan(Mathf.Deg2Rad * angle) * indicatorPosition.y;
         }
 
@@ -119,7 +127,7 @@ public class TargetIndicator : MonoBehaviour
 
 
 
-    private void targetOutOfSight(bool oos, Vector3 indicatorPosition)
+    private void TargetOutOfSight(bool oos, Vector3 indicatorPosition)
     {
         //In Case the indicator is OutOfSight
         if (oos)
@@ -129,7 +137,7 @@ public class TargetIndicator : MonoBehaviour
             if (TargetIndicatorImage.isActiveAndEnabled == true) TargetIndicatorImage.enabled = false;
 
             //Set the rotation of the OutOfSight direction indicator
-            OffScreenTargetIndicator.rectTransform.rotation = Quaternion.Euler(rotationOutOfSightTargetindicator(indicatorPosition));
+            OffScreenTargetIndicator.rectTransform.rotation = Quaternion.Euler(RotationOutOfSightTargetindicator(indicatorPosition));
 
             //outOfSightArrow.rectTransform.rotation  = Quaternion.LookRotation(indicatorPosition- new Vector3(canvasRect.rect.width/2f,canvasRect.rect.height/2f,0f)) ;
             /*outOfSightArrow.rectTransform.rotation = Quaternion.LookRotation(indicatorPosition);
@@ -148,7 +156,7 @@ public class TargetIndicator : MonoBehaviour
     }
 
 
-    private Vector3 rotationOutOfSightTargetindicator(Vector3 indicatorPosition)
+    private Vector3 RotationOutOfSightTargetindicator(Vector3 indicatorPosition)
     {
         //Calculate the canvasCenter
         Vector3 canvasCenter = new Vector3(canvasRect.rect.width / 2f, canvasRect.rect.height / 2f, 0f) * canvasRect.localScale.x;
