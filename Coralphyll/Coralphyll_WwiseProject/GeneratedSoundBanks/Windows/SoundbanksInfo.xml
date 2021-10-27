@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Language="SFX" Hash="490100601">
+		<SoundBank Id="474740052" Language="SFX" Hash="3007849683">
 			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Music</ObjectPath>
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
@@ -143,6 +143,7 @@
 			</IncludedMemoryFiles>
 			<GameParameters>
 				<GameParameter Id="1824124715" Name="RTPC_PlayerAlive" ObjectPath="\Game Parameters\Default Work Unit\MusicCues\RTPC_PlayerAlive"/>
+				<GameParameter Id="2378823330" Name="RTPC_MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_MusicVolume"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive" GUID="{92F785FF-4936-44BE-8F68-D51E2B08776F}">
@@ -173,12 +174,18 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1848804286">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3703632407">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="2378823330" Name="RTPC_MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_MusicVolume"/>
+				<GameParameter Id="2582501215" Name="RTPC_MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_MasterVolume"/>
+				<GameParameter Id="2644490154" Name="RTPC_SFXVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_SFXVolume"/>
+				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2524113565">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3833485610">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
