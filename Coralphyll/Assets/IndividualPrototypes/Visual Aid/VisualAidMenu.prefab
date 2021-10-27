@@ -260,13 +260,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 5150329008000515390}
   m_HandleRect: {fileID: 3270560074074094990}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 100
+  m_MinValue: -4
+  m_MaxValue: 4
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 249542297502174198}
+        m_TargetAssemblyTypeName: VisualAidSettingsMenu, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2110608761732478814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +1993,7 @@ GameObject:
   - component: {fileID: 4371256881438766470}
   - component: {fileID: 4371256881438766489}
   - component: {fileID: 4371256881438766488}
-  - component: {fileID: 4371256881438766491}
+  - component: {fileID: 249542297502174198}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -2071,7 +2083,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4371256881438766491
+--- !u!114 &249542297502174198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2080,11 +2092,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4371256881438766493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7b953a198fd0a4baf9e7dd28de324b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bf2d28b978aac0419c8407dcf69fae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolutionDimension: {fileID: 4371256882235139202}
-  display: {fileID: 4371256881488718255}
 --- !u!1 &4371256881461865306
 GameObject:
   m_ObjectHideFlags: 0
