@@ -15,6 +15,7 @@ public class Follower : MonoBehaviour
     [SerializeField]
     private Collider col;
 
+
     public bool isClickable = false;
 
     public string GetColour()
@@ -43,7 +44,7 @@ public class Follower : MonoBehaviour
             //Debug.Log(this.GetInstanceID());
 
             //add clicked fish to followersToDeposit (see PlayerFollowers-script)
-            parent.GetComponent<PlayerFollowers>().TransferFollower(this); 
+            parent.GetComponent<PlayerFollowers>().TransferFollower(this);
         }
     }
 }

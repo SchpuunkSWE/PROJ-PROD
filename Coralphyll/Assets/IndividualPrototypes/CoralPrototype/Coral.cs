@@ -60,9 +60,11 @@ public class Coral : MonoBehaviour
             switch (fishColour)
             {
                 case "yellow":
+                case "Yellow":
                     yellowFishesAmount++;
                     break;
                 case "red":
+                case "Red":
                     redFishesAmount++;
                     break;
                 default:
@@ -75,7 +77,7 @@ public class Coral : MonoBehaviour
         //call some display-method
         UpdateProgress();
 
-        //"Ta bort" fiskarna från spelarens lista 
+        //"Ta bort" fiskarna frï¿½n spelarens lista 
         foreach (Follower fish in fishes)
         {
             fish.gameObject.SetActive(false);
@@ -97,7 +99,7 @@ public class Coral : MonoBehaviour
 
     private void CheckProgress()
     {
-        //Íf all different colour-needs are met, coral is "complete"
+        //ï¿½f all different colour-needs are met, coral is "complete"
         if((yellowFishesAmount == yellowFishesNeeded) && (redFishesAmount == redFishesNeeded) && (blueFishesAmount == blueFishesNeeded))
         {
             complete = true;
