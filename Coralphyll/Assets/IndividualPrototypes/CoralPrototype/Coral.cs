@@ -24,6 +24,10 @@ public class Coral : MonoBehaviour
     private int redFishesAmount;
     private int blueFishesAmount;
 
+    private string yellowBaseTxt = "Yellow Fishes: ";
+    private string redBaseTxt = "Red Fishes: ";
+    private string blueBaseTxt = "Blue Fishes: ";
+
 
     private bool complete = false;
 
@@ -36,45 +40,47 @@ public class Coral : MonoBehaviour
 
     private void Start()
     {
-        yellowFishesText.text = yellowFishesText.text + yellowFishesAmount + "/" + yellowFishesNeeded;
-        redFishesText.text = redFishesText.text + redFishesAmount + "/" + redFishesNeeded;
-        blueFishesText.text = blueFishesText.text + blueFishesAmount + "/" + blueFishesNeeded;
+        SetUITexts();
     }
-
-    private void Update()
+    private void SetUITexts()
     {
-        
+        yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
+        redFishesText.text = redBaseTxt + redFishesAmount + "/" + redFishesNeeded;
+        blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
-    private void ReceiveFish(string fishColour) //Take fish-object later 
-    { 
-        switch (fishColour)
+    public void ReceiveFish(List<Follower> fishes) //Take fish-object later ?
+    {
+        Debug.Log("ReceiveFish Reached");
+        string fishColour;
+        foreach (Follower fish in fishes) 
         {
-            case "yellow":
-                yellowFishesAmount++;
-                break;
-            case "red":
-                redFishesAmount++;
-                break;
-            default:
-                blueFishesAmount++;
-                break;
-        }
-        ////Increase counter depending on colour of fish
-        //if(fish.GetColour() == Color.yellow)
-        //{
-        //    yellowFishesAmount++;
-        //}else if (fish.GetColour() == Color.red) {
-        //    redFishesAmount++;
-        //}
-        //else
-        //{
-        //    blueFishesAmount++;
-        //}
+            fishColour = fish.GetColour();
 
+            switch (fishColour)
+            {
+                case "yellow":
+                    yellowFishesAmount++;
+                    break;
+                case "red":
+                    redFishesAmount++;
+                    break;
+                default:
+                    blueFishesAmount++;
+                    break;
+            }
+        }
+        Debug.Log(yellowFishesAmount + ", " + redFishesAmount + ", " + blueFishesAmount);
 
         //call some display-method
         UpdateProgress();
+
+        //"Ta bort" fiskarna från spelarens lista 
+        foreach (Follower fish in fishes)
+        {
+            fish.gameObject.SetActive(false);
+            Debug.Log("Hid fish " + fish.GetInstanceID());
+        }
 
         //Check completion
         CheckProgress();
@@ -83,8 +89,10 @@ public class Coral : MonoBehaviour
     private void UpdateProgress()
     {
         //update yellow bar
-        //update blue bar
         //update red bar
+        //update blue bar
+        SetUITexts();
+
     }
 
     private void CheckProgress()
@@ -100,5 +108,8 @@ public class Coral : MonoBehaviour
     private void SpreadColour()
     {
         // Spread colour/Increase saturation
+        Debug.Log("Spreading Colour!");
     }
+
+
 }
