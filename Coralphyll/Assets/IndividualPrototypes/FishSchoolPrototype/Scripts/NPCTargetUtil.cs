@@ -63,6 +63,11 @@ public class NPCTargetUtil : MonoBehaviour
             if (!f.gameObject.activeSelf)
             {
                 fishesToRemove.Add(f);
+                if (f.transform.parent.childCount < 0)
+                {
+                    Debug.Log("We dont have children");
+                    f.transform.parent.gameObject.SetActive(false);
+                }
             }
         }
         foreach (Follower f in fishesToRemove)
