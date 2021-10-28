@@ -8,7 +8,7 @@ public class NPCTargetUtil : MonoBehaviour
     private List<Follower> listOfFishes = new List<Follower>();
     private List<Follower> fishesToRemove = new List<Follower>();
     [SerializeField]
-    private GameObject[] arrayOfTargets; //Populera i editorn
+    private GameObject[] arrayOfTargets; //Populate in the editor
     private NavigationArrow navArrow;
 
     private void Awake()
@@ -19,18 +19,19 @@ public class NPCTargetUtil : MonoBehaviour
 
     public int AddToSchool(Follower fol) //Kanske döpa om (till AddTOInventory)
     {
-        if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//Om det inte finns plats eller om fisken redan finns i listan...
+        if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//If the list is full or if the fish already exists in the list
         {
             SelectNavArrowTarget();
-            return -1; //returner default v�rde eftersom positionInList inte kan s�ttas till null
+            return -1; //returns default value because positionInList can not be set to null
         }
-        //Om metoden inte har returnerats...
+        //If the method has not been returned...
         listOfFishes.Add(fol);
+        fol.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
         SelectNavArrowTarget();
         return listOfFishes.IndexOf(fol);
     }
 
-    public GameObject GetTargetPositionObject(int i) //H�mtar TargetObject fr�n array
+    public GameObject GetTargetPositionObject(int i) //Gets TargetObject from array
     {
         return arrayOfTargets[i];
     }
@@ -42,32 +43,23 @@ public class NPCTargetUtil : MonoBehaviour
 
     private void SelectNavArrowTarget()
     {
-        if (listOfFishes.Count < arrayOfTargets.Length)
+        if (listOfFishes.Count < arrayOfTargets.Length) // If the list is not full...
         {
-            navArrow.SetTargetTag("FishSchool");
+            navArrow.SetTargetTag("Fish"); //... Set the tag that the arrow should point at to Fish
         }
         else
         {
-            navArrow.SetTargetTag("Coral");
+            navArrow.SetTargetTag("Coral"); // Otherwise set it to coral
         }
-    }
-    private void Update()
-    {
-        //DepositFishes();
     }
 
     public void DepositFishes()
     {
         foreach (Follower f in listOfFishes)
         {
-            if (!f.gameObject.activeSelf)
+            if (!f.gameObject.activeSelf) //If the fish is inactive...
             {
-                fishesToRemove.Add(f);
-                if (f.transform.parent.childCount < 0)
-                {
-                    Debug.Log("We dont have children");
-                    f.transform.parent.gameObject.SetActive(false);
-                }
+                fishesToRemove.Add(f); //... add the fish to the removal list.
             }
         }
         foreach (Follower f in fishesToRemove)
@@ -76,4 +68,10 @@ public class NPCTargetUtil : MonoBehaviour
         }
         SelectNavArrowTarget();
     }
+
+    //  if (f.transform.parent.childCount< 0)
+    //{
+    //    Debug.Log("We dont have children");
+    //    f.transform.parent.gameObject.SetActive(false);
+    //}
 }

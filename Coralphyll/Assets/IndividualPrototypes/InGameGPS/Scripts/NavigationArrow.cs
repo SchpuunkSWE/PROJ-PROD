@@ -15,7 +15,7 @@ public class NavigationArrow : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.P))
         //{
      
-            arrow.transform.LookAt(GetClosestTarget(tagName)); //Ser till att pilen pekar mot fiskstimmet 
+            arrow.transform.LookAt(GetClosestTarget(tagName)); //Ser till att pilen pekar mot närmsta target
         //}
    
     }
