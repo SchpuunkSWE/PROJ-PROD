@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class PlayerFollowers : MonoBehaviour
 {
-    //[SerializeField]
-    //private List<Follower> allfollowers;
+    [SerializeField]
+    private List<Follower> allfollowers;
 
     private List<Follower> followersToDeposit = new List<Follower>();
 
@@ -14,10 +14,12 @@ public class PlayerFollowers : MonoBehaviour
 
     public bool nearCoral = false;
 
-    //public List<Follower> GetAllFollowers ()
-    //{
-    //    return GetComponent<NPCTargetUtil>().getListOfFishes();
-    //}
+    private bool addedFollowers = false;
+
+    public List<Follower> GetAllFollowers ()
+    {
+        return allfollowers;
+    }
 
     //public List<Follower> GetFollowersToDeposit()
     //{
@@ -38,14 +40,15 @@ public class PlayerFollowers : MonoBehaviour
     }//N�r man har deposit:at klart m�ste followersToDeposit t�mmas igen - g�ra i korallen kanske (?)
 
     private void Update()
-    {   
+    {
+        allfollowers = GetComponent<NPCTargetUtil>().getListOfFishes();
         if (nearCoral)
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
                 Debug.Log("M was pressed!");
                 DepositFish();
-                GetComponent<NPCTargetUtil>().DepositFishes();
+                addedFollowers = false;
             }
         }
     }

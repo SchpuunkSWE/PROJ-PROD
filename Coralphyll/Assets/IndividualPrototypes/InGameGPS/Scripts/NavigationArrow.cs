@@ -6,40 +6,55 @@ public class NavigationArrow : MonoBehaviour
 {
     [SerializeField]
     private GameObject arrow;
-    [SerializeField]
-    private string tagName; 
 
+    
+
+    private void Start()
+    {
+    }
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.P))
-        //{
-     
-            arrow.transform.LookAt(GetClosestTarget(tagName)); //Ser till att pilen pekar mot fiskstimmet 
-        //}
-   
+        //if()
+        arrow.transform.LookAt(GetClosestFishSchool()); //Ser till att pilen pekar mot fiskstimmet
+        //arrow.transform.LookAt(GetClosestCoral()); //Ser till att pilen pekar mot korallen
     }
-    public Transform GetClosestTarget(string targetTag)
+    private Transform GetClosestFishSchool()
     {
-        GameObject[] arrayOfTargets = GameObject.FindGameObjectsWithTag(targetTag); 
-        Transform closestTarget = null;
+        GameObject[] arrayOfFishSchools = GameObject.FindGameObjectsWithTag("FishSchool"); 
+        Transform bestFishSchoolTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
-        foreach (GameObject potentialTarget in arrayOfTargets)
+        foreach (GameObject potentialTarget in arrayOfFishSchools)
         {
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if (dSqrToTarget < closestDistanceSqr)
             {
                 closestDistanceSqr = dSqrToTarget;
-                closestTarget = potentialTarget.transform;
+                bestFishSchoolTarget = potentialTarget.transform;
             }
         }
-        return closestTarget;
+        return bestFishSchoolTarget;
     }
 
-    public void SetTargetTag(string s)
+    private Transform GetClosestCoral()
     {
-         tagName = s;
+        GameObject[] arrayOfCorals = GameObject.FindGameObjectsWithTag("Coral");
+        Transform bestCoralTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach (GameObject potentialTarget in arrayOfCorals)
+        {
+            Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestCoralTarget = potentialTarget.transform;
+            }
+        }
+
+        return bestCoralTarget;
     }
 }

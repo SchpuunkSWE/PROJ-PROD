@@ -24,7 +24,7 @@ public class UI_Trigger : MonoBehaviour
             panel.SetActive(true);
 
             //Fetch all player's followers
-            List<Follower> playerFollowers = other.GetComponent<NPCTargetUtil>().getListOfFishes();
+            List<Follower> playerFollowers = other.GetComponent<PlayerFollowers>().GetAllFollowers();
 
             Debug.Log("Trigger Entered!");
 
@@ -44,7 +44,7 @@ public class UI_Trigger : MonoBehaviour
             panel.SetActive(false);
             //Debug.Log("Trigger Exited!");
             //Sätt även spelarens fiskar till non-clickable
-            setClickable(other.GetComponent<NPCTargetUtil>().getListOfFishes());
+            setClickable(other.GetComponent<PlayerFollowers>().GetAllFollowers());
         }
     }
 
