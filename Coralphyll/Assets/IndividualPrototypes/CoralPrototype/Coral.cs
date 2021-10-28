@@ -19,10 +19,7 @@ public class Coral : MonoBehaviour
     Text redFishesText;
     [SerializeField]
     Text blueFishesText;
-
-    private Animation anim;
-    [SerializeField] GameObject AutosaveUI;
-
+    
     private int yellowFishesAmount;
     private int redFishesAmount;
     private int blueFishesAmount;
@@ -44,6 +41,7 @@ public class Coral : MonoBehaviour
     private void Start()
     {
         SetUITexts();
+        
     }
     private void SetUITexts()
     {
@@ -105,8 +103,6 @@ public class Coral : MonoBehaviour
         {
             complete = true;
             SpreadColour();
-            AutosaveUI.SetActive(true);
-            anim.Play("AutoSaving");
         }
     }
 
