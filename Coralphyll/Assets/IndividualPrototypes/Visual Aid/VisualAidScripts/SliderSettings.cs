@@ -23,7 +23,7 @@ public class SliderSettings : MonoBehaviour
 
     void Start()
     {
-       volumeProfile = volume.sharedProfile;
+       //volumeProfile = volume.sharedProfile;
     }
 
     private void Update()
