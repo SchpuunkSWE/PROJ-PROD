@@ -17,6 +17,12 @@ public class Follower : MonoBehaviour
 
     public bool isClickable = false;
 
+    SpriteRenderer spriteRenderer;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     public string GetColour()
     {
         return this.colour;
@@ -42,8 +48,17 @@ public class Follower : MonoBehaviour
             Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + colour);
             //Debug.Log(this.GetInstanceID());
 
+            //"Mark" fish by lowering alpha/opacity -- bring to dev/firstmerger
+            Color tmp = spriteRenderer.color;
+            tmp.a = 0.5f;
+            spriteRenderer.color = tmp;
+
             //add clicked fish to followersToDeposit (see PlayerFollowers-script)
-            parent.GetComponent<PlayerFollowers>().TransferFollower(this); 
+            parent.GetComponent<PlayerFollowers>().TransferFollower(this);
+
+            
+
+            isClickable = false; //Bring to dev/first merger
         }
     }
 }

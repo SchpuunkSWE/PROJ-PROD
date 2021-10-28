@@ -35,21 +35,24 @@ public class PlayerFollowers : MonoBehaviour
     {
         currentCoral.GetComponent<Coral>().ReceiveFish(followersToDeposit);
         Debug.Log("DepositFish Reached");
+        followersToDeposit.Clear(); //Bring to dev/first merger
+
+
         //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
     }//När man har deposit:at klart måste followersToDeposit tömmas igen - göra i korallen kanske (?)
 
-    private void Update()
-    {
-        if (nearCoral)
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Debug.Log("M was pressed!");
-                DepositFish();
-            }
-        }
+    //private void Update()
+    //{
+    //    if (nearCoral)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.M))
+    //        {
+    //            Debug.Log("M was pressed!");
+    //            DepositFish();
+    //        }
+    //    }
 
-    }
+    //} //Bring (remove from) to dev/first merger - use deposit btn instead
 
 }
 
