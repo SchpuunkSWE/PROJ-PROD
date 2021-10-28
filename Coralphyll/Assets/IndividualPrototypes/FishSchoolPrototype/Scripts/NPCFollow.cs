@@ -46,15 +46,15 @@ public class NPCFollow : MonoBehaviour
 
                 if (targetDistance >= allowedDistance)
                 {
-                    //followSpeed = 0.2f; //Sï¿½tter farten NPC rï¿½r sig i
+                    //followSpeed = 0.2f; //Sätter farten NPC rör sig i
 
                     //rgb.AddForce(Vector3.forward * followThrust);
                     //rgb.velocity = Vector3.ClampMagnitude(rgb.velocity, followSpeed);
-                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed); //Gï¿½r sï¿½ att NPC rï¿½r sig mot spelaren
+                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed); //Gör så att NPC rör sig mot spelaren
                 }
                 //else
                 //{
-                //    followSpeed = 0; //Om spelaren inte ï¿½r i nï¿½rheten ska NPC vara stï¿½ stilla.
+                //    followSpeed = 0; //Om spelaren inte är i närheten ska NPC vara stå stilla.
                 //}
             }
         }
@@ -64,12 +64,12 @@ public class NPCFollow : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            NPCTargetUtil listScript = other.gameObject.GetComponent<NPCTargetUtil>(); //Hï¿½mtar det andra scriptet sï¿½ vi kommer ï¿½t det
-            positionInList = listScript.AddToSchool(transform.gameObject.GetComponent<Follower>()); //Lï¿½gger till fisken till listan och returnerar platsen i listan den fï¿½r
-            if(positionInList >= 0) //Om vi fï¿½r tillbaka ett vï¿½rde ï¿½ver 0... 
+            NPCTargetUtil listScript = other.gameObject.GetComponent<NPCTargetUtil>(); //Hämtar det andra scriptet så vi kommer åt det
+            positionInList = listScript.AddToSchool(transform.gameObject); //Lägger till fisken till listan och returnerar platsen i listan den får
+            if(positionInList >= 0) //Om vi får tillbaka ett värde över 0... 
             {            
-                fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi sï¿½tter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista
-                isFollowingPlayer = true; //Vi sï¿½tter fiskens status till att fï¿½lja spelaren
+                fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi sätter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista
+                isFollowingPlayer = true; //Vi sätter fiskens status till att följa spelaren
             }
         }
     }

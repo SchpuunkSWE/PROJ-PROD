@@ -5,44 +5,23 @@ using UnityEngine;
 public class NPCTargetUtil : MonoBehaviour
 {
     [SerializeField]
-    private List<Follower> listOfFishes = new List<Follower>();
-    private List<Follower> fishesToRemove = new List<Follower>();
+    private List<GameObject> listOfFishes = new List<GameObject>();
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populera i editorn
 
-    public int AddToSchool(Follower go) //Kanske dÃ¶pa om (till AddTOInventory)
+    public int AddToSchool(GameObject go) 
     {
         if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
         {
-            return -1; //returner default vï¿½rde eftersom positionInList inte kan sï¿½ttas till null
+            return -1; //returner default värde eftersom positionInList inte kan sättas till null
         }
         //Om metoden inte har returnerats...
         listOfFishes.Add(go); 
         return listOfFishes.IndexOf(go);
     }
 
-    public GameObject GetTargetPositionObject(int i) //Hï¿½mtar TargetObject frï¿½n array
+    public GameObject GetTargetPositionObject(int i) //Hämtar TargetObject från array
     {
         return arrayOfTargets[i];
-    }
-
-    public List<Follower> getListOfFishes()
-    {
-        return listOfFishes;
-    }
-
-    public void Update()
-    {
-        foreach(Follower f in listOfFishes)
-        {
-            if(!f.gameObject.activeSelf)
-            {
-                fishesToRemove.Add(f);
-            }
-        }
-        foreach(Follower f in fishesToRemove)
-        {
-            listOfFishes.Remove(f);
-        }
     }
 }

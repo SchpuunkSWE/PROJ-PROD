@@ -14,12 +14,11 @@ public class PlayerFollowers : MonoBehaviour
 
     public bool nearCoral = false;
 
-    private bool addedFollowers = false;
-
     public List<Follower> GetAllFollowers ()
     {
         return allfollowers;
     }
+
 
     //public List<Follower> GetFollowersToDeposit()
     //{
@@ -37,23 +36,23 @@ public class PlayerFollowers : MonoBehaviour
         currentCoral.GetComponent<Coral>().ReceiveFish(followersToDeposit);
         Debug.Log("DepositFish Reached");
         //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
-    }//Nï¿½r man har deposit:at klart mï¿½ste followersToDeposit tï¿½mmas igen - gï¿½ra i korallen kanske (?)
+    }//När man har deposit:at klart måste followersToDeposit tömmas igen - göra i korallen kanske (?)
 
     private void Update()
     {
-        allfollowers = GetComponent<NPCTargetUtil>().getListOfFishes();
         if (nearCoral)
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
                 Debug.Log("M was pressed!");
                 DepositFish();
-                addedFollowers = false;
             }
         }
+
     }
+
 }
 
 
-//Eventuellt: ï¿½ndra frï¿½n lista av Follower till lista av gameobjects och nï¿½r man behï¿½ver grejer i follower,
-//gï¿½r isf gamobject.getcomponent<Follower>().blabla
+//Eventuellt: Ändra från lista av Follower till lista av gameobjects och när man behöver grejer i follower,
+//gör isf gamobject.getcomponent<Follower>().blabla
