@@ -9,16 +9,25 @@ public class NPCTargetUtil : MonoBehaviour
     private List<Follower> fishesToRemove = new List<Follower>();
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populera i editorn
+    private NavigationArrow navArrow;
 
-    public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
+    private void Awake()
     {
-        if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
+        navArrow = transform.gameObject.GetComponent<NavigationArrow>();
+        SelectNavArrowTarget();
+    }
+
+    public int AddToSchool(Follower fol) //Kanske döpa om (till AddTOInventory)
+    {
+        if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//Om det inte finns plats eller om fisken redan finns i listan...
         {
+            SelectNavArrowTarget();
             return -1; //returner default v�rde eftersom positionInList inte kan s�ttas till null
         }
         //Om metoden inte har returnerats...
-        listOfFishes.Add(go); 
-        return listOfFishes.IndexOf(go);
+        listOfFishes.Add(fol);
+        SelectNavArrowTarget();
+        return listOfFishes.IndexOf(fol);
     }
 
     public GameObject GetTargetPositionObject(int i) //H�mtar TargetObject fr�n array
@@ -31,18 +40,35 @@ public class NPCTargetUtil : MonoBehaviour
         return listOfFishes;
     }
 
-    public void Update()
+    private void SelectNavArrowTarget()
     {
-        foreach(Follower f in listOfFishes)
+        if (listOfFishes.Count < arrayOfTargets.Length)
         {
-            if(!f.gameObject.activeSelf)
+            navArrow.SetTargetTag("FishSchool");
+        }
+        else
+        {
+            navArrow.SetTargetTag("Coral");
+        }
+    }
+    private void Update()
+    {
+        //DepositFishes();
+    }
+
+    public void DepositFishes()
+    {
+        foreach (Follower f in listOfFishes)
+        {
+            if (!f.gameObject.activeSelf)
             {
                 fishesToRemove.Add(f);
             }
         }
-        foreach(Follower f in fishesToRemove)
+        foreach (Follower f in fishesToRemove)
         {
             listOfFishes.Remove(f);
         }
+        SelectNavArrowTarget();
     }
 }
