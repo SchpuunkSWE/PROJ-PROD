@@ -15,7 +15,7 @@ public class EnemyAttack : EnemyState
     {
         base.Enter();
         currentCooldown = cooldown;
-        AIController.Animator.SetBool("Attacking", true);
+        //AIController.Animator.SetBool("Attacking", true);
     }
 
     public override void HandleUpdate()
