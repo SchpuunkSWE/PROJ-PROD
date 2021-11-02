@@ -18,22 +18,17 @@ public class Follower : MonoBehaviour
 
     public bool isClickable = false;
 
+    SpriteRenderer spriteRenderer;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     public string GetColour()
     {
         return this.colour;
     }
 
-    //private void Awake()
-    //{
-    //    col.enabled = false;
-    //}
-    //private void Update()
-    //{
-    //    if (isClickable)
-    //    {
-    //        col.enabled = true;
-    //    }
-    //}
                                                                                                                                                                                                                                                                                                                                                                                                                   
     private void OnMouseDown()
     {
