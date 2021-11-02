@@ -41,10 +41,16 @@ public class Follower : MonoBehaviour
         if (isClickable)
         {
             Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + colour);
-            //Debug.Log(this.GetInstanceID());
+
+            //"Mark" fish by lowering alpha/opacity
+            //Color tmp = spriteRenderer.color;
+            //tmp.a = 0.5f;
+            //spriteRenderer.color = tmp;
 
             //add clicked fish to followersToDeposit (see PlayerFollowers-script)
             parent.GetComponent<PlayerFollowers>().TransferFollower(this);
+
+            isClickable = false;
         }
     }
 }
