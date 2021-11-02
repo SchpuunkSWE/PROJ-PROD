@@ -17,26 +17,29 @@ public class PlayerRespawn : MonoBehaviour
     {
         gc = GameObject.FindGameObjectWithTag("GC").GetComponent<GameController>(); //reference to the GameController script
         //transform.position = gc.lastCheckPointPos; //sets the player's position to the most recent checkpoints
-        transform.position = gc.GetLastCheckPointPos(); //sets the player's position to the most recent checkpoints
+        //transform.position = gc.GetLastCheckPointPos(); //sets the player's position to the most recent checkpoints
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            //RespawnPlayer();
-            ReloadScene();
+            RespawnPlayer();
+            //ReloadScene();
 
 
         }
     }
-    //private void RespawnPlayer()
-    //{
-    //    gameObject.transform.position = checkPoint.transform.position;
-    //}
-
-    private void ReloadScene()
+    private void RespawnPlayer()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Reloads the current scene
+        //gameObject.transform.position = checkPoint.transform.position;
+        transform.position = gc.GetLastCheckPointPos(); //Sets the player's position to the most recent checkpoints
+        Debug.Log("Player respawned");
+
     }
+
+    //private void ReloadScene()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Reloads the current scene
+    //}
 }
