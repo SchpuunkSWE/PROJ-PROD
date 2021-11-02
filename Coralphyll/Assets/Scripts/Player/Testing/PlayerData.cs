@@ -7,11 +7,13 @@ public class PlayerData : ScriptableObject
 {
     [Header("Movement")]
     public float thrustAmount;
-    [HideInInspector] public float thrustInput;
+    //[HideInInspector]
+    public float thrustInput;
 
     public float yawSpeed;
     public float pitchSpeed;
-    [HideInInspector] public Vector3 steeringInput;
+    //[HideInInspector]
+    public Vector3 steeringInput;
 
     public float leanAmountX;
     public float leanAmountY;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInpuBehaviour : MonoBehaviour
+public class PlayerInputBehaviour : MonoBehaviour
 {
 
     [Header("Input Smoothing")]
@@ -18,7 +18,23 @@ public class PlayerInpuBehaviour : MonoBehaviour
 
     [Header("Data Output")]
     public PlayerData playerData;
-    
+
+    public void OnSteering(float value)
+    {
+        rawInputSteering = new Vector3(0, 0, -value);
+    }
+
+    public void OnThrust(float value)
+    {
+        rawInputThrust = value;
+    }
+
+    public void ResetMomentum()
+    {
+        rawInputThrust = -rawInputThrust;
+        rawInputSteering = Vector3.zero;
+    }
+
     void Update()
     {
         InputSmoothing();

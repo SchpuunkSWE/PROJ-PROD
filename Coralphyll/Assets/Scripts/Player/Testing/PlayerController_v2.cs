@@ -12,8 +12,6 @@ public class PlayerController_v2 : MonoBehaviour
 
     [Header("Player Model")]
     [SerializeField] private Transform playerModel;
-    
-    private Vector3 playerInput;
 
     public void FixedUpdate()
     {
@@ -23,22 +21,22 @@ public class PlayerController_v2 : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = transform.forward * data.thrustAmount * (Mathf.Max(data.thrustInput,.2f));
+        rb.velocity = transform.forward * data.thrustAmount * (Mathf.Max(data.thrustInput,0));
     }
 
     private void Turn()
     {
-        playerInput = new Vector3(-Input.GetAxisRaw("Vertical") * data.pitchSpeed, Input.GetAxisRaw("Horizontal") * data.yawSpeed, 0); //transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
-        rb.AddRelativeTorque(playerInput);
+        Vector3 newTorque = new Vector3(0, -data.steeringInput.z * data.yawSpeed, 0); //transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
+        rb.AddRelativeTorque(newTorque);
 
-        rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y,0)), 0.5f);
+        rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(new Vector3(0, transform.localEulerAngles.y, 0)), 0.5f); //WARNING: DANGER ZONE
 
         VisualTurn();
     }
 
     private void VisualTurn()
     {
-        playerModel.localEulerAngles = new Vector3(Input.GetAxisRaw("Vertical") * data.leanAmountY,
-            playerModel.localEulerAngles.y, -Input.GetAxisRaw("Horizontal") * data.leanAmountX);
+        playerModel.localEulerAngles = new Vector3(data.steeringInput.x * data.leanAmountY,
+            playerModel.localEulerAngles.y, data.steeringInput.z * data.leanAmountX);
     }
 }
