@@ -22,6 +22,7 @@ public class PlayerData : ScriptableObject
 
     public bool diving;
     public bool swimmingUp;
+    public bool turning;
 
     public void UpdateInputData(Vector3 newSteering, float newThrust)
     {
@@ -29,9 +30,10 @@ public class PlayerData : ScriptableObject
         thrustInput = newThrust;
     }
 
-    public void UpdateBoolData(bool swimUp, bool dive)
+    public void UpdateBoolData(bool swimUp, bool dive, bool isTurning)
     {
         diving = dive;
-        swimmingUp = swimmingUp;
+        swimmingUp = swimUp;
+        turning = isTurning;
     }
 }

@@ -27,22 +27,12 @@ public class PlayerControllerKeybinds1 : MonoBehaviour
         {
            PlayerThrust();
         }
-        //if(inputManager.GetKey(KeybindingActions.Back))
-        //{
-        //    PlayerBack();
-        //}
+
         if(inputManager.GetKey(KeybindingActions.Right) || inputManager.GetKey(KeybindingActions.Left))
         {
             PlayerSteer();
         }
-        //if(inputManager.GetKey(KeybindingActions.Right))
-        //{
-        //    PlayerRight();
-        //}
-        //if(inputManager.GetKey(KeybindingActions.Left))
-        //{
-        //    PlayerLeft();
-        //}
+
         if (inputManager.GetKeyUp(KeybindingActions.SwimUp) || inputManager.GetKeyUp(KeybindingActions.SwimDown)
          || inputManager.GetKeyUp(KeybindingActions.Forward) || inputManager.GetKeyUp(KeybindingActions.Back) ||
         inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left))

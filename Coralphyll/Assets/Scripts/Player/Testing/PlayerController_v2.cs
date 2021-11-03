@@ -31,7 +31,19 @@ public class PlayerController_v2 : MonoBehaviour
     private void Turn()
     {
         Vector3 newTorque = new Vector3(0, -data.steeringInput.z * data.yawSpeed, 0); //transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
-        rb.AddRelativeTorque(newTorque);
+        if (data.turning)
+        {
+            rb.AddRelativeTorque(newTorque);
+        }
+        else
+        {
+            if(rb.angularVelocity.y > 0.2f)
+                rb.AddRelativeTorque(Vector3.down * 0.5f);
+            if (rb.angularVelocity.y < -0.2f)
+                rb.AddRelativeTorque(Vector3.up * 0.5f);
+            if (rb.angularVelocity.y < 0.1f && rb.angularVelocity.y > -0.1f)
+                rb.angularVelocity = Vector3.zero;
+        }
 
         rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(new Vector3(0, transform.localEulerAngles.y, 0)), 0.5f); //WARNING: DANGER ZONE
 

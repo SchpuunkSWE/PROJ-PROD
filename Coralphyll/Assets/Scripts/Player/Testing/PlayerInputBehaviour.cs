@@ -19,6 +19,7 @@ public class PlayerInputBehaviour : MonoBehaviour
     //Diving
     public bool swimmingUp;
     public bool diving;
+    public bool turning;
 
     [Header("Data Output")]
     public PlayerData playerData;
@@ -26,6 +27,7 @@ public class PlayerInputBehaviour : MonoBehaviour
     public void OnSteering(float value)
     {
         rawInputSteering = new Vector3(0, 0, -value);
+        turning = true;
     }
 
     public void OnThrust(float value)
@@ -45,8 +47,9 @@ public class PlayerInputBehaviour : MonoBehaviour
 
     public void ResetMomentum()
     {
-        rawInputThrust = -rawInputThrust;
+        rawInputThrust = 0;
         rawInputSteering = Vector3.zero;
+        turning = false;
         diving = false;
         swimmingUp = false;
     }
@@ -69,6 +72,6 @@ public class PlayerInputBehaviour : MonoBehaviour
     void SetInputData()
     {
         playerData.UpdateInputData(smoothInputSteering, smoothInputThrust);
-        playerData.UpdateBoolData(swimmingUp, diving);
+        playerData.UpdateBoolData(swimmingUp, diving, turning);
     }
 }
