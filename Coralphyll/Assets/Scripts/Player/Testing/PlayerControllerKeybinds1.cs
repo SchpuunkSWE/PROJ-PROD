@@ -15,15 +15,15 @@ public class PlayerControllerKeybinds1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (inputManager.GetKey(KeybindingActions.SwimUp))
-        //{
-        //    PlayerJump();
-        //}
-        //if (inputManager.GetKey(KeybindingActions.SwimDown))
-        //{
-        //    PlayerDive();
-        //}
-        if(inputManager.GetKey(KeybindingActions.Forward) || inputManager.GetKey(KeybindingActions.Back))
+        if (inputManager.GetKey(KeybindingActions.SwimUp))
+        {
+            PlayerSwimUp();
+        }
+        if (inputManager.GetKey(KeybindingActions.SwimDown))
+        {
+            PlayerDive();
+        }
+        if (inputManager.GetKey(KeybindingActions.Forward) || inputManager.GetKey(KeybindingActions.Back))
         {
            PlayerThrust();
         }
@@ -66,5 +66,13 @@ public class PlayerControllerKeybinds1 : MonoBehaviour
         playerController.ResetMomentum();
     }
 
+    public void PlayerDive()
+    {
+        playerController.OnDive(true);
+    }
 
+    public void PlayerSwimUp()
+    {
+        playerController.OnSwimUp(true);
+    }
 }

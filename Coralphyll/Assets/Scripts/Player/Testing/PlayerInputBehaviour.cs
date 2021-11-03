@@ -16,6 +16,10 @@ public class PlayerInputBehaviour : MonoBehaviour
     private float rawInputThrust;
     private float smoothInputThrust;
 
+    //Diving
+    public bool swimmingUp;
+    public bool diving;
+
     [Header("Data Output")]
     public PlayerData playerData;
 
@@ -29,10 +33,22 @@ public class PlayerInputBehaviour : MonoBehaviour
         rawInputThrust = value;
     }
 
+    public void OnDive(bool b)
+    {
+        diving = b;
+    }
+
+    public void OnSwimUp(bool b)
+    {
+        swimmingUp = b;
+    }
+
     public void ResetMomentum()
     {
         rawInputThrust = -rawInputThrust;
         rawInputSteering = Vector3.zero;
+        diving = false;
+        swimmingUp = false;
     }
 
     void Update()
@@ -53,5 +69,6 @@ public class PlayerInputBehaviour : MonoBehaviour
     void SetInputData()
     {
         playerData.UpdateInputData(smoothInputSteering, smoothInputThrust);
+        playerData.UpdateBoolData(swimmingUp, diving);
     }
 }

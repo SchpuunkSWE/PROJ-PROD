@@ -18,9 +18,20 @@ public class PlayerData : ScriptableObject
     public float leanAmountX;
     public float leanAmountY;
 
+    public float diveForce;
+
+    public bool diving;
+    public bool swimmingUp;
+
     public void UpdateInputData(Vector3 newSteering, float newThrust)
     {
         steeringInput = newSteering;
         thrustInput = newThrust;
+    }
+
+    public void UpdateBoolData(bool swimUp, bool dive)
+    {
+        diving = dive;
+        swimmingUp = swimmingUp;
     }
 }

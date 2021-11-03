@@ -17,6 +17,10 @@ public class PlayerController_v2 : MonoBehaviour
     {
         Move();
         Turn();
+        if(data.swimmingUp)
+            SwimUp();
+        if(data.diving)
+            Dive();
     }
 
     private void Move()
@@ -38,5 +42,17 @@ public class PlayerController_v2 : MonoBehaviour
     {
         playerModel.localEulerAngles = new Vector3(data.steeringInput.x * data.leanAmountY,
             playerModel.localEulerAngles.y, data.steeringInput.z * data.leanAmountX);
+    }
+
+    private void SwimUp()
+    {
+        Debug.Log("Attempting to swim up");
+        rb.AddForce(Vector3.up * data.diveForce, ForceMode.Impulse);
+    }
+
+    private void Dive()
+    {
+        Debug.Log("Attempting to dive");
+        rb.AddForce(Vector3.down * data.diveForce, ForceMode.Impulse);
     }
 }
