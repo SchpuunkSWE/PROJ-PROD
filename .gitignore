@@ -10,7 +10,8 @@ Coralphyll/[Bb]uilds/
 Coralphyll/[Ll]ogs/
 Coralphyll/[Mm]emoryCaptures/
 Coralphyll/**/[Ss]ettings.json
-# Coralphyll/UserSettings/EditorUserSettings.asset
+Coralphyll/UserSettings/EditorUserSettings.asset
+Coralphyll/ProjectSettings/HDRPProjectSettings.asset
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -53,6 +54,40 @@ ExportedObj/
 # Unity3D generated file on crash reports
 sysinfo.txt
 
+## ---------------- ##
+##   WWise stuff    ##
+## ---------------- ##
+
+# project stuff
+Coralphyll/Coralphyll_WWiseProject/.cache/
+Coralphyll/Coralphyll_WWiseProject/*.prof
+Coralphyll/Coralphyll_WwiseProject/*_WwiseProject.*.validationcache
+Coralphyll/Coralphyll_WwiseProject/*_WwiseProject.*.wsettings
+Coralphyll/Coralphyll_WwiseProject/**/*.akd
+
+# build stuff (unsure?)
+# Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
+
+# WWise Picker (editor)
+# from https://www.audiokinetic.com/library/edge/?source=Unity&id=unity__troubleshooting.html
+# >> Do not keep AkWwiseProjectData.asset under version control! 
+# >> This is a temporary cache file for the Wwise project data, 
+# >> so as to avoid having the Wwise Picker continuously parse the Work Unit files.
+Coralphyll/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
+Coralphyll/Assets/Wwise/API/*
+
+# notes:
+# 1) if any other files go in Assets/Wwise/Editor/ProjectData/ besides AkWwiseProjectData.asset*,
+#    then don't ignore Assets/Wwise/Editor/ProjectData.meta. If AkWwiseProjectData.asset is the only item in there,
+#    then, it's OK to ignore this file.
+# 
+# Assets/Wwise/Editor/ProjectData.meta
+
+## --------------- ##
+## End WWise Stuff ##
+## --------------- ##
+
+
 # Builds
 *.apk
 *.unitypackage
@@ -61,3 +96,12 @@ sysinfo.txt
 crashlytics-build.properties
 
 
+Coralphyll/Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkSoundEngine.dll
+Coralphyll/Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkSoundEngine.dll.meta
+Coralphyll/Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile.meta
+Coralphyll/Assets/Wwise/API/Runtime/Plugins/Windows/x86_64.meta
+Coralphyll/Assets/Wwise/API/Runtime/Plugins/Windows.meta
+Coralphyll/Assets/Wwise/API/Runtime/Plugins.meta
+Coralphyll/Assets/Wwise/API/Runtime.meta
+Coralphyll/Assets/Wwise/API.meta
+Coralphyll/Assets/Wwise.meta
