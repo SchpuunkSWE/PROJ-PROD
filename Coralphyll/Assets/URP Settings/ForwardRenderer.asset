@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: ForwardRenderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: 3818840809600878295}
-  m_RendererFeatureMap: d78606b67b3fff34
+  - {fileID: 6389330099335575853}
+  - {fileID: 6437288017154219279}
+  m_RendererFeatureMap: 2db99b8bdf75ab580f1d5b6b58d75559
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -40,10 +41,10 @@ MonoBehaviour:
     passOperation: 0
     failOperation: 0
     zFailOperation: 0
-  m_ShadowTransparentReceive: 0
+  m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0
---- !u!114 &3818840809600878295
+--- !u!114 &6389330099335575853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,16 +53,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
-  m_Name: NewScreenSpaceAmbientOcclusion
+  m_Script: {fileID: 11500000, guid: 27423793497c11d4d8539639bf1fa11b, type: 3}
+  m_Name: NewVolumetricLightScattering
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    resolutionScale: 0.1
+    intensity: 0.2
+    blurWidth: 0.1
+--- !u!114 &6437288017154219279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: NewRenderObjects
   m_EditorClassIdentifier: 
   m_Active: 1
-  m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
-  m_Settings:
-    Downsample: 1
-    Source: 1
-    NormalSamples: 1
-    Intensity: 3.24
-    DirectLightingStrength: 0.25
-    Radius: 0.035
-    SampleCount: 6
+  settings:
+    passTag: NewRenderObjects
+    Event: 300
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 0
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: c00c370f9d5482b42b4f13ed746d7712, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
