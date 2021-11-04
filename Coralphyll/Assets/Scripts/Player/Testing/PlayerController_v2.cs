@@ -13,6 +13,7 @@ public class PlayerController_v2 : MonoBehaviour
     [Header("Player Model")]
     [SerializeField] private Transform playerModel;
 
+
     public void FixedUpdate()
     {
         Move();
@@ -26,6 +27,7 @@ public class PlayerController_v2 : MonoBehaviour
     private void Move()
     {
         rb.velocity = transform.forward * data.thrustAmount * data.thrustInput;
+        //rb.transform.Translate(transform.forward * data.thrustAmount * data.thrustInput);
     }
 
     private void Turn()
@@ -34,15 +36,14 @@ public class PlayerController_v2 : MonoBehaviour
         Vector3 newTorque = new Vector3(0, -data.steeringInput.z * data.yawSpeed, 0); //transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
         if (data.turning && Mathf.Abs(turnVelocity) < 2)
            rb.AddRelativeTorque(newTorque);
-        else
-        {
+
             if (turnVelocity > 0.1f)
                 rb.AddRelativeTorque(Vector3.down * 3f);
             if (turnVelocity < -0.1f)
                 rb.AddRelativeTorque(Vector3.up * 3f);
             if (Mathf.Abs(turnVelocity) < 0.1f)
                 rb.angularVelocity = Vector3.Lerp(rb.angularVelocity, Vector3.zero, 0.5f);
-        }
+
         
 
 
