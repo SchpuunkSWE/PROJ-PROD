@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 590485521440044765}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StoneShrooms_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +31,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &6716943883838082602
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578294384688918246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6124957481240365358, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+--- !u!64 &845898537276782331
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188999283980794049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5178431718790744235, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+--- !u!64 &49543379403246290
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448761761591386166}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4727697092708912838, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
 --- !u!1001 &8301458648905964602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,14 +124,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7476612103930198437, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b6f20101ad9e4e4782be4809f6574bf, type: 2}
+    - target: {fileID: -4729164882634460452, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1345353733610920709, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 713054747046075362, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b6f20101ad9e4e4782be4809f6574bf, type: 2}
     - target: {fileID: 919132149155446097, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
       propertyPath: m_Name
       value: SM_StoneShroom_large
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962118024397180419, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b6f20101ad9e4e4782be4809f6574bf, type: 2}
+    - target: {fileID: 7435369923342285836, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
 --- !u!4 &8412176362506238929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+  m_PrefabInstance: {fileID: 8301458648905964602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5578294384688918246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4729164882634460452, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+  m_PrefabInstance: {fileID: 8301458648905964602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2188999283980794049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1345353733610920709, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
+  m_PrefabInstance: {fileID: 8301458648905964602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1448761761591386166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7435369923342285836, guid: ef29ecdfbffc3de41bd537c3549d2b96, type: 3}
   m_PrefabInstance: {fileID: 8301458648905964602}
   m_PrefabAsset: {fileID: 0}
