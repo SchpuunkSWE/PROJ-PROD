@@ -10,11 +10,10 @@ public class PlayerFollowers : MonoBehaviour
 
     private List<Follower> followersToDeposit = new List<Follower>();
 
+    [HideInInspector]
     public GameObject currentCoral;
 
     public bool nearCoral = false;
-
-    private bool addedFollowers = false;
 
     public List<Follower> GetAllFollowers ()
     {
@@ -36,21 +35,21 @@ public class PlayerFollowers : MonoBehaviour
     {
         currentCoral.GetComponent<Coral>().ReceiveFish(followersToDeposit);
         Debug.Log("DepositFish Reached");
+        followersToDeposit.Clear();
         //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
     }//N�r man har deposit:at klart m�ste followersToDeposit t�mmas igen - g�ra i korallen kanske (?)
 
     private void Update()
     {
         allfollowers = GetComponent<NPCTargetUtil>().getListOfFishes();
-        if (nearCoral)
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Debug.Log("M was pressed!");
-                DepositFish();
-                addedFollowers = false;
-            }
-        }
+    //    if (nearCoral)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.M))
+    //        {
+    //            Debug.Log("M was pressed!");
+    //            DepositFish();
+    //        }
+    //    }
     }
 }
 

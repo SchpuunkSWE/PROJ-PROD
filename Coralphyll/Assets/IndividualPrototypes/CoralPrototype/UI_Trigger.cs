@@ -7,10 +7,12 @@ public class UI_Trigger : MonoBehaviour
 {
     [SerializeField]
     private GameObject panel;
+    private GameObject myCoral;
 
     private void Awake()
     {
         panel.SetActive(false);
+        myCoral = gameObject.transform.parent.gameObject; //Fetch the parent coral gameobject of this gameobject (aka the coral which this trigger is attached to)
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,6 +22,7 @@ public class UI_Trigger : MonoBehaviour
         if(other.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerFollowers>().nearCoral = true;
+            other.gameObject.GetComponent<PlayerFollowers>().currentCoral = myCoral;
             //Activate Coral UI Panel
             panel.SetActive(true);
 

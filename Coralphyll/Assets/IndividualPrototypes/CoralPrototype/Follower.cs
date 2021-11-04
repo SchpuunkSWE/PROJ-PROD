@@ -45,6 +45,8 @@ public class Follower : MonoBehaviour
 
             //add clicked fish to followersToDeposit (see PlayerFollowers-script)
             parent.GetComponent<PlayerFollowers>().TransferFollower(this);
+
+            isClickable = false;
         }
     }
 }
