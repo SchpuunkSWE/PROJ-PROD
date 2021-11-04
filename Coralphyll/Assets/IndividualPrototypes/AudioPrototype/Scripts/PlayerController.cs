@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private static PlayerController player;
+    public static PlayerController Player
+    {
+        get
+        {
+            if (player == null)
+            {
+                player = FindObjectOfType<PlayerController>();
+            }
+            return player;
+        }
+    }
+
     public Controller3D playerController;
 
     // Update is called once per frame
