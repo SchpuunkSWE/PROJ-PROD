@@ -22,7 +22,7 @@ void ToonShading_float(in float3 Normal, in float ToonRampSmoothness, in float3 
 
 	toonRamp *= light.shadowAttenuation;
 
-	ToonRampOutput = light.color * (toonTamp + ToonRampTinting);
+	ToonRampOutput = light.color * (toonRamp + ToonRampTinting);
 
 	Direction = light.direction;
 #endif
