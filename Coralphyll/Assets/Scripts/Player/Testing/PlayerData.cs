@@ -11,7 +11,6 @@ public class PlayerData : ScriptableObject
     public float thrustInput;
 
     public float yawSpeed;
-    public float pitchSpeed;
     //[HideInInspector]
     public Vector3 steeringInput;
 
