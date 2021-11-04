@@ -282,7 +282,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 177054300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 944560230}
+        m_TargetAssemblyTypeName: UIFishWheel, Assembly-CSharp
+        m_MethodName: dropYellowFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &177054300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +756,7 @@ GameObject:
   - component: {fileID: 944560227}
   - component: {fileID: 944560229}
   - component: {fileID: 944560228}
+  - component: {fileID: 944560230}
   m_Layer: 5
   m_Name: IngameUI-Panel
   m_TagString: Untagged
@@ -809,6 +822,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944560226}
   m_CullTransparentMesh: 1
+--- !u!114 &944560230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944560226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccd1048f4d64ab428d12e22948ba98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishHandler: {fileID: 0}
+  fishWheelPanel: {fileID: 9558366}
 --- !u!1 &1128078871
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +918,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1128078874}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 944560230}
+        m_TargetAssemblyTypeName: UIFishWheel, Assembly-CSharp
+        m_MethodName: dropBlueFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1128078874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.09803922}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.043137256}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1240,7 +1279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1404548208}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 944560230}
+        m_TargetAssemblyTypeName: UIFishWheel, Assembly-CSharp
+        m_MethodName: dropRedFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1404548208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,7 +1584,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1949872102}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 944560230}
+        m_TargetAssemblyTypeName: UIFishWheel, Assembly-CSharp
+        m_MethodName: exitWheel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1949872102
 MonoBehaviour:
   m_ObjectHideFlags: 0
