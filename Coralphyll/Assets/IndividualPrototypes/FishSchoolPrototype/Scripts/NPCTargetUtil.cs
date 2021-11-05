@@ -65,6 +65,7 @@ public class NPCTargetUtil : MonoBehaviour
         foreach (Follower f in fishesToRemove)
         {
             listOfFishes.Remove(f);
+            //Destroy(f.gameObject); typ
         }
         SelectNavArrowTarget();
     }

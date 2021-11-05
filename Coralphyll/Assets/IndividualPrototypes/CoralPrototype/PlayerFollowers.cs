@@ -5,19 +5,20 @@ using UnityEngine.EventSystems;
 
 public class PlayerFollowers : MonoBehaviour
 {
-    //[SerializeField]
-    //private List<Follower> allfollowers;
+    [SerializeField]
+    private List<Follower> allfollowers;
 
     private List<Follower> followersToDeposit = new List<Follower>();
 
+    [HideInInspector]
     public GameObject currentCoral;
 
     public bool nearCoral = false;
 
-    //public List<Follower> GetAllFollowers ()
-    //{
-    //    return GetComponent<NPCTargetUtil>().getListOfFishes();
-    //}
+    public List<Follower> GetAllFollowers ()
+    {
+        return allfollowers;
+    }
 
     //public List<Follower> GetFollowersToDeposit()
     //{
@@ -34,20 +35,21 @@ public class PlayerFollowers : MonoBehaviour
     {
         currentCoral.GetComponent<Coral>().ReceiveFish(followersToDeposit);
         Debug.Log("DepositFish Reached");
+        followersToDeposit.Clear();
         //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
     }//N�r man har deposit:at klart m�ste followersToDeposit t�mmas igen - g�ra i korallen kanske (?)
 
     private void Update()
-    {   
-        if (nearCoral)
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Debug.Log("M was pressed!");
-                DepositFish();
-                GetComponent<NPCTargetUtil>().DepositFishes();
-            }
-        }
+    {
+        allfollowers = GetComponent<NPCTargetUtil>().getListOfFishes();
+    //    if (nearCoral)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.M))
+    //        {
+    //            Debug.Log("M was pressed!");
+    //            DepositFish();
+    //        }
+    //    }
     }
 }
 

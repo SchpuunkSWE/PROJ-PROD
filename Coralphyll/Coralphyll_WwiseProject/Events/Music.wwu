@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B07DD209-781B-416B-A400-821FE2783074}" SchemaVersion="103" RootDocumentID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" ParentDocumentID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}">
+	<Events>
+		<WorkUnit Name="Music" ID="{B07DD209-781B-416B-A400-821FE2783074}" OwnerID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="MusicState_Initiate" ID="{7E28617B-5582-4C8B-BAAC-3AF3EF5F6694}">
+					<ChildrenList>
+						<Action Name="" ID="{5331DF70-EA8A-4957-9F75-14D53647232E}" ShortID="462283652">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D7603E53-2FE6-4CBB-9F4E-F7781473D28A}" ShortID="137220786">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Alive" ID="{92F785FF-4936-44BE-8F68-D51E2B08776F}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8E8B37EB-9964-4962-8A84-4EB570856862}" ShortID="935206439">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicState_Combat" ID="{95E4D3EF-720B-48CD-935E-B56477C3515C}">
+					<ChildrenList>
+						<Action Name="" ID="{BA518D2C-AC72-45FB-B745-1807F32F866E}" ShortID="844333515">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat" ID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicState_Exploring" ID="{FA19BE0C-2160-46F3-90C3-11DF3864843F}">
+					<ChildrenList>
+						<Action Name="" ID="{BEF28C98-356C-4DA2-A3E1-A69513AC458A}" ShortID="291599317">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
