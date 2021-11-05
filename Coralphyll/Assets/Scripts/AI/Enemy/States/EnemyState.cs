@@ -6,8 +6,6 @@ public abstract class EnemyState : State
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float turnSpeed;
 
-    public Transform target;
-
     private AIController aiController;
     public AIController AIController => aiController = aiController != null ? aiController : (AIController)owner;
 
@@ -19,7 +17,6 @@ public abstract class EnemyState : State
     public override void HandleUpdate()
     {
         //Set animator stuff?
-        Rotate();
     }
 
     protected bool CanSeePlayer()
@@ -30,7 +27,7 @@ public abstract class EnemyState : State
 
     protected float DistanceToPoint(Vector3 point)
     {
-        return Vector3.Distance(AIController.transform.position, point);
+        return Vector3.Distance(AIController.AttackPoint.transform.position, point);
     }
 
     protected float DistanceToPlayer()
@@ -38,11 +35,11 @@ public abstract class EnemyState : State
         return DistanceToPoint(aiController.Player.transform.position);
     }
 
-    void Rotate()
+    protected void RotateTowards(Transform target)
     {
-        if(Vector3.Distance(AIController.AttackPoint.position, AIController.Player.transform.position) > .1f)
+        if(Vector3.Distance(AIController.AttackPoint.position, target.position) > .1f)
         {
-            Vector3 dir = AIController.Player.transform.position - AIController.transform.position;
+            Vector3 dir = target.position - AIController.transform.position;
             Quaternion toRotation = Quaternion.LookRotation(dir);
             AIController.transform.rotation = Quaternion.Lerp(AIController.transform.rotation, toRotation, turnSpeed * Time.deltaTime);
         }
