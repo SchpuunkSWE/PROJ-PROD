@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField]
-    private int sceneToLoad; //Decide for yourself which scene to load in the inspector
+    //[SerializeField]
+    private int sceneToLoadWithTrigger; 
 
     //[SerializeField]
     //private Image fadeImage;
@@ -15,7 +15,7 @@ public class SceneController : MonoBehaviour
 
     private void Start()
     {
-        //sceneToload = SceneManager.GetActiveScene().buildIndex + 1; //Switches to the scene after the current one
+        sceneToLoadWithTrigger = SceneManager.GetActiveScene().buildIndex + 1; //Switches to the scene after the current one
         //StartCoroutine(FadeIn());
     }
     //private IEnumerator FadeIn()
@@ -36,8 +36,13 @@ public class SceneController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //StartCoroutine(FadeOut());
-            SceneManager.LoadScene(sceneToLoad);
+            SceneManager.LoadScene(sceneToLoadWithTrigger);
         }
+    }
+
+    public void NextScene(int sceneToLoad) //Decide for yourself which scene to load in the inspector with sceneToLoad
+    {
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     //private IEnumerator FadeOut()
