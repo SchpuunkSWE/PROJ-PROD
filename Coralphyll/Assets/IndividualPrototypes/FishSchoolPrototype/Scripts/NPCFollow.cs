@@ -16,7 +16,11 @@ public class NPCFollow : MonoBehaviour
     private float targetDistance;
 
     private RaycastHit shot;
-    private bool isFollowingPlayer = false;
+    public bool isFollowingPlayer = false;
+
+    [SerializeField]
+    private bool collectable = true;
+
     //private Rigidbody rgb;
 
     void Start()
@@ -62,14 +66,16 @@ public class NPCFollow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && collectable == true)
         {
-            NPCTargetUtil listScript = other.gameObject.GetComponent<NPCTargetUtil>(); //H�mtar det andra scriptet s� vi kommer �t det
+            NPCTargetUtil listScript = other.gameObject.GetComponent<NPCTargetUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det
             positionInList = listScript.AddToSchool(transform.gameObject.GetComponent<Follower>()); //L�gger till fisken till listan och returnerar platsen i listan den f�r
             if(positionInList >= 0) //Om vi f�r tillbaka ett v�rde �ver 0... 
             {            
                 fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi s�tter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista
+                GetComponentInParent<BoidsSystem>().RemoveAgent(gameObject); //Tar bort agent från listan av agents
                 isFollowingPlayer = true; //Vi s�tter fiskens status till att f�lja spelaren
+                collectable = false;
             }
         }
     }
