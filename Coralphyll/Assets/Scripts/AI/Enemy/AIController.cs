@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AIController : MonoBehaviour
@@ -8,9 +9,12 @@ public class AIController : MonoBehaviour
     [HideInInspector] public MeshRenderer Renderer;
     [HideInInspector] public Animator Animator;
 
+    [SerializeField] private AIPath path;
+
     public Transform AttackPoint;
     public GameObject Player { get; set; }
     public LayerMask VisionMask { get; set; }
+    public AIPath Path { get => path; set => path = value; }
 
     public float Speed;
 
