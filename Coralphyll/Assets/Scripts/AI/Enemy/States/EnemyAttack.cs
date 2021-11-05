@@ -15,12 +15,15 @@ public class EnemyAttack : EnemyState
     {
         base.Enter();
         currentCooldown = cooldown;
+        AIController.Renderer.material.color = Color.red;
         //AIController.Animator.SetBool("Attacking", true);
     }
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        RotateTowards(AIController.Player.transform);
+
         //set destination to player
         if (DistanceToPlayer() < attackDistance && attacking == false)
             Attack();
