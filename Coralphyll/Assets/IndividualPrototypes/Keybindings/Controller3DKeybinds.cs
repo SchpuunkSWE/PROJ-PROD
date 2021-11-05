@@ -10,20 +10,23 @@ public class Controller3DKeybinds : MonoBehaviour
     public float decelerateValue = 7f;
     public float velocityXSmoothValue = 0.2f;
     public float velocityZSmoothValue = 0.2f;
+    public float velocityYSmoothValue = 0.2f;
     public float maxVelocityValue = 5f;
-    public CapsuleCollider capsuleCollider;
+    //public CapsuleCollider capsuleCollider;
+    public SphereCollider sphereCollider;
     public LayerMask collisionMask;
     [SerializeField] private float skinWidth = 0.05f;
     public float standardStaticFrictionVariable = 0.5f;
     public float kineticFrictionVariable = 0.16f;
     public float airResistance = 0.8f;
-    public float gravity = 9f;
+    [HideInInspector] public float gravity = 9f;
     public float jumpForce = 5f;
 
     public bool isGrounded;
     private void Awake()
     {
-        capsuleCollider = GetComponent<CapsuleCollider>();
+        //capsuleCollider = GetComponent<CapsuleCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
@@ -36,10 +39,9 @@ public class Controller3DKeybinds : MonoBehaviour
 
     }
 
-
+    
     private void PlayerInput()
     {
-        //playerInput = transform.right * Input.GetAxisRaw("Horizontal") + transform.forward * Input.GetAxisRaw("Vertical");
         if (playerInput.magnitude > float.Epsilon)
         {
             if (velocity.magnitude < 1f)
@@ -54,6 +56,8 @@ public class Controller3DKeybinds : MonoBehaviour
             DecelerateVelocity();
         }
     }
+
+    #region Velocity
     private void CalculateVelocity(Vector3 input)
     {
         velocity += input.normalized * speed * Time.deltaTime;
@@ -64,7 +68,6 @@ public class Controller3DKeybinds : MonoBehaviour
     }
     private void ApplyVelocity()
     {
-
         velocity *= Mathf.Pow(airResistance, Time.deltaTime);
         transform.position += velocity * Time.deltaTime;
     }
@@ -74,13 +77,14 @@ public class Controller3DKeybinds : MonoBehaviour
     }
     private void DecelerateVelocity()
     {
-        Vector3 projectedDir = new Vector3(velocity.x, 0.0f, velocity.z);
+        Vector3 projectedDir = velocity;//new Vector3(velocity.x, 0.0f, velocity.z);
         float absValue = Mathf.Abs(projectedDir.magnitude);
         projectedDir = projectedDir.normalized;
         if (decelerateValue > absValue)
         {
             velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.2f);
             velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.2f);
+            velocity.y = Mathf.SmoothDamp(velocity.y, 0, ref velocityYSmoothValue, 0.2f);
         }
         else
         {
@@ -92,16 +96,19 @@ public class Controller3DKeybinds : MonoBehaviour
         }
 
     }
+    #endregion
 
+    #region Hit Detection
     private void HitDetection()
     {
         //Capsule cast to check for collissions. 
         RaycastHit hit;
-        Vector3 upperPoint = transform.position + Vector3.up * (capsuleCollider.height / 2 - capsuleCollider.radius);
-        Vector3 lowerPoint = transform.position + Vector3.down * (capsuleCollider.height / 2 - capsuleCollider.radius);
-        Physics.CapsuleCast(upperPoint, lowerPoint, capsuleCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
-        Debug.DrawLine(upperPoint, velocity.normalized, Color.red);
-        Debug.DrawLine(lowerPoint, velocity.normalized, Color.blue);
+        //Vector3 upperPoint = transform.position + Vector3.up * (capsuleCollider.height / 2 - capsuleCollider.radius);
+        //Vector3 lowerPoint = transform.position + Vector3.down * (capsuleCollider.height / 2 - capsuleCollider.radius);
+        //Physics.CapsuleCast(upperPoint, lowerPoint, capsuleCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
+        //Debug.DrawLine(upperPoint, velocity.normalized, Color.red);
+        //Debug.DrawLine(lowerPoint, velocity.normalized, Color.blue);
+        Physics.SphereCast(transform.position + sphereCollider.center, sphereCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
 
         //Raycast to check if player is grounded.
         RaycastHit checkGround;
@@ -136,6 +143,7 @@ public class Controller3DKeybinds : MonoBehaviour
 
         }
     }
+    #endregion
     private Vector3 DotFunction(Vector3 velocityV, Vector3 hitNormal)
     {
         float dotProduct = Vector3.Dot(velocityV, hitNormal);
@@ -161,36 +169,22 @@ public class Controller3DKeybinds : MonoBehaviour
     //DISCLAIMER: The JumpFunction and DiveFunction are placeholders for now since this should be something that exists in the playerInput section for moving along the Y-axis. 
     //But for now, it's at least some way to move straight up and down when testing. They simply add a positive or negative force to the velocity.y as long as
     //The magnitude of velocity.y is greater than 8f.
-    public void JumpFunction()
+    public void SwimUpFunction()
     {
-        Vector3 maxVel = velocity;
-        if (!(maxVel.y > 8f))
+        float maxVel = velocity.y;
+        if (!(maxVel > 8f))
         {
             Vector3 jumping = Vector3.up * jumpForce;
-            if (velocity.x == 0 || velocity.z == 0)
-            {
-                velocity.y += jumping.y * 0.6f;
-            }
-            else
-            {
-                velocity.y += jumping.y;
-            }
+            velocity.y += jumping.y;
         }
     }
     public void DiveFunction()
     {
-        Vector3 maxVel = velocity;
-        if (!(maxVel.y < -8f))
+        float maxVel = velocity.y;
+        if (!(maxVel < -8f))
         {
-            Vector3 jumping = -1 * (Vector3.up * jumpForce);
-            if (velocity.x == 0 || velocity.z == 0)
-            {
-                velocity.y += jumping.y * 0.6f;
-            }
-            else
-            {
-                velocity.y += jumping.y;
-            }
+            Vector3 jumping = Vector3.down * jumpForce;
+            velocity.y += jumping.y;
         }
     }
 

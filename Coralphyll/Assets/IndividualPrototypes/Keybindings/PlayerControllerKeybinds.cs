@@ -17,7 +17,7 @@ public class PlayerControllerKeybinds : MonoBehaviour
     {
         if (inputManager.GetKey(KeybindingActions.SwimUp))
         {
-            PlayerJump();
+            PlayerSwimUp();
         }
         if (inputManager.GetKey(KeybindingActions.SwimDown))
         {
@@ -47,9 +47,9 @@ public class PlayerControllerKeybinds : MonoBehaviour
         }
     }
 
-    public void PlayerJump()
+    public void PlayerSwimUp()
     {
-        playerController.JumpFunction();
+        playerController.SwimUpFunction();
     }
     public void PlayerDive()
     {
