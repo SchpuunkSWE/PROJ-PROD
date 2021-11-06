@@ -10,6 +10,7 @@ public class PlayerFollowers : MonoBehaviour
 
     private List<Follower> followersToDeposit = new List<Follower>();
 
+    [HideInInspector]
     public GameObject currentCoral;
 
     public bool nearCoral = false;
@@ -18,7 +19,6 @@ public class PlayerFollowers : MonoBehaviour
     {
         return allfollowers;
     }
-
 
     //public List<Follower> GetFollowersToDeposit()
     //{
@@ -35,24 +35,24 @@ public class PlayerFollowers : MonoBehaviour
     {
         currentCoral.GetComponent<Coral>().ReceiveFish(followersToDeposit);
         Debug.Log("DepositFish Reached");
+        followersToDeposit.Clear();
         //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
-    }//När man har deposit:at klart måste followersToDeposit tömmas igen - göra i korallen kanske (?)
+    }//Nï¿½r man har deposit:at klart mï¿½ste followersToDeposit tï¿½mmas igen - gï¿½ra i korallen kanske (?)
 
     private void Update()
     {
-        if (nearCoral)
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Debug.Log("M was pressed!");
-                DepositFish();
-            }
-        }
-
+        allfollowers = GetComponent<NPCTargetUtil>().getListOfFishes();
+    //    if (nearCoral)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.M))
+    //        {
+    //            Debug.Log("M was pressed!");
+    //            DepositFish();
+    //        }
+    //    }
     }
-
 }
 
 
-//Eventuellt: Ändra från lista av Follower till lista av gameobjects och när man behöver grejer i follower,
-//gör isf gamobject.getcomponent<Follower>().blabla
+//Eventuellt: ï¿½ndra frï¿½n lista av Follower till lista av gameobjects och nï¿½r man behï¿½ver grejer i follower,
+//gï¿½r isf gamobject.getcomponent<Follower>().blabla

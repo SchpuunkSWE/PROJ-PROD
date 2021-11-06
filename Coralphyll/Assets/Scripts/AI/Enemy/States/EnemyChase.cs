@@ -7,11 +7,18 @@ public class EnemyChase : EnemyState
     [SerializeField] private float attackDistance;
     [SerializeField] private float lostTargetDistance;
 
+    public override void Enter()
+    {
+        base.Enter();
+        AIController.Renderer.material.color = Color.yellow;
+    }
+
     public override void HandleUpdate()
     {
         base.HandleUpdate();
         //Set destination to player
         AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, 5 * Time.deltaTime);
+        RotateTowards(AIController.Player.transform);
     }
 
     public override void EvaluateTransitions()
@@ -22,7 +29,7 @@ public class EnemyChase : EnemyState
         {
             stateMachine.Transition<EnemyAlert>();
         }
-        else if (Vector3.Distance(AIController.AttackPoint.position, AIController.Player.transform.position) < attackDistance)
+        else if (DistanceToPlayer() < attackDistance)
         {
             stateMachine.Transition<EnemyAttack>();
         }

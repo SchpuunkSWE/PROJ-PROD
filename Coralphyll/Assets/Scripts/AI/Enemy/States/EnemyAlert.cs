@@ -11,6 +11,7 @@ public class EnemyAlert : EnemyState
     public override void Enter()
     {
         base.Enter();
+        AIController.Renderer.material.color = Color.cyan;
         //Set destination towards player
         alertTimer = alertTime;
     }
