@@ -4,6 +4,12 @@
 		<WorkUnit Name="Default Work Unit" ID="{D285E3DD-BB77-49E3-B6B6-57E1ED53FF4E}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundcasterSession Name="New Soundcaster Session" ID="{0F59B89B-4D87-4857-B9A7-046D1157738A}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="MainTheme" ID="{ED69C65C-8C1A-49AE-8869-A46431514EF2}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
 							<GameParameterRef Name="RTPC_AmbienceVolume" ID="{4F058228-40C7-42A5-B3FE-A526C4234649}"/>
@@ -39,7 +45,7 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}"/>
+						<CurrentStateRef Name="MainMenu" ID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}"/>
 						<CurrentStateRef Name="None" ID="{E3C3453F-AB99-4C1A-B2CB-4CF38C0644DE}"/>
 						<CurrentStateRef Name="Alive" ID="{92F785FF-4936-44BE-8F68-D51E2B08776F}"/>
 					</CurrentStateList>

@@ -33,6 +33,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID MAINMENU = 3604647259U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace GAMEPLAY_SWITCH
@@ -46,6 +47,7 @@ namespace AK
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID DEFEAT = 1593864692U;
                 static const AkUniqueID EXPLORING = 1823678183U;
+                static const AkUniqueID MAINMENU = 3604647259U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID VICTORY = 2716678721U;
             } // namespace STATE

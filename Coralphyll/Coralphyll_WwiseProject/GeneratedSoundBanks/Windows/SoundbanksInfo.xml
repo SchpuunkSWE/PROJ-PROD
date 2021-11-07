@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Language="SFX" Hash="3007849683">
+		<SoundBank Id="474740052" Language="SFX" Hash="3839774400">
 			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Music</ObjectPath>
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
@@ -28,9 +28,13 @@
 				</Event>
 				<Event Id="2595492705" Name="MusicState_Initiate" ObjectPath="\Events\Default Work Unit\Music\MusicState_Initiate" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="81506418" Language="SFX">
-							<ShortName>ES_Monuments_Drums_BattleMusic.wav</ShortName>
-							<Path>SFX\ES_Monuments_Drums_BattleMusic_D79FB2B7.wem</Path>
+						<File Id="86766305" Language="SFX">
+							<ShortName>Battle_Section3.wav</ShortName>
+							<Path>SFX\Battle_Section3_D79FB2B7.wem</Path>
+						</File>
+						<File Id="103774500" Language="SFX">
+							<ShortName>ES_The Proposition_Short.wav</ShortName>
+							<Path>SFX\ES_The Proposition_Short_D79FB2B7.wem</Path>
 						</File>
 						<File Id="187344265" Language="SFX">
 							<ShortName>ES_Monuments_Instruments_OneSection.wav</ShortName>
@@ -40,6 +44,10 @@
 							<ShortName>ES_Monuments_Melody_Section_B.wav</ShortName>
 							<Path>SFX\ES_Monuments_Melody_Section_B_D79FB2B7.wem</Path>
 						</File>
+						<File Id="275220307" Language="SFX">
+							<ShortName>Battle_End.wav</ShortName>
+							<Path>SFX\Battle_End_D79FB2B7.wem</Path>
+						</File>
 						<File Id="448510432" Language="SFX">
 							<ShortName>ES_Monuments_Melody_Section_D.wav</ShortName>
 							<Path>SFX\ES_Monuments_Melody_Section_D_D79FB2B7.wem</Path>
@@ -48,13 +56,17 @@
 							<ShortName>ES_Monuments_Melody_Section_A.wav</ShortName>
 							<Path>SFX\ES_Monuments_Melody_Section_A_D79FB2B7.wem</Path>
 						</File>
+						<File Id="526842401" Language="SFX">
+							<ShortName>Battle_Section2.wav</ShortName>
+							<Path>SFX\Battle_Section2_D79FB2B7.wem</Path>
+						</File>
 						<File Id="533360802" Language="SFX">
 							<ShortName>ES_Monuments_melody_Section_C.wav</ShortName>
 							<Path>SFX\ES_Monuments_melody_Section_C_D79FB2B7.wem</Path>
 						</File>
-						<File Id="1039766240" Language="SFX">
-							<ShortName>ES_Monuments_Drums_ExitBattle.wav</ShortName>
-							<Path>SFX\ES_Monuments_Drums_ExitBattle_D79FB2B7.wem</Path>
+						<File Id="768155864" Language="SFX">
+							<ShortName>Battle_Section1.wav</ShortName>
+							<Path>SFX\Battle_Section1_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
@@ -75,8 +87,10 @@
 							<Children>
 								<SwitchContainer SwitchValue="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
 									<Media>
-										<File Id="81506418"/>
-										<File Id="1039766240"/>
+										<File Id="86766305"/>
+										<File Id="275220307"/>
+										<File Id="526842401"/>
+										<File Id="768155864"/>
 									</Media>
 								</SwitchContainer>
 							</Children>
@@ -98,8 +112,22 @@
 							<Children>
 								<SwitchContainer SwitchValue="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}">
 									<Media>
-										<File Id="81506418"/>
-										<File Id="1039766240"/>
+										<File Id="86766305"/>
+										<File Id="275220307"/>
+										<File Id="526842401"/>
+										<File Id="768155864"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{71016D14-1C72-437D-9D62-829C3176B568}">
+							<Children/>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
+							<Children>
+								<SwitchContainer SwitchValue="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
+									<Media>
+										<File Id="103774500"/>
 									</Media>
 								</SwitchContainer>
 							</Children>
@@ -112,9 +140,13 @@
 				</Event>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="81506418" Language="SFX">
-					<ShortName>ES_Monuments_Drums_BattleMusic.wav</ShortName>
-					<Path>SFX\ES_Monuments_Drums_BattleMusic_D79FB2B7.wem</Path>
+				<File Id="86766305" Language="SFX">
+					<ShortName>Battle_Section3.wav</ShortName>
+					<Path>SFX\Battle_Section3_D79FB2B7.wem</Path>
+				</File>
+				<File Id="103774500" Language="SFX">
+					<ShortName>ES_The Proposition_Short.wav</ShortName>
+					<Path>SFX\ES_The Proposition_Short_D79FB2B7.wem</Path>
 				</File>
 				<File Id="187344265" Language="SFX">
 					<ShortName>ES_Monuments_Instruments_OneSection.wav</ShortName>
@@ -124,6 +156,10 @@
 					<ShortName>ES_Monuments_Melody_Section_B.wav</ShortName>
 					<Path>SFX\ES_Monuments_Melody_Section_B_D79FB2B7.wem</Path>
 				</File>
+				<File Id="275220307" Language="SFX">
+					<ShortName>Battle_End.wav</ShortName>
+					<Path>SFX\Battle_End_D79FB2B7.wem</Path>
+				</File>
 				<File Id="448510432" Language="SFX">
 					<ShortName>ES_Monuments_Melody_Section_D.wav</ShortName>
 					<Path>SFX\ES_Monuments_Melody_Section_D_D79FB2B7.wem</Path>
@@ -132,13 +168,17 @@
 					<ShortName>ES_Monuments_Melody_Section_A.wav</ShortName>
 					<Path>SFX\ES_Monuments_Melody_Section_A_D79FB2B7.wem</Path>
 				</File>
+				<File Id="526842401" Language="SFX">
+					<ShortName>Battle_Section2.wav</ShortName>
+					<Path>SFX\Battle_Section2_D79FB2B7.wem</Path>
+				</File>
 				<File Id="533360802" Language="SFX">
 					<ShortName>ES_Monuments_melody_Section_C.wav</ShortName>
 					<Path>SFX\ES_Monuments_melody_Section_C_D79FB2B7.wem</Path>
 				</File>
-				<File Id="1039766240" Language="SFX">
-					<ShortName>ES_Monuments_Drums_ExitBattle.wav</ShortName>
-					<Path>SFX\ES_Monuments_Drums_ExitBattle_D79FB2B7.wem</Path>
+				<File Id="768155864" Language="SFX">
+					<ShortName>Battle_Section1.wav</ShortName>
+					<Path>SFX\Battle_Section1_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 			<GameParameters>
@@ -162,6 +202,7 @@
 						<State Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}"/>
 						<State Id="2716678721" Name="Victory" ObjectPath="\States\Default Work Unit\Music_State\Victory" GUID="{71016D14-1C72-437D-9D62-829C3176B568}"/>
 						<State Id="1593864692" Name="Defeat" ObjectPath="\States\Default Work Unit\Music_State\Defeat" GUID="{34F51EA6-18B9-4EDA-960F-3BB515F47A66}"/>
+						<State Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}"/>
 					</States>
 				</StateGroup>
 			</StateGroups>
@@ -185,7 +226,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1632429704">
+		<SoundBank Id="3161908922" Language="SFX" Hash="993586667">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -194,7 +235,7 @@
 					<IncludedMemoryFiles>
 						<File Id="781440480" Language="SFX">
 							<ShortName>Ambience_underwater_background.wav</ShortName>
-							<Path>SFX\Ambience_underwater_background_E3DDF8FB.wem</Path>
+							<Path>SFX\Ambience_underwater_background_C46F3BBD.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -248,7 +289,7 @@
 				</File>
 				<File Id="781440480" Language="SFX">
 					<ShortName>Ambience_underwater_background.wav</ShortName>
-					<Path>SFX\Ambience_underwater_background_E3DDF8FB.wem</Path>
+					<Path>SFX\Ambience_underwater_background_C46F3BBD.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
