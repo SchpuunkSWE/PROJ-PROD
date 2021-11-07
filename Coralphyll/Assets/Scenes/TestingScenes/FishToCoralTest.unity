@@ -749,7 +749,6 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
-  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1 &180989610
 GameObject:
@@ -799,7 +798,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 547493149175478311, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3014171594053831532, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_Name
@@ -855,27 +854,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.49999952
+      value: 0.49999928
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77000046
+      value: 0.8830013
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1724563
+      value: -4.026187
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.49999952
+      value: 0.49999928
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77000046
+      value: 0.8830013
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1724563
+      value: -4.026187
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalRotation.w
@@ -900,6 +899,18 @@ PrefabInstance:
     - target: {fileID: 5252014352344281559, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: far clip plane
       value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252014352730127622, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252014352730127622, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.113
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252014352730127622, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.959
       objectReference: {fileID: 0}
     - target: {fileID: 5252014353810559305, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_Height
@@ -965,6 +976,10 @@ PrefabInstance:
       propertyPath: boidsTrigger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5686885514113786516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
+      propertyPath: fishRotateTarget
+      value: 
+      objectReference: {fileID: 881963440}
     m_RemovedComponents:
     - {fileID: 5252014352344281558, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
@@ -1549,7 +1564,6 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
-  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1001 &516800305
 PrefabInstance:
@@ -1828,69 +1842,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53bc58bc71330074499751e848a4063c, type: 3}
---- !u!1 &536267211
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 536267213}
-  - component: {fileID: 536267212}
-  - component: {fileID: 536267214}
-  m_Layer: 0
-  m_Name: Player Fish Boids System
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &536267212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536267211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6609ab4c761684cae82ae67e81419c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 3947967916331223049, guid: be2069c0aafdbc04cb082a0ad80be43c, type: 3}
-  numAgents: 0
-  radius: 1.5
-  randomGoal: 0
-  boidsTarget: {fileID: 0}
-  agents: []
---- !u!4 &536267213
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536267211}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2016400709}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &536267214
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536267211}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &540500724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,6 +3271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ebe8551391196479a248ecef0903ac, type: 3}
+--- !u!1 &881963440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5252014352730127621, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
+  m_PrefabInstance: {fileID: 272557778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &883122799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3872,9 +3828,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentPrefab: {fileID: 998477833479709073, guid: 96f864234ae12ef4d8b129fed5400c00, type: 3}
   numAgents: 0
-  radius: 7
+  radius: 5.5
   randomGoal: 1
-  boidsTarget: {fileID: 2026937994}
   agents: []
 --- !u!43 &1122865196
 Mesh:
@@ -6208,7 +6163,6 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
-  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1001 &1726524417
 PrefabInstance:
@@ -6358,11 +6312,6 @@ Transform:
 --- !u!1 &2016400708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5252014353810559316, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
-  m_PrefabInstance: {fileID: 272557778}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2016400709 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5252014353810559317, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
   m_PrefabInstance: {fileID: 272557778}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &2016400716
@@ -6941,7 +6890,6 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
-  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1001 &2136529731
 PrefabInstance:
