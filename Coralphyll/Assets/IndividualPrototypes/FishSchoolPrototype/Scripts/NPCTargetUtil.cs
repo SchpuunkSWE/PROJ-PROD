@@ -10,12 +10,6 @@ public class NPCTargetUtil : MonoBehaviour
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populera i editorn
 
-    [SerializeField]
-    private GameObject boidsTrigger;
-
-    [SerializeField]
-    private float movingSpeed = 10f;
-
     public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
     {
         if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
@@ -36,30 +30,12 @@ public class NPCTargetUtil : MonoBehaviour
     {
         return listOfFishes;
     }
-
-    public void Update()
-    {
-        //foreach(Follower f in listOfFishes)
-        //{
-        //    //if(f.GetColour()) //Om fisken är av rätt färg
-        //    //{
-        //    //fishesToRemove.Add(f);
-        //    //}
-        //    fishesToRemove.Add(f);
-        //}
-        //foreach(Follower f in fishesToRemove)
-        //{
-        //    listOfFishes.Remove(f); 
-        //    //Anropa AddAgent på korallens boid (boidsystem.AddAgent). Hitta boiden som antagligen är en child till korallen
-        //    //Destroy(f.gameObject); typ
-        //}
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Coral"))
         {
             Debug.Log("Coral Tagged");
-            GameObject boidsSystemGO = other.GetComponentInParent<Coral>().boidsSystem;
+            GameObject boidsSystemGO = other.GetComponentInParent<Coral>().boidsSystem; //GameObject of coral.
             BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>();
             foreach (Follower f in listOfFishes)
             {
@@ -75,14 +51,14 @@ public class NPCTargetUtil : MonoBehaviour
             }
             foreach (Follower f in fishesToRemove)
             {
-                listOfFishes.Remove(f);
-                boidsSystem.AddAgent(f.transform.gameObject);
-                f.GetComponent<NPCFollow>().isFollowingPlayer = false;
-                //Anropa AddAgent på korallens boid (boidsystem.AddAgent). Hitta boiden som antagligen är en child till korallen
-                //Destroy(f.gameObject); typ
+                listOfFishes.Remove(f); //Removes fishes from the list of fishes
+                boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list. 
+                f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+                f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
+                f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
             }
 
-            fishesToRemove.Clear();
+            fishesToRemove.Clear(); //Clear the fishes to remove list.
         }
     }
 }

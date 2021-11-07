@@ -749,6 +749,7 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
+  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1 &180989610
 GameObject:
@@ -1548,6 +1549,7 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
+  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1001 &516800305
 PrefabInstance:
@@ -1860,6 +1862,7 @@ MonoBehaviour:
   numAgents: 0
   radius: 1.5
   randomGoal: 0
+  boidsTarget: {fileID: 0}
   agents: []
 --- !u!4 &536267213
 Transform:
@@ -3850,7 +3853,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2026937995}
   m_Father: {fileID: 375730064}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3870,6 +3874,7 @@ MonoBehaviour:
   numAgents: 0
   radius: 7
   randomGoal: 1
+  boidsTarget: {fileID: 2026937994}
   agents: []
 --- !u!43 &1122865196
 Mesh:
@@ -6203,6 +6208,7 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
+  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1001 &1726524417
 PrefabInstance:
@@ -6449,6 +6455,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53bc58bc71330074499751e848a4063c, type: 3}
+--- !u!1 &2026937994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2026937995}
+  m_Layer: 0
+  m_Name: BoidsTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2026937995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026937994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1122174830}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2033098606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2100452077238127255, guid: b22209b04b57baf4d8a9748eb4161e1c, type: 3}
@@ -6905,6 +6941,7 @@ MonoBehaviour:
   numAgents: 20
   radius: 2
   randomGoal: 1
+  boidsTarget: {fileID: 0}
   agents: []
 --- !u!1001 &2136529731
 PrefabInstance:
