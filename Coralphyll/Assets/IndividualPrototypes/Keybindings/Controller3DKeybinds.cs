@@ -5,6 +5,7 @@ using UnityEngine;
 public class Controller3DKeybinds : MonoBehaviour
 {
     public Vector3 velocity;
+    
     public float speed = 30f;
     public Vector3 playerInput;
     public float decelerateValue = 7f;
