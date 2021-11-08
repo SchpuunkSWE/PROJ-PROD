@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 839903247306963459}
   - component: {fileID: 8221741648170965471}
   m_Layer: 0
-  m_Name: Sky and Fog Volume
+  m_Name: Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,13 +104,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3943476027800041662}
-  m_LocalRotation: {x: 0.5173882, y: 0.11895928, z: -0.07289833, w: 0.8443009}
+  m_LocalRotation: {x: 0.5291368, y: 0.14645337, z: -0.09330109, w: 0.83057845}
   m_LocalPosition: {x: -61.68184, y: 123.714485, z: -63.187263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3943476027274034675}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 63, y: 16.04, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: 20, z: 0}
 --- !u!108 &3943476027800041663
 Light:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.7372549, g: 1, b: 0.8877159, a: 1}
+  m_Color: {r: 0.7176471, g: 1, b: 0.9647059, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -132,7 +132,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.8
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.1
@@ -166,8 +166,8 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 7879
-  m_UseColorTemperature: 0
+  m_ColorTemperature: 7770
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
