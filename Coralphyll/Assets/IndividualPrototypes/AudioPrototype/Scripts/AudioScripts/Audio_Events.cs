@@ -8,12 +8,19 @@ public class Audio_Events : MonoBehaviour
     // Music_State:  Combat, Defeat, Exploring, MainMenu, Victory
     // PlayerLife: Alive, Dead
     public bool isAlive = true;
+    public bool inCombat = false;
+    AIController[] aiContr;
     // Start is called before the first frame update
     void Start()
     {
+        aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
         Audio_GameState("Level1");
         Audio_PlayerState(isAlive);
+    }
+    private void Update()
+    {
+        CombatCheck();
     }
     public void Audio_StingerCue(string cue)
     {
@@ -22,6 +29,25 @@ public class Audio_Events : MonoBehaviour
             default:
                 break;
         }
+    }
+    private void CombatCheck()
+    {
+        for(int i = 0; i < aiContr.Length; i++)
+        {
+            inCombat = false;
+
+            if (aiContr[i].StateMachine.CurrentState is EnemyChase)
+            {
+                Audio_LevelState("Combat");
+                inCombat = true;
+                break;
+            }
+        }
+        if (!inCombat)
+        {
+            Audio_LevelState("Exploring");
+        }
+
     }
     public void Audio_PlayerState(bool isAlive)
     {
