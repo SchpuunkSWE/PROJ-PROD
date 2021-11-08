@@ -23,7 +23,7 @@ public class AIController : MonoBehaviour
     {
         Renderer = GetComponent<MeshRenderer>();
         Animator = GetComponent<Animator>();
-        Player = PlayerController.Player.gameObject; //Get from player
+        Player = PlayerControllerKeybinds.Player.gameObject; //Get from player
         stateMachine = new StateMachine(this, states);
     }
 
