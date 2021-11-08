@@ -9,67 +9,79 @@ public class NPCFollow : MonoBehaviour
     private float allowedDistance = 0.15f;    
     [SerializeField]
     private float followSpeed = 2f;    
-    //[SerializeField]
-    //private float followThrust = 0.2f;
 
     private int positionInList = -1;
     private float targetDistance;
 
     private RaycastHit shot;
-    private bool isFollowingPlayer = false;
-    //private Rigidbody rgb;
+    public bool isFollowingPlayer = false;
 
-    void Start()
+    [SerializeField]
+    private bool collectable = true;
+
+    private Rigidbody rgb;
+
+    void Awake()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
-        //rgb = GetComponent<Rigidbody>();
+        rgb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         FollowPlayer();
+        //StayInSchool();
     }
-    //void FixedUpdate()
-    //{
-    //    FollowPlayer();
-    //}
 
     private void FollowPlayer()
     {
         if (isFollowingPlayer)
         {
-            transform.LookAt(fishTarget.transform); //Ser till att NPC tittar mot oss
+            Vector3 direction = (fishTarget.transform.position + fishTarget.transform.TransformDirection(Vector3.forward)) - transform.position; //RÃ¤knar ut vart NPC ska titta.
+            
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 4f * Time.deltaTime); //Ser till att NPC roterar mot sitt mÃ¥l.
+
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out shot))
             {
                 targetDistance = shot.distance;
 
                 if (targetDistance >= allowedDistance)
                 {
-                    //followSpeed = 0.2f; //Sätter farten NPC rör sig i
-
-                    //rgb.AddForce(Vector3.forward * followThrust);
-                    //rgb.velocity = Vector3.ClampMagnitude(rgb.velocity, followSpeed);
-                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed); //Gör så att NPC rör sig mot spelaren
+                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed); //Gï¿½r sï¿½ att NPC rï¿½r sig mot spelaren.
                 }
-                //else
-                //{
-                //    followSpeed = 0; //Om spelaren inte är i närheten ska NPC vara stå stilla.
-                //}
             }
         }
     }
 
+    //private void StayInSchool() //Failsafe to reset velocity of fish if flung out of BoidSystem
+    //{
+    //    if (gameObject.GetComponentInParent<BoidsSystem>() == null)
+    //    {
+    //        return; 
+    //    }
+    //    BoidsSystem boidsSystem = gameObject.GetComponentInParent<BoidsSystem>();
+    //    float dist = Vector3.Distance(boidsSystem.gameObject.transform.position, transform.position);
+    //    if (!(isFollowingPlayer) && dist > boidsSystem.Radius + 2f)
+    //    {
+    //        rgb.velocity.Set(0f, 0f, 0f); 
+    //    }
+    //}
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && collectable == true)
         {
-            NPCTargetUtil listScript = other.gameObject.GetComponent<NPCTargetUtil>(); //Hämtar det andra scriptet så vi kommer åt det
-            positionInList = listScript.AddToSchool(transform.gameObject); //Lägger till fisken till listan och returnerar platsen i listan den får
-            if(positionInList >= 0) //Om vi får tillbaka ett värde över 0... 
+            NPCTargetUtil listScript = other.gameObject.GetComponent<NPCTargetUtil>(); //Hï¿½mtar det andra scriptet frÃ¥n spelare sï¿½ vi kommer ï¿½t det.
+            positionInList = listScript.AddToSchool(transform.gameObject.GetComponent<Follower>()); //Lï¿½gger till fisken till listan och returnerar platsen i listan den fï¿½r.
+            if(positionInList >= 0) //Om vi fï¿½r tillbaka ett vï¿½rde ï¿½ver 0... 
             {            
-                fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi sätter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista
-                isFollowingPlayer = true; //Vi sätter fiskens status till att följa spelaren
+                fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi sï¿½tter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista.
+                GetComponentInParent<BoidsSystem>().RemoveAgent(gameObject); //Tar bort agent frÃ¥n listan av agents.
+                isFollowingPlayer = true; //Vi sï¿½tter fiskens status till att fï¿½lja spelaren.
+                collectable = false; //So that you can only pick up the fishes ones.
+                rgb.detectCollisions = false; //Turn off collision on fish.
+                GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
             }
         }
     }

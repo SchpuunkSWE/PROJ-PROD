@@ -5,23 +5,60 @@ using UnityEngine;
 public class NPCTargetUtil : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> listOfFishes = new List<GameObject>();
+    private List<Follower> listOfFishes = new List<Follower>();
+    private List<Follower> fishesToRemove = new List<Follower>();
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populera i editorn
 
-    public int AddToSchool(GameObject go) 
+    public int AddToSchool(Follower go) //Kanske dÃ¶pa om (till AddTOInventory)
     {
         if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
         {
-            return -1; //returner default värde eftersom positionInList inte kan sättas till null
+            return -1; //returner default vï¿½rde eftersom positionInList inte kan sï¿½ttas till null
         }
         //Om metoden inte har returnerats...
         listOfFishes.Add(go); 
         return listOfFishes.IndexOf(go);
     }
 
-    public GameObject GetTargetPositionObject(int i) //Hämtar TargetObject från array
+    public GameObject GetTargetPositionObject(int i) //Hï¿½mtar TargetObject frï¿½n array
     {
         return arrayOfTargets[i];
+    }
+
+    public List<Follower> getListOfFishes()
+    {
+        return listOfFishes;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coral"))
+        {
+            Debug.Log("Coral Tagged");
+            GameObject boidsSystemGO = other.GetComponentInParent<Coral>().boidsSystem; //GameObject of coral.
+            BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>();
+            foreach (Follower f in listOfFishes)
+            {
+                if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+                {
+                    fishesToRemove.Add(f);
+                }
+                
+                //if(f.GetColour()) //Om fisken Ã¤r av rÃ¤tt fÃ¤rg
+                //{
+                //fishesToRemove.Add(f);
+                //}
+            }
+            foreach (Follower f in fishesToRemove)
+            {
+                listOfFishes.Remove(f); //Removes fishes from the list of fishes
+                boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list. 
+                f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+                f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
+                f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
+            }
+
+            fishesToRemove.Clear(); //Clear the fishes to remove list.
+        }
     }
 }
