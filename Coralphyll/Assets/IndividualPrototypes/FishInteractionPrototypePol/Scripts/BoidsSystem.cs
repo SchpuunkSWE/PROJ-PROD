@@ -46,4 +46,17 @@ public class BoidsSystem : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, Radius);
         Gizmos.DrawCube(GoalPosition, Vector3.one * 0.1f);
     }
+
+    public void RemoveAgent(GameObject agent)
+    {
+        Debug.Log("Remove fish");
+        agents.Remove(agent);
+    }
+
+    public void AddAgent(GameObject agent)
+    {
+        Debug.Log("Add fish");
+        agents.Add(agent);
+        agent.GetComponent<BoidsAgent>().owner = this;
+    }
 }

@@ -28,14 +28,23 @@ public class Coral : MonoBehaviour
     private string redBaseTxt = "Red Fishes: ";
     private string blueBaseTxt = "Blue Fishes: ";
 
+    private MeshRenderer mRenderer;
 
+    [SerializeField]
+    private ParticleSystem CompletedParticles;
+
+    [SerializeField]
     private bool complete = false;
+
+    public GameObject boidsSystem;
 
     private void Awake()
     {
         yellowFishesAmount = 0;
         redFishesAmount = 0;
         blueFishesAmount = 0;
+
+        mRenderer = gameObject.GetComponent<MeshRenderer>();
     }
 
     private void Start()
@@ -60,9 +69,11 @@ public class Coral : MonoBehaviour
             switch (fishColour)
             {
                 case "yellow":
+                case "Yellow":
                     yellowFishesAmount++;
                     break;
                 case "red":
+                case "Red":
                     redFishesAmount++;
                     break;
                 default:
@@ -75,12 +86,12 @@ public class Coral : MonoBehaviour
         //call some display-method
         UpdateProgress();
 
-        //"Ta bort" fiskarna från spelarens lista 
-        foreach (Follower fish in fishes)
-        {
-            fish.gameObject.SetActive(false);
-            Debug.Log("Hid fish " + fish.GetInstanceID());
-        }
+        //"Ta bort" fiskarna frï¿½n spelarens lista 
+        //foreach (Follower fish in fishes)
+        //{
+        //    fish.gameObject.SetActive(false);
+        //    Debug.Log("Hid fish " + fish.GetInstanceID());
+        //}
 
         //Check completion
         CheckProgress();
@@ -97,8 +108,8 @@ public class Coral : MonoBehaviour
 
     private void CheckProgress()
     {
-        //Íf all different colour-needs are met, coral is "complete"
-        if((yellowFishesAmount == yellowFishesNeeded) && (redFishesAmount == redFishesNeeded) && (blueFishesAmount == blueFishesNeeded))
+        //ï¿½f all different colour-needs are met, coral is "complete"
+        if((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
         {
             complete = true;
             SpreadColour();
@@ -109,6 +120,13 @@ public class Coral : MonoBehaviour
     {
         // Spread colour/Increase saturation
         Debug.Log("Spreading Colour!");
+        Debug.Log(mRenderer.material.name);
+
+        Color newCoralColour = new Color(59, 250, 0);
+
+        mRenderer.material.SetColor("_BaseColor", newCoralColour);
+
+        Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90,0,0));
     }
 
 
