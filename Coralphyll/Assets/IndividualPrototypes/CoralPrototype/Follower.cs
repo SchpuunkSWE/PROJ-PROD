@@ -6,8 +6,10 @@ using UnityEngine.Events;
 
 public class Follower : MonoBehaviour
 {
+    public enum Colour { RED, BLUE, YELLOW};
+
     [SerializeField]
-    private string colour;
+    private Colour fishColour;
 
     [SerializeField]
     private GameObject parent;
@@ -15,14 +17,12 @@ public class Follower : MonoBehaviour
     [SerializeField]
     private Collider col;
 
-
     public bool isClickable = false;
 
-    public string GetColour()
+    public Colour GetColour()
     {
-        return this.colour;
+        return this.fishColour;
     }
-
     //private void Awake()
     //{
     //    col.enabled = false;
@@ -40,7 +40,7 @@ public class Follower : MonoBehaviour
         //Used to control whether player can add fishes to list to deposit or not
         if (isClickable)
         {
-            Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + colour);
+            Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + fishColour.ToString());
             //Debug.Log(this.GetInstanceID());
 
             //add clicked fish to followersToDeposit (see PlayerFollowers-script)

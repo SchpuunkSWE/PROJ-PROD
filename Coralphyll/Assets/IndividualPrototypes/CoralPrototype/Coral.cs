@@ -36,6 +36,8 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private bool complete = false;
 
+    public bool Complete { get => complete; set => complete = value; }
+
     public GameObject boidsSystem;
 
     private void Awake()
@@ -61,22 +63,17 @@ public class Coral : MonoBehaviour
     public void ReceiveFish(List<Follower> fishes) //Take fish-object later ?
     {
         Debug.Log("ReceiveFish Reached");
-        string fishColour;
-        foreach (Follower fish in fishes) 
+        foreach (Follower fish in fishes)
         {
-            fishColour = fish.GetColour();
-
-            switch (fishColour)
+            switch (fish.GetColour())
             {
-                case "yellow":
-                case "Yellow":
+                case Follower.Colour.YELLOW:
                     yellowFishesAmount++;
                     break;
-                case "red":
-                case "Red":
+                case Follower.Colour.RED:
                     redFishesAmount++;
                     break;
-                default:
+                case Follower.Colour.BLUE:
                     blueFishesAmount++;
                     break;
             }
@@ -109,7 +106,7 @@ public class Coral : MonoBehaviour
     private void CheckProgress()
     {
         //�f all different colour-needs are met, coral is "complete"
-        if((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
+        if ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
         {
             complete = true;
             SpreadColour();
@@ -126,8 +123,14 @@ public class Coral : MonoBehaviour
 
         mRenderer.material.SetColor("_BaseColor", newCoralColour);
 
-        Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90,0,0));
+        Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
     }
 
+    public void DepositFishButton(Follower.Colour colour)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        NPCTargetUtil nPCTargetUtil = player.GetComponent<NPCTargetUtil>();
+        nPCTargetUtil.TransferFish(colour);
+    }
 
 }
