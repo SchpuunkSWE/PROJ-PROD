@@ -33,7 +33,7 @@ public class Controller3DKeybinds : MonoBehaviour
     void Update()
     {
         PlayerInput();
-        ApplyGravity();
+        //ApplyGravity();
         HitDetection();
         ApplyVelocity();
 

@@ -5,6 +5,19 @@ using UnityEngine;
 public class PlayerControllerKeybinds : MonoBehaviour
 {
     public Controller3DKeybinds playerController;
+
+    private static PlayerControllerKeybinds player;
+    public static PlayerControllerKeybinds Player
+    {
+        get
+        {
+            if (player == null)
+            {
+                player = FindObjectOfType<PlayerControllerKeybinds>();
+            }
+            return player;
+        }
+    }
     private InputManager inputManager;
 
     void Start()
