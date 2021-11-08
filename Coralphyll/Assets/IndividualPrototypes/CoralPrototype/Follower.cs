@@ -6,10 +6,10 @@ using UnityEngine.Events;
 
 public class Follower : MonoBehaviour
 {
-    public enum Colour { RED, BLUE, YELLOW};
+    //public enum Colour { RED, BLUE, YELLOW};
 
     [SerializeField]
-    private Colour fishColour;
+    private FishColour fishColour;
 
     [SerializeField]
     private GameObject parent;
@@ -19,10 +19,11 @@ public class Follower : MonoBehaviour
 
     public bool isClickable = false;
 
-    public Colour GetColour()
+    public FishColour GetColour()
     {
         return this.fishColour;
     }
+
     //private void Awake()
     //{
     //    col.enabled = false;
@@ -35,18 +36,18 @@ public class Follower : MonoBehaviour
     //    }
     //}
                                                                                                                                                                                                                                                                                                                                                                                                                   
-    private void OnMouseDown()
-    {
-        //Used to control whether player can add fishes to list to deposit or not
-        if (isClickable)
-        {
-            Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + fishColour.ToString());
-            //Debug.Log(this.GetInstanceID());
+    //private void OnMouseDown()
+    //{
+    //    //Used to control whether player can add fishes to list to deposit or not
+    //    if (isClickable)
+    //    {
+    //        Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + fishColour.ToString());
+    //        //Debug.Log(this.GetInstanceID());
 
-            //add clicked fish to followersToDeposit (see PlayerFollowers-script)
-            parent.GetComponent<PlayerFollowers>().TransferFollower(this);
+    //        //add clicked fish to followersToDeposit (see PlayerFollowers-script)
+    //        parent.GetComponent<PlayerFollowers>().TransferFollower(this);
 
-            isClickable = false;
-        }
-    }
+    //        isClickable = false;
+    //    }
+    //}
 }

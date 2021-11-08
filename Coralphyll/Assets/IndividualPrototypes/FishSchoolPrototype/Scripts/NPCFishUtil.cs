@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCTargetUtil : MonoBehaviour
+public class NPCFishUtil : MonoBehaviour
 {
     [SerializeField]
     private List<Follower> listOfFishes = new List<Follower>();
     private List<Follower> fishToRemove = new List<Follower>();
-    private List<Follower> followersToDeposit = new List<Follower>();
 
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populera i editorn
 
     private GameObject boidsSystemGO;
+
+    private Coral coral;
 
     public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
     {
@@ -39,40 +40,23 @@ public class NPCTargetUtil : MonoBehaviour
         if (other.CompareTag("Coral"))
         {
             Debug.Log("Coral Tagged");
-            boidsSystemGO = other.GetComponentInParent<Coral>().boidsSystem; //GameObject of coral.
+            coral = other.GetComponentInParent<Coral>();
+            boidsSystemGO = coral.boidsSystem; //GameObject of coral.
+            
         }
     }
 
-    public void TransferFollower(Follower fish)
+    public void TransferFish(FishColour fishColour)
     {
-        followersToDeposit.Add(fish);
-        Debug.Log(followersToDeposit.Count);
-    }
-
-    public void DepositFish()
-    {
-        Coral currentCoral = GetComponent<Coral>();
-        currentCoral.GetComponent<Coral>().ReceiveFish(followersToDeposit);
-        Debug.Log("DepositFish Reached");
-        followersToDeposit.Clear();
-        //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
-    }//N�r man har deposit:at klart m�ste followersToDeposit t�mmas igen - g�ra i korallen kanske (?)
-
-    public void TransferFish(Follower.Colour colour)
-    {
-        BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>();
+        BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
 
         foreach (Follower f in listOfFishes)
         {
-            if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == colour)
+            if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
             {
-                fishToRemove.Add(f);
+                fishToRemove.Add(f); 
             }
 
-            //if(f.GetColour()) //Om fisken är av rätt färg
-            //{
-            //fishesToRemove.Add(f);
-            //}
         }
         foreach (Follower f in fishToRemove)
         {
@@ -83,8 +67,7 @@ public class NPCTargetUtil : MonoBehaviour
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
 
         }
-        Coral currentCoral = GetComponent<Coral>();
-        currentCoral.GetComponent<Coral>().ReceiveFish(fishToRemove);
+        coral.GetComponent<Coral>().ReceiveFish(fishToRemove);
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 }

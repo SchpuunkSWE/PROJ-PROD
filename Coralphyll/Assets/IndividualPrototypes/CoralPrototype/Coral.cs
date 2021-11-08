@@ -36,8 +36,6 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private bool complete = false;
 
-    public bool Complete { get => complete; set => complete = value; }
-
     public GameObject boidsSystem;
 
     private void Awake()
@@ -60,21 +58,21 @@ public class Coral : MonoBehaviour
         blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
-    public void ReceiveFish(List<Follower> fishes) //Take fish-object later ?
+    public void ReceiveFish(List<Follower> fishes) //Counter for fish recieved.
     {
         Debug.Log("ReceiveFish Reached");
         foreach (Follower fish in fishes)
         {
             switch (fish.GetColour())
             {
-                case Follower.Colour.YELLOW:
+                case FishColour.YELLOW:
                     yellowFishesAmount++;
                     break;
-                case Follower.Colour.RED:
-                    redFishesAmount++;
+                case FishColour.RED:
+                        redFishesAmount++;
                     break;
-                case Follower.Colour.BLUE:
-                    blueFishesAmount++;
+                case FishColour.BLUE:
+                        blueFishesAmount++;
                     break;
             }
         }
@@ -126,11 +124,25 @@ public class Coral : MonoBehaviour
         Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
     }
 
-    public void DepositFishButton(Follower.Colour colour)
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        NPCTargetUtil nPCTargetUtil = player.GetComponent<NPCTargetUtil>();
-        nPCTargetUtil.TransferFish(colour);
-    }
+    //public void DepositFish(Follower.Colour colour)
+    //{       
+    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+    //    NPCTargetUtil nPCTargetUtil = player.GetComponent<NPCTargetUtil>();
+    //    nPCTargetUtil.TransferFish(colour);
+    //}
 
+    public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
+    {
+        switch (fishColour)
+        {
+            case FishColour.YELLOW:
+                return yellowFishesNeeded - yellowFishesAmount;
+            case FishColour.RED:
+                return redFishesNeeded - redFishesAmount ;
+            case FishColour.BLUE:
+                return blueFishesNeeded - blueFishesAmount;
+            default:
+                return 0;
+        }
+    }
 }
