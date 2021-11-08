@@ -1719,7 +1719,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173668
+  m_Name: pb_Mesh47178
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4154,7 +4154,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173606
+  m_Name: pb_Mesh47116
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5474,11 +5474,11 @@ RectTransform:
   m_Father: {fileID: 1665582508}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 69.99998, y: -69.99998}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &812583362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7267,7 +7267,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173636
+  m_Name: pb_Mesh47146
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7595,7 +7595,7 @@ GameObject:
   - component: {fileID: 1136826085}
   - component: {fileID: 1136826084}
   - component: {fileID: 1136826083}
-  - component: {fileID: 1136826082}
+  - component: {fileID: 1136826095}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7618,30 +7618,6 @@ Transform:
   m_Father: {fileID: 1949530592}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1136826082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136826080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8372e7959f2732440a7e1080a954cf83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: bd766ac5ff6169645bab362be03885b0, type: 2}
-  valueIdInternal: 0
-  groupIdInternal: 0
-  valueGuidInternal: 
-  groupGuidInternal: 
 --- !u!95 &1136826083
 Animator:
   serializedVersion: 3
@@ -7673,25 +7649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2ccc87d473db74ab9969daca45e7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLife:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: bd766ac5ff6169645bab362be03885b0, type: 2}
-  playerDead:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: e3a2d7886fc08ff45a3cb51b2e927685, type: 2}
-  playerSwim: fs_player_Swim
-  playerSwimSprint: fs_player_Swim_Sprint
-  RTPC_SpeedOfCharacter: RTPC_SpeedOfCharacter
-  RTPC_playerAlive: RTPC_PlayerAlive
-  wwise_stateGroup_playerLife: playerLife
   playerSpeed: 0
-  playerAlive: 1
   time: 0
 --- !u!114 &1136826085
 MonoBehaviour:
@@ -7882,6 +7840,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136826080}
   m_Mesh: {fileID: -2772764147979879152, guid: 0bcfbe5cf2a17eb49b04dfce2946ab9e, type: 3}
+--- !u!114 &1136826095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136826080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42415d7fefa2ac948874e57085d89440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
 --- !u!4 &1149702334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6817547652064318970, guid: 94ebe8551391196479a248ecef0903ac, type: 3}
@@ -10380,7 +10351,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173618
+  m_Name: pb_Mesh47128
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11185,7 +11156,6 @@ GameObject:
   - component: {fileID: 1626447174}
   - component: {fileID: 1626447173}
   - component: {fileID: 1626447172}
-  - component: {fileID: 1626447171}
   - component: {fileID: 1626447170}
   m_Layer: 0
   m_Name: Main_Camera
@@ -11226,20 +11196,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &1626447171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626447169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73d89f3d0328b4489516fc0ac62d158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wwise_stateGroup_gameState: MusicState_Initiate
-  event_background_ambience: Background_Ambience
 --- !u!114 &1626447172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11615,10 +11571,10 @@ MonoBehaviour:
   sliderSFX: {fileID: 1065531463}
   volumePercentageMusic: {fileID: 1576789119}
   sliderMusic: {fileID: 1486763053}
-  RTPC_MasterVolume: RTPC_MusicVolume
+  RTPC_MasterVolume: RTPC_MasterVolume
   RTPC_AmbienceVolume: RTPC_AmbienceVolume
   RTPC_SFXVolume: RTPC_SFXVolume
-  RTPC_MusicVolume: RTPC_MasterVolume
+  RTPC_MusicVolume: RTPC_MusicVolume
 --- !u!114 &1665582506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14085,7 +14041,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh173656
+  m_Name: pb_Mesh47166
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

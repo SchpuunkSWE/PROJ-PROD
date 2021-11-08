@@ -713,9 +713,7 @@
 								</ModifierInfo>
 							</ModifierList>
 						</Property>
-						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 						<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
-						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
@@ -763,6 +761,9 @@
 									</ModifierList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{D389EC39-05D4-454A-8E8D-154B1559ECCE}">
@@ -786,11 +787,15 @@
 							<ChildrenList>
 								<AudioFileSource Name="Ambience_underwater_background" ID="{C22E8A3B-FEA4-41D3-A65F-34F72E0CBF7A}">
 									<PropertyList>
-										<Property Name="CrossfadeDuration" Type="Real64" Value="945.245"/>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="669.548"/>
+										<Property Name="CrossfadeShape" Type="int16" Value="6"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.2"/>
 										<Property Name="FadeInShape" Type="int16" Value="6"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.2"/>
 										<Property Name="FadeOutShape" Type="int16" Value="6"/>
-										<Property Name="LoopBegin" Type="Real64" Value="1.20291196969697"/>
-										<Property Name="LoopEnd" Type="Real64" Value="14.124743030303"/>
+										<Property Name="LoopBegin" Type="Real64" Value="1.51131"/>
+										<Property Name="LoopEnd" Type="Real64" Value="13.8779113636364"/>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 										<Property Name="TrimBegin" Type="Real64" Value="0.314"/>
 									</PropertyList>

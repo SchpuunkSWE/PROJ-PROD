@@ -3,18 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class player_animation_events : MonoBehaviour
 {
-
-    [SerializeField] private AK.Wwise.State playerLife;
-    [SerializeField] private AK.Wwise.State playerDead;
-
-    public string playerSwim = "fs_player_swim";
-    public string playerSwimSprint = "fs_player_swim_sprint";
-    public string RTPC_SpeedOfCharacter = "RTPC_SpeedOfCharacter";
-    public string RTPC_playerAlive = "RTPC_PlayerAlive";
-    public string wwise_stateGroup_playerLife = "playerLife";
-
     public float playerSpeed;
-    public float playerAlive = 1;
     public float time;
     private Controller3D playerInfo;
     Animator anim;
@@ -24,14 +13,12 @@ public class player_animation_events : MonoBehaviour
         AkSoundEngine.RegisterGameObj(gameObject);
         playerInfo = GetComponent<Controller3D>();
         anim = GetComponent<Animator>();
-        AkSoundEngine.SetRTPCValue(RTPC_playerAlive, playerAlive);
-        AkSoundEngine.SetState(wwise_stateGroup_playerLife, "Alive");
 }
     private void Update()
     {
         playerSpeed = playerInfo.velocity.magnitude;
         CheckPlayerVelocity();
-        AkSoundEngine.SetRTPCValue(RTPC_SpeedOfCharacter, playerSpeed);
+        AkSoundEngine.SetRTPCValue("RTPC_SpeedOfCharacter", playerSpeed);
         time = time + Time.deltaTime;
        /* if (time > 15f)
         {
@@ -40,7 +27,7 @@ public class player_animation_events : MonoBehaviour
     }
     public void Fs_player_swim()
     {
-        AkSoundEngine.PostEvent(playerSwim, gameObject);
+        AkSoundEngine.PostEvent("fs_player_swim", gameObject);
     }
     public void CheckPlayerVelocity()
     {
@@ -70,7 +57,7 @@ public class player_animation_events : MonoBehaviour
     
     public void fs_player_sprint()
     {
-        AkSoundEngine.PostEvent(playerSwimSprint, gameObject);
+        AkSoundEngine.PostEvent("fs_player_swim_sprint", gameObject);
     }
 
 }
