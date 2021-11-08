@@ -36,6 +36,8 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private bool complete = false;
 
+    public GameObject boidsSystem;
+
     private void Awake()
     {
         yellowFishesAmount = 0;
@@ -85,11 +87,11 @@ public class Coral : MonoBehaviour
         UpdateProgress();
 
         //"Ta bort" fiskarna fr�n spelarens lista 
-        foreach (Follower fish in fishes)
-        {
-            fish.gameObject.SetActive(false);
-            Debug.Log("Hid fish " + fish.GetInstanceID());
-        }
+        //foreach (Follower fish in fishes)
+        //{
+        //    fish.gameObject.SetActive(false);
+        //    Debug.Log("Hid fish " + fish.GetInstanceID());
+        //}
 
         //Check completion
         CheckProgress();
