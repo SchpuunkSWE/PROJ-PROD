@@ -31,6 +31,9 @@ public class Coral : MonoBehaviour
     private MeshRenderer mRenderer;
 
     [SerializeField]
+    private GameController gameController;
+
+    [SerializeField]
     private ParticleSystem CompletedParticles;
 
     [SerializeField]
@@ -40,6 +43,7 @@ public class Coral : MonoBehaviour
 
     private void Awake()
     {
+        //gameController = GameObject.FindGameObjectWithTag("GC").GetComponent<GameController>(); - try this if u can't set it in the inspector for some reason
         yellowFishesAmount = 0;
         redFishesAmount = 0;
         blueFishesAmount = 0;
@@ -107,6 +111,10 @@ public class Coral : MonoBehaviour
         if ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
         {
             complete = true;
+
+            //Increment number of completed corals in GameController
+            gameController.SetCompletedCoralAmount();
+
             SpreadColour();
         }
     }
