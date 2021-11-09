@@ -40,7 +40,7 @@ public class NPCFollow : MonoBehaviour
         {
             Vector3 direction = (fishTarget.transform.position + fishTarget.transform.TransformDirection(Vector3.forward)) - transform.position; //Räknar ut vart NPC ska titta.
             
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 4f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 10f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
 
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out shot))
             {
@@ -72,7 +72,7 @@ public class NPCFollow : MonoBehaviour
     {
         if (other.CompareTag("Player") && collectable == true)
         {
-            NPCTargetUtil listScript = other.gameObject.GetComponent<NPCTargetUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
+            NPCFishUtil listScript = other.gameObject.GetComponent<NPCFishUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
             positionInList = listScript.AddToSchool(transform.gameObject.GetComponent<Follower>()); //L�gger till fisken till listan och returnerar platsen i listan den f�r.
             if(positionInList >= 0) //Om vi f�r tillbaka ett v�rde �ver 0... 
             {            
