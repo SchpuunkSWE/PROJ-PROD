@@ -32,6 +32,10 @@ public class Audio_Events : MonoBehaviour
     }
     private void CombatCheck()
     {
+        if (aiContr.Length != 0)
+        {
+
+
         for(int i = 0; i < aiContr.Length; i++)
         {
             inCombat = false;
@@ -47,7 +51,7 @@ public class Audio_Events : MonoBehaviour
         {
             Audio_LevelState("Exploring");
         }
-
+        }
     }
     public void Audio_PlayerState(bool isAlive)
     {
