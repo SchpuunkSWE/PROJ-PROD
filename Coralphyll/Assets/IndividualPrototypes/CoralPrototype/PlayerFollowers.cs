@@ -41,7 +41,7 @@ public class PlayerFollowers : MonoBehaviour
 
     private void Update()
     {
-        allfollowers = GetComponent<NPCTargetUtil>().getListOfFishes();
+        allfollowers = GetComponent<NPCFishUtil>().getListOfFishes();
     //    if (nearCoral)
     //    {
     //        if (Input.GetKeyDown(KeyCode.M))

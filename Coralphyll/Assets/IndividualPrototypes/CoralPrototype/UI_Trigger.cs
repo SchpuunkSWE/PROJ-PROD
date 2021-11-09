@@ -21,18 +21,18 @@ public class UI_Trigger : MonoBehaviour
 
         if(other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerFollowers>().nearCoral = true;
-            other.gameObject.GetComponent<PlayerFollowers>().currentCoral = myCoral;
+            //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = true;
+            //other.gameObject.GetComponent<PlayerFollowers>().currentCoral = myCoral;
             //Activate Coral UI Panel
             panel.SetActive(true);
 
             //Fetch all player's followers
-            List<Follower> playerFollowers = other.GetComponent<PlayerFollowers>().GetAllFollowers();
+            List<Follower> playerFollowers = other.GetComponent<NPCFishUtil>().getListOfFishes();
 
             Debug.Log("Trigger Entered!");
 
             //Make all player's followers clickable
-            setClickable(playerFollowers);
+            //setClickable(playerFollowers);
 
         }
 
@@ -43,11 +43,11 @@ public class UI_Trigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerFollowers>().nearCoral = false;
+            //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = false;
             panel.SetActive(false);
             //Debug.Log("Trigger Exited!");
             //Sätt även spelarens fiskar till non-clickable
-            setClickable(other.GetComponent<PlayerFollowers>().GetAllFollowers());
+            //setClickable(other.GetComponent<PlayerFollowers>().GetAllFollowers());
         }
     }
 
