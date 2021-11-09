@@ -5,13 +5,13 @@ public class player_animation_events : MonoBehaviour
 {
     public float playerSpeed;
     public float time;
-    private Controller3D playerInfo;
+    private Controller3DKeybinds playerInfo;
     Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         AkSoundEngine.RegisterGameObj(gameObject);
-        playerInfo = GetComponent<Controller3D>();
+        playerInfo = GetComponent<Controller3DKeybinds>();
         anim = GetComponent<Animator>();
 }
     private void Update()
