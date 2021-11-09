@@ -22,7 +22,7 @@ public class UI_Trigger : MonoBehaviour
         if(other.tag == "Player")
         {
             //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = true;
-            other.gameObject.GetComponent<NPCFishUtil>().currentCoral = myCoral;
+            //other.gameObject.GetComponent<PlayerFollowers>().currentCoral = myCoral;
             //Activate Coral UI Panel
             panel.SetActive(true);
 
