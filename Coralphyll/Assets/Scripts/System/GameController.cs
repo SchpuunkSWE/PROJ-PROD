@@ -39,20 +39,34 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("DepositBlueFishButton pressed");
 
-        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.BLUE);
+        player.GetComponent<NPCFishUtil>().TransferFishToCoral(FishColour.BLUE);
     }
 
     public void DepositYellowFishButton()
     {
-        Debug.Log("DepositYellowFishButton pressed");
+        if (player.CompareTag("Player"))
+        {
+            Debug.Log("DepositYellowFishButton pressed");
+            player.GetComponent<NPCFishUtil>().TransferFishToCoral(FishColour.YELLOW);
+        }
 
-        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.YELLOW);
+        if (player.CompareTag("SafeZone"))
+        {
+            player.GetComponent<NPCFishUtil>().TransferFishToSafezone(FishColour.YELLOW);
+        }
     }
 
     public void DepositRedFishButton()
     {
-        Debug.Log("DepositRedFishButton pressed");
+        if (player.CompareTag("Player"))
+        {
+            Debug.Log("DepositRedFishButton pressed");
+            player.GetComponent<NPCFishUtil>().TransferFishToCoral(FishColour.RED);
+        }
 
-        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.RED);
+        if (player.CompareTag("SafeZone"))
+        {
+            player.GetComponent<NPCFishUtil>().TransferFishToSafezone(FishColour.RED);
+        }
     }
 }
