@@ -51,6 +51,8 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+
         if (other.tag == "Player")
         {
             //Activate Coral UI Panel
