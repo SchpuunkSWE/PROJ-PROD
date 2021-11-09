@@ -7,11 +7,47 @@ public class GameController : MonoBehaviour
     private static GameController instance;
 
     [SerializeField]
-    private Vector3 lastCheckPointPos;
+    private Vector3 lastCheckPointPos; //Set in inspector to the first checkpoint pos, to determine where the player starts.
+
+    [SerializeField]
+    private GameObject player; //Set in inspector
+
+    [SerializeField]
+    private GameObject sceneTransitionGate;
+    
+    [SerializeField]
+    private int totalCoralAmount; //Set in inspector, amount of corals in scene
+
+    private int completedCoralAmount = 0; //Amount of corals with fully completed needs
+
+    public void SetCompletedCoralAmount()
+    {
+        completedCoralAmount++;
+    }
+
+    private void CheckLevelProgress()
+    {
+        if (completedCoralAmount >= totalCoralAmount)
+        {
+            LevelComplete();
+        }
+    }
+
+    private void LevelComplete()
+    {
+        //Open a gate to next level
+        Debug.Log("Level Complete!");
+        sceneTransitionGate.SetActive(true);
+    }
+
+    private void Update()
+    {
+        CheckLevelProgress();
+    }
 
     private void Awake()
     {
-        if(instance == null)  
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(instance); //Makes the GameController survive between scenes
@@ -22,7 +58,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
     public Vector3 GetLastCheckPointPos()
     {
         return lastCheckPointPos;
@@ -30,5 +65,26 @@ public class GameController : MonoBehaviour
     public void SetLastCheckPointPos(Vector3 newPos)
     {
         lastCheckPointPos = newPos;
+    }
+
+    public void DepositBlueFishButton()
+    {
+        Debug.Log("DepositBlueFishButton pressed");
+
+        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.BLUE);
+    }
+
+    public void DepositYellowFishButton()
+    {
+        Debug.Log("DepositYellowFishButton pressed");
+
+        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.YELLOW);
+    }
+
+    public void DepositRedFishButton()
+    {
+        Debug.Log("DepositRedFishButton pressed");
+
+        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.RED);
     }
 }

@@ -31,13 +31,19 @@ public class Coral : MonoBehaviour
     private MeshRenderer mRenderer;
 
     [SerializeField]
+    private GameController gameController;
+
+    [SerializeField]
     private ParticleSystem CompletedParticles;
 
     [SerializeField]
     private bool complete = false;
 
+    public GameObject boidsSystem;
+
     private void Awake()
     {
+        //gameController = GameObject.FindGameObjectWithTag("GC").GetComponent<GameController>(); - try this if u can't set it in the inspector for some reason
         yellowFishesAmount = 0;
         redFishesAmount = 0;
         blueFishesAmount = 0;
@@ -56,26 +62,21 @@ public class Coral : MonoBehaviour
         blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
-    public void ReceiveFish(List<Follower> fishes) //Take fish-object later ?
+    public void ReceiveFish(List<Follower> fishes) //Counter for fish recieved.
     {
         Debug.Log("ReceiveFish Reached");
-        string fishColour;
-        foreach (Follower fish in fishes) 
+        foreach (Follower fish in fishes)
         {
-            fishColour = fish.GetColour();
-
-            switch (fishColour)
+            switch (fish.GetColour())
             {
-                case "yellow":
-                case "Yellow":
+                case FishColour.YELLOW:
                     yellowFishesAmount++;
                     break;
-                case "red":
-                case "Red":
-                    redFishesAmount++;
+                case FishColour.RED:
+                        redFishesAmount++;
                     break;
-                default:
-                    blueFishesAmount++;
+                case FishColour.BLUE:
+                        blueFishesAmount++;
                     break;
             }
         }
@@ -85,11 +86,11 @@ public class Coral : MonoBehaviour
         UpdateProgress();
 
         //"Ta bort" fiskarna fr�n spelarens lista 
-        foreach (Follower fish in fishes)
-        {
-            fish.gameObject.SetActive(false);
-            Debug.Log("Hid fish " + fish.GetInstanceID());
-        }
+        //foreach (Follower fish in fishes)
+        //{
+        //    fish.gameObject.SetActive(false);
+        //    Debug.Log("Hid fish " + fish.GetInstanceID());
+        //}
 
         //Check completion
         CheckProgress();
@@ -107,9 +108,13 @@ public class Coral : MonoBehaviour
     private void CheckProgress()
     {
         //�f all different colour-needs are met, coral is "complete"
-        if((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
+        if ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
         {
             complete = true;
+
+            //Increment number of completed corals in GameController
+            gameController.SetCompletedCoralAmount();
+
             SpreadColour();
         }
     }
@@ -124,8 +129,28 @@ public class Coral : MonoBehaviour
 
         mRenderer.material.SetColor("_BaseColor", newCoralColour);
 
-        Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90,0,0));
+        Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
     }
 
+    //public void DepositFish(Follower.Colour colour)
+    //{       
+    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+    //    NPCTargetUtil nPCTargetUtil = player.GetComponent<NPCTargetUtil>();
+    //    nPCTargetUtil.TransferFish(colour);
+    //}
 
+    public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
+    {
+        switch (fishColour)
+        {
+            case FishColour.YELLOW:
+                return yellowFishesNeeded - yellowFishesAmount;
+            case FishColour.RED:
+                return redFishesNeeded - redFishesAmount ;
+            case FishColour.BLUE:
+                return blueFishesNeeded - blueFishesAmount;
+            default:
+                return 0;
+        }
+    }
 }
