@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 
 public class VisualAidSettingsMenu : MonoBehaviour
 {
-    VolumeProfile volumeProfile;
+    /*VolumeProfile volumeProfile;
     public Volume volume;
     public bool overrideFog;
     public Fog fog;
@@ -93,6 +92,6 @@ public class VisualAidSettingsMenu : MonoBehaviour
         float ratio = (actualMax - actualMin) / (virtualMax - virtualMin);
         float returnValue = (currentValue * ratio) - (virtualMin * ratio) + actualMin;
         return returnValue;
-    }
+    }*/
 
 }

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 
 
 
 public class SliderSettings : MonoBehaviour
 {
-    public Slider slider;
+    /*public Slider slider;
     public Text txtSlider;
     [Tooltip("The maximum value for the settings. It's not viewable for the player")]
     public float maxSettingsValue;
@@ -45,6 +44,6 @@ public class SliderSettings : MonoBehaviour
 
         fog.enabled.overrideState = overrideFog;
         fog.enabled.value = enableFog;
-    }
+    }*/
 
 }
