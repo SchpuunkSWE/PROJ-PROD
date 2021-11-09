@@ -12,6 +12,39 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject player; //Set in inspector
 
+    [SerializeField]
+    private GameObject sceneTransitionGate;
+    
+    [SerializeField]
+    private int totalCoralAmount; //Set in inspector, amount of corals in scene
+
+    private int completedCoralAmount = 0; //Amount of corals with fully completed needs
+
+    public void SetCompletedCoralAmount()
+    {
+        completedCoralAmount++;
+    }
+
+    private void CheckLevelProgress()
+    {
+        if (completedCoralAmount >= totalCoralAmount)
+        {
+            LevelComplete();
+        }
+    }
+
+    private void LevelComplete()
+    {
+        //Open a gate to next level
+        Debug.Log("Level Complete!");
+        sceneTransitionGate.SetActive(true);
+    }
+
+    private void Update()
+    {
+        CheckLevelProgress();
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -24,7 +57,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject); //Ensures that there is only one GameController per scene
         }
     }
-
 
     public Vector3 GetLastCheckPointPos()
     {
