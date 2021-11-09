@@ -6,8 +6,10 @@ using UnityEngine.Events;
 
 public class Follower : MonoBehaviour
 {
+    //public enum Colour { RED, BLUE, YELLOW};
+
     [SerializeField]
-    private string colour;
+    private FishColour fishColour;
 
     [SerializeField]
     private GameObject parent;
@@ -15,12 +17,11 @@ public class Follower : MonoBehaviour
     [SerializeField]
     private Collider col;
 
-
     public bool isClickable = false;
 
-    public string GetColour()
+    public FishColour GetColour()
     {
-        return this.colour;
+        return this.fishColour;
     }
 
     //private void Awake()
@@ -35,18 +36,18 @@ public class Follower : MonoBehaviour
     //    }
     //}
                                                                                                                                                                                                                                                                                                                                                                                                                   
-    private void OnMouseDown()
-    {
-        //Used to control whether player can add fishes to list to deposit or not
-        if (isClickable)
-        {
-            Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + colour);
-            //Debug.Log(this.GetInstanceID());
+    //private void OnMouseDown()
+    //{
+    //    //Used to control whether player can add fishes to list to deposit or not
+    //    if (isClickable)
+    //    {
+    //        Debug.Log(this.GetInstanceID() + " Says: I was clicked and my colour is: " + fishColour.ToString());
+    //        //Debug.Log(this.GetInstanceID());
 
-            //add clicked fish to followersToDeposit (see PlayerFollowers-script)
-            parent.GetComponent<PlayerFollowers>().TransferFollower(this);
+    //        //add clicked fish to followersToDeposit (see PlayerFollowers-script)
+    //        parent.GetComponent<PlayerFollowers>().TransferFollower(this);
 
-            isClickable = false;
-        }
-    }
+    //        isClickable = false;
+    //    }
+    //}
 }
