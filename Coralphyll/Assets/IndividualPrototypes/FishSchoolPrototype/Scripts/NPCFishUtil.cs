@@ -11,9 +11,13 @@ public class NPCFishUtil : MonoBehaviour
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populera i editorn
 
-    private GameObject boidsSystemGO;
+    private GameObject coralBoidsSystemGO;
+
+    private GameObject safeZoneBoidsSystemGO;
 
     private Coral coral;
+
+    private SafeZone safeZone;
 
     public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
     {
@@ -41,18 +45,26 @@ public class NPCFishUtil : MonoBehaviour
         {
             Debug.Log("Coral Tagged");
             coral = other.GetComponentInParent<Coral>();
-            boidsSystemGO = coral.boidsSystem; //GameObject of coral.
+            coralBoidsSystemGO = coral.boidsSystem; //GameObject of coral.
             
         }
+
+        //if (other.CompareTag("SafeZone"))
+        //{
+        //    Debug.Log("SafeZone Tagged");
+        //    safeZone = other.GetComponentInParent<SafeZone>();
+        //    safeZoneBoidsSystemGO = safeZone.boidsSystem; //GameObject of safezone.
+        //}
     }
 
     public void TransferFish(FishColour fishColour)
     {
-        BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
+        BoidsSystem coralBoidsSystem = coralBoidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
+        //BoidsSystem safeZoneBoidsSystem = safeZoneBoidsSystemGO.GetComponent<BoidsSystem>(); //The SafeZones Boids System
 
         foreach (Follower f in listOfFishes)
         {
-            if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
+            if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailableInCoral(fishColour))
             {
                 fishToRemove.Add(f); 
             }
@@ -61,13 +73,16 @@ public class NPCFishUtil : MonoBehaviour
         foreach (Follower f in fishToRemove)
         {
             listOfFishes.Remove(f); //Removes fishes from the list of fishes 
-            boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
+            coralBoidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
+            //safeZoneBoidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
-            f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
+            f.transform.SetParent(coralBoidsSystemGO.transform); //Adds fish as child to coral Boid System.
+            //f.transform.SetParent(safeZoneBoidsSystemGO.transform); //Adds fish as child to coral Boid System.
 
         }
-        coral.GetComponent<Coral>().ReceiveFish(fishToRemove);
+        coral.GetComponent<Coral>().CorralReceiveFish(fishToRemove);
+        //safeZone.GetComponent<SafeZone>().SafeZoneReceiveFish(fishToRemove);
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 }

@@ -58,7 +58,7 @@ public class Coral : MonoBehaviour
         blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
-    public void ReceiveFish(List<Follower> fishes) //Counter for fish recieved.
+    public void CorralReceiveFish(List<Follower> fishes) //Counter for fish recieved.
     {
         Debug.Log("ReceiveFish Reached");
         foreach (Follower fish in fishes)
@@ -79,7 +79,7 @@ public class Coral : MonoBehaviour
         Debug.Log(yellowFishesAmount + ", " + redFishesAmount + ", " + blueFishesAmount);
 
         //call some display-method
-        UpdateProgress();
+        UpdateCoralProgress();
 
         //"Ta bort" fiskarna fr�n spelarens lista 
         //foreach (Follower fish in fishes)
@@ -92,7 +92,7 @@ public class Coral : MonoBehaviour
         CheckProgress();
     }
 
-    private void UpdateProgress()
+    private void UpdateCoralProgress()
     {
         //update yellow bar
         //update red bar
@@ -131,7 +131,7 @@ public class Coral : MonoBehaviour
     //    nPCTargetUtil.TransferFish(colour);
     //}
 
-    public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
+    public int fishSlotsAvailableInCoral(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
     {
         switch (fishColour)
         {

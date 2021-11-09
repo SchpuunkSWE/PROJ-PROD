@@ -33,7 +33,7 @@ public class PlayerFollowers : MonoBehaviour
 
     public void DepositFish()
     {
-        currentCoral.GetComponent<Coral>().ReceiveFish(followersToDeposit);
+        currentCoral.GetComponent<Coral>().CorralReceiveFish(followersToDeposit);
         Debug.Log("DepositFish Reached");
         followersToDeposit.Clear();
         //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
