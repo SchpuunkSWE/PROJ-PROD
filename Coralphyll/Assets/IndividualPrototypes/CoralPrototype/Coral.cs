@@ -40,10 +40,10 @@ public class Coral : MonoBehaviour
     private bool complete = false;
 
     [SerializeField]
-
-    private GameObject spawnableDecor;
-
     private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
+
+    [SerializeField]
+    private GameObject spawnableDecor;
 
     public bool Completable { get => completable; }
 
