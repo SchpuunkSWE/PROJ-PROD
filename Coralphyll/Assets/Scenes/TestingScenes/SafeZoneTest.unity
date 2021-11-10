@@ -1109,10 +1109,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnemonesCluster_Placeholder
       objectReference: {fileID: 0}
-    - target: {fileID: 5125255107303550493, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
-      propertyPath: m_TagString
-      value: SafeZone
-      objectReference: {fileID: 0}
     - target: {fileID: 5125255107303550494, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1157,13 +1153,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5786218914208198017, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
+      propertyPath: redFishesText
+      value: 
+      objectReference: {fileID: 413604247}
+    - target: {fileID: 5786218914208198017, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
+      propertyPath: blueFishesText
+      value: 
+      objectReference: {fileID: 413604246}
+    - target: {fileID: 5786218914208198017, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 516003057}
+    - target: {fileID: 5786218914208198017, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
+      propertyPath: yellowFishesText
+      value: 
+      objectReference: {fileID: 413604248}
+    - target: {fileID: 5786218915653500613, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 413604249}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
---- !u!4 &236766096 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5125255107303550494, guid: 3b4e8ab9bf4a25244a314c1a7b490e2d, type: 3}
-  m_PrefabInstance: {fileID: 236766094}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &278105035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,10 +2661,6 @@ PrefabInstance:
       value: Level1Corals
       objectReference: {fileID: 0}
     - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
-      propertyPath: completable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
       propertyPath: redFishesText
       value: 
       objectReference: {fileID: 413604247}
@@ -2666,21 +2673,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 516003057}
     - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
-      propertyPath: redFishesNeeded
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
-      propertyPath: blueFishesNeeded
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
       propertyPath: yellowFishesText
       value: 
       objectReference: {fileID: 413604248}
-    - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
-      propertyPath: yellowFishesNeeded
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5786218915652447014, guid: a6515e0137392784db625eb4126d019d, type: 3}
       propertyPath: panel
       value: 
@@ -4229,55 +4224,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aafe5ea0f4755c64d805bef7055a6e27, type: 3}
---- !u!1 &1131562365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1131562366}
-  - component: {fileID: 1131562367}
-  m_Layer: 0
-  m_Name: Safezone Boids System
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1131562366
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131562365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.27, y: 0, z: 1.752}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1215981831}
-  m_Father: {fileID: 236766096}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1131562367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131562365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6609ab4c761684cae82ae67e81419c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 998477833479709073, guid: 96f864234ae12ef4d8b129fed5400c00, type: 3}
-  numAgents: 0
-  radius: 4.5
-  randomGoal: 1
-  agents: []
 --- !u!1001 &1204471620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4340,36 +4286,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5479316761850850852, guid: 585ea770fe40b8149a88242d899f443c, type: 3}
   m_PrefabInstance: {fileID: 1204471620}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1215981830
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1215981831}
-  m_Layer: 0
-  m_Name: BoidsTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1215981831
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215981830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1131562366}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1216299435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7250,127 +7166,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2100452077238127255, guid: b22209b04b57baf4d8a9748eb4161e1c, type: 3}
   m_PrefabInstance: {fileID: 1934692866}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1935096846
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 236766096}
-    m_Modifications:
-    - target: {fileID: 5786218913862238528, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_TagString
-      value: Coral
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218913862238532, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_Radius
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218913862238532, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_Center.y
-      value: 2.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218913862238533, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 413604249}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: boidsSystem
-      value: 
-      objectReference: {fileID: 1131562365}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: redFishesText
-      value: 
-      objectReference: {fileID: 413604247}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: blueFishesText
-      value: 
-      objectReference: {fileID: 413604246}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: gameController
-      value: 
-      objectReference: {fileID: 516003057}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: redFishesNeeded
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: blueFishesNeeded
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: yellowFishesText
-      value: 
-      objectReference: {fileID: 413604248}
-    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: yellowFishesNeeded
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.521
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455566, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_Name
-      value: FunctionalCoral
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786218915370455566, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
-      propertyPath: m_TagString
-      value: FunctionalCoral
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
 --- !u!1 &1949447913
 GameObject:
   m_ObjectHideFlags: 0
