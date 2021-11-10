@@ -40,7 +40,13 @@ public class Coral : MonoBehaviour
     private bool complete = false;
 
     [SerializeField]
+
     private GameObject spawnableDecor;
+
+    private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
+
+    public bool Completable { get => completable; 
+
 
     public GameObject boidsSystem;
 
@@ -99,7 +105,7 @@ public class Coral : MonoBehaviour
         CheckProgress();
     }
 
-    private void UpdateProgress()
+    public void UpdateProgress()
     {
         //update yellow bar
         //update red bar
@@ -111,7 +117,7 @@ public class Coral : MonoBehaviour
     private void CheckProgress()
     {
         //�f all different colour-needs are met, coral is "complete"
-        if ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
+        if (completable && ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded)))
         {
             complete = true;
 
@@ -136,13 +142,6 @@ public class Coral : MonoBehaviour
 
         spawnableDecor.SetActive(true);
     }
-
-    //public void DepositFish(Follower.Colour colour)
-    //{       
-    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
-    //    NPCTargetUtil nPCTargetUtil = player.GetComponent<NPCTargetUtil>();
-    //    nPCTargetUtil.TransferFish(colour);
-    //}
 
     public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
     {
