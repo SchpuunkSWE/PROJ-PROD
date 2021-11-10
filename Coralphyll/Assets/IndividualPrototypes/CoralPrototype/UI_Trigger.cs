@@ -24,6 +24,7 @@ public class UI_Trigger : MonoBehaviour
             //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = true;
             //other.gameObject.GetComponent<PlayerFollowers>().currentCoral = myCoral;
             //Activate Coral UI Panel
+            myCoral.GetComponent<Coral>().UpdateProgress();
             panel.SetActive(true);
 
             //Fetch all player's followers
@@ -51,24 +52,24 @@ public class UI_Trigger : MonoBehaviour
         }
     }
 
-    private void setClickable(List<Follower> followers)
-    {     
-        //Set every fish in the players followers to clickable
-        foreach(Follower fish in followers)
-        {
-            if (!fish.isClickable)
-            {
-                fish.isClickable = true;
-                Debug.Log("I was made clickable!");
-            }
-            else
-            {
-                fish.isClickable = false;
-                Debug.Log("I was made non-clickable!");
-            }
-            //fish.isClickable = true;
-            //Debug.Log(fish.GetInstanceID()+ " Says: I was made clickable!");
-        }
-    }
+    //private void setClickable(List<Follower> followers)
+    //{     
+    //    //Set every fish in the players followers to clickable
+    //    foreach(Follower fish in followers)
+    //    {
+    //        if (!fish.isClickable)
+    //        {
+    //            fish.isClickable = true;
+    //            Debug.Log("I was made clickable!");
+    //        }
+    //        else
+    //        {
+    //            fish.isClickable = false;
+    //            Debug.Log("I was made non-clickable!");
+    //        }
+    //        //fish.isClickable = true;
+    //        //Debug.Log(fish.GetInstanceID()+ " Says: I was made clickable!");
+    //    }
+    //}
 
 }
