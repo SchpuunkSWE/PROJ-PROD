@@ -12,6 +12,6 @@ public class DeathListener : MonoBehaviour
         Debug.Log(victim + " died");
 
         //Respawn
-        victim.transform.position = Vector3.zero;// GameController.Instance.LastCheckPointPos;
+        victim.transform.position = GameController.Instance.LastCheckPointPos;
     }
 }

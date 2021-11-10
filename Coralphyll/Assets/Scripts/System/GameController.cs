@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     }
 
     [SerializeField]
-    private Vector3 lastCheckPointPos; //Set in inspector to the first checkpoint pos, to determine where the player starts.
+    private Vector3 lastCheckPointPos; //Set in inspector to player start position in level, to determine respawn position if no checkpoint has been reached
     public Vector3 LastCheckPointPos => lastCheckPointPos;
 
     [SerializeField]
