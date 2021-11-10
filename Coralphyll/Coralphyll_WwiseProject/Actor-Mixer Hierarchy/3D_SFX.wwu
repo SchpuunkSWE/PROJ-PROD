@@ -9,7 +9,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_25m" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+							<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
 						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
@@ -253,7 +253,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_25m" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+							<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
 						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
@@ -263,25 +263,9 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Chime_FriendlyFish" ID="{A20D4747-DD63-48CC-817F-6B456693B3BD}" ShortID="331685260">
+						<Sound Name="Chime_FriendlyFish_Updated" ID="{3EFCC4F7-EDFB-4386-8307-1F6062F0D32C}" ShortID="166455605">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>1</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{78B02AB8-9548-40EE-8815-D88BF9409264}">
-												<PropertyList>
-													<Property Name="Min" Type="Real64" Value="-1"/>
-												</PropertyList>
-											</Modifier>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -292,17 +276,17 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Chime_FriendlyFish" ID="{70D7D8DF-50BF-45E5-B79A-76B65A34A6F8}">
+								<AudioFileSource Name="Chime_FriendlyFish_Updated" ID="{9F16F33F-8BC4-470D-B55C-C275E58726F2}">
 									<Language>SFX</Language>
-									<AudioFile>Chime_FriendlyFish.wav</AudioFile>
+									<AudioFile>Chime_FriendlyFish_Updated.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="121219641"/>
+										<MediaID ID="325430453"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Chime_FriendlyFish" ID="{70D7D8DF-50BF-45E5-B79A-76B65A34A6F8}" Platform="Linked"/>
+								<ActiveSource Name="Chime_FriendlyFish_Updated" ID="{9F16F33F-8BC4-470D-B55C-C275E58726F2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -314,7 +298,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_25m" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+							<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
 						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
@@ -359,7 +343,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_25m" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+							<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
 						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
@@ -369,7 +353,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Chime_FriendlyFish3" ID="{0F11507A-2F43-4C5A-9662-677C3F535241}" ShortID="337086041">
+						<Sound Name="Chime_FriendlyFish3_updated" ID="{A11F7B5A-54FD-4514-AAED-BDE0F6CDF741}" ShortID="206641227">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 							</PropertyList>
@@ -382,17 +366,17 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Chime_FriendlyFish3" ID="{2C7E5A48-2052-4167-ADC1-CA1AFDC7C4C4}">
+								<AudioFileSource Name="Chime_FriendlyFish3_updated" ID="{53CF03AB-1F7B-4596-9D0F-BDE490FA6076}">
 									<Language>SFX</Language>
-									<AudioFile>Chime_FriendlyFish3.wav</AudioFile>
+									<AudioFile>Chime_FriendlyFish3_updated.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="835611573"/>
+										<MediaID ID="962159150"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Chime_FriendlyFish3" ID="{2C7E5A48-2052-4167-ADC1-CA1AFDC7C4C4}" Platform="Linked"/>
+								<ActiveSource Name="Chime_FriendlyFish3_updated" ID="{53CF03AB-1F7B-4596-9D0F-BDE490FA6076}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -476,7 +460,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_25m" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+							<ObjectRef Name="att_enemy_70m" ID="{96AAFF3B-D233-4F85-B215-83CD8BDE0D9E}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
 						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>

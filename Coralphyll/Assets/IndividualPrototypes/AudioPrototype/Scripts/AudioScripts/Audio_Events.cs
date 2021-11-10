@@ -40,7 +40,7 @@ public class Audio_Events : MonoBehaviour
         {
             inCombat = false;
 
-            if (aiContr[i].StateMachine.CurrentState is EnemyChase)
+            if (aiContr[i].StateMachine.CurrentState is EnemyChase || aiContr[i].StateMachine.CurrentState is EnemyAttack)
             {
                 Audio_LevelState("Combat");
                 inCombat = true;

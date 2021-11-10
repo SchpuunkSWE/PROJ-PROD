@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WwAudioEmitter : MonoBehaviour
 {
-
+    public string emitterType;
     public string EventName;
     public string StopEvent;
     private bool IsInCollider = false;
@@ -13,6 +13,10 @@ public class WwAudioEmitter : MonoBehaviour
     {
         //  AkSoundEngine.StopPlayingID
         AkSoundEngine.RegisterGameObj(this.gameObject);
+        if (emitterType == "EnemyEel")
+        {
+            AkSoundEngine.PostEvent(EventName, this.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

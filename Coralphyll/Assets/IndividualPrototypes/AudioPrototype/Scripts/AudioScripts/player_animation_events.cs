@@ -20,10 +20,6 @@ public class player_animation_events : MonoBehaviour
         CheckPlayerVelocity();
         AkSoundEngine.SetRTPCValue("RTPC_SpeedOfCharacter", playerSpeed);
         time = time + Time.deltaTime;
-       /* if (time > 15f)
-        {
-            AkSoundEngine.SetState(wwise_stateGroup_playerLife, "Dead");
-        }*/
     }
     public void Fs_player_swim()
     {
