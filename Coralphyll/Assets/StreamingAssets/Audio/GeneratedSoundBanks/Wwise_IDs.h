@@ -23,6 +23,7 @@ namespace AK
         static const AkUniqueID NPC_ENEMY_EEL_STOP = 907852203U;
         static const AkUniqueID NPC_FRIENDLY_BLUE = 2396901519U;
         static const AkUniqueID NPC_FRIENDLY_BLUE_STOP = 1686688698U;
+        static const AkUniqueID NPC_FRIENDLY_PICKUP = 679089271U;
         static const AkUniqueID NPC_FRIENDLY_RED = 54285700U;
         static const AkUniqueID NPC_FRIENDLY_RED_STOP = 3941370595U;
         static const AkUniqueID NPC_FRIENDLY_YELLOW = 2379275139U;

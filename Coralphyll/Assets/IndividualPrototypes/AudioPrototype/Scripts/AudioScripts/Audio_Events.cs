@@ -9,10 +9,17 @@ public class Audio_Events : MonoBehaviour
     // PlayerLife: Alive, Dead
     public bool isAlive = true;
     public bool inCombat = false;
+    private int fishes = 0;
+    public bool inMainMenu = true;
+    NPCFishUtil fishInventory;
     AIController[] aiContr;
+
     // Start is called before the first frame update
     void Start()
     {
+        fishInventory = GetComponent<NPCFishUtil>();
+        fishes = fishInventory.getListOfFishes().Count;
+        Debug.Log("Fishes: " + fishInventory.getListOfFishes().Count);
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
         Audio_GameState("Level1");
@@ -20,7 +27,9 @@ public class Audio_Events : MonoBehaviour
     }
     private void Update()
     {
+        LevelCheck();
         CombatCheck();
+        FishInventoryCheck();
     }
     public void Audio_StingerCue(string cue)
     {
@@ -29,6 +38,20 @@ public class Audio_Events : MonoBehaviour
             default:
                 break;
         }
+    }
+    public void LevelCheck()
+    {
+
+    }
+    public void FishInventoryCheck()
+    {
+        int tempFish;
+        tempFish = fishInventory.getListOfFishes().Count;
+        if (tempFish > fishes)
+        {
+            AkSoundEngine.PostEvent("NPC_Friendly_Pickup", gameObject);
+        }
+        fishes = tempFish;
     }
     private void CombatCheck()
     {
@@ -47,7 +70,7 @@ public class Audio_Events : MonoBehaviour
                 break;
             }
         }
-        if (!inCombat)
+        if (!inCombat && !inMainMenu)
         {
             Audio_LevelState("Exploring");
         }
@@ -69,12 +92,16 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "Exploring":
-                AkSoundEngine.SetState("Music_State", "Exploring");
+                if (!inMainMenu)
+                {
+                    AkSoundEngine.SetState("Music_State", "Exploring");
+                }
                 break;
             case "Combat":
                 AkSoundEngine.SetState("Music_State", "Combat");
                 break;
             case "MainMenu":
+                inMainMenu = true;
                 AkSoundEngine.SetState("Music_State", "MainMenu");
                 break;
             case "Victory":
@@ -88,6 +115,10 @@ public class Audio_Events : MonoBehaviour
                 break;
 
         }
+    }
+    public void LeaveMainMenu()
+    {
+        inMainMenu = false;
     }
     public void Audio_GameState(string state)
     {

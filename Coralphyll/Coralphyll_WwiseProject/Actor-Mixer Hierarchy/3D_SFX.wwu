@@ -383,6 +383,13 @@
 					<ObjectLists/>
 				</ActorMixer>
 				<ActorMixer Name="Notification_NPC_Pickup" ID="{8E6CA1EB-9404-42EE-AA86-E6B25EF5D20E}" ShortID="678980259">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-9</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
@@ -392,7 +399,14 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Chime_PickUp" ID="{98800E70-C72D-4D3D-B2ED-DECE189EBFBC}" ShortID="187374383">
+						<Sound Name="ping_final_pickup" ID="{BC486980-E68A-4806-B888-0CC329D56FB0}" ShortID="726665175">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
@@ -402,17 +416,17 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Chime_PickUp" ID="{71E002C6-09AF-437A-A609-C0D90E4D4887}">
+								<AudioFileSource Name="ping_final_pickup" ID="{B65B2D8F-14C8-4862-ACE2-78E3237F7E07}">
 									<Language>SFX</Language>
-									<AudioFile>Chime_PickUp.wav</AudioFile>
+									<AudioFile>ping_final_pickup.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="186357288"/>
+										<MediaID ID="92155153"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Chime_PickUp" ID="{71E002C6-09AF-437A-A609-C0D90E4D4887}" Platform="Linked"/>
+								<ActiveSource Name="ping_final_pickup" ID="{B65B2D8F-14C8-4862-ACE2-78E3237F7E07}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

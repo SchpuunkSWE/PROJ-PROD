@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Language="SFX" Hash="782246554">
+		<SoundBank Id="474740052" Language="SFX" Hash="1253254621">
 			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Music</ObjectPath>
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
@@ -125,7 +125,7 @@
 					</SwitchContainers>
 					<ActionSetState>
 						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
-						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
+						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
 					</ActionSetState>
 				</Event>
 			</IncludedEvents>
@@ -193,6 +193,9 @@
 				<StateGroup Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}">
 					<States/>
 				</StateGroup>
+				<StateGroup Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
+					<States/>
+				</StateGroup>
 				<StateGroup Id="3826569560" Name="Music_State" ObjectPath="\States\Default Work Unit\Music_State" GUID="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Music_State\None" GUID="{3E90E05C-8156-4C61-AFF4-3CC120C92187}"/>
@@ -224,7 +227,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2061652306">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2461066372">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -271,6 +274,14 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1686688698" Name="NPC_Friendly_Blue_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="679089271" Name="NPC_Friendly_Pickup" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Pickup" DurationType="OneShot" DurationMin="1.013333" DurationMax="1.013333">
+					<IncludedMemoryFiles>
+						<File Id="92155153" Language="SFX">
+							<ShortName>ping_final_pickup.wav</ShortName>
+							<Path>SFX\ping_final_pickup_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="54285700" Name="NPC_Friendly_Red" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="101814616" Language="SFX">
@@ -309,6 +320,10 @@
 				<Event Id="1255022652" Name="SFX_3D_Emitter_Water_Sprout_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="92155153" Language="SFX">
+					<ShortName>ping_final_pickup.wav</ShortName>
+					<Path>SFX\ping_final_pickup_10C4C929.wem</Path>
+				</File>
 				<File Id="101814616" Language="SFX">
 					<ShortName>Chime_FriendlyFish_2.wav</ShortName>
 					<Path>SFX\Chime_FriendlyFish_2_D79FB2B7.wem</Path>
@@ -316,10 +331,6 @@
 				<File Id="112291669" Language="SFX">
 					<ShortName>Ambience_underwater_sprout.wav</ShortName>
 					<Path>SFX\Ambience_underwater_sprout_D79FB2B7.wem</Path>
-				</File>
-				<File Id="186357288" Language="SFX">
-					<ShortName>Chime_PickUp.wav</ShortName>
-					<Path>SFX\Chime_PickUp_10C4C929.wem</Path>
 				</File>
 				<File Id="325430453" Language="SFX">
 					<ShortName>Chime_FriendlyFish_Updated.wav</ShortName>
@@ -366,6 +377,9 @@
 					<States/>
 				</StateGroup>
 				<StateGroup Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="3826569560" Name="Music_State" ObjectPath="\States\Default Work Unit\Music_State" GUID="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}">
