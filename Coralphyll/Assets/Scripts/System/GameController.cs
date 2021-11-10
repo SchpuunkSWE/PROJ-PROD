@@ -5,9 +5,21 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     private static GameController instance;
+    public static GameController Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameController>();
+            }
+            return instance;
+        }
+    }
 
     [SerializeField]
-    private Vector3 lastCheckPointPos; //Set in inspector to the first checkpoint pos, to determine where the player starts.
+    private Vector3 lastCheckPointPos; //Set in inspector to player start position in level, to determine respawn position if no checkpoint has been reached
+    public Vector3 LastCheckPointPos => lastCheckPointPos;
 
     [SerializeField]
     private GameObject player; //Set in inspector
@@ -66,10 +78,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public Vector3 GetLastCheckPointPos()
-    {
-        return lastCheckPointPos;
-    }
     public void SetLastCheckPointPos(Vector3 newPos)
     {
         lastCheckPointPos = newPos;
