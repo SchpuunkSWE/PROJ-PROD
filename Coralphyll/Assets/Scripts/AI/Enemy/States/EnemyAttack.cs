@@ -48,6 +48,12 @@ public class EnemyAttack : EnemyState
     {
         attacking = true;
         //Attack stuff
+
+        DeathInfo d = new DeathInfo {
+            victim = AIController.Player,
+            killer = AIController.gameObject
+        };
+        EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
     }
 
     private void HandleCooldown()

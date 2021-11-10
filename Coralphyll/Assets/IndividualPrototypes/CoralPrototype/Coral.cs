@@ -125,6 +125,9 @@ public class Coral : MonoBehaviour
         {
             complete = true;
 
+            //Set CheckPoint
+            this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
             //Increment number of completed corals in GameController
             gameController.SetCompletedCoralAmount();
 
