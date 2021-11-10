@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
 
     private int completedCoralAmount = 0; //Amount of corals with fully completed needs
 
+    private bool runOnce = false;
+
     public void SetCompletedCoralAmount()
     {
         completedCoralAmount++;
@@ -35,9 +37,15 @@ public class GameController : MonoBehaviour
 
     private void LevelComplete()
     {
-        //Open a gate to next level
-        Debug.Log("Level Complete!");
-        sceneTransitionGate.SetActive(true);
+        if (!runOnce)
+        {
+            //Open a gate to next level
+            Debug.Log("Level Complete!");
+            sceneTransitionGate.SetActive(true);
+            Instantiate(sceneTransitionGate.GetComponent<SceneController>().GetParticles(), sceneTransitionGate.transform.position, sceneTransitionGate.transform.rotation); //Spawn particles on gate so player can see it (temp)
+            runOnce = true;
+        }
+        
     }
 
     private void Update()
