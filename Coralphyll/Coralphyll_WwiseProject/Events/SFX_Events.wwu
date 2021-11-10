@@ -84,6 +84,110 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="NPC" ID="{FCBA2137-58BF-4B09-99A7-3D841721DCA7}" ShortID="476372907">
+					<ChildrenList>
+						<Event Name="NPC_Friendly_Red" ID="{2CA439E7-AA90-4E8B-9023-E58754EDDE4F}">
+							<ChildrenList>
+								<Action Name="" ID="{F79B80AC-DBC6-4F49-B4E0-C04B9975A83A}" ShortID="67968150">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish_2" ID="{58CA01DF-BE27-4718-B4C8-168AE78D4204}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Red_Stop" ID="{62B47DF3-59BB-448D-AEE8-3E9EB2947358}">
+							<ChildrenList>
+								<Action Name="" ID="{0A2BCF8B-F5D4-4B1F-8018-0ABAF1C318EA}" ShortID="631966395">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish_2" ID="{58CA01DF-BE27-4718-B4C8-168AE78D4204}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Blue" ID="{53A88DE2-A106-46F1-8EBD-FB0E132FD1B6}">
+							<ChildrenList>
+								<Action Name="" ID="{60645F61-4E2C-4C9C-A5F1-C4C2A13B5E94}" ShortID="145174993">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish" ID="{A20D4747-DD63-48CC-817F-6B456693B3BD}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Blue_Stop" ID="{361A9BC0-8755-41EA-9DF8-B38427621B16}">
+							<ChildrenList>
+								<Action Name="" ID="{BF0944E2-74FA-487B-A535-BC9916030038}" ShortID="437689352">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish" ID="{A20D4747-DD63-48CC-817F-6B456693B3BD}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Yellow_Stop" ID="{6E070CCF-7482-48C2-8C71-95166031544F}">
+							<ChildrenList>
+								<Action Name="" ID="{D61085A6-A5D6-453B-9853-FEE11E66B21A}" ShortID="182354206">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish3" ID="{0F11507A-2F43-4C5A-9662-677C3F535241}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Yellow" ID="{AFBD79A8-97BB-47C7-86FB-C8F2664A7700}">
+							<ChildrenList>
+								<Action Name="" ID="{1A63A6C2-8D15-473B-9D8D-71D65CF79337}" ShortID="709620369">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish3" ID="{0F11507A-2F43-4C5A-9662-677C3F535241}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Enemy_Eel" ID="{79FC8CC7-25DC-43FE-A171-FC36FA3C69AB}">
+							<ChildrenList>
+								<Action Name="" ID="{DD0ABD88-5DB4-4647-B319-A6970B82BD02}" ShortID="1024837433">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="HitThump_EnemySound" ID="{D416B19E-6847-46D7-8D62-B9D5BEB1B1A5}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Enemy_Eel_Stop" ID="{CAB89302-6E58-4299-A7AE-E48748EE3658}">
+							<ChildrenList>
+								<Action Name="" ID="{A0D8E80B-0F72-4BEA-867D-810A92BCB407}" ShortID="379499186">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="HitThump_EnemySound" ID="{D416B19E-6847-46D7-8D62-B9D5BEB1B1A5}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

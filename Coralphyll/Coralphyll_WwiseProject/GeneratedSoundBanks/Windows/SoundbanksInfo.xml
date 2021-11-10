@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Language="SFX" Hash="2311367766">
+		<SoundBank Id="474740052" Language="SFX" Hash="782246554">
 			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Music</ObjectPath>
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
@@ -224,7 +224,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2911195693">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3020034608">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -233,7 +233,7 @@
 					<IncludedMemoryFiles>
 						<File Id="781440480" Language="SFX">
 							<ShortName>Ambience_underwater_background.wav</ShortName>
-							<Path>SFX\Ambience_underwater_background_28A43B75.wem</Path>
+							<Path>SFX\Ambience_underwater_background_B8EF4444.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -253,6 +253,42 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1225286108" Name="NPC_Enemy_Eel" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Enemy_Eel" MaxAttenuation="25.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="646329306" Language="SFX">
+							<ShortName>HitThump_EnemySound.wav</ShortName>
+							<Path>SFX\HitThump_EnemySound_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="907852203" Name="NPC_Enemy_Eel_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Enemy_Eel_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2396901519" Name="NPC_Friendly_Blue" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue" MaxAttenuation="25.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="121219641" Language="SFX">
+							<ShortName>Chime_FriendlyFish.wav</ShortName>
+							<Path>SFX\Chime_FriendlyFish_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1686688698" Name="NPC_Friendly_Blue_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="54285700" Name="NPC_Friendly_Red" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red" MaxAttenuation="25.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="101814616" Language="SFX">
+							<ShortName>Chime_FriendlyFish_2.wav</ShortName>
+							<Path>SFX\Chime_FriendlyFish_2_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3941370595" Name="NPC_Friendly_Red_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2379275139" Name="NPC_Friendly_Yellow" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow" MaxAttenuation="25.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="835611573" Language="SFX">
+							<ShortName>Chime_FriendlyFish3.wav</ShortName>
+							<Path>SFX\Chime_FriendlyFish3_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1435982318" Name="NPC_Friendly_Yellow_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2090281704" Name="SFX_3D_Emitter_Friendly_Fish_1" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Friendly_Fish_1" MaxAttenuation="15.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="473816975" Language="SFX">
@@ -273,21 +309,49 @@
 				<Event Id="1255022652" Name="SFX_3D_Emitter_Water_Sprout_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="101814616" Language="SFX">
+					<ShortName>Chime_FriendlyFish_2.wav</ShortName>
+					<Path>SFX\Chime_FriendlyFish_2_D79FB2B7.wem</Path>
+				</File>
 				<File Id="112291669" Language="SFX">
 					<ShortName>Ambience_underwater_sprout.wav</ShortName>
 					<Path>SFX\Ambience_underwater_sprout_D79FB2B7.wem</Path>
+				</File>
+				<File Id="121219641" Language="SFX">
+					<ShortName>Chime_FriendlyFish.wav</ShortName>
+					<Path>SFX\Chime_FriendlyFish_D79FB2B7.wem</Path>
+				</File>
+				<File Id="186357288" Language="SFX">
+					<ShortName>Chime_PickUp.wav</ShortName>
+					<Path>SFX\Chime_PickUp_10C4C929.wem</Path>
 				</File>
 				<File Id="402119525" Language="SFX">
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
 					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
 				</File>
+				<File Id="460680903" Language="SFX">
+					<ShortName>HitReverb_enemySound_maybe.wav</ShortName>
+					<Path>SFX\HitReverb_enemySound_maybe_10C4C929.wem</Path>
+				</File>
 				<File Id="473816975" Language="SFX">
 					<ShortName>FOLEY_Friendly_fish_1.wav</ShortName>
 					<Path>SFX\FOLEY_Friendly_fish_1_D79FB2B7.wem</Path>
 				</File>
+				<File Id="646329306" Language="SFX">
+					<ShortName>HitThump_EnemySound.wav</ShortName>
+					<Path>SFX\HitThump_EnemySound_D79FB2B7.wem</Path>
+				</File>
+				<File Id="768752221" Language="SFX">
+					<ShortName>PingMelody_SomethingCompleted.wav</ShortName>
+					<Path>SFX\PingMelody_SomethingCompleted_10C4C929.wem</Path>
+				</File>
 				<File Id="781440480" Language="SFX">
 					<ShortName>Ambience_underwater_background.wav</ShortName>
-					<Path>SFX\Ambience_underwater_background_28A43B75.wem</Path>
+					<Path>SFX\Ambience_underwater_background_B8EF4444.wem</Path>
+				</File>
+				<File Id="835611573" Language="SFX">
+					<ShortName>Chime_FriendlyFish3.wav</ShortName>
+					<Path>SFX\Chime_FriendlyFish3_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

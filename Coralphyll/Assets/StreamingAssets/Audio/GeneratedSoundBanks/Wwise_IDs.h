@@ -19,6 +19,14 @@ namespace AK
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
         static const AkUniqueID MUSICSTATE_INITIATE = 2595492705U;
+        static const AkUniqueID NPC_ENEMY_EEL = 1225286108U;
+        static const AkUniqueID NPC_ENEMY_EEL_STOP = 907852203U;
+        static const AkUniqueID NPC_FRIENDLY_BLUE = 2396901519U;
+        static const AkUniqueID NPC_FRIENDLY_BLUE_STOP = 1686688698U;
+        static const AkUniqueID NPC_FRIENDLY_RED = 54285700U;
+        static const AkUniqueID NPC_FRIENDLY_RED_STOP = 3941370595U;
+        static const AkUniqueID NPC_FRIENDLY_YELLOW = 2379275139U;
+        static const AkUniqueID NPC_FRIENDLY_YELLOW_STOP = 1435982318U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
