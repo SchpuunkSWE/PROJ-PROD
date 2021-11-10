@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 615509474}
-  m_IndirectSpecularColor: {r: 0.093507715, g: 0.35057852, b: 0.44113088, a: 1}
+  m_IndirectSpecularColor: {r: 0.07125046, g: 0.25194076, b: 0.33444312, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,7 +140,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-113310
+  m_Name: pb_Mesh-31896
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -298,13 +298,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &190785906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5390526489398564907, guid: 0e0745e0547d9ab4a846382671428358, type: 3}
+  m_PrefabInstance: {fileID: 4067269616460479945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &201805606
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-113322
+  m_Name: pb_Mesh-31908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -535,9 +540,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1728409664}
     - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
+      propertyPath: SpawnableDecor
+      value: 
+      objectReference: {fileID: 190785906}
+    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
       propertyPath: blueFishesText
       value: 
       objectReference: {fileID: 125867173}
+    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
+      propertyPath: spawnableDecor
+      value: 
+      objectReference: {fileID: 190785906}
     - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
       propertyPath: yellowFishesText
       value: 
@@ -603,7 +616,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-113334
+  m_Name: pb_Mesh-31920
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -935,6 +948,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.06704
       objectReference: {fileID: 0}
+    - target: {fileID: 3604448303415429716, guid: 333540d7593656d45af5016c40ebbbea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 3604448303952372856, guid: 333540d7593656d45af5016c40ebbbea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -1055,7 +1072,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-113378
+  m_Name: pb_Mesh-31964
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1389,7 +1406,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-113346
+  m_Name: pb_Mesh-31932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1839,6 +1856,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level1Corals
       objectReference: {fileID: 0}
+    - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
+      propertyPath: redFishesText
+      value: 
+      objectReference: {fileID: 1728409664}
+    - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
+      propertyPath: blueFishesText
+      value: 
+      objectReference: {fileID: 125867173}
+    - target: {fileID: 5786218914211346530, guid: a6515e0137392784db625eb4126d019d, type: 3}
+      propertyPath: yellowFishesText
+      value: 
+      objectReference: {fileID: 885474920}
+    - target: {fileID: 5786218915652447014, guid: a6515e0137392784db625eb4126d019d, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1863132812}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6515e0137392784db625eb4126d019d, type: 3}
 --- !u!1001 &4067269616460479945
@@ -2000,6 +2033,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2018369016}
+    - target: {fileID: 5390526489398564907, guid: 0e0745e0547d9ab4a846382671428358, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5699925212782309107, guid: 0e0745e0547d9ab4a846382671428358, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

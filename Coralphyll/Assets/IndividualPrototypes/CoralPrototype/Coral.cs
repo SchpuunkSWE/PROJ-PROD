@@ -40,9 +40,13 @@ public class Coral : MonoBehaviour
     private bool complete = false;
 
     [SerializeField]
+
+    private GameObject spawnableDecor;
+
     private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
 
-    public bool Completable { get => completable; }
+    public bool Completable { get => completable; 
+
 
     public GameObject boidsSystem;
 
@@ -135,6 +139,8 @@ public class Coral : MonoBehaviour
         mRenderer.material.SetColor("_BaseColor", newCoralColour);
 
         Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+
+        spawnableDecor.SetActive(true);
     }
 
     public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
