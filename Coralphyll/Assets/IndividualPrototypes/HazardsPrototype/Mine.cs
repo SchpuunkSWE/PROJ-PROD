@@ -61,4 +61,18 @@ public class Mine : MonoBehaviour
 
        
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            Explode();
+        }
+    }
+
+    private void Explode()
+    {
+        //Respawn Player (Instakill)
+        playerController.gameObject.GetComponent<PlayerRespawn>().RespawnPlayer();
+    }
 }

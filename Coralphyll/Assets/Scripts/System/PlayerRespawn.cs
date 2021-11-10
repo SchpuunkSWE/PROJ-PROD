@@ -30,7 +30,7 @@ public class PlayerRespawn : MonoBehaviour
 
         }
     }
-    private void RespawnPlayer()
+    public void RespawnPlayer()
     {
         //gameObject.transform.position = checkPoint.transform.position;
         transform.position = gc.GetLastCheckPointPos(); //Sets the player's position to the most recent checkpoints
