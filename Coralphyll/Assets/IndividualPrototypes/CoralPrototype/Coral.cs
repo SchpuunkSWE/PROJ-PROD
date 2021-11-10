@@ -31,15 +31,28 @@ public class Coral : MonoBehaviour
     private MeshRenderer mRenderer;
 
     [SerializeField]
+    private GameController gameController;
+
+    [SerializeField]
     private ParticleSystem CompletedParticles;
 
     [SerializeField]
     private bool complete = false;
 
+    [SerializeField]
+    private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
+
+    [SerializeField]
+    private GameObject spawnableDecor;
+
+    public bool Completable { get => completable; }
+
+
     public GameObject boidsSystem;
 
     private void Awake()
     {
+        //gameController = GameObject.FindGameObjectWithTag("GC").GetComponent<GameController>(); - try this if u can't set it in the inspector for some reason
         yellowFishesAmount = 0;
         redFishesAmount = 0;
         blueFishesAmount = 0;
@@ -92,7 +105,7 @@ public class Coral : MonoBehaviour
         CheckProgress();
     }
 
-    private void UpdateProgress()
+    public void UpdateProgress()
     {
         //update yellow bar
         //update red bar
@@ -104,9 +117,13 @@ public class Coral : MonoBehaviour
     private void CheckProgress()
     {
         //�f all different colour-needs are met, coral is "complete"
-        if ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
+        if (completable && ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded)))
         {
             complete = true;
+
+            //Increment number of completed corals in GameController
+            gameController.SetCompletedCoralAmount();
+
             SpreadColour();
         }
     }
@@ -122,14 +139,9 @@ public class Coral : MonoBehaviour
         mRenderer.material.SetColor("_BaseColor", newCoralColour);
 
         Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
-    }
 
-    //public void DepositFish(Follower.Colour colour)
-    //{       
-    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
-    //    NPCTargetUtil nPCTargetUtil = player.GetComponent<NPCTargetUtil>();
-    //    nPCTargetUtil.TransferFish(colour);
-    //}
+        spawnableDecor.SetActive(true);
+    }
 
     public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
     {

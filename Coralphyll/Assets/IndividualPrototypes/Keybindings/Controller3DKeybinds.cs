@@ -20,8 +20,8 @@ public class Controller3DKeybinds : MonoBehaviour
     public float kineticFrictionVariable = 0.16f;
     public float airResistance = 0.8f;
     [HideInInspector] public float gravity = 9f;
-    public float jumpForce = 5f;
-
+    public float jumpForce = 8f;
+    public float maxJumpForce = 8f;
     public bool isGrounded;
     private void Awake()
     {
@@ -61,7 +61,8 @@ public class Controller3DKeybinds : MonoBehaviour
     private void CalculateVelocity(Vector3 input)
     {
         velocity += input.normalized * speed * Time.deltaTime;
-        if (velocity.magnitude > maxVelocityValue)
+        Vector3 lateralVelocity = new Vector3(velocity.x, 0, velocity.z);
+        if (lateralVelocity.magnitude > maxVelocityValue)
         {
             velocity = velocity.normalized * maxVelocityValue;
         }
@@ -171,20 +172,21 @@ public class Controller3DKeybinds : MonoBehaviour
     //The magnitude of velocity.y is greater than 8f.
     public void SwimUpFunction()
     {
-        float maxVel = velocity.y;
-        if (!(maxVel > 8f))
-        {
-            Vector3 jumping = Vector3.up * jumpForce;
-            velocity.y += jumping.y;
+        if(Mathf.Abs(velocity.y)  < maxJumpForce) {
+            playerInput += transform.up * jumpForce;
         }
+        else{
+            velocity.y = maxJumpForce;
+        }
+        
     }
     public void DiveFunction()
     {
-        float maxVel = velocity.y;
-        if (!(maxVel < -8f))
-        {
-            Vector3 jumping = Vector3.down * jumpForce;
-            velocity.y += jumping.y;
+        if(Mathf.Abs(velocity.y) < maxJumpForce) {
+            playerInput += -transform.up * jumpForce;
+        }
+        else{
+            velocity.y = -maxJumpForce;
         }
     }
 
