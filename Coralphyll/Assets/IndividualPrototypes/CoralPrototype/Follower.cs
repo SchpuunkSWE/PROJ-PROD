@@ -24,11 +24,10 @@ public class Follower : MonoBehaviour
 
     public bool isClickable = false;
 
+
     private Rigidbody rgb;
 
     public Rigidbody RGB { get => rgb; }
-
-    private Coral coral;
 
     public FishColour GetColour()
     {
@@ -39,7 +38,6 @@ public class Follower : MonoBehaviour
     {
         //Fetch the Rigidbody from the GameObject with this script attached
         rgb = GetComponent<Rigidbody>();
-        coral = GetComponent<Coral>();
     }
 
     //IEnumerator MakeFishCollectable()

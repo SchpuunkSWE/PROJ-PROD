@@ -75,24 +75,24 @@ public class Coral : MonoBehaviour
         blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
-    public void ReceiveFish(List<Follower> fishes) //Counter for fish recieved.
+    public void ReceiveFish() 
     {
         Debug.Log("ReceiveFish Reached");
-        foreach (Follower fish in fishes)
-        {
-            switch (fish.GetColour())
-            {
-                case FishColour.YELLOW:
-                    yellowFishesAmount++;
-                    break;
-                case FishColour.RED:
-                        redFishesAmount++;
-                    break;
-                case FishColour.BLUE:
-                        blueFishesAmount++;
-                    break;
-            }
-        }
+        //foreach (Follower fish in fishes) //Counter for fish recieved.(We have a better counter below)
+        //{
+        //    switch (fish.GetColour())
+        //    {
+        //        case FishColour.YELLOW:
+        //            yellowFishesAmount++;
+        //            break;
+        //        case FishColour.RED:
+        //                redFishesAmount++;
+        //            break;
+        //        case FishColour.BLUE:
+        //                blueFishesAmount++;
+        //            break;
+        //    }
+        //}
         Debug.Log(yellowFishesAmount + ", " + redFishesAmount + ", " + blueFishesAmount);
 
         //call some display-method
@@ -111,9 +111,9 @@ public class Coral : MonoBehaviour
 
     public void UpdateProgress()
     {
-        //update yellow bar
-        //update red bar
-        //update blue bar
+        blueFishesAmount = CountFish(FishColour.BLUE);
+        yellowFishesAmount = CountFish(FishColour.YELLOW);
+        redFishesAmount = CountFish(FishColour.RED);
         SetUITexts();
 
     }
@@ -157,7 +157,7 @@ public class Coral : MonoBehaviour
             case FishColour.YELLOW:
                 return yellowFishesNeeded - yellowFishesAmount;
             case FishColour.RED:
-                return redFishesNeeded - redFishesAmount ;
+                return redFishesNeeded - redFishesAmount;
             case FishColour.BLUE:
                 return blueFishesNeeded - blueFishesAmount;
             default:
@@ -165,12 +165,20 @@ public class Coral : MonoBehaviour
         }
     }
 
-    //private void CountFish()
-    //{
-    //    BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>();
-    //    foreach (Follower f in boidsSystem.agents)
-    //    {
+    private int CountFish(FishColour fishColour)  //A counter that counts the fish/agents in the gamobjects Boids System and returns the value
+    {
+        BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>();
+        int count = 0;
+        foreach (GameObject go in boidsSystem.agents)
+        {
+            Follower f = go.GetComponent<Follower>();
+            
+            if(f.GetColour() == fishColour)
+            {
+                count++;
+            }
+        }
 
-    //    }
-    //}
+        return count;
+    }
 }
