@@ -71,7 +71,7 @@ public class NPCFishUtil : MonoBehaviour
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
-            f.StartRutine();
+            //f.StartRutine();
         }
 
         coral.GetComponent<Coral>().ReceiveFish(fishToRemove);

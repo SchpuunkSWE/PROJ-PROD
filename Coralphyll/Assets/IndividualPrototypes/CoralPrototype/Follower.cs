@@ -42,22 +42,22 @@ public class Follower : MonoBehaviour
         coral = GetComponent<Coral>();
     }
 
-    IEnumerator MakeFishCollectable()
-    {
-        Debug.Log("Corutine started");
-        collectable = true;
-        rgb.detectCollisions = true;
+    //IEnumerator MakeFishCollectable()
+    //{
+    //    Debug.Log("Corutine started");
+    //    collectable = true;
+    //    rgb.detectCollisions = true;
 
-        yield return new WaitForSeconds(0.2f);
-    }
+    //    yield return new WaitForSeconds(0.2f);
+    //}
 
-    public void StartRutine()
-    {
-        if (coral.IsSafezone)
-        {
-            StartCoroutine("MakeFishCollectable");
-        }
-    }
+    //public void StartRutine()
+    //{
+    //    if (coral.IsSafezone)
+    //    {
+    //        StartCoroutine("MakeFishCollectable");
+    //    }
+    //}
     //{
     //    col.enabled = false;
     //}
