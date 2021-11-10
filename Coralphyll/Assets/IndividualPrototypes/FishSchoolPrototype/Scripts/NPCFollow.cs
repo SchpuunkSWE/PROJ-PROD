@@ -16,15 +16,17 @@ public class NPCFollow : MonoBehaviour
     private RaycastHit shot;
     public bool isFollowingPlayer = false;
 
-    [SerializeField]
-    private bool collectable = true;
+    //[SerializeField]
+    //private bool collectable = true;
 
-    private Rigidbody rgb;
+    //private Rigidbody rgb;
+
+    private Follower follower;
 
     void Awake()
     {
-        //Fetch the Rigidbody from the GameObject with this script attached
-        rgb = GetComponent<Rigidbody>();
+        ////Fetch the Rigidbody from the GameObject with this script attached
+        //rgb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -70,7 +72,8 @@ public class NPCFollow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && collectable == true)
+        follower = GetComponent<Follower>();
+        if (other.CompareTag("Player") && follower.Collectable == true)
         {
             NPCFishUtil listScript = other.gameObject.GetComponent<NPCFishUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
             positionInList = listScript.AddToSchool(transform.gameObject.GetComponent<Follower>()); //L�gger till fisken till listan och returnerar platsen i listan den f�r.
@@ -79,8 +82,8 @@ public class NPCFollow : MonoBehaviour
                 fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi s�tter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista.
                 GetComponentInParent<BoidsSystem>().RemoveAgent(gameObject); //Tar bort agent från listan av agents.
                 isFollowingPlayer = true; //Vi s�tter fiskens status till att f�lja spelaren.
-                collectable = false; //So that you can only pick up the fishes ones.
-                rgb.detectCollisions = false; //Turn off collision on fish.
+                follower.Collectable = false; //So that you can only pick up the fishes ones.
+                follower.RGB.detectCollisions = false; //Turn off collision on fish.
                 GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
             }
         }

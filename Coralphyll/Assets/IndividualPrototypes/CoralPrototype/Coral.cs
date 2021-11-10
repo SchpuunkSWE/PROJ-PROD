@@ -43,12 +43,16 @@ public class Coral : MonoBehaviour
     private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
 
     [SerializeField]
+    private bool isSafezone = false; //Set/check in inspector for Safezones(Dont check for Corals)
+    public bool IsSafezone { get => isSafezone; }
+
+    [SerializeField]
     private GameObject spawnableDecor;
 
     public bool Completable { get => completable; }
 
 
-    public GameObject boidsSystem;
+    public GameObject boidsSystemGO;
 
     private void Awake()
     {
@@ -157,4 +161,13 @@ public class Coral : MonoBehaviour
                 return 0;
         }
     }
+
+    //private void CountFish()
+    //{
+    //    BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>();
+    //    foreach (Follower f in boidsSystem.agents)
+    //    {
+
+    //    }
+    //}
 }

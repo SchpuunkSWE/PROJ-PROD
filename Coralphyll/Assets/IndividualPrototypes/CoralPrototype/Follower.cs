@@ -12,6 +12,11 @@ public class Follower : MonoBehaviour
     private FishColour fishColour;
 
     [SerializeField]
+    private bool collectable = true;
+
+    public bool Collectable { get => collectable; set => collectable = value; }
+
+    [SerializeField]
     private GameObject parent;
 
     [SerializeField]
@@ -19,12 +24,40 @@ public class Follower : MonoBehaviour
 
     public bool isClickable = false;
 
+    private Rigidbody rgb;
+
+    public Rigidbody RGB { get => rgb; }
+
+    private Coral coral;
+
     public FishColour GetColour()
     {
         return this.fishColour;
     }
 
-    //private void Awake()
+    private void Awake()
+    {
+        //Fetch the Rigidbody from the GameObject with this script attached
+        rgb = GetComponent<Rigidbody>();
+        coral = GetComponent<Coral>();
+    }
+
+    IEnumerator MakeFishCollectable()
+    {
+        Debug.Log("Corutine started");
+        collectable = true;
+        rgb.detectCollisions = true;
+
+        yield return new WaitForSeconds(0.2f);
+    }
+
+    public void StartRutine()
+    {
+        if (coral.IsSafezone)
+        {
+            StartCoroutine("MakeFishCollectable");
+        }
+    }
     //{
     //    col.enabled = false;
     //}
@@ -35,7 +68,7 @@ public class Follower : MonoBehaviour
     //        col.enabled = true;
     //    }
     //}
-                                                                                                                                                                                                                                                                                                                                                                                                                  
+
     //private void OnMouseDown()
     //{
     //    //Used to control whether player can add fishes to list to deposit or not

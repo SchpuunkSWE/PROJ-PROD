@@ -40,8 +40,9 @@ public class NPCFishUtil : MonoBehaviour
         if (other.CompareTag("Coral"))
         {
             Debug.Log("Coral Tagged");
-            coral = other.GetComponentInParent<Coral>();
-            boidsSystemGO = coral.boidsSystem; //GameObject of coral.
+           
+            coral = other.GetComponentInParent<Coral>();    
+            boidsSystemGO = coral.boidsSystemGO; //GameObject of coral.
             
         }
     }
@@ -54,7 +55,9 @@ public class NPCFishUtil : MonoBehaviour
         {
             if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
             {
-                fishToRemove.Add(f); 
+                fishToRemove.Add(f);
+
+
             } //else if (f.GetComponent<NPCFollow>().isFollowingPlayer && !coral.Completable && f.GetColour() == fishColour) //Add fish even if full. remove if safezones should have a limit(obs dont forget to remove coral.Completable in above aswell)
             //{
             //    fishToRemove.Add(f);
@@ -68,8 +71,9 @@ public class NPCFishUtil : MonoBehaviour
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
-
+            f.StartRutine();
         }
+
         coral.GetComponent<Coral>().ReceiveFish(fishToRemove);
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
