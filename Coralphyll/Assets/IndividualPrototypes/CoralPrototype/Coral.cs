@@ -39,6 +39,9 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private bool complete = false;
 
+    [SerializeField]
+    private GameObject spawnableDecor;
+
     public GameObject boidsSystem;
 
     private void Awake()
@@ -130,6 +133,8 @@ public class Coral : MonoBehaviour
         mRenderer.material.SetColor("_BaseColor", newCoralColour);
 
         Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+
+        spawnableDecor.SetActive(true);
     }
 
     //public void DepositFish(Follower.Colour colour)
