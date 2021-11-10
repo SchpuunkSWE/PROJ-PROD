@@ -81,7 +81,7 @@ MonoBehaviour:
   velocityXSmoothValue: 0.2
   velocityZSmoothValue: 0.2
   velocityYSmoothValue: 0.2
-  maxVelocityValue: 5
+  maxVelocityValue: 10
   sphereCollider: {fileID: 1007953733124706012}
   collisionMask:
     serializedVersion: 2
@@ -91,7 +91,8 @@ MonoBehaviour:
   kineticFrictionVariable: 0.16
   airResistance: 0.8
   gravity: 9
-  jumpForce: 5
+  jumpForce: 8
+  maxJumpForce: 8
   isGrounded: 0
 --- !u!1001 &8856176490676353948
 PrefabInstance:
@@ -102,7 +103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3014171594053831532, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_Name
-      value: Player_Version1
+      value: Player_Version3
       objectReference: {fileID: 0}
     - target: {fileID: 3804407474843316476, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_RootOrder
