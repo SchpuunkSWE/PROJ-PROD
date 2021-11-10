@@ -45,7 +45,7 @@ public class Coral : MonoBehaviour
 
     private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
 
-    public bool Completable { get => completable; 
+    public bool Completable { get => completable; }
 
 
     public GameObject boidsSystem;
