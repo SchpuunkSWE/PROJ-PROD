@@ -8,8 +8,8 @@ public class TargetIndicator : MonoBehaviour
     public Image TargetIndicatorImage;
     public Image OffScreenTargetIndicator;
     public float IndicatorOutOfSightOffset = 20f;
-    //public float distanceToObject = 5f;
-    
+    public GameObject player;
+    public GameObject enemy;
     private float outOfSightOffset { get { return IndicatorOutOfSightOffset /* canvasRect.localScale.x*/; } }
 
     private GameObject target;
@@ -46,6 +46,15 @@ public class TargetIndicator : MonoBehaviour
         //Do stuff if picked as main target
     }
 
+    public void IncreaseImage()
+    {
+        float distanceBetweenObjects = Vector3.Distance(player.transform.position, enemy.transform.position);
+            if (distanceBetweenObjects > 50f) 
+            {
+            Debug.Log("Does this do something?");
+                OffScreenTargetIndicator.rectTransform.localScale = new Vector3(4, 4, 4);
+            }
+    }
 
     protected void SetIndicatorPosition()
     {
