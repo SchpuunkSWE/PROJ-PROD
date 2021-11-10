@@ -72,7 +72,14 @@ public class Mine : MonoBehaviour
 
     private void Explode()
     {
+        //Add animation or whatever here
+
         //Respawn Player (Instakill)
-        playerController.gameObject.GetComponent<PlayerRespawn>().RespawnPlayer();
+        DeathInfo d = new DeathInfo
+        {
+            victim = playerController.gameObject,
+            killer = this.gameObject
+        };
+        EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
     }
 }
