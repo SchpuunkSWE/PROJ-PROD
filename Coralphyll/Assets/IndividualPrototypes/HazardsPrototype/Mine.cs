@@ -61,4 +61,25 @@ public class Mine : MonoBehaviour
 
        
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            Explode();
+        }
+    }
+
+    private void Explode()
+    {
+        //Add animation or whatever here
+
+        //Respawn Player (Instakill)
+        DeathInfo d = new DeathInfo
+        {
+            victim = playerController.gameObject,
+            killer = this.gameObject
+        };
+        EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
+    }
 }
