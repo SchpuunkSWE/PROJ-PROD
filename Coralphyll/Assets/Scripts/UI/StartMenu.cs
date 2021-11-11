@@ -12,6 +12,8 @@ public class StartMenu : MonoBehaviour
     public GameObject visionAidPanel;
     public GameObject audioOptionsPanel;
 
+    private bool optionsOpen;
+
 
 
 
@@ -21,7 +23,18 @@ public class StartMenu : MonoBehaviour
     }
 
     public void OpenOptionsButton(){
+        if(optionsOpen == false){
+            interactionPanel.SetActive(true);
         openVisionAidPanel();
+        optionsOpen = true;
+        }else 
+        {
+            interactionPanel.SetActive(false);
+            optionsOpen = false;
+
+        }
+        
+        
     }
     public void openVisionAidPanel(){
         interactionPanel.SetActive(true);
