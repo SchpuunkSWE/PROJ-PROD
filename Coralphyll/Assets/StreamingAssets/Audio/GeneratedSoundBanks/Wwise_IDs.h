@@ -37,6 +37,7 @@ namespace AK
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT_STOP = 1255022652U;
+        static const AkUniqueID STOP = 788884573U;
     } // namespace EVENTS
 
     namespace STATES

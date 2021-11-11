@@ -17,7 +17,7 @@ public class StartMenu : MonoBehaviour
 
     public void PressStartButton(){
         SceneManager.LoadScene("Level1");
-
+        AkSoundEngine.PostEvent("Stop", gameObject);
     }
 
     public void OpenOptionsButton(){

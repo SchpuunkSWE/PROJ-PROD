@@ -2032,17 +2032,8 @@
 					<EntryList>
 						<Entry>
 							<Path>
-								<PathElementRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}"/>
-								<PathElementRef Name="Healthy" ID="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="Explore" ID="{82ADDE15-AD78-4D0F-B2D8-A293318E1B89}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
 								<PathElementRef Name="MainMenu" ID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}"/>
-								<PathElementRef Name="Healthy" ID="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}"/>
+								<PathElementRef Name="Player_status" ID="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}"/>
 							</Path>
 							<AudioNodeInfo>
 								<AudioNodeRef Name="MainTheme" ID="{ED69C65C-8C1A-49AE-8869-A46431514EF2}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
@@ -2050,8 +2041,17 @@
 						</Entry>
 						<Entry>
 							<Path>
+								<PathElementRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}"/>
+								<PathElementRef Name="Player_status" ID="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="Explore" ID="{82ADDE15-AD78-4D0F-B2D8-A293318E1B89}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
 								<PathElementRef Name="Combat" ID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}"/>
-								<PathElementRef Name="Healthy" ID="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}"/>
+								<PathElementRef Name="Player_status" ID="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}"/>
 							</Path>
 							<AudioNodeInfo>
 								<AudioNodeRef Name="Combat" ID="{10B31054-3D28-4F57-A3DE-D6FBF2329F44}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
@@ -2059,20 +2059,20 @@
 						</Entry>
 						<Entry>
 							<Path>
-								<PathElementRef Name="Victory" ID="{71016D14-1C72-437D-9D62-829C3176B568}"/>
-								<PathElementRef Name="Healthy" ID="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}"/>
+								<PathElementRef Name="Defeat" ID="{34F51EA6-18B9-4EDA-960F-3BB515F47A66}"/>
+								<PathElementRef Name="Player_status" ID="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="Victory" ID="{55CE0FF5-A8E6-4097-AE83-7D950580B00C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
+								<NoObject Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>
 							<Path>
-								<PathElementRef Name="Defeat" ID="{34F51EA6-18B9-4EDA-960F-3BB515F47A66}"/>
-								<PathElementRef Name="Healthy" ID="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}"/>
+								<PathElementRef Name="Victory" ID="{71016D14-1C72-437D-9D62-829C3176B568}"/>
+								<PathElementRef Name="Player_status" ID="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}"/>
 							</Path>
 							<AudioNodeInfo>
-								<NoObject Platform="Linked"/>
+								<AudioNodeRef Name="Victory" ID="{55CE0FF5-A8E6-4097-AE83-7D950580B00C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>
