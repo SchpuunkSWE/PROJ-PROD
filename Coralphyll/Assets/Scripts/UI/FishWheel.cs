@@ -13,6 +13,7 @@ public class FishWheel : MonoBehaviour
     private int previousSelection;
     public float exitArea;
     public float exitRadius;
+
     
 
    
@@ -43,6 +44,7 @@ public class FishWheel : MonoBehaviour
 
         // om x^2 + y^2 är mindre än exit radius ^2 ska exit väljas. 
         if(normalisedMousePosition.x * normalisedMousePosition.x + normalisedMousePosition.y * normalisedMousePosition.y >= exitRadius * exitRadius){
+            
             if(selection != previousSelection) {
             previousItemSc = menuItems[previousSelection].GetComponent<FishWheelItem>();
             previousItemSc.DeSelect();
@@ -57,9 +59,21 @@ public class FishWheel : MonoBehaviour
                 // gör så att de andra deselectas
         
     
+                
                 previousItemSc.DeSelect();
 
             }
+        }
+        // if the exit button is hovered.
+
+        if(normalisedMousePosition.x * normalisedMousePosition.x + normalisedMousePosition.y * normalisedMousePosition.y <= exitRadius * exitRadius){
+
+        }
+
+        if(Input.GetMouseButtonDown(0)){
+            itemSc = menuItems[selection].GetComponent<FishWheelItem>();
+            itemSc.Clicked();
+
         }
         
     }
