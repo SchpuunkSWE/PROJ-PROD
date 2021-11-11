@@ -40,8 +40,9 @@ public class NPCFishUtil : MonoBehaviour
         if (other.CompareTag("Coral"))
         {
             Debug.Log("Coral Tagged");
-            coral = other.GetComponentInParent<Coral>();
-            boidsSystemGO = coral.boidsSystem; //GameObject of coral.
+           
+            coral = other.GetComponentInParent<Coral>();    
+            boidsSystemGO = coral.boidsSystemGO; //GameObject of coral.
             
         }
     }
@@ -54,7 +55,9 @@ public class NPCFishUtil : MonoBehaviour
         {
             if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
             {
-                fishToRemove.Add(f); 
+                fishToRemove.Add(f);
+
+
             } //else if (f.GetComponent<NPCFollow>().isFollowingPlayer && !coral.Completable && f.GetColour() == fishColour) //Add fish even if full. remove if safezones should have a limit(obs dont forget to remove coral.Completable in above aswell)
             //{
             //    fishToRemove.Add(f);
@@ -68,9 +71,52 @@ public class NPCFishUtil : MonoBehaviour
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
+        }
+
+        coral.GetComponent<Coral>().ReceiveFish();
+        fishToRemove.Clear(); //Clear the fish to remove list.
+    }
+
+    public void PickUpFish(GameObject player, Follower follower)
+    {
+        NPCFishUtil listScript = player.gameObject.GetComponent<NPCFishUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
+        NPCFollow nPCFollow = follower.GetComponent<NPCFollow>();
+        int positionInList = nPCFollow.PositionInList;
+        positionInList = listScript.AddToSchool(follower.transform.gameObject.GetComponent<Follower>()); //L�gger till fisken till listan och returnerar platsen i listan den f�r.
+        if (positionInList >= 0) //Om vi f�r tillbaka ett v�rde �ver 0... 
+        {
+            nPCFollow.PositionInList = positionInList;
+            nPCFollow.fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi s�tter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista.
+            follower.GetComponentInParent<BoidsSystem>().RemoveAgent(follower.gameObject); //Tar bort agent från listan av agents.
+            nPCFollow.isFollowingPlayer = true; //Vi s�tter fiskens status till att f�lja spelaren.
+            follower.Collectable = false; //So that you can only pick up the fishes ones.
+            follower.RGB.detectCollisions = false; //Turn off collision on fish.
+            follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
+        }
+    }
+
+    public void FindAndPickUpFish(FishColour fishColour)
+    {
+        BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
+        List<Follower> toRemoveFromSafezone = new List<Follower>(); //Made a new list for fish to remove from the safezone
+        Debug.Log(toRemoveFromSafezone);
+        foreach (GameObject go in boidsSystem.agents)
+        {
+            Follower f = go.GetComponent<Follower>();
+            if (f.GetColour() == fishColour && (listOfFishes.Count < arrayOfTargets.Length || listOfFishes.Contains(f)))
+            {
+                toRemoveFromSafezone.Add(f);
+                Debug.Log("Added fish");
+                Debug.Log(toRemoveFromSafezone);
+            } 
+        }
+        foreach (Follower f in toRemoveFromSafezone)
+        {
+            Debug.Log("Picking up fish");
+            PickUpFish(gameObject, f); //Reuse the method where we pick up fish with the player
+            coral.UpdateProgress(); //Update the UI
 
         }
-        coral.GetComponent<Coral>().ReceiveFish(fishToRemove);
-        fishToRemove.Clear(); //Clear the fish to remove list.
+
     }
 }
