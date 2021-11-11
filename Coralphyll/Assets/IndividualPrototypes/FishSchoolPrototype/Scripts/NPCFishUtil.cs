@@ -19,7 +19,10 @@ public class NPCFishUtil : MonoBehaviour
 
     private void Awake()
     {
-        navArrow = transform.gameObject.GetComponent<NavigationArrow>();
+        if(navArrow != null)
+        {
+            navArrow = transform.gameObject.GetComponent<NavigationArrow>();
+        }
         SelectNavArrowTarget();
     }
 
