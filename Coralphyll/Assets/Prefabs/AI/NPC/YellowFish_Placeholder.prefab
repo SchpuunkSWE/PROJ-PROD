@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7242082062020311351}
   m_Layer: 0
   m_Name: YellowFish_Placeholder
-  m_TagString: Fish
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishColour: 2
-  collectable: 1
   parent: {fileID: 3014171594053831532, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
   col: {fileID: 3219925873853895632}
   isClickable: 0
@@ -110,10 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004d7a8b039f69240a35783d68db957f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishTarget: {fileID: 0}
   allowedDistance: 0.1
   followSpeed: 0.2
   isFollowingPlayer: 0
+  collectable: 1
 --- !u!114 &7242082062020311351
 MonoBehaviour:
   m_ObjectHideFlags: 0
