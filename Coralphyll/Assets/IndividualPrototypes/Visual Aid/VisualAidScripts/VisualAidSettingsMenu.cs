@@ -8,12 +8,14 @@ public class VisualAidSettingsMenu : MonoBehaviour
 {
     VolumeProfile volumeProfile;
     public Volume volume;
-    public bool overrideFog;
+    //public bool overrideFog;
     //public Fog fog;
     public DepthOfField dof;
-    public ColorAdjustments colorAdjustments;
+    //public ColorAdjustments colorAdjustments;
+    public LiftGammaGain lgg;
+    private Vector4 defaultGammaValue;
 
-    public SliderSettings exposureSlider; 
+    public SliderSettings brightnessSlider; 
 
     private void Awake()
     {
@@ -33,43 +35,55 @@ public class VisualAidSettingsMenu : MonoBehaviour
         }
 
         //get color adjustments
-        if (volumeProfile.TryGet<ColorAdjustments>(out ColorAdjustments actualColorAdjustments))
+        /*if (volumeProfile.TryGet<ColorAdjustments>(out ColorAdjustments actualColorAdjustments))
         {
             colorAdjustments = actualColorAdjustments;
+        }*/
+
+        //get LiftGammaGain
+        if (volumeProfile.TryGet<LiftGammaGain>(out LiftGammaGain actualLgg))
+        {
+            lgg = actualLgg;
         }
 
+        //get default Gamma Value
+        defaultGammaValue = lgg.gamma.value;
+
         //listen to the sliders values
-        exposureSlider.slider.onValueChanged.AddListener(delegate { SetExposure(exposureSlider.slider.value); });
+        brightnessSlider.slider.onValueChanged.AddListener(delegate { SetBrightness(brightnessSlider.slider.value); });
     }
 
     void OnApplicationQuit()
     {
         //set everything back to default
-        
+
         //turn on fog again if it's turned off
         /*if (!fog.enabled.value)
         {
             fog.enabled.value = true;
         }*/
 
-        //set exposure to 0 again
-        colorAdjustments.postExposure.value = 0;
+        //set brightness to 0 again
+        //colorAdjustments.postExposure.value = 0;
+        lgg.gamma.value = defaultGammaValue;
 
         //turn on depth of field
         dof.active = true;
     }
 
-    public void SetExposure (float currentValue)
+    public void SetBrightness (Vector4 currentValue)
     {
-        //To see the exposure value in the console
-        //Debug.Log(exposure); 
+        //To see the brightness value in the console
+        //Debug.Log(brightness); 
 
-        //Change the exposure according to the value
-        float finalExposureValue;
-        finalExposureValue = ConvertValue(exposureSlider.slider.minValue, exposureSlider.slider.maxValue, exposureSlider.minSettingsValue, exposureSlider.maxSettingsValue, currentValue);
+        //Change the brightness according to the value
+        Vector4 finalBrightnessValue;
+        finalBrightnessValue = ConvertValue(brightnessSlider.slider.minValue, brightnessSlider.slider.maxValue, brightnessSlider.minSettingsValue, brightnessSlider.maxSettingsValue, currentValue);
         //access the profile and override it with the new result
-        colorAdjustments.postExposure.value = finalExposureValue;
-        exposureSlider.txtSlider.text = Mathf.RoundToInt(currentValue).ToString();
+
+        //colorAdjustments.postExposure.value = finalBrightnessValue;
+        lgg.gamma.value = finalBrightnessValue;
+        brightnessSlider.txtSlider.text = Mathf.RoundToInt(currentValue).ToString();
     }
 
     /*public void SetFog (bool isFog)

@@ -18,8 +18,8 @@ public class SliderSettings : MonoBehaviour
 
     public Volume volume;
     VolumeProfile volumeProfile;
-    public bool enableFog;
-    public bool overrideFog;
+    //public bool enableFog;
+    //public bool overrideFog;
 
     void Start()
     {
