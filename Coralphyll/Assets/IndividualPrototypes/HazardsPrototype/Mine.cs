@@ -13,7 +13,9 @@ public class Mine : MonoBehaviour
 
     private bool hasChanged; 
 
-    private Controller3DKeybinds playerController; 
+    private Controller3DKeybinds playerController;
+
+    private ParticleSystem particleSystem; 
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,8 @@ public class Mine : MonoBehaviour
         playerController = FindObjectOfType(typeof(Controller3DKeybinds)) as Controller3DKeybinds;
 
         meshRenderer = GetComponent<MeshRenderer>();
+
+        particleSystem = transform.Find("Explosion").GetComponent<ParticleSystem>();
 
     }
 
@@ -42,10 +46,11 @@ public class Mine : MonoBehaviour
             
                 if (hasChanged)
                 {
-               
+
                     //Debug.Log(volume);
-                
-                    audioSource.volume = 1- fraction;
+
+                     audioSource.volume = 1- fraction;
+                    
                
                     audioSource.Play(0);
            
@@ -73,6 +78,9 @@ public class Mine : MonoBehaviour
     private void Explode()
     {
         //Add animation or whatever here
+        particleSystem.Play();
+        meshRenderer.enabled = false;
+        Destroy(gameObject, particleSystem.main.duration);
 
         //Respawn Player (Instakill)
         DeathInfo d = new DeathInfo
