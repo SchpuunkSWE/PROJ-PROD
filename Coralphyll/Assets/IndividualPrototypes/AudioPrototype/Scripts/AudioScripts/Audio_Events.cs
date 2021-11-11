@@ -83,7 +83,8 @@ public class Audio_Events : MonoBehaviour
             if (aiContr[i].StateMachine.CurrentState is EnemyChase || aiContr[i].StateMachine.CurrentState is EnemyAttack)
             {
                 Audio_LevelState("Combat");
-                inCombat = true;
+                    inCombat = true;
+                    inMainMenu = false;
                 break;
             }
         }

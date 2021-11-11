@@ -210,6 +210,31 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="NPC_Friendly_Fish_Generic" ID="{37138CAB-3E66-4696-8339-E656AFA2E284}">
+							<ChildrenList>
+								<Action Name="" ID="{6E2543B9-9B55-452E-90AF-002A1BF6D970}" ShortID="59535334">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GENERIC_FRIENDLY_FISH" ID="{B2ABFD99-3906-4688-A02A-D45AE7DD6EB5}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Fish_Generic_Stop" ID="{7B23007E-71AF-49EE-96A0-6F5F8F042A68}">
+							<ChildrenList>
+								<Action Name="" ID="{F1753DF9-64CA-4AF1-BAB0-1E690C768F64}" ShortID="438490033">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GENERIC_FRIENDLY_FISH" ID="{B2ABFD99-3906-4688-A02A-D45AE7DD6EB5}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="OneShots" ID="{4768E1C1-6025-42E7-AEA5-4554264DBC4B}" ShortID="754587510">

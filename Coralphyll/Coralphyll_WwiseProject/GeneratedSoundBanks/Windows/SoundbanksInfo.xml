@@ -224,7 +224,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1252816304">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2874134951">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -235,7 +235,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1405103746">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2946836839">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -260,7 +260,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2996183927" Name="fs_player_swim" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim" MaxAttenuation="60.000000" DurationType="OneShot" DurationMin="1.396629" DurationMax="1.864276">
+				<Event Id="2996183927" Name="fs_player_swim" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.396629" DurationMax="1.864276">
 					<IncludedMemoryFiles>
 						<File Id="402119525" Language="SFX">
 							<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
@@ -268,7 +268,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="976861018" Name="fs_player_swim_sprint" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim_sprint" MaxAttenuation="60.000000" DurationType="OneShot" DurationMin="1.108505" DurationMax="1.479677">
+				<Event Id="976861018" Name="fs_player_swim_sprint" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim_sprint" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.108505" DurationMax="1.479677">
 					<IncludedMemoryFiles>
 						<File Id="402119525" Language="SFX">
 							<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
@@ -285,7 +285,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="907852203" Name="NPC_Enemy_Eel_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Enemy_Eel_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2396901519" Name="NPC_Friendly_Blue" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue" MaxAttenuation="60.000000" DurationType="Infinite">
+				<Event Id="2396901519" Name="NPC_Friendly_Blue" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="325430453" Language="SFX">
 							<ShortName>Chime_FriendlyFish_Updated.wav</ShortName>
@@ -294,6 +294,15 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1686688698" Name="NPC_Friendly_Blue_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4098783091" Name="NPC_Friendly_Fish_Generic" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Fish_Generic" MaxAttenuation="50.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="729904146" Language="SFX">
+							<ShortName>GENERIC_FRIENDLY_FISH.wav</ShortName>
+							<Path>SFX\GENERIC_FRIENDLY_FISH_F7725DD3.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="203293054" Name="NPC_Friendly_Fish_Generic_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Fish_Generic_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="679089271" Name="NPC_Friendly_Pickup" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Pickup" DurationType="OneShot" DurationMin="1.013333" DurationMax="1.013333">
 					<IncludedMemoryFiles>
 						<File Id="92155153" Language="SFX">
@@ -302,7 +311,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="54285700" Name="NPC_Friendly_Red" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red" MaxAttenuation="60.000000" DurationType="Infinite">
+				<Event Id="54285700" Name="NPC_Friendly_Red" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="101814616" Language="SFX">
 							<ShortName>Chime_FriendlyFish_2.wav</ShortName>
@@ -311,7 +320,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3941370595" Name="NPC_Friendly_Red_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2379275139" Name="NPC_Friendly_Yellow" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow" MaxAttenuation="60.000000" DurationType="Infinite">
+				<Event Id="2379275139" Name="NPC_Friendly_Yellow" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="962159150" Language="SFX">
 							<ShortName>Chime_FriendlyFish3_updated.wav</ShortName>
@@ -337,7 +346,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3857701063" Name="SFX_3D_Emitter_Friendly_Fish_1_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Friendly_Fish_1_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1644260233" Name="SFX_3D_Emitter_Water_Sprout" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout" MaxAttenuation="60.000000" DurationType="Infinite">
+				<Event Id="1644260233" Name="SFX_3D_Emitter_Water_Sprout" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="112291669" Language="SFX">
 							<ShortName>Ambience_underwater_sprout.wav</ShortName>
@@ -383,6 +392,10 @@
 				<File Id="646329306" Language="SFX">
 					<ShortName>HitThump_EnemySound.wav</ShortName>
 					<Path>SFX\HitThump_EnemySound_D79FB2B7.wem</Path>
+				</File>
+				<File Id="729904146" Language="SFX">
+					<ShortName>GENERIC_FRIENDLY_FISH.wav</ShortName>
+					<Path>SFX\GENERIC_FRIENDLY_FISH_F7725DD3.wem</Path>
 				</File>
 				<File Id="752514042" Language="SFX">
 					<ShortName>ES_Sea Creature Moan 5 - SFX Producer.wav</ShortName>
