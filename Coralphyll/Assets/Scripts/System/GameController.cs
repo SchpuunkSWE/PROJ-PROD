@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance); //Makes the GameController survive between scenes
+            //DontDestroyOnLoad(instance); //Makes the GameController survive between scenes
         }
         else
         {
