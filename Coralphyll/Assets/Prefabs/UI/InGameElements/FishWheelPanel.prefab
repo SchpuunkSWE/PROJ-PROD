@@ -31,7 +31,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481248821803823683}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 120}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -91,6 +91,8 @@ MonoBehaviour:
   hoverColor: {r: 0.4481132, g: 0.57314336, b: 1, a: 1}
   baseColor: {r: 0.5990566, g: 0.7028303, b: 1, a: 0.5176471}
   background: {fileID: 4776170959786809094}
+  gc: {fileID: 0}
+  color: 2
 --- !u!1 &3124861101987381178
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +124,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481248821803823683}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 240}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -182,6 +184,8 @@ MonoBehaviour:
   hoverColor: {r: 1, g: 0.9453653, b: 0.19339621, a: 1}
   baseColor: {r: 1, g: 0.94163394, b: 0.514151, a: 0.5176471}
   background: {fileID: 4503402070965040109}
+  gc: {fileID: 0}
+  color: 0
 --- !u!1 &4409622671763471707
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +217,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481248821803823683}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -273,6 +277,8 @@ MonoBehaviour:
   hoverColor: {r: 1, g: 0.4575472, b: 0.4575472, a: 1}
   baseColor: {r: 1, g: 0.7882353, b: 0.7882353, a: 0.5254902}
   background: {fileID: 4145687871093486668}
+  gc: {fileID: 0}
+  color: 1
 --- !u!1 &4439150184046485497
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,9 +384,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8390174951750076472}
   - {fileID: 7208313314115898863}
   - {fileID: 8395896511398495967}
-  - {fileID: 8390174951750076472}
   - {fileID: 4975843702544341405}
   m_Father: {fileID: 4481248822132318461}
   m_RootOrder: 1
@@ -594,6 +600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalisedMousePosition: {x: 0, y: 0}
+  exitButton: {fileID: 0}
+  FishWheelPanel: {fileID: 4481248821803823682}
   currentAngle: 0
   offsetAngle: 0
   selection: 0
