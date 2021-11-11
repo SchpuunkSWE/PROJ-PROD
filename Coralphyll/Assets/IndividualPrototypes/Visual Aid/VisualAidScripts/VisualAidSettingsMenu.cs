@@ -71,18 +71,22 @@ public class VisualAidSettingsMenu : MonoBehaviour
         dof.active = true;
     }
 
-    public void SetBrightness (Vector4 currentValue)
+    public void SetBrightness (float currentValue)
     {
-        //To see the brightness value in the console
-        //Debug.Log(brightness); 
-
         //Change the brightness according to the value
-        Vector4 finalBrightnessValue;
-        finalBrightnessValue = ConvertValue(brightnessSlider.slider.minValue, brightnessSlider.slider.maxValue, brightnessSlider.minSettingsValue, brightnessSlider.maxSettingsValue, currentValue);
-        //access the profile and override it with the new result
+        //float finalBrightnessValue;
+        //finalBrightnessValue = ConvertValue(brightnessSlider.slider.minValue, brightnessSlider.slider.maxValue, brightnessSlider.minSettingsValue, brightnessSlider.maxSettingsValue, currentValue);
 
+        //Make a Vector4 using the currentValue
+        Vector4 finalBrightnessValue = new Vector4(0, 0, 0, currentValue);
+
+        //access the profile and override it with the new result
         //colorAdjustments.postExposure.value = finalBrightnessValue;
+        
+        //Set the gamma to the new Vector4
         lgg.gamma.value = finalBrightnessValue;
+
+        //Set the text by the slider to the correct number
         brightnessSlider.txtSlider.text = Mathf.RoundToInt(currentValue).ToString();
     }
 
