@@ -71,7 +71,7 @@ public class ColorPicker : MonoBehaviour
 
             //hitta färgen vi hovrar över
             int texX = Mathf.RoundToInt(x * colorTexture.width);
-            int texY = Mathf.RoundToInt(x * colorTexture.height);
+            int texY = Mathf.RoundToInt(y * colorTexture.height);
             debug += "<br>texX=" + texX + "texY=" + texY;
 
             //ge ut färgen
