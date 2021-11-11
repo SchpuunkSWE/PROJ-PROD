@@ -13,13 +13,13 @@ public class Mine : MonoBehaviour
 
     private bool hasChanged; 
 
-    private PlayerController playerController; 
+    private Controller3DKeybinds playerController; 
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        playerController = FindObjectOfType(typeof(PlayerController)) as PlayerController;
+        playerController = FindObjectOfType(typeof(Controller3DKeybinds)) as Controller3DKeybinds;
 
         meshRenderer = GetComponent<MeshRenderer>();
 
