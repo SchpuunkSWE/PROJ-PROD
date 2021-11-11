@@ -8,7 +8,8 @@ public class InputManager : MonoBehaviour
 
     [SerializeField]
     private Keybindings keybindings;
-    
+    private readonly System.Array keyCodes = System.Enum.GetValues(typeof(KeyCode));
+
     private void Awake()
     {
         if(instance == null)
@@ -90,4 +91,37 @@ public class InputManager : MonoBehaviour
         keybindings.keybindingsChecks[4].keyCode = KeyCode.RightArrow;
         keybindings.keybindingsChecks[5].keyCode = KeyCode.LeftArrow;
     }
+
+    public void StartKeySwapRoutine(int keybindingIndex)
+    {
+        StartCoroutine(SwapKeyBinding(keybindingIndex));
+    }
+
+    private IEnumerator SwapKeyBinding(int index)
+    {
+        bool complete = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        while (!complete)
+        {
+            if(Input.anyKeyDown)
+            {
+                foreach (KeyCode keyCode in keyCodes)
+                {
+                    if (Input.GetKey(keyCode))
+                    {
+                        keybindings.keybindingsChecks[index].keyCode = keyCode;
+                        complete = true;
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                        break;
+                    }
+                }
+            }
+            yield return null;
+        }
+    }
 }
+
+
+
