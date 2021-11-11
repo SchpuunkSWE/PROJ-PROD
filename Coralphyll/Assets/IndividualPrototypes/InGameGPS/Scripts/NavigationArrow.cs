@@ -7,24 +7,35 @@ public class NavigationArrow : MonoBehaviour
     [SerializeField]
     private GameObject arrow;
     [SerializeField]
-    private GameObject visualArrow;
-    [SerializeField]
     private string tagName;
-    [SerializeField]
-    private float arrowTransparencyMult = 1f; //Multiplier for transparency, higher values makes arrow visible faster
-    [SerializeField]
-    private float arrowTransparencyMinRange = 15f; //Minimun range from target for arrow to be visible
 
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+
         Transform target = GetClosestTarget(tagName);
 
         Vector3 direction = target.position - arrow.transform.position; //Räknar ut vart pil ska titta.
 
         arrow.transform.rotation = Quaternion.Slerp(arrow.transform.rotation, Quaternion.LookRotation(direction), 5f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
 
-        MakeArrowTransparent(target);
+        float dist = Vector3.Distance(arrow.transform.position, target.position);
+        if (dist < 5f)
+        {
+            StartCoroutine(FadeOutMaterial(1f));
+            Debug.Log("Coroutine started");
+        }
+        //
+        //arrow.transform.LookAt(GetClosestTarget(tagName)); //Ser till att pilen pekar mot närmsta target
+        //}
+
+    }
+
+    private void Awake()
+    { 
+        //StartCoroutine(FadeOutMaterial(1f));
     }
     public Transform GetClosestTarget(string targetTag)
     {
@@ -50,14 +61,25 @@ public class NavigationArrow : MonoBehaviour
          tagName = s;
     }
 
-    private void MakeArrowTransparent(Transform target) 
+    IEnumerator FadeOutMaterial(float fadeSpeed)
     {
-        Renderer rend = visualArrow.transform.GetComponent<Renderer>();
-        Color matColour = rend.material.color;
-        float dist = Vector3.Distance(arrow.transform.position, target.position);
-        float alphaValue = Mathf.Clamp(((dist * arrowTransparencyMult) - (arrowTransparencyMinRange * arrowTransparencyMult)) /100, 0f, 1f); //Calculates a transparency value between 0-1
-        Debug.Log("alpha: " + alphaValue);
+        Debug.Log("FadeOutMaterial started");
+        Renderer rend = arrow.transform.GetComponentInChildren<Renderer>();
+        Color matColor = rend.material.color;
+        float alphaValue = rend.material.color.a;
 
-        rend.material.color = new Color(matColour.r, matColour.g, matColour.b, alphaValue);
+        while (rend.material.color.a > 0f)
+        {
+            alphaValue -= Time.deltaTime / fadeSpeed;
+            rend.material.color = new Color(matColor.r, matColor.g, matColor.b, alphaValue);
+            yield return null;
+        }
+        rend.material.color = new Color(matColor.r, matColor.g, matColor.b, 0f);
+        Debug.Log("Material faded");
+    }
+
+    private void CalculateDistance(Transform target)
+    {
+        //float dist = Vector3.Distance(target.position, arrow.transform.position);
     }
 }
