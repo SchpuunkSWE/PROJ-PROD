@@ -194,6 +194,10 @@ PrefabInstance:
       propertyPath: volume
       value: 
       objectReference: {fileID: 1309605070}
+    - target: {fileID: 249542297502174198, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: brightnessSlider
+      value: 
+      objectReference: {fileID: 889546436}
     - target: {fileID: 682674642558270765, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -265,6 +269,22 @@ PrefabInstance:
     - target: {fileID: 1056415385341021697, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_MaxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_MinValue
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetBrightness
       objectReference: {fileID: 0}
     - target: {fileID: 3270560074074094990, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.x
@@ -280,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371256880235137167, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000105247724
+      value: 108.1092
       objectReference: {fileID: 0}
     - target: {fileID: 4371256880331547396, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.x
@@ -288,6 +308,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371256880331547396, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371256880331547396, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4371256880786729958, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
@@ -356,30 +380,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150329008000515390, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7925115448959841586, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7925115448959841586, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7925115448959841586, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7925115448959841586, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7925115448959841586, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7925115448959841586, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1047,6 +1047,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &889546436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1312148046, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+  m_PrefabInstance: {fileID: 123800418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df636b99733b874283f694845b2e242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1309605070 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8221741648170965471, guid: bd20211d6a9da5e4dbc0f559e0533ee6, type: 3}

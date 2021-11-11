@@ -87,7 +87,7 @@ public class VisualAidSettingsMenu : MonoBehaviour
         lgg.gamma.value = finalBrightnessValue;
 
         //Set the text by the slider to the correct number
-        brightnessSlider.txtSlider.text = Mathf.RoundToInt(currentValue).ToString();
+        brightnessSlider.txtSlider.text = currentValue.ToString();
     }
 
     /*public void SetFog (bool isFog)
