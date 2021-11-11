@@ -81,6 +81,4 @@ public class NPCFollow : MonoBehaviour
             other.GetComponent<NPCFishUtil>().PickUpFish(other.gameObject, follower);
         }
     }
-
-
 }
