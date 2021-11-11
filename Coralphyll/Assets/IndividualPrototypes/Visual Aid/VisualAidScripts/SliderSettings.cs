@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 
 
 public class SliderSettings : MonoBehaviour
 {
-    /*public Slider slider;
+    public Slider slider;
     public Text txtSlider;
     [Tooltip("The maximum value for the settings. It's not viewable for the player")]
     public float maxSettingsValue;
@@ -22,7 +23,7 @@ public class SliderSettings : MonoBehaviour
 
     void Start()
     {
-       //volumeProfile = volume.sharedProfile;
+       volumeProfile = volume.sharedProfile;
     }
 
     private void Update()
@@ -35,7 +36,7 @@ public class SliderSettings : MonoBehaviour
 
     } 
 
-    void Fog()
+    /*void Fog()
     {
         if (!volumeProfile.TryGet<Fog>(out var fog))
         {

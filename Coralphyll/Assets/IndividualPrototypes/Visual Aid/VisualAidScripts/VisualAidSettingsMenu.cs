@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class VisualAidSettingsMenu : MonoBehaviour
 {
-    /*VolumeProfile volumeProfile;
+    VolumeProfile volumeProfile;
     public Volume volume;
     public bool overrideFog;
-    public Fog fog;
+    //public Fog fog;
     public DepthOfField dof;
     public ColorAdjustments colorAdjustments;
 
@@ -20,10 +21,10 @@ public class VisualAidSettingsMenu : MonoBehaviour
         volumeProfile = volume.sharedProfile;
         
         //get fog override
-        if(volumeProfile.TryGet<Fog>(out Fog actualFog))
+        /*if(volumeProfile.TryGet<Fog>(out Fog actualFog))
         {
             fog = actualFog; 
-        }
+        }*/
 
         //get dof override
         if(volumeProfile.TryGet<DepthOfField>(out DepthOfField actualDof))
@@ -46,10 +47,10 @@ public class VisualAidSettingsMenu : MonoBehaviour
         //set everything back to default
         
         //turn on fog again if it's turned off
-        if (!fog.enabled.value)
+        /*if (!fog.enabled.value)
         {
             fog.enabled.value = true;
-        }
+        }*/
 
         //set exposure to 0 again
         colorAdjustments.postExposure.value = 0;
@@ -71,10 +72,10 @@ public class VisualAidSettingsMenu : MonoBehaviour
         exposureSlider.txtSlider.text = Mathf.RoundToInt(currentValue).ToString();
     }
 
-    public void SetFog (bool isFog)
+    /*public void SetFog (bool isFog)
     {
         fog.enabled.value = isFog;
-    }
+    }*/
 
     public void SetDof (bool isDof)
     {
@@ -92,6 +93,6 @@ public class VisualAidSettingsMenu : MonoBehaviour
         float ratio = (actualMax - actualMin) / (virtualMax - virtualMin);
         float returnValue = (currentValue * ratio) - (virtualMin * ratio) + actualMin;
         return returnValue;
-    }*/
+    }
 
 }
