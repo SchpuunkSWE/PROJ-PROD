@@ -67,6 +67,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        sceneTransitionGate.SetActive(false);
         if (instance == null)
         {
             instance = this;
