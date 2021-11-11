@@ -43,11 +43,24 @@ public class NPCFishUtil : MonoBehaviour
            
             coral = other.GetComponentInParent<Coral>();    
             boidsSystemGO = coral.boidsSystemGO; //GameObject of coral.
-            
+            if (coral.IsSafezone)
+            {
+                AIController.CanFollowPlayer = false;
+            }
         }
     }
-
-    public void TransferFish(FishColour fishColour)
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Coral"))
+        {
+            coral = other.GetComponentInParent<Coral>();
+            if (coral.IsSafezone)
+            {
+                AIController.CanFollowPlayer = true;
+            }
+        }
+    }
+            public void TransferFish(FishColour fishColour)
     {
         BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
 
