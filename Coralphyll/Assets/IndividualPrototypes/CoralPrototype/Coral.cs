@@ -31,13 +31,32 @@ public class Coral : MonoBehaviour
     private MeshRenderer mRenderer;
 
     [SerializeField]
+    private GameController gameController;
+
+    [SerializeField]
     private ParticleSystem CompletedParticles;
 
     [SerializeField]
     private bool complete = false;
 
+    [SerializeField]
+    private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
+
+    [SerializeField]
+    private bool isSafezone = false; //Set/check in inspector for Safezones(Dont check for Corals)
+    public bool IsSafezone { get => isSafezone; }
+
+    [SerializeField]
+    private GameObject spawnableDecor;
+
+    public bool Completable { get => completable; }
+
+
+    public GameObject boidsSystemGO;
+
     private void Awake()
     {
+        //gameController = GameObject.FindGameObjectWithTag("GC").GetComponent<GameController>(); - try this if u can't set it in the inspector for some reason
         yellowFishesAmount = 0;
         redFishesAmount = 0;
         blueFishesAmount = 0;
@@ -56,50 +75,45 @@ public class Coral : MonoBehaviour
         blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
-    public void ReceiveFish(List<Follower> fishes) //Take fish-object later ?
+    public void ReceiveFish() 
     {
         Debug.Log("ReceiveFish Reached");
-        string fishColour;
-        foreach (Follower fish in fishes) 
-        {
-            fishColour = fish.GetColour();
-
-            switch (fishColour)
-            {
-                case "yellow":
-                case "Yellow":
-                    yellowFishesAmount++;
-                    break;
-                case "red":
-                case "Red":
-                    redFishesAmount++;
-                    break;
-                default:
-                    blueFishesAmount++;
-                    break;
-            }
-        }
+        //foreach (Follower fish in fishes) //Counter for fish recieved.(We have a better counter below)
+        //{
+        //    switch (fish.GetColour())
+        //    {
+        //        case FishColour.YELLOW:
+        //            yellowFishesAmount++;
+        //            break;
+        //        case FishColour.RED:
+        //                redFishesAmount++;
+        //            break;
+        //        case FishColour.BLUE:
+        //                blueFishesAmount++;
+        //            break;
+        //    }
+        //}
         Debug.Log(yellowFishesAmount + ", " + redFishesAmount + ", " + blueFishesAmount);
 
         //call some display-method
         UpdateProgress();
 
         //"Ta bort" fiskarna fr�n spelarens lista 
-        foreach (Follower fish in fishes)
-        {
-            fish.gameObject.SetActive(false);
-            Debug.Log("Hid fish " + fish.GetInstanceID());
-        }
+        //foreach (Follower fish in fishes)
+        //{
+        //    fish.gameObject.SetActive(false);
+        //    Debug.Log("Hid fish " + fish.GetInstanceID());
+        //}
 
         //Check completion
         CheckProgress();
     }
 
-    private void UpdateProgress()
+    public void UpdateProgress()
     {
-        //update yellow bar
-        //update red bar
-        //update blue bar
+        blueFishesAmount = CountFish(FishColour.BLUE);
+        yellowFishesAmount = CountFish(FishColour.YELLOW);
+        redFishesAmount = CountFish(FishColour.RED);
         SetUITexts();
 
     }
@@ -107,9 +121,16 @@ public class Coral : MonoBehaviour
     private void CheckProgress()
     {
         //�f all different colour-needs are met, coral is "complete"
-        if((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded))
+        if (completable && ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded)))
         {
             complete = true;
+
+            //Set CheckPoint
+            this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
+            //Increment number of completed corals in GameController
+            gameController.SetCompletedCoralAmount();
+
             SpreadColour();
         }
     }
@@ -124,8 +145,40 @@ public class Coral : MonoBehaviour
 
         mRenderer.material.SetColor("_BaseColor", newCoralColour);
 
-        Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90,0,0));
+        Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+
+        spawnableDecor.SetActive(true);
     }
 
+    public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
+    {
+        switch (fishColour)
+        {
+            case FishColour.YELLOW:
+                return yellowFishesNeeded - yellowFishesAmount;
+            case FishColour.RED:
+                return redFishesNeeded - redFishesAmount;
+            case FishColour.BLUE:
+                return blueFishesNeeded - blueFishesAmount;
+            default:
+                return 0;
+        }
+    }
 
+    private int CountFish(FishColour fishColour)  //A counter that counts the fish/agents in the gamobjects Boids System and returns the value
+    {
+        BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>();
+        int count = 0;
+        foreach (GameObject go in boidsSystem.agents)
+        {
+            Follower f = go.GetComponent<Follower>();
+            
+            if(f.GetColour() == fishColour)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }

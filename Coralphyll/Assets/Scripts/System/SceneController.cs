@@ -8,11 +8,18 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private int sceneToLoad; //Decide for yourself which scene to load in the inspector
 
+    [SerializeField]
+    private ParticleSystem openedParticles; //Bara ngt för att visa att den finns när den aktiveras 
+
     //[SerializeField]
     //private Image fadeImage;
 
     //private float alpha;
 
+    public ParticleSystem GetParticles()
+    {
+        return openedParticles;
+    }
     private void Start()
     {
         //sceneToload = SceneManager.GetActiveScene().buildIndex + 1; //Switches to the scene after the current one
@@ -38,6 +45,11 @@ public class SceneController : MonoBehaviour
             //StartCoroutine(FadeOut());
             SceneManager.LoadScene(sceneToLoad);
         }
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     //private IEnumerator FadeOut()
