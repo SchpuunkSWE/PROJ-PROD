@@ -11,12 +11,15 @@ public class Audio_Events : MonoBehaviour
     public bool inCombat = false;
     private int fishes = 0;
     public bool inMainMenu = true;
+    private string currentLevelState;
     NPCFishUtil fishInventory;
     AIController[] aiContr;
-
+    private float time;
+    private float tempTime;
     // Start is called before the first frame update
     void Start()
     {
+        tempTime = Random.Range(5f, 6f);
         fishInventory = GetComponent<NPCFishUtil>();
         fishes = fishInventory.getListOfFishes().Count;
         Debug.Log("Fishes: " + fishInventory.getListOfFishes().Count);
@@ -27,6 +30,7 @@ public class Audio_Events : MonoBehaviour
     }
     private void Update()
     {
+        time += Time.deltaTime;
         LevelCheck();
         CombatCheck();
         FishInventoryCheck();
@@ -41,7 +45,20 @@ public class Audio_Events : MonoBehaviour
     }
     public void LevelCheck()
     {
-
+        switch (currentLevelState)
+        {
+            case "Exploring":
+                Debug.Log(currentLevelState + "tempTime: "+tempTime + " And time: "+time);
+                if (tempTime < time)
+                {
+                    Debug.Log("Moan should play");
+                    AkSoundEngine.PostEvent("OneShot_SeaCreature", gameObject);
+                    tempTime += Random.Range(18f, 30f);
+                }
+                break;
+            default:
+                break;
+        }
     }
     public void FishInventoryCheck()
     {
@@ -95,10 +112,12 @@ public class Audio_Events : MonoBehaviour
                 if (!inMainMenu)
                 {
                     AkSoundEngine.SetState("Music_State", "Exploring");
+                    currentLevelState = "Exploring";
                 }
                 break;
             case "Combat":
                 AkSoundEngine.SetState("Music_State", "Combat");
+                currentLevelState = "Combat";
                 break;
             case "MainMenu":
                 inMainMenu = true;
@@ -127,6 +146,7 @@ public class Audio_Events : MonoBehaviour
             case "Level1":
         AkSoundEngine.PostEvent("MusicState_Initiate", gameObject);
         AkSoundEngine.PostEvent("Background_Ambience", gameObject);
+        AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
         break;
         }
     }

@@ -11,11 +11,16 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Language="SFX" Hash="1253254621">
+		<SoundBank Id="474740052" Language="SFX" Hash="2382432489">
 			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Music</ObjectPath>
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
 			<IncludedEvents>
+				<Event Id="160134941" Name="MusicEvent_Victory" ObjectPath="\Events\Default Work Unit\Music\MusicEvent_Victory" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="2716678721" Name="Victory" ObjectPath="\States\Default Work Unit\Music_State\Victory"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat"/>
@@ -190,6 +195,9 @@
 				<StateGroup Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring" GUID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}">
 					<States/>
 				</StateGroup>
+				<StateGroup Id="2716678721" Name="Victory" ObjectPath="\States\Default Work Unit\Music_State\Victory" GUID="{71016D14-1C72-437D-9D62-829C3176B568}">
+					<States/>
+				</StateGroup>
 				<StateGroup Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}">
 					<States/>
 				</StateGroup>
@@ -227,16 +235,28 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2461066372">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3280659980">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
 				<Event Id="2160339820" Name="Background_Ambience" ObjectPath="\Events\Default Work Unit\Ambience\Background_Ambience" DurationType="Infinite">
 					<IncludedMemoryFiles>
+						<File Id="256295936" Language="SFX">
+							<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
+							<Path>SFX\Ambience 5 - SFX Producer_F9CF01EE.wem</Path>
+						</File>
 						<File Id="781440480" Language="SFX">
 							<ShortName>Ambience_underwater_background.wav</ShortName>
 							<Path>SFX\Ambience_underwater_background_B8EF4444.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="50319475" Name="Background_Ambience_2" ObjectPath="\Events\Default Work Unit\Ambience\Background_Ambience_2" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="256295936" Language="SFX">
+							<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
+							<Path>SFX\Ambience 5 - SFX Producer_F9CF01EE.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -300,6 +320,14 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1435982318" Name="NPC_Friendly_Yellow_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4269048160" Name="OneShot_SeaCreature" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_SeaCreature" DurationType="OneShot" DurationMin="6.112000" DurationMax="6.112000">
+					<IncludedMemoryFiles>
+						<File Id="752514042" Language="SFX">
+							<ShortName>ES_Sea Creature Moan 5 - SFX Producer.wav</ShortName>
+							<Path>SFX\ES_Sea Creature Moan 5 - SFX Producer_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2090281704" Name="SFX_3D_Emitter_Friendly_Fish_1" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Friendly_Fish_1" MaxAttenuation="15.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="473816975" Language="SFX">
@@ -332,6 +360,10 @@
 					<ShortName>Ambience_underwater_sprout.wav</ShortName>
 					<Path>SFX\Ambience_underwater_sprout_D79FB2B7.wem</Path>
 				</File>
+				<File Id="256295936" Language="SFX">
+					<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
+					<Path>SFX\Ambience 5 - SFX Producer_F9CF01EE.wem</Path>
+				</File>
 				<File Id="325430453" Language="SFX">
 					<ShortName>Chime_FriendlyFish_Updated.wav</ShortName>
 					<Path>SFX\Chime_FriendlyFish_Updated_D79FB2B7.wem</Path>
@@ -351,6 +383,10 @@
 				<File Id="646329306" Language="SFX">
 					<ShortName>HitThump_EnemySound.wav</ShortName>
 					<Path>SFX\HitThump_EnemySound_D79FB2B7.wem</Path>
+				</File>
+				<File Id="752514042" Language="SFX">
+					<ShortName>ES_Sea Creature Moan 5 - SFX Producer.wav</ShortName>
+					<Path>SFX\ES_Sea Creature Moan 5 - SFX Producer_10C4C929.wem</Path>
 				</File>
 				<File Id="768752221" Language="SFX">
 					<ShortName>PingMelody_SomethingCompleted.wav</ShortName>
@@ -374,6 +410,9 @@
 					<States/>
 				</StateGroup>
 				<StateGroup Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring" GUID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2716678721" Name="Victory" ObjectPath="\States\Default Work Unit\Music_State\Victory" GUID="{71016D14-1C72-437D-9D62-829C3176B568}">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}">

@@ -32,7 +32,6 @@ public class Audio_TempScript : MonoBehaviour
         events = other.GetComponent<Audio_Events>();
         events.LeaveMainMenu();
         events.Audio_LevelState("Exploring");
-        Debug.Log("Should work: exit.  + ");
         IsInCollider = false;
     }
 
@@ -45,6 +44,5 @@ public class Audio_TempScript : MonoBehaviour
         IsInCollider = true;
         events = other.GetComponent<Audio_Events>();
         events.Audio_LevelState("MainMenu");
-        Debug.Log("Should work: stay.  + ");
     }
 }

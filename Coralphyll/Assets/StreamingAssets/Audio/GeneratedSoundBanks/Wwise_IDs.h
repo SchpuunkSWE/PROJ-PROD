@@ -14,8 +14,10 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
+        static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
+        static const AkUniqueID MUSICEVENT_VICTORY = 160134941U;
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
         static const AkUniqueID MUSICSTATE_INITIATE = 2595492705U;
@@ -28,6 +30,7 @@ namespace AK
         static const AkUniqueID NPC_FRIENDLY_RED_STOP = 3941370595U;
         static const AkUniqueID NPC_FRIENDLY_YELLOW = 2379275139U;
         static const AkUniqueID NPC_FRIENDLY_YELLOW_STOP = 1435982318U;
+        static const AkUniqueID ONESHOT_SEACREATURE = 4269048160U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
