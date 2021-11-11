@@ -12,25 +12,28 @@ public class StartMenu : MonoBehaviour
     public GameObject visionAidPanel;
     public GameObject audioOptionsPanel;
 
-    
-
-
-    public bool voiceAssist = false;
+    private bool optionsOpen;
 
 
 
 
     public void PressStartButton(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level1");
 
     }
 
     public void OpenOptionsButton(){
-        if(interactionPanel.activeInHierarchy){
-            closeOptions();
-        } else{
-            openVisionAidPanel();
-            }
+        if(optionsOpen == false){
+            interactionPanel.SetActive(true);
+        openVisionAidPanel();
+        optionsOpen = true;
+        }else 
+        {
+            interactionPanel.SetActive(false);
+            optionsOpen = false;
+
+        }
+        
         
     }
     public void openVisionAidPanel(){
@@ -43,15 +46,6 @@ public class StartMenu : MonoBehaviour
         interactionPanel.SetActive(true);
         visionAidPanel.SetActive(false);
         audioOptionsPanel.SetActive(true);
-    }
-
-    public void closeOptions(){
-        interactionPanel.SetActive(false);
-    }
-
-    public void activateVoiceAssist(bool value){
-        voiceAssist = value;
-
     }
 
 }
