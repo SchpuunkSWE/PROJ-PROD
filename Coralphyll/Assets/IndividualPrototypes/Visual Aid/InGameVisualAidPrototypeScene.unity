@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &87252505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5354008427867638298, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+  m_PrefabInstance: {fileID: 123800418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df636b99733b874283f694845b2e242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &93078122
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,9 +206,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1309605070}
     - target: {fileID: 249542297502174198, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: brightnessSlider
+      propertyPath: contrastSlider
       value: 
-      objectReference: {fileID: 889546436}
+      objectReference: {fileID: 87252505}
     - target: {fileID: 682674642558270765, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -269,22 +280,6 @@ PrefabInstance:
     - target: {fileID: 1056415385341021697, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_MaxValue
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_MinValue
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1945914769274498487, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetBrightness
       objectReference: {fileID: 0}
     - target: {fileID: 3270560074074094990, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.x
@@ -300,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371256880235137167, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 108.1092
+      value: 0.00015472314
       objectReference: {fileID: 0}
     - target: {fileID: 4371256880331547396, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.x
@@ -374,12 +369,84 @@ PrefabInstance:
       propertyPath: m_Name
       value: VisualAidMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4929806673543851266, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929806673543851266, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5150329008000515390, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5150329008000515390, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328875752111506536, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328875752111506536, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_MinValue
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328875752111506536, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328875752111506536, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetContrast
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354008427867638298, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1309605070}
+    - target: {fileID: 5354008427867638298, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: maxSettingsValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354008427867638298, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: minSettingsValue
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683651787175111954, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683651787175111954, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683651787175111954, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243495297377527804, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243495297377527804, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243495297377527804, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243495297377527804, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243495297377527804, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243495297377527804, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -390,7 +457,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2282
+  m_Name: pb_Mesh-140526
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -554,7 +621,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2294
+  m_Name: pb_Mesh-140538
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -889,7 +956,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2306
+  m_Name: pb_Mesh-140550
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1047,17 +1114,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &889546436 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1312148046, guid: 7f446c4aee0659547924725a40d7f696, type: 3}
-  m_PrefabInstance: {fileID: 123800418}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df636b99733b874283f694845b2e242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1309605070 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8221741648170965471, guid: bd20211d6a9da5e4dbc0f559e0533ee6, type: 3}
@@ -1075,7 +1131,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2350
+  m_Name: pb_Mesh-140594
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1300,7 +1356,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2318
+  m_Name: pb_Mesh-140562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

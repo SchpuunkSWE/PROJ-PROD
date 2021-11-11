@@ -11,11 +11,13 @@ public class VisualAidSettingsMenu : MonoBehaviour
     //public bool overrideFog;
     //public Fog fog;
     public DepthOfField dof;
-    //public ColorAdjustments colorAdjustments;
     public LiftGammaGain lgg;
+    private ColorAdjustments colorAdjustments;
     private Vector4 defaultGammaValue;
+    private float defaultContrastValue;
 
-    public SliderSettings brightnessSlider; 
+    public SliderSettings brightnessSlider;
+    public SliderSettings contrastSlider;
 
     private void Awake()
     {
@@ -35,10 +37,10 @@ public class VisualAidSettingsMenu : MonoBehaviour
         }
 
         //get color adjustments
-        /*if (volumeProfile.TryGet<ColorAdjustments>(out ColorAdjustments actualColorAdjustments))
+        if (volumeProfile.TryGet<ColorAdjustments>(out ColorAdjustments actualColorAdjustments))
         {
             colorAdjustments = actualColorAdjustments;
-        }*/
+        }
 
         //get LiftGammaGain
         if (volumeProfile.TryGet<LiftGammaGain>(out LiftGammaGain actualLgg))
@@ -49,8 +51,12 @@ public class VisualAidSettingsMenu : MonoBehaviour
         //get default Gamma Value
         defaultGammaValue = lgg.gamma.value;
 
+        //get default contrast value
+        defaultContrastValue = colorAdjustments.contrast.value;
+
         //listen to the sliders values
         brightnessSlider.slider.onValueChanged.AddListener(delegate { SetBrightness(brightnessSlider.slider.value); });
+        contrastSlider.slider.onValueChanged.AddListener(delegate { SetContrast(contrastSlider.slider.value); });
     }
 
     void OnApplicationQuit()
@@ -67,6 +73,9 @@ public class VisualAidSettingsMenu : MonoBehaviour
         //colorAdjustments.postExposure.value = 0;
         lgg.gamma.value = defaultGammaValue;
 
+        //set contrast to default again
+        colorAdjustments.contrast.value = defaultContrastValue;
+
         //turn on depth of field
         dof.active = true;
     }
@@ -74,20 +83,33 @@ public class VisualAidSettingsMenu : MonoBehaviour
     public void SetBrightness (float currentValue)
     {
         //Change the brightness according to the value
-        //float finalBrightnessValue;
-        //finalBrightnessValue = ConvertValue(brightnessSlider.slider.minValue, brightnessSlider.slider.maxValue, brightnessSlider.minSettingsValue, brightnessSlider.maxSettingsValue, currentValue);
+        float finalBrightnessValueFloat = ConvertValue(brightnessSlider.slider.minValue, brightnessSlider.slider.maxValue, brightnessSlider.minSettingsValue, brightnessSlider.maxSettingsValue, currentValue);
 
         //Make a Vector4 using the currentValue
-        Vector4 finalBrightnessValue = new Vector4(0, 0, 0, currentValue);
+        Vector4 finalBrightnessValueV4 = new Vector4(0, 0, 0, finalBrightnessValueFloat);
 
         //access the profile and override it with the new result
         //colorAdjustments.postExposure.value = finalBrightnessValue;
         
         //Set the gamma to the new Vector4
-        lgg.gamma.value = finalBrightnessValue;
+        lgg.gamma.value = finalBrightnessValueV4;
 
         //Set the text by the slider to the correct number
         brightnessSlider.txtSlider.text = currentValue.ToString();
+    }
+
+    public void SetContrast(float currentValue)
+    {
+        //Change the contrast according to the value
+        float finalContrastValue = ConvertValue(contrastSlider.slider.minValue, contrastSlider.slider.maxValue, contrastSlider.minSettingsValue, contrastSlider.maxSettingsValue, currentValue);
+
+        //Access the profile and override it with the new result
+        colorAdjustments.contrast.value = finalContrastValue;
+
+        //Set the contrast to the new value
+
+        //Set the text by the slider to the correct number
+        contrastSlider.txtSlider.text = currentValue.ToString();
     }
 
     /*public void SetFog (bool isFog)
