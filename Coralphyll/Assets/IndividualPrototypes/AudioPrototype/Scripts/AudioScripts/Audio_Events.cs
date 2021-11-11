@@ -10,7 +10,7 @@ public class Audio_Events : MonoBehaviour
     public bool isAlive = true;
     public bool inCombat = false;
     private int fishes = 0;
-    public bool inMainMenu = true;
+    public bool inMainMenu = false;
     private string currentLevelState;
     NPCFishUtil fishInventory;
     AIController[] aiContr;

@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Language="SFX" Hash="2382432489">
+		<SoundBank Id="474740052" Language="SFX" Hash="881169533">
 			<ObjectPath>\SoundBanks\Default Work Unit\Soundbank_Music</ObjectPath>
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
@@ -83,6 +83,15 @@
 						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
+						<SwitchContainer SwitchValue="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
+							<Children>
+								<SwitchContainer SwitchValue="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
+									<Media>
+										<File Id="103774500"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
 						<SwitchContainer SwitchValue="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}">
 							<Children>
 								<SwitchContainer SwitchValue="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
@@ -110,7 +119,7 @@
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{71016D14-1C72-437D-9D62-829C3176B568}">
 							<Children>
-								<SwitchContainer SwitchValue="{5DA70B3E-3AFC-4673-8AA1-3539B7D4A004}">
+								<SwitchContainer SwitchValue="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
 									<Media>
 										<File Id="252260266"/>
 										<File Id="721467564"/>
@@ -118,19 +127,10 @@
 								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
-						<SwitchContainer SwitchValue="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
-							<Children>
-								<SwitchContainer SwitchValue="{452262AB-0DD4-4CC4-9D76-B2E10A06EFD5}">
-									<Media>
-										<File Id="103774500"/>
-									</Media>
-								</SwitchContainer>
-							</Children>
-						</SwitchContainer>
 					</SwitchContainers>
 					<ActionSetState>
 						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
-						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
+						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
 					</ActionSetState>
 				</Event>
 			</IncludedEvents>
@@ -201,9 +201,6 @@
 				<StateGroup Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}">
 					<States/>
 				</StateGroup>
-				<StateGroup Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
-					<States/>
-				</StateGroup>
 				<StateGroup Id="3826569560" Name="Music_State" ObjectPath="\States\Default Work Unit\Music_State" GUID="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Music_State\None" GUID="{3E90E05C-8156-4C61-AFF4-3CC120C92187}"/>
@@ -235,7 +232,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2946836839">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3066699603">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -244,7 +241,7 @@
 					<IncludedMemoryFiles>
 						<File Id="256295936" Language="SFX">
 							<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
-							<Path>SFX\Ambience 5 - SFX Producer_F9CF01EE.wem</Path>
+							<Path>SFX\Ambience 5 - SFX Producer_403B8FF9.wem</Path>
 						</File>
 						<File Id="781440480" Language="SFX">
 							<ShortName>Ambience_underwater_background.wav</ShortName>
@@ -256,7 +253,7 @@
 					<IncludedMemoryFiles>
 						<File Id="256295936" Language="SFX">
 							<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
-							<Path>SFX\Ambience 5 - SFX Producer_F9CF01EE.wem</Path>
+							<Path>SFX\Ambience 5 - SFX Producer_403B8FF9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -298,7 +295,7 @@
 					<IncludedMemoryFiles>
 						<File Id="729904146" Language="SFX">
 							<ShortName>GENERIC_FRIENDLY_FISH.wav</ShortName>
-							<Path>SFX\GENERIC_FRIENDLY_FISH_F7725DD3.wem</Path>
+							<Path>SFX\GENERIC_FRIENDLY_FISH_6BF254C7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -371,7 +368,7 @@
 				</File>
 				<File Id="256295936" Language="SFX">
 					<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
-					<Path>SFX\Ambience 5 - SFX Producer_F9CF01EE.wem</Path>
+					<Path>SFX\Ambience 5 - SFX Producer_403B8FF9.wem</Path>
 				</File>
 				<File Id="325430453" Language="SFX">
 					<ShortName>Chime_FriendlyFish_Updated.wav</ShortName>
@@ -395,7 +392,7 @@
 				</File>
 				<File Id="729904146" Language="SFX">
 					<ShortName>GENERIC_FRIENDLY_FISH.wav</ShortName>
-					<Path>SFX\GENERIC_FRIENDLY_FISH_F7725DD3.wem</Path>
+					<Path>SFX\GENERIC_FRIENDLY_FISH_6BF254C7.wem</Path>
 				</File>
 				<File Id="752514042" Language="SFX">
 					<ShortName>ES_Sea Creature Moan 5 - SFX Producer.wav</ShortName>
@@ -429,9 +426,6 @@
 					<States/>
 				</StateGroup>
 				<StateGroup Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}">
-					<States/>
-				</StateGroup>
-				<StateGroup Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="3826569560" Name="Music_State" ObjectPath="\States\Default Work Unit\Music_State" GUID="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}">
