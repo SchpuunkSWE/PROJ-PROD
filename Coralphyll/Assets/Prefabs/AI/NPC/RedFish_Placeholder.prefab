@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1720801813359225772}
   m_Layer: 0
   m_Name: RedFish_Placeholder
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishColour: 1
+  collectable: 1
   parent: {fileID: 3014171594053831532, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
   col: {fileID: 2336126773841531576}
   isClickable: 0
@@ -125,10 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004d7a8b039f69240a35783d68db957f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishTarget: {fileID: 0}
   allowedDistance: 0.1
   followSpeed: 0.2
   isFollowingPlayer: 0
-  collectable: 1
 --- !u!1001 &1248701273914206060
 PrefabInstance:
   m_ObjectHideFlags: 0

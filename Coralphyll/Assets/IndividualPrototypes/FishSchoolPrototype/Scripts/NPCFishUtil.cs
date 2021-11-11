@@ -15,18 +15,28 @@ public class NPCFishUtil : MonoBehaviour
 
     private Coral coral;
 
-    public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
+    private NavigationArrow navArrow;
+
+    private void Awake()
     {
-        if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
-        {
-            return -1; //returner default v�rde eftersom positionInList inte kan s�ttas till null
-        }
-        //Om metoden inte har returnerats...
-        listOfFishes.Add(go); 
-        return listOfFishes.IndexOf(go);
+        navArrow = transform.gameObject.GetComponent<NavigationArrow>();
+        SelectNavArrowTarget();
     }
 
-    public GameObject GetTargetPositionObject(int i) //H�mtar TargetObject fr�n array
+    public int AddToSchool(Follower fol) //Kanske döpa om (till AddTOInventory)
+    {
+        if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//If the list is full or if the fish already exists in the list...
+        {
+            return -1; //returns default value because positionInList can not be set to null
+        }
+        //If the method has not been returned...
+        listOfFishes.Add(fol);
+        fol.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
+        SelectNavArrowTarget();
+        return listOfFishes.IndexOf(fol);
+    }
+
+    public GameObject GetTargetPositionObject(int i) //Gets TargetObject from array
     {
         return arrayOfTargets[i];
     }
@@ -34,6 +44,17 @@ public class NPCFishUtil : MonoBehaviour
     public List<Follower> getListOfFishes()
     {
         return listOfFishes;
+    }
+    private void SelectNavArrowTarget()
+    {
+        if (listOfFishes.Count < arrayOfTargets.Length) // If the list is not full...
+        {
+            navArrow.SetTargetTag("Fish"); //... Set the tag that the arrow should point at to Fish
+        }
+        else
+        {
+            navArrow.SetTargetTag("Coral"); // Otherwise set it to coral
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -88,6 +109,7 @@ public class NPCFishUtil : MonoBehaviour
 
         coral.GetComponent<Coral>().ReceiveFish();
         fishToRemove.Clear(); //Clear the fish to remove list.
+        SelectNavArrowTarget();
     }
 
     public void PickUpFish(GameObject player, Follower follower)
