@@ -55,7 +55,10 @@ public class NPCFishUtil : MonoBehaviour
             if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
             {
                 fishToRemove.Add(f); 
-            }
+            } //else if (f.GetComponent<NPCFollow>().isFollowingPlayer && !coral.Completable && f.GetColour() == fishColour) //Add fish even if full. remove if safezones should have a limit(obs dont forget to remove coral.Completable in above aswell)
+            //{
+            //    fishToRemove.Add(f);
+            //}
 
         }
         foreach (Follower f in fishToRemove)

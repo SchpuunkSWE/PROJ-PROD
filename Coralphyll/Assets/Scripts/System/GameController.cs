@@ -5,9 +5,21 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     private static GameController instance;
+    public static GameController Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameController>();
+            }
+            return instance;
+        }
+    }
 
     [SerializeField]
-    private Vector3 lastCheckPointPos; //Set in inspector to the first checkpoint pos, to determine where the player starts.
+    private Vector3 lastCheckPointPos; //Set in inspector to player start position in level, to determine respawn position if no checkpoint has been reached
+    public Vector3 LastCheckPointPos => lastCheckPointPos;
 
     [SerializeField]
     private GameObject player; //Set in inspector
@@ -19,6 +31,8 @@ public class GameController : MonoBehaviour
     private int totalCoralAmount; //Set in inspector, amount of corals in scene
 
     private int completedCoralAmount = 0; //Amount of corals with fully completed needs
+
+    private bool runOnce = false;
 
     public void SetCompletedCoralAmount()
     {
@@ -35,9 +49,15 @@ public class GameController : MonoBehaviour
 
     private void LevelComplete()
     {
-        //Open a gate to next level
-        Debug.Log("Level Complete!");
-        sceneTransitionGate.SetActive(true);
+        if (!runOnce)
+        {
+            //Open a gate to next level
+            Debug.Log("Level Complete!");
+            sceneTransitionGate.SetActive(true);
+            Instantiate(sceneTransitionGate.GetComponent<SceneController>().GetParticles(), sceneTransitionGate.transform.position, sceneTransitionGate.transform.rotation); //Spawn particles on gate so player can see it (temp)
+            runOnce = true;
+        }
+        
     }
 
     private void Update()
@@ -58,10 +78,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public Vector3 GetLastCheckPointPos()
-    {
-        return lastCheckPointPos;
-    }
     public void SetLastCheckPointPos(Vector3 newPos)
     {
         lastCheckPointPos = newPos;
