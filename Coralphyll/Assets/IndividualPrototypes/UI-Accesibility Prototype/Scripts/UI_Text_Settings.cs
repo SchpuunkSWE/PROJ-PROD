@@ -17,7 +17,18 @@ public class UI_Text_Settings : MonoBehaviour
     public GameObject TextSizeObject;
     //public GameObject TextBackgroundObject;
     public GameObject TextToSpeachObject;
+
+    public GameObject[] tt1GO;
+    public GameObject[] tt2GO;
+    public GameObject[] tt3GO;
     //public GameObject VisualAidObject;
+    public TextMeshPro[] tt1Text;
+    public Text[] tt2Text;
+    public Text[] tt3Text;
+    private  TextMeshProUGUI font;
+    private RectTransform m_RectTransform;
+
+
 
 
     private Text StartButtonText;
@@ -101,6 +112,13 @@ public class UI_Text_Settings : MonoBehaviour
        // TextBackgroundText = TextBackgroundObject.GetComponent<Text>();
        TextToSpeachText = TextToSpeachObject.GetComponent<Text>();
        // VisualAidText = VisualAidObject.GetComponent<Text>();
+      /* foreach (GameObject i in tt1GO)
+                {
+                    
+                     tt1Text[tt1GO.Length] = (i.GetComponent<TextMeshPro>());
+                }
+                */
+
 
     }
 
@@ -121,6 +139,14 @@ public class UI_Text_Settings : MonoBehaviour
                HowToPlayButtonText.fontSize  = DeafaultTextSizeTT1;
                //UIOptionsText.fontSize  = DeafaultTextSizeTT1;
               // VisualAidText.fontSize = DeafaultTextSizeTT1;
+              foreach (GameObject i in tt1GO)
+                {
+                  
+                    font =  i.GetComponent<TextMeshProUGUI>();
+                    font.fontSize = 40f;
+
+                }
+              
                 break;
             case 1:
                 StartButtonText.fontSize = TT1_Size1;
@@ -128,6 +154,14 @@ public class UI_Text_Settings : MonoBehaviour
                 HowToPlayButtonText.fontSize  = TT1_Size1;
                 UIOptionsText.fontSize  = TT1_Size1;
                 //VisualAidText.fontSize = TT1_Size1;
+                foreach (GameObject i in tt1GO)
+                {
+                  
+                    font =  i.GetComponent<TextMeshProUGUI>();
+                    font.fontSize = 50f;
+                    m_RectTransform = font.GetComponent<RectTransform>();
+                    m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                }
                 break;
             case 2:
                StartButtonText.fontSize = TT1_Size2;
@@ -135,6 +169,14 @@ public class UI_Text_Settings : MonoBehaviour
                HowToPlayButtonText.fontSize  = TT1_Size2;
               // UIOptionsText.fontSize  = TT1_Size2;
               // VisualAidText.fontSize = TT1_Size2;
+              foreach (GameObject i in tt1GO)
+                {
+                  
+                    font =  i.GetComponent<TextMeshProUGUI>();
+                    font.fontSize = 55f;
+                    m_RectTransform = font.GetComponent<RectTransform>();
+                    m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                }
                 break;
             case 3:
                 StartButtonText.fontSize = TT1_Size3;
@@ -142,6 +184,14 @@ public class UI_Text_Settings : MonoBehaviour
                 HowToPlayButtonText.fontSize  = TT1_Size3;
                 //UIOptionsText.fontSize  = TT1_Size3;
                 //VisualAidText.fontSize = TT1_Size3;
+                foreach (GameObject i in tt1GO)
+                {
+                  
+                    font =  i.GetComponent<TextMeshProUGUI>();
+                    font.fontSize = 60f;
+                    m_RectTransform = font.GetComponent<RectTransform>();
+                    m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                }
                 break;
             case 4:
                StartButtonText.fontSize = TT1_Size4;
@@ -149,6 +199,14 @@ public class UI_Text_Settings : MonoBehaviour
                HowToPlayButtonText.fontSize  = TT1_Size4;
               // UIOptionsText.fontSize  = TT1_Size4;
                //VisualAidText.fontSize = TT1_Size4;
+               foreach (GameObject i in tt1GO)
+                {
+                  
+                    font =  i.GetComponent<TextMeshProUGUI>();
+                    font.fontSize = 70f;
+                    m_RectTransform = font.GetComponent<RectTransform>();
+                    m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                }
                 break;
             case 5:
                 StartButtonText.fontSize = TT1_Size5;
@@ -156,6 +214,14 @@ public class UI_Text_Settings : MonoBehaviour
                 HowToPlayButtonText.fontSize  = TT1_Size5;
                 //UIOptionsText.fontSize  = TT2_Size5;
                 //VisualAidText.fontSize = TT2_Size5;
+                foreach (GameObject i in tt1GO)
+                {
+                  
+                    font =  i.GetComponent<TextMeshProUGUI>();
+                    font.fontSize = 100f;
+                    m_RectTransform = font.GetComponent<RectTransform>();
+                    m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                }
                 break;
             }
                 

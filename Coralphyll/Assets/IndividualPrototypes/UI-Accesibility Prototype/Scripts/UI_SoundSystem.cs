@@ -17,10 +17,13 @@ public class UI_SoundSystem : MonoBehaviour , IPointerEnterHandler
     {   if(startMenu.voiceAssist){
             if( audioSource == null )
                 audioSource = GetComponent<AudioSource>();
+               
             if( audioSource == null )
                 audioSource = gameObject.AddComponent<AudioSource>();
+                Debug.Log("I got Audiosource");
 
             audioSource.PlayOneShot( AudioClip ) ;
+            Debug.Log("I played script");
         }
     }
 }

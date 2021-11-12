@@ -11,6 +11,7 @@ public class StartMenu : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject visionAidPanel;
     public GameObject audioOptionsPanel;
+    public bool voiceAssist;
 
     private bool optionsOpen;
 
@@ -47,5 +48,12 @@ public class StartMenu : MonoBehaviour
         visionAidPanel.SetActive(false);
         audioOptionsPanel.SetActive(true);
     }
+
+    public void activateVoiceAssist (bool vA){
+        voiceAssist = true;
+
+    }
+
+
 
 }
