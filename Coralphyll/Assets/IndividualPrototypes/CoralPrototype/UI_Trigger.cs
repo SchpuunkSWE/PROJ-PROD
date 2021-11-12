@@ -39,7 +39,7 @@ public class UI_Trigger : MonoBehaviour
             }
             else
             {
-               // coralPanel.SetActive(true); //...Otherwise activate UI for coral
+                coralPanel.SetActive(true); //...Otherwise activate UI for coral
                 fishWheelPanel.SetActive(true);
                 fishWheelButtonPanel.SetActive(true);
                 fishWheelPanel.GetComponent<FishWheel>().panelEnabled= true;
