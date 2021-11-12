@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class BoidsAgent : MonoBehaviour
 {
     public BoidsSystem owner;
-
+    VisualEffect vfx;
     [SerializeField] private float speed = 0.001f;
     [SerializeField] private float rotationSpeed = 4.0f;
 
@@ -14,6 +15,7 @@ public class BoidsAgent : MonoBehaviour
     private void Start()
     {
         speed = Random.Range(0.5f, 1);
+        vfx = GetComponentInChildren<VisualEffect>();
     }
 
     void Update()
@@ -39,16 +41,17 @@ public class BoidsAgent : MonoBehaviour
     void HandleInputs()
     {
         //Really bad hacked together but i need sleept
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+        if (Input.GetKeyDown(KeyCode.E)){
             var player = GameObject.FindGameObjectWithTag("Player");
             if (Vector3.Distance(transform.position, player.transform.position) <= 5)
             {
                 var p = player.GetComponentInChildren<BoidsSystem>();
-               
+
                 if (owner != p)
                 {
-                    if(owner != null) 
+                    vfx.transform.position = transform.position;
+                    vfx.Play();
+                    if (owner != null)
                         owner.agents.Remove(gameObject);
                     owner = p;
                     owner.agents.Add(gameObject);
@@ -60,6 +63,7 @@ public class BoidsAgent : MonoBehaviour
         //Remove parent n stuff
         if (Input.GetKeyDown(KeyCode.Q) && owner != null)
         {
+            vfx.Stop();
             owner.agents.Remove(gameObject);
             owner = null;
             transform.parent = null;         
