@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SaveStartMenu : MonoBehaviour
+public class PlaySavedGame : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,4 @@ public class SaveStartMenu : MonoBehaviour
         SceneManager.LoadScene("SaveManager_Level1_v2");
 
     }
-
-    
-
 }
-

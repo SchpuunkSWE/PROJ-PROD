@@ -18,7 +18,7 @@ public class StartMenu : MonoBehaviour
 
 
     public void PressStartButton(){
-        SceneManager.LoadScene("SaveManager_Level1");
+        SceneManager.LoadScene("SaveManager_Level1_v2");
 
     }
 
