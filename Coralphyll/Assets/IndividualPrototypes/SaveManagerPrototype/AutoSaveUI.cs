@@ -7,8 +7,9 @@ public class AutoSaveUI : MonoBehaviour
 {
     [SerializeField] GameObject autosaveUI;
     public static bool isAutoSaving = false;
-    private Animation anim;
-
+    //[SerializeField] Animation anim;
+    
+    [SerializeField] Animator animator;
 
     [SerializeField] RectTransform fxHolder;
     [SerializeField] Image AutoSaveCircle;
@@ -17,7 +18,8 @@ public class AutoSaveUI : MonoBehaviour
     [SerializeField] [Range(0, 1)] float progress = 0;
     void Start()
     {
-        autosaveUI.SetActive(false);
+        //anim = gameObject.GetComponent<Animation>();
+        autosaveUI.SetActive(true);
     }
     // Update is called once per frame
     void Update()
@@ -25,20 +27,38 @@ public class AutoSaveUI : MonoBehaviour
         AutoSaveCircle.fillAmount = progress;
         //txtProgress.text = Mathf.Floor(progress * 100).ToString();
         fxHolder.rotation = Quaternion.Euler(new Vector3(0f, 0f, -progress * 360));
+        //animator.SetBool("isAutoSaving", false);
+        if(isAutoSaving)
+        {
+            AutoSaving();
+        }
+    }
+
+    public void AutoSaving()
+    {
+
+        //autosaveUI.SetActive(true);
+        //isAutoSaving = true;
+        animator.SetBool("isAutoSaving", true);
+        //new WaitForSeconds(5);
+        //animator.SetBool("isAutoSaving", false);
+        StartCoroutine(wait());
+        //animator.SetBool("isAutoSaving", false);
+        /*
+        if (isAutoSaving)
+        {
+            new WaitForSeconds(5);
+            animator.SetBool("isAutoSaving", false);
+            //anim.Play("NewAutoSave");
+            isAutoSaving = false;
+            //autosaveUI.SetActive(false);
+        }*/
 
     }
 
-    void AutoSaving()
+    IEnumerator wait()
     {
-        autosaveUI.SetActive(true);
-        isAutoSaving = true;
-
-        if (isAutoSaving)
-        {
-            anim.Play("AutoSaving");
-            isAutoSaving = false;
-            autosaveUI.SetActive(false);
-        }
-            
+        yield return new WaitForSeconds(4);
+        animator.SetBool("isAutoSaving", false);
     }
 }

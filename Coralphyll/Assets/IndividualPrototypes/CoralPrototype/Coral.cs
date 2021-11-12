@@ -133,6 +133,7 @@ public class Coral : MonoBehaviour
             gameController.SetCompletedCoralAmount();
 
             SpreadColour();
+            AutoSaveUI.isAutoSaving.Equals(true);
         }
     }
 
