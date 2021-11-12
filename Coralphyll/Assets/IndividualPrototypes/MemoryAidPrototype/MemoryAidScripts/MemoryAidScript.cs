@@ -14,7 +14,6 @@ public class MemoryAidScript : MonoBehaviour
         
     }
 
-
     void Update()
     {
 
@@ -29,7 +28,6 @@ public class MemoryAidScript : MonoBehaviour
 
         }   
 
- 
 
    //Opening the ControlsPanel
 
@@ -42,9 +40,6 @@ public class MemoryAidScript : MonoBehaviour
             Time.timeScale = ControlsPanelsActive ? 0:1;
             ControlsPanel.SetActive(ControlsPanelsActive); // if the booelan is true
         }
-
-
-
 
     }
         
