@@ -5,13 +5,13 @@ using UnityEngine;
 public class MemoryAidScript : MonoBehaviour
 {
 
-    public GameObject ControlsPanel, ObjectivePanel;
+    public GameObject ObjectivePanel;
     public bool ObjectivesPanelActive = false;
-    public bool ControlsPanelsActive = false;
+    //public bool ControlsPanelsActive = false;
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -23,25 +23,26 @@ public class MemoryAidScript : MonoBehaviour
             ObjectivesPanelActive = !ObjectivesPanelActive;
             //if L Key pressed is True it will set it to false And the other way around.
 
-            Time.timeScale = ObjectivesPanelActive?0:1;
+            Time.timeScale = ObjectivesPanelActive ? 0 : 1;
             ObjectivePanel.SetActive(ObjectivesPanelActive); // if the booelan is true
 
-        }   
-
-
-   //Opening the ControlsPanel
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-
-            ControlsPanelsActive = !ControlsPanelsActive;
-            //if L Key pressed is True it will set it to false And the other way around.
-
-            Time.timeScale = ControlsPanelsActive ? 0:1;
-            ControlsPanel.SetActive(ControlsPanelsActive); // if the booelan is true
         }
 
+
+        //Opening the ControlsPanel
+        /*
+             if (Input.GetKeyDown(KeyCode.C))
+             {
+
+                 ControlsPanelsActive = !ControlsPanelsActive;
+                 //if L Key pressed is True it will set it to false And the other way around.
+
+                 Time.timeScale = ControlsPanelsActive ? 0:1;
+                 ControlsPanel.SetActive(ControlsPanelsActive); // if the booelan is true
+             }
+
+         }*/
+
     }
-        
-    }
+}
 
