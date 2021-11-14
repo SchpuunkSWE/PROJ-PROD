@@ -24,10 +24,9 @@ public class EnemyChase : EnemyState
     public override void EvaluateTransitions()
     {
         base.EvaluateTransitions();
-
-        if (!CanSeePlayer())
+        if (!CanSeePlayer() || AIController.CanFollowPlayer == false)
         {
-            stateMachine.Transition<EnemyAlert>();
+            stateMachine.Transition<EnemyPatrol>();
         }
         else if (DistanceToPlayer() < attackDistance)
         {
