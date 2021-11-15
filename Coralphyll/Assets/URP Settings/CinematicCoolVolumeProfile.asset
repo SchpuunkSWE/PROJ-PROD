@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Value: 0
   lightness:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 1.275}
+    m_Value: {x: 0.145, y: 1.275}
     min: 0
     max: 1
   lightnessSlope:
@@ -186,7 +186,7 @@ MonoBehaviour:
     m_Value: 10
   vignetteStrength:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0
     min: 0
     max: 1
   useColorCorrection:
@@ -223,10 +223,10 @@ MonoBehaviour:
     m_Value: 0
   twoDLookupTex:
     m_OverrideState: 1
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: fe8f8f2f25bc2b34b8fcd00cdec9ad9e, type: 3}
   lutLerpAmount:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.159
     min: -1
     max: 1
   useSecondLut:
@@ -234,7 +234,7 @@ MonoBehaviour:
     m_Value: 0
   secondaryTwoDLookupTex:
     m_OverrideState: 1
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: 09acb3bbbdf581949ba8d59204c2248e, type: 3}
   secondaryLutLerpAmount:
     m_OverrideState: 1
     m_Value: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
     m_Value: 0
   gammaOffset:
     m_OverrideState: 1
-    m_Value: -0.032
+    m_Value: 0.022
     min: -0.4
     max: 0.4
   fsOverlayTexture:
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f1c903230d0824f8f1fef6f51e54bf, type: 3}
   m_Name: PRISMSunshafts
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   rayIntensity:
     m_OverrideState: 1
@@ -348,7 +348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: -8485599788087620957}
-  - {fileID: 7036046497145169699}
   - {fileID: -7179089666268108629}
   - {fileID: 5158558007935789475}
   - {fileID: -3094865097434588357}
@@ -388,84 +387,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gain:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
---- !u!114 &7036046497145169699
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410d173d2e7abad4a88e6f946d895602, type: 3}
-  m_Name: PRISMDepthOfField
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  enableDoF:
     m_OverrideState: 1
-    m_Value: 0
-  aperture:
-    m_OverrideState: 1
-    m_Value: 1
-    min: 0.8
-    max: 32
-  focalLength:
-    m_OverrideState: 1
-    m_Value: 50
-    min: 8
-    max: 500
-  enableGPUAutofocus:
-    m_OverrideState: 1
-    m_Value: 1
-  enableFrontBlur:
-    m_OverrideState: 1
-    m_Value: 1
-  enableFastMobileDOF:
-    m_OverrideState: 1
-    m_Value: 1
-  autoFocusSpeed:
-    m_OverrideState: 1
-    m_Value: 0.5
-    min: 0.0001
-    max: 1
-  maxBlur:
-    m_OverrideState: 1
-    m_Value: 0.7
-    min: 0.0001
-    max: 2
-  focusDistance:
-    m_OverrideState: 1
-    m_Value: 0.3
-    min: 0.3
-    max: 1000
-  bokehIntensity:
-    m_OverrideState: 1
-    m_Value: 0.7
-    min: 0.0001
-    max: 2
-  bokehRings:
-    m_OverrideState: 1
-    m_Value: 5
-    min: 1
-    max: 8
-  apertureEdgeCount:
-    m_OverrideState: 1
-    m_Value: 5
-    min: 1
-    max: 8
-  dofSamplesPerRing:
-    m_OverrideState: 1
-    m_Value: 4
-    min: 1
-    max: 8
-  dofSamplesPerEdge:
-    m_OverrideState: 1
-    m_Value: 2
-    min: 1
-    max: 8
+    m_Value: {x: 1, y: 1, z: 1, w: 0.47247297}
