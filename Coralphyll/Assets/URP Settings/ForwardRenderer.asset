@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    renderersAfterOpaqueAndSky: []
+    renderersAfterOpaqueAndSky:
+    - PRISMSunshafts_URP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     renderersBeforePostProcess:
     - PRISMDoF_URP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - PRISMDLAA_URP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - PRISMEffects_URP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - PRISMLongExposure_URP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - PRISMSharpen_URP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    renderersAfterPostProcess: []
+    renderersAfterPostProcess:
+    - PRISMFilters_URP, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &-2264518473944826284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +80,8 @@ MonoBehaviour:
   - {fileID: -2264518473944826284}
   - {fileID: 5584590713422268825}
   - {fileID: -3703726756526642910}
-  m_RendererFeatureMap: 0f1d5b6b58d75559547e352572d092e099c97a59aa73804d22a91e5c23b899cc
+  - {fileID: 1537752474104242279}
+  m_RendererFeatureMap: 0f1d5b6b58d75559547e352572d092e099c97a59aa73804d22a91e5c23b899cc67207653ba315715
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -107,6 +110,28 @@ MonoBehaviour:
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0
+--- !u!114 &1537752474104242279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
+  m_Name: NewScreenSpaceAmbientOcclusion
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
+  m_Settings:
+    Downsample: 0
+    Source: 1
+    NormalSamples: 1
+    Intensity: 1.72
+    DirectLightingStrength: 0.147
+    Radius: 0.4
+    SampleCount: 6
 --- !u!114 &5584590713422268825
 MonoBehaviour:
   m_ObjectHideFlags: 0
