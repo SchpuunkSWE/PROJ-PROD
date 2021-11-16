@@ -67,10 +67,11 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        sceneTransitionGate.SetActive(false);
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance); //Makes the GameController survive between scenes
+            //DontDestroyOnLoad(instance); //Makes the GameController survive between scenes
         }
         else
         {
@@ -88,6 +89,7 @@ public class GameController : MonoBehaviour
         Debug.Log("DepositBlueFishButton pressed");
 
         player.GetComponent<NPCFishUtil>().TransferFish(FishColour.BLUE);
+
     }
 
     public void DepositYellowFishButton()
@@ -102,5 +104,20 @@ public class GameController : MonoBehaviour
         Debug.Log("DepositRedFishButton pressed");
 
         player.GetComponent<NPCFishUtil>().TransferFish(FishColour.RED);
+    }
+
+    public void PickUpBlueFishBtn()
+    {
+        Debug.Log("PickUpBlueFishBtn pressed");
+        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.BLUE);
+    }
+    public void PickUpYellowFishBtn()
+    {
+        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.YELLOW);
+    }
+
+    public void PickUpRedFishBtn()
+    {
+        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.RED);
     }
 }

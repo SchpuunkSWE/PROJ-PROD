@@ -16,6 +16,8 @@ public class AIController : MonoBehaviour
     public LayerMask VisionMask { get; set; }
     public AIPath Path { get => path; set => path = value; }
 
+    public static bool CanFollowPlayer { get; set; } = true;
+
     public float Speed;
 
     private void Awake()
