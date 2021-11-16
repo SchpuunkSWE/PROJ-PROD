@@ -5,9 +5,21 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     private static GameController instance;
+    public static GameController Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameController>();
+            }
+            return instance;
+        }
+    }
 
     [SerializeField]
-    private Vector3 lastCheckPointPos; //Set in inspector to the first checkpoint pos, to determine where the player starts.
+    private Vector3 lastCheckPointPos; //Set in inspector to player start position in level, to determine respawn position if no checkpoint has been reached
+    public Vector3 LastCheckPointPos => lastCheckPointPos;
 
     [SerializeField]
     private GameObject player; //Set in inspector
@@ -55,10 +67,11 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        sceneTransitionGate.SetActive(false);
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance); //Makes the GameController survive between scenes
+            //DontDestroyOnLoad(instance); //Makes the GameController survive between scenes
         }
         else
         {
@@ -66,10 +79,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public Vector3 GetLastCheckPointPos()
-    {
-        return lastCheckPointPos;
-    }
     public void SetLastCheckPointPos(Vector3 newPos)
     {
         lastCheckPointPos = newPos;
@@ -80,6 +89,7 @@ public class GameController : MonoBehaviour
         Debug.Log("DepositBlueFishButton pressed");
 
         player.GetComponent<NPCFishUtil>().TransferFish(FishColour.BLUE);
+
     }
 
     public void DepositYellowFishButton()
@@ -94,5 +104,20 @@ public class GameController : MonoBehaviour
         Debug.Log("DepositRedFishButton pressed");
 
         player.GetComponent<NPCFishUtil>().TransferFish(FishColour.RED);
+    }
+
+    public void PickUpBlueFishBtn()
+    {
+        Debug.Log("PickUpBlueFishBtn pressed");
+        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.BLUE);
+    }
+    public void PickUpYellowFishBtn()
+    {
+        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.YELLOW);
+    }
+
+    public void PickUpRedFishBtn()
+    {
+        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.RED);
     }
 }

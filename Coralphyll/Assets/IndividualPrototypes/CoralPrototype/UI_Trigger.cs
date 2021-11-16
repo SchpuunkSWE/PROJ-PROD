@@ -6,12 +6,20 @@ using UnityEngine.UI;
 public class UI_Trigger : MonoBehaviour
 {
     [SerializeField]
-    private GameObject panel;
+    private GameObject coralPanel; //Set in inspector
+
+    [SerializeField]
+    private GameObject safezonePanel; //Set in inspector
+
     private GameObject myCoral;
+    public GameObject fishWheelPanel;
+    public GameObject fishWheelButtonPanel;
 
     private void Awake()
     {
-        panel.SetActive(false);
+        coralPanel.SetActive(false);
+        safezonePanel.SetActive(false);
+        fishWheelPanel.SetActive(false);
         myCoral = gameObject.transform.parent.gameObject; //Fetch the parent coral gameobject of this gameobject (aka the coral which this trigger is attached to)
     }
 
@@ -23,12 +31,19 @@ public class UI_Trigger : MonoBehaviour
         {
             //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = true;
             //other.gameObject.GetComponent<PlayerFollowers>().currentCoral = myCoral;
-            //Activate Coral UI Panel
+            
             myCoral.GetComponent<Coral>().UpdateProgress();
-            panel.SetActive(true);
-
-            //Fetch all player's followers
-            List<Follower> playerFollowers = other.GetComponent<NPCFishUtil>().getListOfFishes();
+            if (myCoral.GetComponent<Coral>().IsSafezone) //If the gamobject is checked as a safezone...
+            {
+                safezonePanel.SetActive(true); //... Activate the UI for the safezone...
+            }
+            else
+            {
+               // coralPanel.SetActive(true); //...Otherwise activate UI for coral
+                fishWheelPanel.SetActive(true);
+                fishWheelButtonPanel.SetActive(true);
+                fishWheelPanel.GetComponent<FishWheel>().panelEnabled= true;
+            }
 
             Debug.Log("Trigger Entered!");
 
@@ -45,9 +60,13 @@ public class UI_Trigger : MonoBehaviour
         if (other.tag == "Player")
         {
             //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = false;
-            panel.SetActive(false);
+            safezonePanel.SetActive(false);
+            coralPanel.SetActive(false);
+            fishWheelPanel.SetActive(false);
+            fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
+            fishWheelPanel.GetComponent<FishWheel>().panelEnabled= false;
             //Debug.Log("Trigger Exited!");
-            //Sätt även spelarens fiskar till non-clickable
+            //Sï¿½tt ï¿½ven spelarens fiskar till non-clickable
             //setClickable(other.GetComponent<PlayerFollowers>().GetAllFollowers());
         }
     }
