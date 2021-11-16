@@ -12,14 +12,14 @@ public class UI_Trigger : MonoBehaviour
     private GameObject safezonePanel; //Set in inspector
 
     private GameObject myCoral;
-    public GameObject fishWheelPanel;
-    public GameObject fishWheelButtonPanel;
+    //public GameObject fishWheelPanel;
+    //public GameObject fishWheelButtonPanel;
 
     private void Awake()
     {
         coralPanel.SetActive(false);
         safezonePanel.SetActive(false);
-        fishWheelPanel.SetActive(false);
+        //fishWheelPanel.SetActive(false);
         myCoral = gameObject.transform.parent.gameObject; //Fetch the parent coral gameobject of this gameobject (aka the coral which this trigger is attached to)
     }
 
@@ -40,9 +40,9 @@ public class UI_Trigger : MonoBehaviour
             else
             {
                 coralPanel.SetActive(true); //...Otherwise activate UI for coral
-                fishWheelPanel.SetActive(true);
-                fishWheelButtonPanel.SetActive(true);
-                fishWheelPanel.GetComponent<FishWheel>().panelEnabled= true;
+                //fishWheelPanel.SetActive(true);
+                //fishWheelButtonPanel.SetActive(true);
+                //fishWheelPanel.GetComponent<FishWheel>().panelEnabled= true;
             }
 
             Debug.Log("Trigger Entered!");
@@ -62,9 +62,9 @@ public class UI_Trigger : MonoBehaviour
             //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = false;
             safezonePanel.SetActive(false);
             coralPanel.SetActive(false);
-            fishWheelPanel.SetActive(false);
-            fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
-            fishWheelPanel.GetComponent<FishWheel>().panelEnabled= false;
+            //fishWheelPanel.SetActive(false);
+            //fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
+            //fishWheelPanel.GetComponent<FishWheel>().panelEnabled= false;
             //Debug.Log("Trigger Exited!");
             //S�tt �ven spelarens fiskar till non-clickable
             //setClickable(other.GetComponent<PlayerFollowers>().GetAllFollowers());
