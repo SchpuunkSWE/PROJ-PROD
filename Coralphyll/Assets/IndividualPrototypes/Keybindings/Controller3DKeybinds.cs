@@ -58,18 +58,18 @@ public class Controller3DKeybinds : MonoBehaviour
     
     private void PlayerInput()
     {
-        if (playerInput.magnitude > float.Epsilon)
+        Vector3 lateralPlayerInput = new Vector3(playerInput.x, 0, playerInput.y);
+        if (lateralPlayerInput.magnitude > float.Epsilon)
         {
             if (velocity.magnitude < 1f)
             {
                 velocity += playerInput.normalized;
             }
             CalculateVelocity(playerInput);
-
         }
         else
         {
-            DecelerateVelocity();
+            DecelerateLateralVelocity();
         }
     }
 
@@ -82,6 +82,11 @@ public class Controller3DKeybinds : MonoBehaviour
         {
             velocity = velocity.normalized * maxVelocityValue;
         }
+        Vector3 verticalVelocity = new Vector3(0, velocity.y, 0);
+        if(verticalVelocity.magnitude > maxJumpForce)
+        {
+            velocity.y = velocity.normalized.y * maxJumpForce;
+        }
     }
     private void ApplyVelocity()
     {
@@ -92,26 +97,24 @@ public class Controller3DKeybinds : MonoBehaviour
     {
         velocity += Vector3.down * gravity * Time.deltaTime;
     }
-    private void DecelerateVelocity()
+    private void DecelerateLateralVelocity()
     {
-        Vector3 projectedDir = velocity;//new Vector3(velocity.x, 0.0f, velocity.z);
+        Vector3 projectedDir = new Vector3(velocity.x, 0, velocity.z);//new Vector3(velocity.x, 0.0f, velocity.z);
         float absValue = Mathf.Abs(projectedDir.magnitude);
         projectedDir = projectedDir.normalized;
         if (decelerateValue > absValue)
         {
             velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.2f);
             velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.2f);
-            velocity.y = Mathf.SmoothDamp(velocity.y, 0, ref velocityYSmoothValue, 0.2f);
         }
         else
         {
             velocity -= projectedDir * decelerateValue * Time.deltaTime;
 
-            /* This might be necessary to include for smoother deceleration 
-            velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.1f);
-             velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.1f);*/
+            /* This might be necessary to include for smoother deceleration*/
+            //velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.9f);
+            //velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.9f);
         }
-
     }
     #endregion
 
@@ -188,22 +191,14 @@ public class Controller3DKeybinds : MonoBehaviour
     //The magnitude of velocity.y is greater than 8f.
     public void SwimUpFunction()
     {
-        if(Mathf.Abs(velocity.y)  < maxJumpForce) {
-            playerInput += transform.up * jumpForce;
-        }
-        else{
-            velocity.y = maxJumpForce;
-        }
+       
+            playerInput += Vector3.up * 1;
+        
         
     }
     public void DiveFunction()
-    {
-        if(Mathf.Abs(velocity.y) < maxJumpForce) {
-            playerInput += -transform.up * jumpForce;
-        }
-        else{
-            velocity.y = -maxJumpForce;
-        }
+    {    
+            playerInput += -Vector3.up * 1;
     }
 
     public void ResetMomentumFunction()
