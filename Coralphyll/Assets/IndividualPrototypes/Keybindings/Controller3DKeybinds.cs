@@ -5,13 +5,29 @@ using UnityEngine;
 public class Controller3DKeybinds : MonoBehaviour
 {
     public Vector3 velocity;
-    public float speed = 30f;
+
+    [SerializeField]
+    private float speed = 30f;
+    public float Speed { get => speed; set => speed = value; }
+
+    [SerializeField]
+    private  float oGspeed = 30;
+    public float OGSpeed { get => oGspeed;}
+
+    [SerializeField]
+    private float oGMaxVelocityValue = 5f;
+    public float OGMaxVelocityValue { get => oGMaxVelocityValue; }
+
+    [SerializeField]
+    private float maxVelocityValue = 5f;
+    public float MaxVelocityValue { get => maxVelocityValue; set => maxVelocityValue = value; }
+
     public Vector3 playerInput;
     public float decelerateValue = 7f;
     public float velocityXSmoothValue = 0.2f;
     public float velocityZSmoothValue = 0.2f;
     public float velocityYSmoothValue = 0.2f;
-    public float maxVelocityValue = 5f;
+
     //public CapsuleCollider capsuleCollider;
     public SphereCollider sphereCollider;
     public LayerMask collisionMask;
