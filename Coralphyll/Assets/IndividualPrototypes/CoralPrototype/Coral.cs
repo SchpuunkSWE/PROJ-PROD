@@ -54,19 +54,6 @@ public class Coral : MonoBehaviour
 
     public GameObject boidsSystemGO;
 
-
-    public int GetYellowFishesNeeded()
-    {
-        return yellowFishesNeeded;
-    }
-    public int GetRedFishesNeeded()
-    {
-        return redFishesNeeded;
-    }
-    public int GetBlueFishesNeeded()
-    {
-        return blueFishesNeeded;
-    }
     private void Awake()
     {
         //gameController = GameObject.FindGameObjectWithTag("GC").GetComponent<GameController>(); - try this if u can't set it in the inspector for some reason

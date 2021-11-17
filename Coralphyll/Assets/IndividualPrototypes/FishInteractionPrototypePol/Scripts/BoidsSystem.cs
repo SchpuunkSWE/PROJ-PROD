@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoidsSystem : MonoBehaviour
+public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
 {
     [SerializeField] private GameObject agentPrefab;
     [SerializeField] private int numAgents = 10;
@@ -14,6 +14,11 @@ public class BoidsSystem : MonoBehaviour
     public List<GameObject> agents = new List<GameObject>();
 
     public float Radius { get => radius; set => radius = value; }
+
+
+    //Molly Change
+    public string tag;
+    //End Molly Change
 
     private void Start()
     {
@@ -42,7 +47,8 @@ public class BoidsSystem : MonoBehaviour
             GoalPosition = transform.position;
         }
 
-        //CheckAgentsAmount();
+        CheckAgentsAmount();
+
     }
 
     private void OnDrawGizmos()
@@ -64,13 +70,32 @@ public class BoidsSystem : MonoBehaviour
         agent.GetComponent<BoidsAgent>().owner = this;
     }
 
-    public bool CheckAgentsAmount()
-    {
-        if(agents.Count == 0)
-        {
-            noAgentsLeft = true;
-        }
 
-        return noAgentsLeft;
+    //Molly change
+    public void CheckAgentsAmount()
+    {
+        if(agents.Count > numAgents)
+        {
+            agents.Clear();
+
+            for (int i = 0; i < numAgents; i++)
+            {
+                Vector3 pos = transform.position + Random.insideUnitSphere * radius;
+                var newAgent = Instantiate(agentPrefab, pos, Quaternion.identity, transform);
+                newAgent.GetComponent<BoidsAgent>().owner = this;
+                agents.Add(newAgent);
+            }
+        }
     }
+
+    public void SetNumAgents(int num)
+    {
+        numAgents = num;
+    }
+
+    public void OnObjectSpawn()
+    {
+
+    }
+    //End Molly Change
 }
