@@ -36,6 +36,7 @@ Transform:
   - {fileID: 6020491851546948517}
   - {fileID: 6935880582350403248}
   - {fileID: 5584923172513527485}
+  - {fileID: 5024071075553309327}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.319}
@@ -65,8 +66,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6060758758465863006}
-  m_LocalRotation: {x: -0, y: -0, z: -0.115965806, w: 0.99325323}
-  m_LocalPosition: {x: -21.073822, y: 8.816586, z: 21.95}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5584923172513527485}
@@ -192,6 +193,77 @@ Transform:
   m_Father: {fileID: 6935880582350403248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1386254710723333628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4348079201517325725}
+    m_Modifications:
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243802744307364535, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: m_Name
+      value: DeadCoralEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590411526514346611, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+      propertyPath: stopAction
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+--- !u!4 &5024071075553309327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6234637022276566899, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+  m_PrefabInstance: {fileID: 1386254710723333628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7209051979017832335 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8590411526514346611, guid: e4b6007b94992264ab40d0eee995d6a1, type: 3}
+  m_PrefabInstance: {fileID: 1386254710723333628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2147484177904788664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,6 +327,10 @@ PrefabInstance:
       propertyPath: yellowFishesNeeded
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5786218915370455553, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
+      propertyPath: IncompletedParticles
+      value: 
+      objectReference: {fileID: 7209051979017832335}
     - target: {fileID: 5786218915370455557, guid: 2b01d0bdfb50af547aea4c600a956d1d, type: 3}
       propertyPath: m_RootOrder
       value: 8
