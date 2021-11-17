@@ -20,7 +20,7 @@ public class BoidsAgent : MonoBehaviour
 
     void Update()
     {
-        //HandleInputs();
+        HandleInputs();
 
         if (owner == null) return;
         //If out of bounds move back towards center
