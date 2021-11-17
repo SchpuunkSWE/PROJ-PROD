@@ -40,7 +40,7 @@ public class FishWheel : MonoBehaviour
     {
         if(panelEnabled)
         {
-            Debug.Log("panel is enabled");
+            ;
             //make the 0 position in the middle off the screen
             //ändra något med att dela först. för nu är den baserad på upplösningen.
             normalisedMousePosition = new Vector2(Input.mousePosition.x - Screen.width/2, Input.mousePosition.y - Screen.height/2);
