@@ -41,6 +41,9 @@ public class Coral : MonoBehaviour
     private ParticleSystem CompletedParticles;
 
     [SerializeField]
+    private ParticleSystem IncompletedParticles;
+
+    [SerializeField]
     private bool complete = false;
 
     [SerializeField]
@@ -160,6 +163,8 @@ public class Coral : MonoBehaviour
         mRenderer.material.SetColor("_BaseColor", newCoralColour);
 
         Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+
+        IncompletedParticles.Stop();
 
         spawnableDecor.SetActive(true);
     }
