@@ -61,10 +61,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.28009033
-  m_Height: 0.56018066
+  m_Radius: 1.5
+  m_Height: 0
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: -0.011146545}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7898252350792832982
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishColour: 2
+  collectable: 1
   parent: {fileID: 3014171594053831532, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
   col: {fileID: 3219925873853895632}
   isClickable: 0
@@ -109,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004d7a8b039f69240a35783d68db957f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishTarget: {fileID: 0}
   allowedDistance: 0.1
   followSpeed: 0.2
   isFollowingPlayer: 0
-  collectable: 1
 --- !u!114 &7242082062020311351
 MonoBehaviour:
   m_ObjectHideFlags: 0
