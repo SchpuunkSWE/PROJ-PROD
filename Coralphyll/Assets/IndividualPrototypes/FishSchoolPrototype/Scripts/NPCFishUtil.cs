@@ -189,9 +189,9 @@ public class NPCFishUtil : MonoBehaviour
             listOfFishes.Remove(f); //Removes fishes from the list of fishes 
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
-            //Destroy(f.gameObject, 5);
+            Destroy(f.gameObject, 5);
             //f.gameObject.SetActive(false);
-            
+
         }
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
