@@ -26,6 +26,9 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 targetPoint;
     private Vector3 heading;
 
+    private float newFishSpeed = 20f;
+    private float originalFishSpeed = 0f;
+
     void Start()
     {
         if (points.Length > 0)
@@ -93,7 +96,25 @@ public class MovingPlatform : MonoBehaviour
             rb.useGravity = false;
             other.transform.parent = platformTransform;
         }
+
+        //if (other.CompareTag("NPCFish"))
+        //{
+        //    //Should never fail since we already checked for the right type of gameobject when checking tag
+        //    NPCFollow fish = other.GetComponent<NPCFollow>();
+
+        //    //Save fish original speed before changing it
+        //    cacheOriginalFishSpeed(fish.GetFollowSpeed());
+
+        //    //Increase fish speed
+        //    fish.SetFollowSpeeed(newFishSpeed);
+        //    Debug.Log("Speed Increased to: " + newFishSpeed);
+        //}
     }
+
+    //private void cacheOriginalFishSpeed(float number)
+    //{
+    //    originalFishSpeed = number;
+    //}
 
     private void OnTriggerExit(Collider other)
     {
@@ -102,6 +123,16 @@ public class MovingPlatform : MonoBehaviour
             Destroy(other.gameObject.GetComponent<Rigidbody>());
             other.transform.parent = originalParent;
         }
+
+        //if (other.CompareTag("NPCFish"))
+        //{
+        //    //Should never fail since we already checked for the right type of gameobject when checking tag
+        //    NPCFollow fish = other.GetComponent<NPCFollow>();
+
+        //    //Set fish speed back to original speed
+        //    fish.SetFollowSpeeed(originalFishSpeed);
+        //    Debug.Log("Speed Reset to: " + originalFishSpeed);
+        //}
     }
 
     public void SetAutomatic(bool b) { automatic = b; }
