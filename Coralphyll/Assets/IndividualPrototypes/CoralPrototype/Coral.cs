@@ -73,13 +73,13 @@ public class Coral : MonoBehaviour
 
     private void Start()
     {
-        SetUITexts();
+        //SetUITexts();
     }
     private void SetUITexts()
     {
-        yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
-        redFishesText.text = redBaseTxt + redFishesAmount + "/" + redFishesNeeded;
-        blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
+       // yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
+       // redFishesText.text = redBaseTxt + redFishesAmount + "/" + redFishesNeeded;
+      //  blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
     private void GiveGlobalProgression()
@@ -130,7 +130,7 @@ public class Coral : MonoBehaviour
         blueFishesAmount = CountFish(FishColour.BLUE);
         yellowFishesAmount = CountFish(FishColour.YELLOW);
         redFishesAmount = CountFish(FishColour.RED);
-        SetUITexts();
+        //SetUITexts();
         GiveGlobalProgression();
 
     }
