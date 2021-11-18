@@ -16,6 +16,9 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         originalLookDirection = transform;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -26,8 +29,6 @@ public class CameraController : MonoBehaviour
         // The camera itself follows an empty object called "followTransform" that sits inside the player, which allows for the second part of the
         // code where left-clicking only rotates the followTransform (and the camera) - but not the player.
         // Disclaimer: We never touch the Z-axis for rotation since this is what can flip the world upside-down.
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
 
         lookInput.x = Input.GetAxis("Mouse X");
         lookInput.y = Input.GetAxis("Mouse Y") * noLookInversion;
