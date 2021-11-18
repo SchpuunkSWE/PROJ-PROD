@@ -7,6 +7,7 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
     [SerializeField] private int numAgents = 10;
     [SerializeField] private float radius = 2;
     [SerializeField] private bool randomGoal;
+    [SerializeField] private bool isOnCoral;
 
     private bool noAgentsLeft = false;
 
@@ -29,6 +30,7 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
             newAgent.GetComponent<BoidsAgent>().owner = this;
             agents.Add(newAgent);
         }
+        isOnCoral = transform.parent.GetComponentInChildren<Coral>() != null;
     }
 
     //Object pooling for instantiating fish during runtime?
@@ -74,7 +76,7 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
     //Molly change
     public void CheckAgentsAmount()
     {
-        if(agents.Count > numAgents)
+        if(agents.Count > numAgents && !isOnCoral)
         {
             agents.Clear();
 
