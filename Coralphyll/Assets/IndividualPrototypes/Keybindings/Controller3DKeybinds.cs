@@ -35,9 +35,6 @@ public class Controller3DKeybinds : MonoBehaviour
     public float standardStaticFrictionVariable = 0.5f;
     public float kineticFrictionVariable = 0.16f;
     public float airResistance = 0.8f;
-    [HideInInspector] public float gravity = 9f;
-    public float jumpForce = 8f;
-    public float maxJumpForce = 8f;
     public bool isGrounded;
     private void Awake()
     {
@@ -49,85 +46,73 @@ public class Controller3DKeybinds : MonoBehaviour
     void Update()
     {
         PlayerInput();
-        //ApplyGravity();
         HitDetection();
         ApplyVelocity();
-
     }
 
     
     private void PlayerInput()
     {
-        Vector3 lateralPlayerInput = new Vector3(playerInput.x, 0, playerInput.y);
-        if (lateralPlayerInput.magnitude > float.Epsilon)
+        playerInput = Vector3.ClampMagnitude(playerInput, 1);
+        if (playerInput.magnitude > float.Epsilon)
         {
-            if (velocity.magnitude < 1f)
-            {
-                velocity += playerInput.normalized;
-            }
             CalculateVelocity(playerInput);
         }
         else
         {
-            DecelerateLateralVelocity();
+            DecelerateVelocity();
         }
     }
 
     #region Velocity
     private void CalculateVelocity(Vector3 input)
     {
-        velocity += input.normalized * speed * Time.deltaTime;
-        Vector3 lateralVelocity = new Vector3(velocity.x, 0, velocity.z);
-        if (lateralVelocity.magnitude > maxVelocityValue)
+        velocity += input * speed * Time.deltaTime;
+        if (velocity.magnitude > maxVelocityValue)
         {
             velocity = velocity.normalized * maxVelocityValue;
         }
-        Vector3 verticalVelocity = new Vector3(0, velocity.y, 0);
-        if(verticalVelocity.magnitude > maxJumpForce)
-        {
-            velocity.y = velocity.normalized.y * maxJumpForce;
-        }
     }
+
     private void ApplyVelocity()
     {
         velocity *= Mathf.Pow(airResistance, Time.deltaTime);
         transform.position += velocity * Time.deltaTime;
     }
-    private void ApplyGravity()
+    
+    private void DecelerateVelocity()
     {
-        velocity += Vector3.down * gravity * Time.deltaTime;
-    }
-    private void DecelerateLateralVelocity()
-    {
-        Vector3 projectedDir = new Vector3(velocity.x, 0, velocity.z);//new Vector3(velocity.x, 0.0f, velocity.z);
-        float absValue = Mathf.Abs(projectedDir.magnitude);
-        projectedDir = projectedDir.normalized;
+        float absValue = Mathf.Abs(new Vector3(velocity.x, 0, velocity.z).magnitude);
         if (decelerateValue > absValue)
         {
             velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.2f);
             velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.2f);
         }
-        else
+        absValue = Mathf.Abs(velocity.y);
+        if (decelerateValue > absValue)
         {
-            velocity -= projectedDir * decelerateValue * Time.deltaTime;
-
-            /* This might be necessary to include for smoother deceleration*/
-            //velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.9f);
-            //velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.9f);
+            velocity.y = Mathf.SmoothDamp(velocity.y, 0, ref velocityYSmoothValue, 0.2f);
         }
+        //absValue = Mathf.Abs(velocity.z);
+        //if (decelerateValue > absValue)
+        //{
+            
+        //}
+        absValue = Mathf.Abs(velocity.magnitude);
+        if (decelerateValue < absValue)
+        {
+            velocity -= velocity.normalized * decelerateValue * Time.deltaTime;
+        }
+
     }
+
     #endregion
 
     #region Hit Detection
     private void HitDetection()
     {
-        //Capsule cast to check for collissions. 
+        //Sphere cast to check for collissions. 
         RaycastHit hit;
-        //Vector3 upperPoint = transform.position + Vector3.up * (capsuleCollider.height / 2 - capsuleCollider.radius);
-        //Vector3 lowerPoint = transform.position + Vector3.down * (capsuleCollider.height / 2 - capsuleCollider.radius);
-        //Physics.CapsuleCast(upperPoint, lowerPoint, capsuleCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
-        //Debug.DrawLine(upperPoint, velocity.normalized, Color.red);
-        //Debug.DrawLine(lowerPoint, velocity.normalized, Color.blue);
         Physics.SphereCast(transform.position + sphereCollider.center, sphereCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
 
         //Raycast to check if player is grounded.
@@ -146,7 +131,7 @@ public class Controller3DKeybinds : MonoBehaviour
 
         }
 
-        if (hit.collider) //If the capsulecast hit anything within velocity.normalized range
+        if (hit.collider) //If the spherecast hit anything within velocity.normalized range
         {
             float distanceToCollisionPoint = skinWidth / Vector3.Dot(velocity.normalized, hit.normal);
             float allowedMovementDistance = hit.distance + distanceToCollisionPoint;
@@ -186,19 +171,13 @@ public class Controller3DKeybinds : MonoBehaviour
         }
     }
 
-    //DISCLAIMER: The JumpFunction and DiveFunction are placeholders for now since this should be something that exists in the playerInput section for moving along the Y-axis. 
-    //But for now, it's at least some way to move straight up and down when testing. They simply add a positive or negative force to the velocity.y as long as
-    //The magnitude of velocity.y is greater than 8f.
     public void SwimUpFunction()
-    {
-       
-            playerInput += Vector3.up * 1;
-        
-        
+    {       
+        playerInput += transform.up;       
     }
     public void DiveFunction()
     {    
-            playerInput += -Vector3.up * 1;
+        playerInput += -transform.up;
     }
 
     public void ResetMomentumFunction()
@@ -207,22 +186,22 @@ public class Controller3DKeybinds : MonoBehaviour
     }
     public void ForwardFunction()
     {
-        playerInput += transform.forward * 1;
+        playerInput += transform.forward;
     }
 
     public void BackFunction()
     {
-        playerInput += transform.forward * -1;
+        playerInput += -transform.forward;
     }
 
     public void RightFunction()
     {
-        playerInput += transform.right * 1;
+        playerInput += transform.right;
     }
 
     public void LeftFunction()
     {
-        playerInput += transform.right * -1;
+        playerInput += -transform.right;
     }
 
 }
