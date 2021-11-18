@@ -7,6 +7,9 @@ public class Coral : MonoBehaviour
 {
     //Tweak how many fish of each colour the coral needs in inspector
     [SerializeField]
+
+    private int thisCoralNr;
+    [SerializeField]
     private int yellowFishesNeeded;
     [SerializeField]
     private int redFishesNeeded;
@@ -32,6 +35,7 @@ public class Coral : MonoBehaviour
 
     [SerializeField]
     private GameController gameController;
+    public UI_GlobalProgression gp;
 
     [SerializeField]
     private ParticleSystem CompletedParticles;
@@ -69,13 +73,22 @@ public class Coral : MonoBehaviour
 
     private void Start()
     {
-        SetUITexts();
+        //SetUITexts();
     }
     private void SetUITexts()
     {
-        yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
-        redFishesText.text = redBaseTxt + redFishesAmount + "/" + redFishesNeeded;
-        blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
+       // yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
+       // redFishesText.text = redBaseTxt + redFishesAmount + "/" + redFishesNeeded;
+      //  blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
+    }
+
+    private void GiveGlobalProgression()
+    {
+        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr,0,yellowFishesAmount,yellowFishesNeeded);
+        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr,1,redFishesAmount,redFishesNeeded);
+        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr,2,blueFishesAmount,blueFishesNeeded);
+        
+
     }
 
     public void ReceiveFish() 
@@ -117,7 +130,8 @@ public class Coral : MonoBehaviour
         blueFishesAmount = CountFish(FishColour.BLUE);
         yellowFishesAmount = CountFish(FishColour.YELLOW);
         redFishesAmount = CountFish(FishColour.RED);
-        SetUITexts();
+        //SetUITexts();
+        GiveGlobalProgression();
 
     }
 
