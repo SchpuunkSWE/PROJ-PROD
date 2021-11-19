@@ -34,6 +34,10 @@ public class GameController : MonoBehaviour
 
     private bool runOnce = false;
 
+    private void Start()
+    {
+        completedCoralAmount = 0;
+    }
     public void SetCompletedCoralAmount()
     {
         completedCoralAmount++;
