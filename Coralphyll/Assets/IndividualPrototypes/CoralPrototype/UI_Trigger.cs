@@ -36,6 +36,9 @@ public class UI_Trigger : MonoBehaviour
             if (myCoral.GetComponent<Coral>().IsSafezone) //If the gamobject is checked as a safezone...
             {
                 safezonePanel.SetActive(true); //... Activate the UI for the safezone...
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
             }
             else
             {
@@ -60,7 +63,13 @@ public class UI_Trigger : MonoBehaviour
         if (other.tag == "Player")
         {
             //other.gameObject.GetComponent<PlayerFollowers>().nearCoral = false;
-            safezonePanel.SetActive(false);
+
+            if (myCoral.GetComponent<Coral>().IsSafezone) //If the gamobject is checked as a safezone...
+            {
+                safezonePanel.SetActive(false); //... Activate the UI for the safezone...
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
             coralPanel.SetActive(false);
             //fishWheelPanel.SetActive(false);
             //fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
