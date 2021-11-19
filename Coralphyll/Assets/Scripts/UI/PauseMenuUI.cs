@@ -16,6 +16,7 @@ public class PauseMenuUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        optionsPanel.SetActive(false);
         
     }
 
@@ -59,8 +60,8 @@ public class PauseMenuUI : MonoBehaviour
 
     }
     public void Options(){
-        optionsPanel.SetActive(true);
-        pauseMenuUI.SetActive(false);
+        //optionsPanel.SetActive(true);
+        //pauseMenuUI.SetActive(false);
 
 
     }
