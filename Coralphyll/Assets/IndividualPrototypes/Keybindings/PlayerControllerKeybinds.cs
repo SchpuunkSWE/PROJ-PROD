@@ -30,7 +30,8 @@ public class PlayerControllerKeybinds : MonoBehaviour
     {
         if (inputManager.GetKeyUp(KeybindingActions.SwimUp) || inputManager.GetKeyUp(KeybindingActions.SwimDown)
         || inputManager.GetKeyUp(KeybindingActions.Forward) || inputManager.GetKeyUp(KeybindingActions.Back) ||
-       inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left))
+       inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left)
+       || Input.GetAxisRaw("Vertical") == 0)
         {
             PlayerResetMomentum();
         }
@@ -42,21 +43,33 @@ public class PlayerControllerKeybinds : MonoBehaviour
         {
             PlayerDive();
         }
-        if(inputManager.GetKey(KeybindingActions.Forward))
+        if (inputManager.GetKey(KeybindingActions.Forward) || Input.GetAxisRaw("Vertical") > 0)
         {
-            PlayerForward();
+            if (inputManager.GetKey(KeybindingActions.Forward))
+                PlayerForward();
+            else
+                PlayerForwardAxis(Input.GetAxisRaw("Vertical"));
         }
-        if(inputManager.GetKey(KeybindingActions.Back))
+        if(inputManager.GetKey(KeybindingActions.Back) || Input.GetAxisRaw("Vertical") < 0)
         {
-            PlayerBack();
+            if(inputManager.GetKey(KeybindingActions.Back))
+                PlayerBack();
+            else
+                PlayerForwardAxis(Input.GetAxisRaw("Vertical"));
         }
-        if(inputManager.GetKey(KeybindingActions.Right))
+        if(inputManager.GetKey(KeybindingActions.Right) || Input.GetAxisRaw("Horizontal") > 0)
         {
-            PlayerRight();
+            if (inputManager.GetKey(KeybindingActions.Right))
+                PlayerRight();
+            else
+                PlayerRightAxis(Input.GetAxisRaw("Horizontal"));
         }
-        if(inputManager.GetKey(KeybindingActions.Left))
+        if(inputManager.GetKey(KeybindingActions.Left) || Input.GetAxisRaw("Horizontal") < 0)
         {
-            PlayerLeft();
+            if(inputManager.GetKey(KeybindingActions.Left))
+                PlayerLeft();
+            else
+                PlayerRightAxis(Input.GetAxisRaw("Horizontal"));
         }
        
     }
@@ -93,5 +106,15 @@ public class PlayerControllerKeybinds : MonoBehaviour
     public void PlayerResetMomentum()
     {
         playerController.ResetMomentumFunction();
+    }
+
+    public void PlayerForwardAxis(float axisInput)
+    {
+        playerController.ForwardAxisFunction(axisInput);
+    }
+
+    public void PlayerRightAxis(float axisInput)
+    {
+        playerController.RightAxisFunction(axisInput);
     }
 }

@@ -204,4 +204,13 @@ public class Controller3DKeybinds : MonoBehaviour
         playerInput += -transform.right;
     }
 
+    public void ForwardAxisFunction(float axisInput)
+    {
+        playerInput += transform.forward * axisInput;
+    }
+
+    public void RightAxisFunction(float axisInput)
+    {
+        playerInput += transform.right * axisInput;
+    }
 }
