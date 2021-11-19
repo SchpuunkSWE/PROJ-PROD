@@ -37,6 +37,7 @@ public class UI_Trigger : MonoBehaviour
             {
                 safezonePanel.SetActive(true); //... Activate the UI for the safezone...
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.None;
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
             }
