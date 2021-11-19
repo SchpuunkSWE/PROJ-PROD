@@ -63,13 +63,13 @@ public class FishCounter : MonoBehaviour
         foreach (GameObject school in fishSchoolsInScene)
         {
             BoidsSystem boidsSystem = school.GetComponent<BoidsSystem>();
-            if (boidsSystem.agents.Count == 0)
-            {
-                fishSchoolsInSceneToRemove.Add(school);
-            }
-            else
-            {
-                foreach (GameObject agent in boidsSystem.agents)
+            //if (boidsSystem.agents.Count == 0)
+            //{
+            //    fishSchoolsInSceneToRemove.Add(school);
+            //}
+            //else
+            //{
+            foreach (GameObject agent in boidsSystem.agents)
                 {
                     Follower f = agent.GetComponent<Follower>();
                     switch (f.GetColour())
@@ -88,7 +88,7 @@ public class FishCounter : MonoBehaviour
                             break;
                     }
                 }
-            }
+            //}
         }
         Debug.Log("Coral need " + totalYellowCoralNeeds + ", " + totalRedCoralNeeds + ", " + totalBlueCoralNeeds);
         Debug.Log("Total fish " + totalYellowFishes + ", " + totalRedFishes + ", " + totalBlueFishes);
@@ -96,13 +96,13 @@ public class FishCounter : MonoBehaviour
 
     private void Update()
     {
-        if (fishSchoolsInSceneToRemove.Count > 0)
-        {
-            foreach (GameObject go in fishSchoolsInSceneToRemove)
-            {
-                fishSchoolsInScene.Remove(go);
-            }
-        }
+        //if (fishSchoolsInSceneToRemove.Count > 0)
+        //{
+        //    foreach (GameObject go in fishSchoolsInSceneToRemove)
+        //    {
+        //        fishSchoolsInScene.Remove(go);
+        //    }
+        //}
 
         if (recountFishes)
         {

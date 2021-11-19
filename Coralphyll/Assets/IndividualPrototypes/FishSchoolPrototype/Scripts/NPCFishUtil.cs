@@ -196,6 +196,7 @@ public class NPCFishUtil : MonoBehaviour
 
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             Destroy(f.GetComponent<BoidsAgent>().owner.gameObject); //Destroy the Boidssystem that the fish has.
+            FishCounter.fishCounterInstance.RemoveSchool(f.GetComponent<BoidsAgent>().owner);
             FishCounter.fishCounterInstance.RecountFishes = true;
 
             //Destroy(f.gameObject, 5);
