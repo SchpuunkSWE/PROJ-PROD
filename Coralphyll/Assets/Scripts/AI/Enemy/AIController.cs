@@ -18,6 +18,9 @@ public class AIController : MonoBehaviour
 
     public static bool CanFollowPlayer { get; set; } = true;
 
+    //Molly Change
+    public bool IsDazed { get => IsDazed; set => IsDazed = value; }
+
     public float Speed;
 
     private void Awake()
