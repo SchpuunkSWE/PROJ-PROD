@@ -5,19 +5,20 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public GameObject followTransform;
+    public Transform followTransform;
     public Vector3 lookInput;
     public float rotationPower = 3f;
     public float rotationLerp = 0.5f;
+    [SerializeField, Min(1), Tooltip("Speed at which the camera returns to its normal position")]
+    private float returnSpeed = 90f;
     private int noLookInversion = -1;
-    public GameObject playerRotation;
     private Transform originalLookDirection;
+    private bool isReturningToNormalRotation = false;
     // Start is called before the first frame update
     void Start()
     {
         originalLookDirection = transform;
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
 
@@ -38,11 +39,11 @@ public class CameraController : MonoBehaviour
         {
             //This region handles vertical rotation around the x-axis from mouse input y and restricts rotation up/down with the angles variable.
             #region Vertical Rotation
-            followTransform.transform.rotation *= Quaternion.AngleAxis(lookInput.y * rotationPower, Vector3.right);
-            var angles = followTransform.transform.localEulerAngles;
+            followTransform.rotation *= Quaternion.AngleAxis(lookInput.y * rotationPower, Vector3.right);
+            var angles = followTransform.localEulerAngles;
             angles.z = 0;
 
-            var angle = followTransform.transform.localEulerAngles.x;
+            var angle = followTransform.localEulerAngles.x;
 
             //    //Clamp the Up/Down rotation - more free than when moving. This does not work well since when the player is rotated on the X-axis, the world looks tilted.
             //    // If possible, it would be good if the camera could rotate along eulerAngles (world rotation) and not around the player here.
@@ -55,21 +56,31 @@ public class CameraController : MonoBehaviour
                 angles.x = 50;
             }
 
-            Vector3 vertical = new Vector3(angles.x, 0, 0);
-            followTransform.transform.localEulerAngles = angles;
+            //Vector3 vertical = new Vector3(angles.x, 0, 0);
+            followTransform.localEulerAngles = angles;
             #endregion
 
             //Rotate followTransform horizontally based upon mouse input and rotationpower(sensitivity)
-            followTransform.transform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower, Vector3.up);
+            followTransform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower, Vector3.up);
 
-        }
-        else if(Input.GetMouseButtonUp(0))
-        {
-            Debug.Log("Trying to reset camera");
-            followTransform.transform.rotation = originalLookDirection.rotation;
         }
         else
         {
+            if (Input.GetMouseButtonUp(0))
+            {
+                isReturningToNormalRotation = true;
+            }
+            if(isReturningToNormalRotation)
+            {
+                if (followTransform.localRotation != originalLookDirection.localRotation)
+                {
+                    followTransform.localRotation = Quaternion.RotateTowards(followTransform.localRotation, Quaternion.identity, returnSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    isReturningToNormalRotation = false;
+                }
+            }
             //This region handles vertical rotation around the x-axis from mouse input y and restricts rotation up/down with the angles variable.
             #region Vertical Rotation
             transform.rotation *= Quaternion.AngleAxis(lookInput.y * rotationPower, Vector3.right);
@@ -88,19 +99,21 @@ public class CameraController : MonoBehaviour
                 angles.x = 30;
             }
 
-            Vector3 vertical = new Vector3(angles.x, 0, 0);
+            //Vector3 vertical = new Vector3(angles.x, 0, 0);
             transform.localEulerAngles = angles;
             #endregion
 
             //Rotate player horizontally based upon mouse input and rotationpower(sensitivity)
             transform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower, Vector3.up);
 
-            originalLookDirection.rotation = transform.rotation;
+            originalLookDirection.localEulerAngles = transform.localEulerAngles;
             //reset the y rotation of the look transform
             //followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
         }
 
+
         //When player releases right mousebutton, stop rotating camera
         //If player is not right-clicking, camera won't move with cursor and the mouse is unlocked.
     }
+
 }
