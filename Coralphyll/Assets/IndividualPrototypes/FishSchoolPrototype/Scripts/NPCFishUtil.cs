@@ -176,6 +176,7 @@ public class NPCFishUtil : MonoBehaviour
 
     public void DropFish() //Use this one when we dont need to specify which colour of fish we send in
     {
+        //BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); 
         foreach (Follower f in listOfFishes)
         {
             if (f.GetComponent<NPCFollow>().isFollowingPlayer)
@@ -188,11 +189,19 @@ public class NPCFishUtil : MonoBehaviour
         {
             listOfFishes.Remove(f); //Removes fishes from the list of fishes 
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+            //Instantiate(boidsSystem);
+            //boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
+            //f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
+            //f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
+
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
-            Destroy(f.gameObject, 5);
-            //f.gameObject.SetActive(false);
+            Destroy(f.GetComponent<BoidsAgent>().owner.gameObject); //Destroy the Boidssystem that the fish has.
+            FishCounter.fishCounterInstance.RecountFishes = true;
+
+            //Destroy(f.gameObject, 5);
 
         }
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 }
+
