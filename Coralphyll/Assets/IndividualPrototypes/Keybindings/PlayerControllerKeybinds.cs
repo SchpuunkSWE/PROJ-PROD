@@ -28,6 +28,12 @@ public class PlayerControllerKeybinds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inputManager.GetKeyUp(KeybindingActions.SwimUp) || inputManager.GetKeyUp(KeybindingActions.SwimDown)
+        || inputManager.GetKeyUp(KeybindingActions.Forward) || inputManager.GetKeyUp(KeybindingActions.Back) ||
+       inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left))
+        {
+            PlayerResetMomentum();
+        }
         if (inputManager.GetKey(KeybindingActions.SwimUp))
         {
             PlayerSwimUp();
@@ -52,12 +58,7 @@ public class PlayerControllerKeybinds : MonoBehaviour
         {
             PlayerLeft();
         }
-        if(inputManager.GetKeyUp(KeybindingActions.SwimUp) || inputManager.GetKeyUp(KeybindingActions.SwimDown)
-         || inputManager.GetKeyUp(KeybindingActions.Forward) || inputManager.GetKeyUp(KeybindingActions.Back) ||
-        inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left))
-        {
-            PlayerResetMomentum();
-        }
+       
     }
 
     public void PlayerSwimUp()

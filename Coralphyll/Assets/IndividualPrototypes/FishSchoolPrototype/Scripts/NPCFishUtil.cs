@@ -15,14 +15,16 @@ public class NPCFishUtil : MonoBehaviour
 
     private Coral coral;
 
+    private FishColour fish;
+
     public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
     {
-        if(listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
+        if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
         {
             return -1; //returner default v�rde eftersom positionInList inte kan s�ttas till null
         }
         //Om metoden inte har returnerats...
-        listOfFishes.Add(go); 
+        listOfFishes.Add(go);
         return listOfFishes.IndexOf(go);
     }
 
@@ -40,27 +42,41 @@ public class NPCFishUtil : MonoBehaviour
         if (other.CompareTag("Coral"))
         {
             Debug.Log("Coral Tagged");
-           
-            coral = other.GetComponentInParent<Coral>();    
+
+            coral = other.GetComponentInParent<Coral>();
             boidsSystemGO = coral.boidsSystemGO; //GameObject of coral.
-            if (coral.IsSafezone)
-            {
-                AIController.CanFollowPlayer = false;
-            }
+
+            AIController.CanFollowPlayer = false;
+
+            TransferFish(FishColour.BLUE);
+            TransferFish(FishColour.RED);
+            TransferFish(FishColour.YELLOW);
+        }
+
+        if (other.CompareTag("SafeZone"))
+        {
+            Debug.Log("SafeZone Tagged");
+
+            coral = other.GetComponentInParent<Coral>();
+            boidsSystemGO = coral.boidsSystemGO; //GameObject of SafeZone.
+            AIController.CanFollowPlayer = false;
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Coral"))
         {
-            coral = other.GetComponentInParent<Coral>();
-            if (coral.IsSafezone)
-            {
-                AIController.CanFollowPlayer = true;
-            }
+            AIController.CanFollowPlayer = true;
+
+        }
+
+        if (other.CompareTag("SafeZone"))
+        {
+            AIController.CanFollowPlayer = true;
         }
     }
-            public void TransferFish(FishColour fishColour)
+    public void TransferFish(FishColour fishColour)
     {
         BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
 
@@ -89,6 +105,31 @@ public class NPCFishUtil : MonoBehaviour
         coral.GetComponent<Coral>().ReceiveFish();
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
+
+    //public void TransferFish() //Use this one when we dont need to specify which colour of fish we send in
+    //{
+    //    BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
+
+    //    foreach (Follower f in listOfFishes)
+    //    {
+    //        if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fish && fishToRemove.Count < coral.fishSlotsAvailable(fish))
+    //        {
+    //            fishToRemove.Add(f);
+    //        }
+
+    //    }
+    //    foreach (Follower f in fishToRemove)
+    //    {
+    //        listOfFishes.Remove(f); //Removes fishes from the list of fishes 
+    //        boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
+    //        f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+    //        f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
+    //        f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
+    //    }
+
+    //    coral.GetComponent<Coral>().ReceiveFish();
+    //    fishToRemove.Clear(); //Clear the fish to remove list.
+    //}
 
     public void PickUpFish(GameObject player, Follower follower)
     {
@@ -121,7 +162,7 @@ public class NPCFishUtil : MonoBehaviour
                 toRemoveFromSafezone.Add(f);
                 Debug.Log("Added fish");
                 Debug.Log(toRemoveFromSafezone);
-            } 
+            }
         }
         foreach (Follower f in toRemoveFromSafezone)
         {
@@ -131,5 +172,27 @@ public class NPCFishUtil : MonoBehaviour
 
         }
 
+    }
+
+    public void DropFish() //Use this one when we dont need to specify which colour of fish we send in
+    {
+        foreach (Follower f in listOfFishes)
+        {
+            if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+            {
+                fishToRemove.Add(f);
+            }
+
+        }
+        foreach (Follower f in fishToRemove)
+        {
+            listOfFishes.Remove(f); //Removes fishes from the list of fishes 
+            f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+            f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
+            Destroy(f.gameObject, 5);
+            //f.gameObject.SetActive(false);
+
+        }
+        fishToRemove.Clear(); //Clear the fish to remove list.
     }
 }
