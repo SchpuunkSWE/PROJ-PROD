@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     public float rotationLerp = 0.5f;
     [SerializeField, Min(1), Tooltip("Speed at which the camera returns to its normal position")]
     private float returnSpeed = 90f;
-    private int noLookInversion = -1;
+    private int noLookInversion = 1;
     private Transform originalLookDirection;
     private bool isReturningToNormalRotation = false;
     // Start is called before the first frame update
@@ -112,9 +112,17 @@ public class CameraController : MonoBehaviour
                 //followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
             }
         }
-        
 
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            if (Mathf.Abs(followTransform.localPosition.z) <= 5f)
+                followTransform.position += -followTransform.forward * Input.mouseScrollDelta.y; 
+            if(followTransform.localPosition.z > 5)
+                followTransform.localPosition = new Vector3(followTransform.localPosition.x, followTransform.localPosition.y, 5f);
+            if(followTransform.localPosition.z < -5)
+                followTransform.localPosition = new Vector3(followTransform.localPosition.x, followTransform.localPosition.y, -5f);
 
+        }
         //When player releases right mousebutton, stop rotating camera
         //If player is not right-clicking, camera won't move with cursor and the mouse is unlocked.
     }
