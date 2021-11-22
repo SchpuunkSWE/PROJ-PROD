@@ -17,6 +17,8 @@ public class AIController : MonoBehaviour
     public AIPath Path { get => path; set => path = value; }
     public StateMachine StateMachine { get => stateMachine; }
 
+    public static bool CanFollowPlayer { get; set; } = true;
+
     public float Speed;
 
     private void Awake()
