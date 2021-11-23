@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	50319475	Background_Ambience_2			\Default Work Unit\Ambience\Background_Ambience_2	
 	54285700	NPC_Friendly_Red			\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red	
+	144300286	MusicState_MainMenu			\Default Work Unit\Music\MusicState_MainMenu	
 	203293054	NPC_Friendly_Fish_Generic_Stop			\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Fish_Generic_Stop	
 	679089271	NPC_Friendly_Pickup			\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Pickup	
 	907852203	NPC_Enemy_Eel_Stop			\Default Work Unit\SFX_Events\NPC\NPC_Enemy_Eel_Stop	
@@ -17,25 +18,64 @@ Event	ID	Name			Wwise Object Path	Notes
 	2996183927	fs_player_swim			\Default Work Unit\character_movement\swimSounds\fs_player_swim	
 	3857701063	SFX_3D_Emitter_Friendly_Fish_1_Stop			\Default Work Unit\SFX_Events\SFX_3D_Emitter_Friendly_Fish_1_Stop	
 	3941370595	NPC_Friendly_Red_Stop			\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red_Stop	
+	4090089807	MusicState_StartOfLevel			\Default Work Unit\Music\MusicState_StartOfLevel	
 	4098783091	NPC_Friendly_Fish_Generic			\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Fish_Generic	
 	4269048160	OneShot_SeaCreature			\Default Work Unit\SFX_Events\OneShots\OneShot_SeaCreature	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	444815956	PlayerLife			\Default Work Unit\PlayerLife	
+	3826569560	Music_State			\Default Work Unit\Music_State	
+
+State	ID	Name	State Group			Notes
+	655265632	Alive	PlayerLife			
+	748895195	None	PlayerLife			
+	2044049779	Dead	PlayerLife			
+	748895195	None	Music_State			
+	1593864692	Defeat	Music_State			
+	1823678183	Exploring	Music_State			
+	2716678721	Victory	Music_State			
+	2764240573	Combat	Music_State			
+	3604647259	MainMenu	Music_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2378823330	RTPC_MusicVolume			\Default Work Unit\Volume\RTPC_MusicVolume	
+	2582501215	RTPC_MasterVolume			\Default Work Unit\Volume\RTPC_MasterVolume	
+	2644490154	RTPC_SFXVolume			\Default Work Unit\Volume\RTPC_SFXVolume	
+	3644905565	RTPC_AmbienceVolume			\Default Work Unit\Volume\RTPC_AmbienceVolume	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	85412153	Ambience			\Default Work Unit\Ambience	
+	393239870	SFX			\Default Work Unit\SFX	
+	3991942870	Music			\Default Work Unit\Music	
 
 Effect plug-ins	ID	Name	Type				Notes
 	1820854077	Noise_Gate_Fast_Attack	Wwise Expander			
 	2849147824	Medium	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	86766305	Battle_Section3	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Battle_Section3_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Combat\Battle_Section3\Battle_Section3		1839004
 	92155153	ping_final_pickup	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ping_final_pickup_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Notification_NPC_Pickup\ping_final_pickup		194624
 	101814616	Chime_FriendlyFish_2	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Chime_FriendlyFish_2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\NPC_Friendly_Red\Chime_FriendlyFish_2		571456
+	103774500	ES_The Proposition_Short	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_The Proposition_Short_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_MainMenu\MainTheme\ES_The Proposition_Short\ES_The Proposition_Short		13694996
 	112291669	Water_Sprout	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Ambience_underwater_sprout_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Hazards\Water_Sprout		1868852
-	256295936	Ambience 5 - SFX Producer	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Ambience 5 - SFX Producer_F9CF01EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ocean_Ambience\Ambience 5 - SFX Producer		5806512
+	187344265	ES_Monuments_Instruments_OneSection	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Monuments_Instruments_OneSection_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Explore\ES_Monuments_Instruments_And_Section_A\ES_Monuments_Instruments_OneSection		5541176
+	252260266	ES_Paint Me with Courage_Victory_Part2_Loop	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Paint Me with Courage_Victory_Part2_Loop_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Victory\ES_Paint Me with Courage_Victory_Part2_Loop\ES_Paint Me with Courage_Victory_Part2_Loop		1202680
+	256295936	Ambience 5 - SFX Producer	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Ambience 5 - SFX Producer_403B8FF9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ocean_Ambience\Ambience 5 - SFX Producer		5806512
+	264087313	ES_Monuments_Melody_Section_B	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Monuments_Melody_Section_B_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Explore\ES_Monuments_Instruments_And_Section_B\ES_Monuments_Melody_Section_B		3100312
+	275220307	Battle_End	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Battle_End_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Combat\Battle_End\Battle_End		1069684
 	325430453	Chime_FriendlyFish_Updated	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Chime_FriendlyFish_Updated_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\NPC_Friendly_Blue\Chime_FriendlyFish_Updated		361420
 	402119525	Swimbeat_1	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem		\Actor-Mixer Hierarchy\Default Work Unit\SwimBeats_normal\Swimbeat_1		358004
+	448510432	ES_Monuments_Melody_Section_D	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Monuments_Melody_Section_D_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Explore\ES_Monuments_Melody_Section_D\ES_Monuments_Melody_Section_D		14619472
 	460680903	HitReverb_enemySound_maybe	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\HitReverb_enemySound_maybe_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Notification_NPC_Lost\HitReverb_enemySound_maybe		576368
 	473816975	FOLEY_Friendly_fish_1_1	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\FOLEY_Friendly_fish_1_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Friendly_Fish_1\FOLEY_Friendly_fish_1_1		825828
+	484679374	ES_Monuments_Melody_Section_A	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Monuments_Melody_Section_A_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Explore\ES_Monuments_Instruments_And_Section_A\ES_Monuments_Melody_Section_A		3002200
+	526842401	Battle_Section2	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Battle_Section2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Combat\Battle_Section2\Battle_Section2		1876140
+	533360802	ES_Monuments_melody_Section_C	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Monuments_melody_Section_C_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Explore\ES_Monuments_melody_Section_C\ES_Monuments_melody_Section_C		6004336
 	646329306	HitThump_EnemySound	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\HitThump_EnemySound_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\NPC_Enemy\HitThump_EnemySound		481344
-	729904146	GENERIC_FRIENDLY_FISH	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\GENERIC_FRIENDLY_FISH_F7725DD3.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\NPC_Friendly_Generic\GENERIC_FRIENDLY_FISH		508988
+	721467564	ES_Paint Me with Courage_Victory_Part1	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Paint Me with Courage_Victory_Part1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Victory\ES_Paint Me with Courage_Victory_Part1\ES_Paint Me with Courage_Victory_Part1		3560804
+	729904146	GENERIC_FRIENDLY_FISH	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\GENERIC_FRIENDLY_FISH_6BF254C7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\NPC_Friendly_Generic\GENERIC_FRIENDLY_FISH		508988
 	752514042	ES_Sea Creature Moan 5 - SFX Producer	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\ES_Sea Creature Moan 5 - SFX Producer_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Ambience_OneShots\ES_Sea Creature Moan 5 - SFX Producer		1173568
+	768155864	Battle_Section1	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Battle_Section1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_Music\Music_SwitchContainer\Combat\Battle_Section1\Battle_Section1		1163064
 	768752221	PingMelody_SomethingCompleted	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\PingMelody_SomethingCompleted_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Notification_NPC_Turn_In_Complete\PingMelody_SomethingCompleted		669760
 	781440480	Ambience_underwater_background_1	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Ambience_underwater_background_B8EF4444.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ocean_Ambience\Ambience_underwater_background_1		2813384
 	962159150	Chime_FriendlyFish3_updated	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Chime_FriendlyFish3_updated_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\NPC_Friendly_Yellow\Chime_FriendlyFish3_updated		361420

@@ -17,10 +17,8 @@ namespace AK
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
-        static const AkUniqueID MUSICEVENT_VICTORY = 160134941U;
-        static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
-        static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
-        static const AkUniqueID MUSICSTATE_INITIATE = 2595492705U;
+        static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
+        static const AkUniqueID MUSICSTATE_STARTOFLEVEL = 4090089807U;
         static const AkUniqueID NPC_ENEMY_EEL = 1225286108U;
         static const AkUniqueID NPC_ENEMY_EEL_STOP = 907852203U;
         static const AkUniqueID NPC_FRIENDLY_BLUE = 2396901519U;
@@ -122,7 +120,6 @@ namespace AK
     {
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID MAIN = 3161908922U;
-        static const AkUniqueID SOUNDBANK_MUSIC = 474740052U;
     } // namespace BANKS
 
     namespace BUSSES

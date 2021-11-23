@@ -21,7 +21,6 @@ public class WwAudioEmitter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered " + EventName);
         if (other.tag!="Player" || IsInCollider)
         {
             return;
@@ -31,7 +30,6 @@ public class WwAudioEmitter : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exited " + StopEvent);
         if (other.tag != "Player" || !IsInCollider)
         {
             return;

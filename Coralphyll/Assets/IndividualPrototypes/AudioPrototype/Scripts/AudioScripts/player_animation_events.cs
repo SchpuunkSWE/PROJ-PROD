@@ -48,7 +48,7 @@ public class player_animation_events : MonoBehaviour
         //The calculation returns a percentage value of how fast we are
         //going compared to the max velocity that the players velocity vector is allowed to have, 
         //Which will return a value of between 0~ and 1~. 
-        anim.speed = (1f + (1 * (playerSpeed / playerInfo.maxVelocityValue)));
+        anim.speed = (1f + (1 * (playerSpeed / 10f)));
     }
     
     public void fs_player_sprint()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Audio_Events : MonoBehaviour
 {
@@ -14,26 +15,32 @@ public class Audio_Events : MonoBehaviour
     private string currentLevelState;
     NPCFishUtil fishInventory;
     AIController[] aiContr;
+    CheckPoint[] checkPoint;
     private float time;
     private float tempTime;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        AudioScene.Levels++;
         tempTime = Random.Range(5f, 6f);
         fishInventory = GetComponent<NPCFishUtil>();
         fishes = fishInventory.getListOfFishes().Count;
         Debug.Log("Fishes: " + fishInventory.getListOfFishes().Count);
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
-        Audio_GameState("Level1");
+        Audio_GameState("StartGame");
         Audio_PlayerState(isAlive);
     }
     private void Update()
     {
         time += Time.deltaTime;
-        LevelCheck();
-        CombatCheck();
-        FishInventoryCheck();
+        if (currentLevelState != "Victory")
+        {
+            LevelCheck();
+            CombatCheck();
+            FishInventoryCheck();
+        }
+        LevelCompletionCheck();
     }
     public void Audio_StingerCue(string cue)
     {
@@ -48,16 +55,26 @@ public class Audio_Events : MonoBehaviour
         switch (currentLevelState)
         {
             case "Exploring":
-                Debug.Log(currentLevelState + "tempTime: "+tempTime + " And time: "+time);
                 if (tempTime < time)
                 {
-                    Debug.Log("Moan should play");
                     AkSoundEngine.PostEvent("OneShot_SeaCreature", gameObject);
                     tempTime += Random.Range(18f, 30f);
                 }
                 break;
             default:
                 break;
+        }
+    }
+    public void LevelCompletionCheck()
+    {
+        checkPoint = GameObject.FindObjectsOfType<CheckPoint>();
+        if (checkPoint.Length>0)
+        {
+            Audio_LevelState("Victory");
+        }
+        else
+        {
+            currentLevelState = "Default";
         }
     }
     public void FishInventoryCheck()
@@ -84,11 +101,11 @@ public class Audio_Events : MonoBehaviour
             {
                 Audio_LevelState("Combat");
                     inCombat = true;
-                    inMainMenu = false;
+
                 break;
             }
         }
-        if (!inCombat && !inMainMenu)
+        if (!inCombat)
         {
             Audio_LevelState("Exploring");
         }
@@ -110,22 +127,16 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "Exploring":
-                if (!inMainMenu)
-                {
-                    AkSoundEngine.SetState("Music_State", "Exploring");
-                    currentLevelState = "Exploring";
-                }
+                AkSoundEngine.SetState("Music_State", "Exploring");
+                currentLevelState = "Exploring";
                 break;
             case "Combat":
                 AkSoundEngine.SetState("Music_State", "Combat");
                 currentLevelState = "Combat";
                 break;
-            case "MainMenu":
-                inMainMenu = true;
-                AkSoundEngine.SetState("Music_State", "MainMenu");
-                break;
             case "Victory":
                 AkSoundEngine.SetState("Music_State", "Victory");
+                currentLevelState = "Victory";
                 break;
             case "Defeat":
                 AkSoundEngine.SetState("Music_State", "Defeat");
@@ -136,18 +147,20 @@ public class Audio_Events : MonoBehaviour
 
         }
     }
-    public void LeaveMainMenu()
-    {
-        inMainMenu = false;
-    }
     public void Audio_GameState(string state)
     {
+        Debug.Log(AudioScene.Levels);
         switch (state)
         {
-            case "Level1":
-        AkSoundEngine.PostEvent("MusicState_Initiate", gameObject);
-        AkSoundEngine.PostEvent("Background_Ambience", gameObject);
-        AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
+
+            case "StartGame":
+                if (AudioScene.Levels<2)
+                {
+                    Debug.Log(AudioScene.Levels+"Hello");
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
+                    AkSoundEngine.PostEvent("Background_Ambience", gameObject);
+                    AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
+                }
         break;
         }
     }
