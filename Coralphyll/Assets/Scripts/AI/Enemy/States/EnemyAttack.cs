@@ -33,14 +33,17 @@ public class EnemyAttack : EnemyState
 
     public override void EvaluateTransitions()
     {
-        base.EvaluateTransitions();
-        if (!CanSeePlayer())
+        //Do not transition during cooldown
+        if (!attacking)
         {
-            stateMachine.Transition<EnemyAlert>();
-        }
-        if (DistanceToPlayer() > chaseDistance)
-        {
-            stateMachine.Transition<EnemyChase>();
+            if (!CanSeePlayer())
+            {
+                stateMachine.Transition<EnemyAlert>();
+            }
+            if (DistanceToPlayer() > chaseDistance)
+            {
+                stateMachine.Transition<EnemyChase>();
+            }
         }
     }
 
@@ -48,20 +51,33 @@ public class EnemyAttack : EnemyState
     {
         attacking = true;
         //Attack stuff
-
-        DeathInfo d = new DeathInfo {
-            victim = AIController.Player,
-            killer = AIController.gameObject
-        };
-        EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
+        NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
+        var fishes = fishUtil.getListOfFishes();
+        if (fishes.Count > 0)
+        {
+            fishUtil.KillFish();
+        }
+        else
+        {
+            //Kill player if it has no fishes picked up
+            DeathInfo d = new DeathInfo
+            {
+                victim = AIController.Player,
+                killer = AIController.gameObject
+            };
+            EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
+        }
     }
 
     private void HandleCooldown()
     {
-        currentCooldown -= Time.deltaTime;
+        currentCooldown -= Time.deltaTime; 
+        AIController.Renderer.material.color = Color.magenta;
+
         if (currentCooldown < 0)
         {
             attacking = false;
+            AIController.Renderer.material.color = Color.red;
             currentCooldown = cooldown;
         }
     }
