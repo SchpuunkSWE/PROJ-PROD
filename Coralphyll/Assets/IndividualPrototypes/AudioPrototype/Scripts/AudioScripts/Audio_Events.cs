@@ -12,10 +12,12 @@ public class Audio_Events : MonoBehaviour
     public bool inCombat = false;
     private int fishes = 0;
     public bool inMainMenu = true;
+    private bool hasPlayedAlert=false;
     private string currentLevelState;
     NPCFishUtil fishInventory;
     AIController[] aiContr;
     CheckPoint[] checkPoint;
+    Coral[] corals;
     private float time;
     private float tempTime;
     // Start is called before the first frame update
@@ -46,6 +48,9 @@ public class Audio_Events : MonoBehaviour
     {
         switch (cue)
         {
+            case "EnemyAlert":
+                AkSoundEngine.PostEvent("OneShot_EnemyAlert", gameObject);
+                break;
             default:
                 break;
         }
@@ -68,7 +73,8 @@ public class Audio_Events : MonoBehaviour
     public void LevelCompletionCheck()
     {
         checkPoint = GameObject.FindObjectsOfType<CheckPoint>();
-        if (checkPoint.Length>0)
+        corals = GameObject.FindObjectsOfType<Coral>();
+        if (corals.Length==checkPoint.Length)
         {
             Audio_LevelState("Victory");
         }
@@ -99,15 +105,20 @@ public class Audio_Events : MonoBehaviour
 
             if (aiContr[i].StateMachine.CurrentState is EnemyChase || aiContr[i].StateMachine.CurrentState is EnemyAttack)
             {
-                Audio_LevelState("Combat");
+                    if (!hasPlayedAlert)
+                    {
+                        Audio_StingerCue("EnemyAlert");
+                    }
+                    Audio_LevelState("Combat");
                     inCombat = true;
-
+                    hasPlayedAlert = true;
                 break;
             }
         }
         if (!inCombat)
         {
             Audio_LevelState("Exploring");
+                hasPlayedAlert = false;
         }
         }
     }

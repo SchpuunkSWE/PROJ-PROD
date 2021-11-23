@@ -22,7 +22,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="842878929">
+		<SoundBank Id="3161908922" Language="SFX" Hash="924033144">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -82,11 +82,8 @@
 							<Children>
 								<SwitchContainer SwitchValue="{92F785FF-4936-44BE-8F68-D51E2B08776F}">
 									<Media>
-										<File Id="187344265"/>
-										<File Id="264087313"/>
-										<File Id="448510432"/>
-										<File Id="484679374"/>
-										<File Id="533360802"/>
+										<File Id="297170815"/>
+										<File Id="990170560"/>
 									</Media>
 								</SwitchContainer>
 							</Children>
@@ -139,9 +136,9 @@
 				<Event Id="1686688698" Name="NPC_Friendly_Blue_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4098783091" Name="NPC_Friendly_Fish_Generic" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Fish_Generic" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="729904146" Language="SFX">
-							<ShortName>GENERIC_FRIENDLY_FISH.wav</ShortName>
-							<Path>SFX\GENERIC_FRIENDLY_FISH_6BF254C7.wem</Path>
+						<File Id="815202743" Language="SFX">
+							<ShortName>Ambience_underwater_sprout.wav</ShortName>
+							<Path>SFX\Ambience_underwater_sprout_CC88A484.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -172,6 +169,14 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1435982318" Name="NPC_Friendly_Yellow_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1157870456" Name="OneShot_EnemyAlert" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_EnemyAlert" DurationType="OneShot" DurationMin="1.614127" DurationMax="1.614127">
+					<IncludedMemoryFiles>
+						<File Id="948809142" Language="SFX">
+							<ShortName>413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx.wav</ShortName>
+							<Path>SFX\413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="4269048160" Name="OneShot_SeaCreature" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_SeaCreature" DurationType="OneShot" DurationMin="6.112000" DurationMax="6.112000">
 					<IncludedMemoryFiles>
 						<File Id="752514042" Language="SFX">
@@ -220,10 +225,6 @@
 					<ShortName>Ambience_underwater_sprout.wav</ShortName>
 					<Path>SFX\Ambience_underwater_sprout_D79FB2B7.wem</Path>
 				</File>
-				<File Id="187344265" Language="SFX">
-					<ShortName>ES_Monuments_Instruments_OneSection.wav</ShortName>
-					<Path>SFX\ES_Monuments_Instruments_OneSection_D79FB2B7.wem</Path>
-				</File>
 				<File Id="252260266" Language="SFX">
 					<ShortName>ES_Paint Me with Courage_Victory_Part2_Loop.wav</ShortName>
 					<Path>SFX\ES_Paint Me with Courage_Victory_Part2_Loop_D79FB2B7.wem</Path>
@@ -232,13 +233,13 @@
 					<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
 					<Path>SFX\Ambience 5 - SFX Producer_403B8FF9.wem</Path>
 				</File>
-				<File Id="264087313" Language="SFX">
-					<ShortName>ES_Monuments_Melody_Section_B.wav</ShortName>
-					<Path>SFX\ES_Monuments_Melody_Section_B_D79FB2B7.wem</Path>
-				</File>
 				<File Id="275220307" Language="SFX">
 					<ShortName>Battle_End.wav</ShortName>
 					<Path>SFX\Battle_End_D79FB2B7.wem</Path>
+				</File>
+				<File Id="297170815" Language="SFX">
+					<ShortName>Courage_Part1.wav</ShortName>
+					<Path>SFX\Courage_Part1_D79FB2B7.wem</Path>
 				</File>
 				<File Id="325430453" Language="SFX">
 					<ShortName>Chime_FriendlyFish_Updated.wav</ShortName>
@@ -248,10 +249,6 @@
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
 					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
 				</File>
-				<File Id="448510432" Language="SFX">
-					<ShortName>ES_Monuments_Melody_Section_D.wav</ShortName>
-					<Path>SFX\ES_Monuments_Melody_Section_D_D79FB2B7.wem</Path>
-				</File>
 				<File Id="460680903" Language="SFX">
 					<ShortName>HitReverb_enemySound_maybe.wav</ShortName>
 					<Path>SFX\HitReverb_enemySound_maybe_10C4C929.wem</Path>
@@ -260,17 +257,9 @@
 					<ShortName>FOLEY_Friendly_fish_1.wav</ShortName>
 					<Path>SFX\FOLEY_Friendly_fish_1_D79FB2B7.wem</Path>
 				</File>
-				<File Id="484679374" Language="SFX">
-					<ShortName>ES_Monuments_Melody_Section_A.wav</ShortName>
-					<Path>SFX\ES_Monuments_Melody_Section_A_D79FB2B7.wem</Path>
-				</File>
 				<File Id="526842401" Language="SFX">
 					<ShortName>Battle_Section2.wav</ShortName>
 					<Path>SFX\Battle_Section2_D79FB2B7.wem</Path>
-				</File>
-				<File Id="533360802" Language="SFX">
-					<ShortName>ES_Monuments_melody_Section_C.wav</ShortName>
-					<Path>SFX\ES_Monuments_melody_Section_C_D79FB2B7.wem</Path>
 				</File>
 				<File Id="646329306" Language="SFX">
 					<ShortName>HitThump_EnemySound.wav</ShortName>
@@ -279,10 +268,6 @@
 				<File Id="721467564" Language="SFX">
 					<ShortName>ES_Paint Me with Courage_Victory_Part1.wav</ShortName>
 					<Path>SFX\ES_Paint Me with Courage_Victory_Part1_D79FB2B7.wem</Path>
-				</File>
-				<File Id="729904146" Language="SFX">
-					<ShortName>GENERIC_FRIENDLY_FISH.wav</ShortName>
-					<Path>SFX\GENERIC_FRIENDLY_FISH_6BF254C7.wem</Path>
 				</File>
 				<File Id="752514042" Language="SFX">
 					<ShortName>ES_Sea Creature Moan 5 - SFX Producer.wav</ShortName>
@@ -300,9 +285,21 @@
 					<ShortName>Ambience_underwater_background.wav</ShortName>
 					<Path>SFX\Ambience_underwater_background_B8EF4444.wem</Path>
 				</File>
+				<File Id="815202743" Language="SFX">
+					<ShortName>Ambience_underwater_sprout.wav</ShortName>
+					<Path>SFX\Ambience_underwater_sprout_CC88A484.wem</Path>
+				</File>
+				<File Id="948809142" Language="SFX">
+					<ShortName>413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx.wav</ShortName>
+					<Path>SFX\413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx_10C4C929.wem</Path>
+				</File>
 				<File Id="962159150" Language="SFX">
 					<ShortName>Chime_FriendlyFish3_updated.wav</ShortName>
 					<Path>SFX\Chime_FriendlyFish3_updated_D79FB2B7.wem</Path>
+				</File>
+				<File Id="990170560" Language="SFX">
+					<ShortName>Courage_Part2.wav</ShortName>
+					<Path>SFX\Courage_Part2_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 			<GameParameters>
