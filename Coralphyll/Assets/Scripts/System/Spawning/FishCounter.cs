@@ -60,17 +60,18 @@ public class FishCounter : MonoBehaviour
             totalBlueCoralNeeds += c.fishSlotsAvailable(FishColour.BLUE);
         }
 
+        totalYellowFishes = 0;
+        totalRedFishes = 0;
+        totalBlueFishes = 0;
+
         foreach (GameObject school in fishSchoolsInScene)
         {
             BoidsSystem boidsSystem = school.GetComponent<BoidsSystem>();
-            //if (boidsSystem.agents.Count == 0)
-            //{
-            //    fishSchoolsInSceneToRemove.Add(school);
-            //}
-            //else
-            //{
-            foreach (GameObject agent in boidsSystem.agents)
+            if(boidsSystem.agents.Count > 0) //Dont't count empty boid systems
+            {
+                foreach (GameObject agent in boidsSystem.agents)
                 {
+
                     Follower f = agent.GetComponent<Follower>();
                     switch (f.GetColour())
                     {
@@ -90,8 +91,9 @@ public class FishCounter : MonoBehaviour
                 }
             //}
         }
-        Debug.Log("Coral need " + totalYellowCoralNeeds + ", " + totalRedCoralNeeds + ", " + totalBlueCoralNeeds);
-        Debug.Log("Total fish " + totalYellowFishes + ", " + totalRedFishes + ", " + totalBlueFishes);
+
+        Debug.Log("Coral Needs: " + totalYellowCoralNeeds + ", " + totalRedCoralNeeds + ", " + totalBlueCoralNeeds);
+        Debug.Log("Total Fishes: " + totalYellowFishes + ", " + totalRedFishes + ", " + totalBlueFishes);
     }
 
     private void Update()
@@ -119,28 +121,34 @@ public class FishCounter : MonoBehaviour
         int blueFishToSpawn = CalculateFishToSpawn(totalBlueCoralNeeds, totalBlueFishes);
 
 
-        //Ropa på ngn spawn-funktion med ovan givna siffror
+        //Ropa pÃ¥ ngn spawn-funktion med ovan givna siffror
         if (yellowFishToSpawn > 0)
         {
-            //Spawna Gult Fiskstim
-            fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("YellowSchool"));
-            fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(yellowFishToSpawn + extraMargin);
+            //Spawna Gul fisk
+            ObjectPooler.poolerInstance.SpawnFromPool("YellowFish", yellowFishToSpawn);
+
+            //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("YellowFish"));
+            //fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(yellowFishToSpawn + extraMargin);
             recountFishes = true;
         }
 
         if (redFishToSpawn > 0)
         {
-            //Spawna Rött Fiskstim
-            fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("RedSchool"));
-            fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(redFishToSpawn + extraMargin);
+            //Spawna RÃ¶d fisk
+            ObjectPooler.poolerInstance.SpawnFromPool("RedFish", redFishToSpawn);
+
+            //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("RedFish"));
+            //fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(redFishToSpawn + extraMargin);
             recountFishes = true;
         }
 
         if (blueFishToSpawn > 0)
         {
-            //Spawna blått Fiskstim
-            fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("BlueSchool"));
-            fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(blueFishToSpawn + extraMargin);
+            //Spawna blÃ¥ fisk
+            ObjectPooler.poolerInstance.SpawnFromPool("BlueFish", blueFishToSpawn);
+
+            //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("BlueFish"));
+            //fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(blueFishToSpawn + extraMargin);
             recountFishes = true;
         }
 
