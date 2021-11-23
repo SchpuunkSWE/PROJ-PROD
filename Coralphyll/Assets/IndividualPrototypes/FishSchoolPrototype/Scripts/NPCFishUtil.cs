@@ -195,4 +195,19 @@ public class NPCFishUtil : MonoBehaviour
         }
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
+
+    public void KillFish()
+    {
+        foreach (Follower f in listOfFishes)
+        {
+            if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+            {
+                fishToRemove.Add(f);
+            }
+        }
+        Follower fish = fishToRemove[0];
+        listOfFishes.Remove(fish);
+        Destroy(fish.gameObject);
+        fishToRemove.Clear(); //Clear the fish to remove list.
+    }
 }
