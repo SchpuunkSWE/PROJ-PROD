@@ -49,7 +49,7 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
             GoalPosition = transform.position;
         }
 
-        CheckAgentsAmount();
+        //CheckAgentsAmount();
 
     }
 
@@ -80,6 +80,9 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
         {
             agents.Clear();
 
+
+            //This potentially needs change now because of object pooling fishes?
+            //cuz it be trying to instantiate fish prefabs
             for (int i = 0; i < numAgents; i++)
             {
                 Vector3 pos = transform.position + Random.insideUnitSphere * radius;
@@ -90,9 +93,9 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
         }
     }
 
-    public void SetNumAgents(int num)
+    public void IncreaseNumAgents(int num)
     {
-        numAgents = num;
+        numAgents += num;
     }
 
     public void OnObjectSpawn()
