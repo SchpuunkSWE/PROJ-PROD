@@ -39,6 +39,15 @@ public class PlayerFollowers : MonoBehaviour
         //currentCoral.GetComponent<Coral>().ReceiveFish(allfollowers);
     }//N�r man har deposit:at klart m�ste followersToDeposit t�mmas igen - g�ra i korallen kanske (?)
 
+    public void KillFish()
+    {
+        //specify color??
+        //right now im just killing the first fish on the list
+        var fishToRemove = allfollowers[0];
+        Destroy(fishToRemove.gameObject);
+        allfollowers.Remove(fishToRemove);
+    }
+
     private void Update()
     {
         allfollowers = GetComponent<NPCFishUtil>().getListOfFishes();
