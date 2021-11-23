@@ -11,6 +11,8 @@ public class FishCounter : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> fishSchoolsInScene;
+    [SerializeField]
+    private List<GameObject> fishSchoolsInSceneToRemove;
 
     //private int totalFishCount = 0;
     //private int totalFishInSchools = 0;
@@ -27,7 +29,8 @@ public class FishCounter : MonoBehaviour
     //Spawn some extra fishes in addition to fishes needed
     private int extraMargin = 3;
 
-    bool recountFishes = true;
+    private bool recountFishes = true;
+    public bool RecountFishes { get => recountFishes; set => recountFishes = value; }
 
     #region Singleton Quickversion
     public static FishCounter fishCounterInstance;
@@ -44,8 +47,14 @@ public class FishCounter : MonoBehaviour
         totalYellowCoralNeeds = 0;
         totalRedCoralNeeds = 0;
         totalBlueCoralNeeds = 0;
+
+        totalYellowFishes = 0;
+        totalRedFishes = 0;
+        totalBlueFishes = 0;
+
         foreach (Coral c in coralsInScene)
         {
+            Debug.Log("BAjs");
             totalYellowCoralNeeds += c.fishSlotsAvailable(FishColour.YELLOW);
             totalRedCoralNeeds += c.fishSlotsAvailable(FishColour.RED);
             totalBlueCoralNeeds += c.fishSlotsAvailable(FishColour.BLUE);
@@ -58,7 +67,6 @@ public class FishCounter : MonoBehaviour
         foreach (GameObject school in fishSchoolsInScene)
         {
             BoidsSystem boidsSystem = school.GetComponent<BoidsSystem>();
-
             if(boidsSystem.agents.Count > 0) //Dont't count empty boid systems
             {
                 foreach (GameObject agent in boidsSystem.agents)
@@ -81,14 +89,23 @@ public class FishCounter : MonoBehaviour
                             break;
                     }
                 }
-            }
+            //}
         }
+
         Debug.Log("Coral Needs: " + totalYellowCoralNeeds + ", " + totalRedCoralNeeds + ", " + totalBlueCoralNeeds);
         Debug.Log("Total Fishes: " + totalYellowFishes + ", " + totalRedFishes + ", " + totalBlueFishes);
     }
 
     private void Update()
     {
+        //if (fishSchoolsInSceneToRemove.Count > 0)
+        //{
+        //    foreach (GameObject go in fishSchoolsInSceneToRemove)
+        //    {
+        //        fishSchoolsInScene.Remove(go);
+        //    }
+        //}
+
         if (recountFishes)
         {
             CountFishesByColour();
@@ -104,7 +121,7 @@ public class FishCounter : MonoBehaviour
         int blueFishToSpawn = CalculateFishToSpawn(totalBlueCoralNeeds, totalBlueFishes);
 
 
-        //Ropa på ngn spawn-funktion med ovan givna siffror
+        //Ropa pÃ¥ ngn spawn-funktion med ovan givna siffror
         if (yellowFishToSpawn > 0)
         {
             //Spawna Gul fisk
@@ -115,9 +132,9 @@ public class FishCounter : MonoBehaviour
             recountFishes = true;
         }
 
-        if(redFishToSpawn > 0)
+        if (redFishToSpawn > 0)
         {
-            //Spawna Röd fisk
+            //Spawna RÃ¶d fisk
             ObjectPooler.poolerInstance.SpawnFromPool("RedFish", redFishToSpawn);
 
             //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("RedFish"));
@@ -125,16 +142,16 @@ public class FishCounter : MonoBehaviour
             recountFishes = true;
         }
 
-        if(blueFishToSpawn > 0)
+        if (blueFishToSpawn > 0)
         {
-            //Spawna blå fisk
+            //Spawna blÃ¥ fisk
             ObjectPooler.poolerInstance.SpawnFromPool("BlueFish", blueFishToSpawn);
 
             //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("BlueFish"));
             //fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(blueFishToSpawn + extraMargin);
             recountFishes = true;
         }
-        
+
     }
     private int CalculateFishToSpawn(int needs, int total)
     {
@@ -142,5 +159,10 @@ public class FishCounter : MonoBehaviour
         //i = i + (int)0.1 * i;
         //i += 3;
         return i;
+    }
+
+    public void RemoveSchool(BoidsSystem boidsSystem)
+    {
+        fishSchoolsInScene.Remove(boidsSystem.gameObject);
     }
 }
