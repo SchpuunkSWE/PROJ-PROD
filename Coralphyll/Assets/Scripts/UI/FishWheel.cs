@@ -55,7 +55,7 @@ public class FishWheel : MonoBehaviour
             // om x^2 + y^2 är mindre än exit radius ^2 ska exit väljas. 
             if(normalisedMousePosition.x * normalisedMousePosition.x + normalisedMousePosition.y * normalisedMousePosition.y >= exitRadius * exitRadius)
             {
-                exitHovering = false;
+                
                 
                 if(selection != previousSelection) {
                 previousItemSc = menuItems[previousSelection].GetComponent<FishWheelItem>();
@@ -63,17 +63,23 @@ public class FishWheel : MonoBehaviour
                 previousSelection = selection;
                 itemSc = menuItems[selection].GetComponent<FishWheelItem>();
                 itemSc.Select();
+                exitHovering = false;
 
                 }
                 else{
                     // fixa så att exitknappen till previous
                     //fixa så att  exitknappen ljus
                     // fixa så att så att de andra deselectas
+                    
             
         
+                    if(!exitHovering){
+                        previousItemSc.DeSelect();
+
+                    }
                     
-                    previousItemSc.DeSelect();
-                    panelEnabled = false;
+                    exitHovering = false;
+                    
 
                 }
             } else{
