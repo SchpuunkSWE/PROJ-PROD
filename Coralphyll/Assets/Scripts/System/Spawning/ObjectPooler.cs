@@ -27,7 +27,7 @@ public class ObjectPooler : MonoBehaviour
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
     [SerializeField]
-    private GameObject[] spawnLocations;
+    private Transform[] spawnLocations;
     private int spawnIndex = 0;
     void Start()
     {
@@ -51,59 +51,41 @@ public class ObjectPooler : MonoBehaviour
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
-    public void SpawnFromPool(string tag, int amountToSpawn)
+    public GameObject SpawnFromPool(string tag)
     {
-        GameObject current = spawnLocations[spawnIndex % spawnLocations.Length];
         //Choose next spawn-location in array all the time, reset when at end of array
-        Vector3 pos = current.transform.position;
+        Vector3 pos = spawnLocations[spawnIndex%spawnLocations.Length].position;
         spawnIndex++;
-    
+        
         Quaternion rotation = Quaternion.identity;
 
         //Safety check to prevent attempts of spawning pool using non-existing pool tag
         if (!poolDictionary.ContainsKey(tag))
         {
             Debug.Log("Warning: Pool with tag " + tag + " doesn't exist");
-            return;
+            return null;
         }
 
-        //Fetch boid-system at location
-        BoidsSystem boidSystem = current.gameObject.GetComponent<BoidsSystem>();
+        //Fetch object out of queue and activate it in scene
+        GameObject objctToSpawn = poolDictionary[tag].Dequeue();
+        objctToSpawn.SetActive(true);
 
-        GameObject objctToSpawn;
-        //Add fish to boidsystems list of agents
-        for (int i = 0; i < amountToSpawn; i++)
+        //Move to desired position
+        objctToSpawn.transform.position = pos;
+        objctToSpawn.transform.rotation = rotation;
+
+
+        //Might not be needed, test
+        IPooledObject pooledObj = objctToSpawn.GetComponent<IPooledObject>();
+        if (pooledObj != null)
         {
-            //Fetch object out of queue
-            objctToSpawn = poolDictionary[tag].Dequeue();
-
-            //set boids-system owner to be boids-system at chosen location
-            objctToSpawn.GetComponent<BoidsAgent>().owner = boidSystem;
-
-            boidSystem.agents.Add(objctToSpawn);
-
-            //activate it in scene
-            objctToSpawn.SetActive(true);
-
-            //Move to desired position
-            objctToSpawn.transform.position = pos;
-            objctToSpawn.transform.rotation = rotation;
-
-
-            //Might not be needed, test
-            IPooledObject pooledObj = objctToSpawn.GetComponent<IPooledObject>();
-            if (pooledObj != null)
-            {
-                pooledObj.OnObjectSpawn();
-            }
-
-            //Add object back into queue so we can reuse it later
-            poolDictionary[tag].Enqueue(objctToSpawn);
+            pooledObj.OnObjectSpawn();
         }
-        
-        Debug.Log("Amount in list: " + boidSystem.agents.Count);
 
-        boidSystem.IncreaseNumAgents(amountToSpawn);       
+        //Add object back into queue so we can reuse it later
+        poolDictionary[tag].Enqueue(objctToSpawn);
+
+        return objctToSpawn;
     }
 
     public GameObject SpawnFromPool(string tag, Vector3 pos, Quaternion rotation)
@@ -139,4 +121,5 @@ public class ObjectPooler : MonoBehaviour
     }
 }
 
-//Ev TODO: använd AddAgent-metoden istället för att manuellt lägga till fisk till boidsystemets lista, sätta owner och sedan öka på numAgents
+
+//TODO: ta bort scriptable-objects, lägg till funktionalitet direkt i fish-boids istället. testa spawna med ett knapptryck elr ngt
