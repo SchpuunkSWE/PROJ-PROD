@@ -82,6 +82,8 @@ public class ObjectPooler : MonoBehaviour
 
             boidSystem.agents.Add(objctToSpawn);
 
+            objctToSpawn.transform.SetParent(boidSystem.transform);
+
             //activate it in scene
             objctToSpawn.SetActive(true);
 

@@ -37,6 +37,12 @@ public class EnemyPatrol : EnemyState
         {
             stateMachine.Transition<EnemyChase>();
         }
+
+        ////Molly Change
+        //if (AIController.IsDazed)
+        //{
+        //    stateMachine.Transition<EnemyDazed>();
+        //}
         
         /*if(DistanceToPlayer() < hearingRange)
         {
