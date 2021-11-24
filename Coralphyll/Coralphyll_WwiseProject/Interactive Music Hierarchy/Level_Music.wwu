@@ -1615,19 +1615,6 @@
 											</PropertyList>
 											<SegmentRef Name="ES_Paint Me with Courage_Victory_Part1" ID="{5C515528-56B3-485A-A78E-D2F54D8FA3CD}"/>
 										</MusicPlaylistItem>
-										<MusicPlaylistItem Name="" ID="{63FB90BB-7A2D-47D4-8F73-E083FD583321}" ShortID="615177742">
-											<PropertyList>
-												<Property Name="LoopCount" Type="int16" Value="0"/>
-											</PropertyList>
-											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{4B47DBC6-2609-4D44-AEC8-A71F73580ACA}" ShortID="709119992">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{8BD54741-522D-4754-B694-E9A13E5B636A}"/>
-												</MusicPlaylistItem>
-											</ChildrenList>
-										</MusicPlaylistItem>
 									</ChildrenList>
 								</MusicPlaylistItem>
 							</Playlist>
@@ -1893,7 +1880,6 @@
 													<PropertyList>
 														<Property Name="IsFolder" Type="bool" Value="True"/>
 													</PropertyList>
-													<ReferenceList/>
 													<TransitionInfo/>
 												</MusicTransition>
 											</TransitionList>
@@ -1984,6 +1970,349 @@
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<SegmentRef Name="Courage_Part1" ID="{E33BF6A6-462F-4406-BC25-CBAE35B9AFEB}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="Victory_Loop" ID="{9D0141A4-D7AF-4057-8F0E-10532905004D}" ShortID="799752528">
+							<PropertyList>
+								<Property Name="Tempo" Type="Real64" Value="62"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Music" ID="{1814FE67-649C-4173-8DFB-6BE1BE083860}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{35E589BD-B321-4077-B52A-1521CF0C67BC}" ShortID="414228944">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="6263.625"/>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>9</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{FAF5A8B1-E35A-45FA-B0F2-22C0A7E02897}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="5"/>
+															<Property Name="Min" Type="Real64" Value="-5"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{721EA18A-2099-483B-A110-E6AF983A7D84}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="5"/>
+															<Property Name="Min" Type="Real64" Value="-5"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Tempo" Type="Real64" Value="62"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Music" ID="{1814FE67-649C-4173-8DFB-6BE1BE083860}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{A9CAF735-2C70-4B7F-86FD-B76A3E645802}" ShortID="990600749">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{D42690B4-4C89-41DA-B199-D921F40E4475}">
+													<Language>SFX</Language>
+													<AudioFile>ES_Paint Me with Courage_Victory_Part2_Loop.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="252260266"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{4B4AE2CF-3248-47BC-A44A-CA0B6E83F9CC}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{3D7FA7DA-CD2B-44E0-853B-3FC8FA881D9D}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{4F172CD2-A181-47A9-8A2E-67ECF965DC59}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="6263.625"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{D42690B4-4C89-41DA-B199-D921F40E4475}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{9944D9AC-6553-4F54-8339-C793B1643538}">
+														<PropertyList>
+															<Property Name="TimeMs" Type="Real64" Value="25.282038345106"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{9CBC5555-D439-4FB3-B34B-771345469D69}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="6200.41990413724"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="ES_Paint Me with Courage_Victory_Part1" ID="{A4F72CE3-7622-41E3-86D5-AE3E07BC3CEA}" ShortID="302744257">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="18545.5208333333"/>
+										<Property Name="Tempo" Type="Real64" Value="62"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Music" ID="{1814FE67-649C-4173-8DFB-6BE1BE083860}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="ES_Paint Me with Courage_Victory_Part1" ID="{8AE52AE9-79C4-4980-BD22-EC0F4208E57A}" ShortID="27299627">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="ES_Paint Me with Courage_Victory_Part1" ID="{F2161571-7A4E-450D-AFC6-DAE54637040A}">
+													<Language>SFX</Language>
+													<AudioFile>ES_Paint Me with Courage_Victory_Part1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="721467564"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{B078764E-C5C6-4C3F-8AFA-B204C695ADBC}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{99FE1137-C753-43EA-876F-7A4122029842}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="ES_Paint Me with Courage_Victory_Part1" ID="{92C00594-7ABC-408B-89D1-A6FCA83DF715}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="18545.5208333333"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="ES_Paint Me with Courage_Victory_Part1" ID="{F2161571-7A4E-450D-AFC6-DAE54637040A}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{73AADF68-2668-4ECE-888C-F5FF57895961}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{B02C052B-9005-43C7-852C-124E72785FF7}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="18545.5208333333"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{716C9DBB-8709-4B25-950B-22B3A15C03AA}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{3FD0A3BE-15D5-4C47-AF6C-70E0C81F0FC3}">
+											<PropertyList>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{9E2291B6-866E-4440-9E03-DFDD21E56ED8}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="3"/>
+															<Property Name="FadeOffset" Type="Real64" Value="0.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{AF80BBDB-E16B-4599-BE1B-7150F8570919}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="3"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-0.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{B6A3F822-FEB6-4683-A1FA-1C9039C09FA4}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{35E589BD-B321-4077-B52A-1521CF0C67BC}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{35E589BD-B321-4077-B52A-1521CF0C67BC}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{97137F58-EB3B-4AA3-B4AE-9F6E275D7D84}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="2"/>
+															<Property Name="FadeOffset" Type="Real64" Value="0.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{F00D73CB-7846-4E21-8BB0-D6600812B11F}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="6"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-0.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<ObjectLists/>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{0250CAB1-3FD3-4A88-BAB4-0E9A3947CE76}" ShortID="926220985">
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{DBC32098-3CDA-4A68-8ED3-257DE6F6BE53}" ShortID="400570526">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="ES_Paint Me with Courage_Victory_Part1" ID="{A4F72CE3-7622-41E3-86D5-AE3E07BC3CEA}"/>
+										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{2907A61C-AD40-4321-AB85-D37298C0D6AE}" ShortID="369134747">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{3FF13A66-B29C-4C9A-A4DC-CC1576A9B40C}" ShortID="596957682">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="ES_Paint Me with Courage_Victory_Part2_Loop" ID="{35E589BD-B321-4077-B52A-1521CF0C67BC}"/>
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
@@ -2170,14 +2499,12 @@
 									<PropertyList>
 										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 									</PropertyList>
-									<ReferenceList/>
 									<TransitionInfo/>
 								</MusicTransition>
 								<MusicTransition Name="Transition" ID="{A8BA2EA2-EF0E-49D4-8E6E-C25D4FC316A3}">
 									<PropertyList>
 										<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-										<Property Name="ExitSourceAt" Type="int16" Value="2"/>
 										<Property Name="SourceContextType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
@@ -2213,7 +2540,6 @@
 										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
 										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 									</PropertyList>
-									<ReferenceList/>
 									<TransitionInfo>
 										<SourceFadeOut>
 											<MusicFade Name="Source Fade-out" ID="{A1CA5DC8-B2E3-4971-83A4-BF17CE1A55B2}">
@@ -2305,7 +2631,7 @@
 								<PathElementRef Name="PlayerLife" ID="{E5007303-F886-48F0-9BBF-63CC74A9BE15}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="Victory" ID="{55CE0FF5-A8E6-4097-AE83-7D950580B00C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
+								<AudioNodeRef Name="Victory_Loop" ID="{9D0141A4-D7AF-4057-8F0E-10532905004D}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>

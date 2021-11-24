@@ -14,6 +14,8 @@ public class Audio_Events : MonoBehaviour
     public bool inMainMenu = true;
     private bool hasPlayedAlert=false;
     private string currentLevelState;
+    private int tempCoral = 0;
+    private int victoryCondition;
     NPCFishUtil fishInventory;
     AIController[] aiContr;
     CheckPoint[] checkPoint;
@@ -43,6 +45,7 @@ public class Audio_Events : MonoBehaviour
             FishInventoryCheck();
         }
         LevelCompletionCheck();
+        
     }
     public void Audio_StingerCue(string cue)
     {
@@ -71,17 +74,42 @@ public class Audio_Events : MonoBehaviour
         }
     }
     public void LevelCompletionCheck()
-    {
+    {      
         checkPoint = GameObject.FindObjectsOfType<CheckPoint>();
-        corals = GameObject.FindObjectsOfType<Coral>();
-        if (corals.Length==checkPoint.Length)
+        string temp = SceneManager.GetActiveScene().ToString();
+        Debug.Log(temp);
+        //corals = GameObject.FindObjectsOfType<Coral>();
+        switch (temp)
         {
-            Audio_LevelState("Victory");
+            case "Level1":
+                victoryCondition = 1;
+                break;
+            case "Level2":
+                victoryCondition = 2;
+                break;
+            case "Level3":
+                victoryCondition = 3;
+                break;
+            case "Level4":
+                victoryCondition = 3;
+                break;
         }
-        else
+        if (corals.Length>=tempCoral)
         {
-            currentLevelState = "Default";
+            Audio_StingerCue("CoralCompleted");
+            if (corals.Length == victoryCondition)
+            {
+                Audio_LevelState("Victory");
+            }
+            else
+            {
+                currentLevelState = "Default";
+            }
+            tempCoral++;
+
         }
+
+
     }
     public void FishInventoryCheck()
     {
