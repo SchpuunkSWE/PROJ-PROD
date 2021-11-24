@@ -40,11 +40,12 @@ public class UI_Trigger : MonoBehaviour
             if (myCoral.GetComponent<Coral>().IsSafezone) //If the gamobject is checked as a safezone...
             {
                 safezonePanel.SetActive(true); //... Activate the UI for the safezone...
+                safezonePanel.GetComponent<FishWheel>().panelEnabled= true;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
-                safezonePanel.GetComponent<FishWheel>().panelEnabled= true;
+                
             }
             else
             {
@@ -76,6 +77,7 @@ public class UI_Trigger : MonoBehaviour
             if (myCoral.GetComponent<Coral>().IsSafezone) //If the gamobject is checked as a safezone...
             {
                 safezonePanel.SetActive(false); //... Activate the UI for the safezone...
+                safezonePanel.GetComponent<FishWheel>().panelEnabled= false;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
@@ -86,7 +88,6 @@ public class UI_Trigger : MonoBehaviour
             inGameCanvas.GetComponent<UI_GlobalProgression>().setDefaultCoralImageColor();
             //fishWheelPanel.SetActive(false);
             //fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
-            safezonePanel.GetComponent<FishWheel>().panelEnabled= false;
             //Debug.Log("Trigger Exited!");
             //S�tt �ven spelarens fiskar till non-clickable
             //setClickable(other.GetComponent<PlayerFollowers>().GetAllFollowers());
