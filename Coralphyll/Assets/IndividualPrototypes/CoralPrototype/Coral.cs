@@ -44,7 +44,7 @@ public class Coral : MonoBehaviour
     private ParticleSystem IncompletedParticles;
 
     [SerializeField]
-    private bool complete = false;
+    public bool complete = false;
 
     [SerializeField]
     private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
