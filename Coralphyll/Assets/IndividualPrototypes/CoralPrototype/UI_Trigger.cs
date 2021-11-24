@@ -23,7 +23,7 @@ public class UI_Trigger : MonoBehaviour
     {
         coralPanel.SetActive(false);
         safezonePanel.SetActive(false);
-        //fishWheelPanel.SetActive(false);
+       // fishWheelPanel.SetActive(false);
         myCoral = gameObject.transform.parent.gameObject; //Fetch the parent coral gameobject of this gameobject (aka the coral which this trigger is attached to)
     }
 
@@ -44,6 +44,7 @@ public class UI_Trigger : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
+                safezonePanel.GetComponent<FishWheel>().panelEnabled= true;
             }
             else
             {
@@ -53,7 +54,7 @@ public class UI_Trigger : MonoBehaviour
                 //...Otherwise activate UI for coral
                 //fishWheelPanel.SetActive(true);
                 //fishWheelButtonPanel.SetActive(true);
-                //fishWheelPanel.GetComponent<FishWheel>().panelEnabled= true;
+            
             }
 
             Debug.Log("Trigger Entered!");
@@ -85,7 +86,7 @@ public class UI_Trigger : MonoBehaviour
             inGameCanvas.GetComponent<UI_GlobalProgression>().setDefaultCoralImageColor();
             //fishWheelPanel.SetActive(false);
             //fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
-            //fishWheelPanel.GetComponent<FishWheel>().panelEnabled= false;
+            safezonePanel.GetComponent<FishWheel>().panelEnabled= false;
             //Debug.Log("Trigger Exited!");
             //S�tt �ven spelarens fiskar till non-clickable
             //setClickable(other.GetComponent<PlayerFollowers>().GetAllFollowers());
