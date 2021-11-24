@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
+public class BoidsSystem : MonoBehaviour
 {
     [SerializeField] private GameObject agentPrefab;
     [SerializeField] private int numAgents = 10;
@@ -16,10 +16,6 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
 
     public float Radius { get => radius; set => radius = value; }
 
-
-    //Molly Change
-    public string tag;
-    //End Molly Change
 
     private void Start()
     {
@@ -101,9 +97,4 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
         numAgents += num;
     }
 
-    public void OnObjectSpawn()
-    {
-
-    }
-    //End Molly Change
 }
