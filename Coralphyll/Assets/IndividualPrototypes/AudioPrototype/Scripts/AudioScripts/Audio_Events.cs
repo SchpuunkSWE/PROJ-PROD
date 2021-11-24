@@ -97,7 +97,7 @@ public class Audio_Events : MonoBehaviour
                 victoryCondition = 3;
                 break;
         }
-        Debug.Log("buildInd:"+temp + " vic:" + victoryCondition+ " check:"+checkPoint.Length+ " tempCor:"+tempCoral);
+     //   Debug.Log("buildInd:"+temp + " vic:" + victoryCondition+ " check:"+checkPoint.Length+ " tempCor:"+tempCoral);
         if (checkPoint.Length>=tempCoral)
         {
             if (checkPoint.Length == victoryCondition)
