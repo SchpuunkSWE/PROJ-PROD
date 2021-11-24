@@ -367,8 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a8e93d9a0e1a64f9b338e7c4812216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 1, g: 0.9453653, b: 0.19339621, a: 1}
-  baseColor: {r: 1, g: 0.94163394, b: 0.514151, a: 0.5176471}
+  hoverColor: {r: 1, g: 0.9453653, b: 0.19339621, a: 0.83137256}
+  baseColor: {r: 1, g: 0.94163394, b: 0.514151, a: 0.23529412}
   background: {fileID: 4503402070965040109}
   gc: {fileID: 0}
   color: 0
@@ -648,13 +648,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4481248821935526673}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481248822132318461}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -716,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4481248822132318461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -792,7 +792,7 @@ MonoBehaviour:
   exitButton: {fileID: 0}
   FishWheelPanel: {fileID: 4481248821803823682}
   currentAngle: 0
-  offsetAngle: 35
+  offsetAngle: 0
   selection: 0
   exitArea: 0
   exitRadius: 100
