@@ -11,11 +11,15 @@ public class NPCFishUtil : MonoBehaviour
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populera i editorn
 
+    [SerializeField]
+    private GameObject boidsSystemPrefab; //Set in editor
+
     private GameObject boidsSystemGO;
 
     private Coral coral;
 
     private FishColour fish;
+
 
     public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
     {
@@ -174,8 +178,11 @@ public class NPCFishUtil : MonoBehaviour
 
     }
 
-    public void DropFish() //Use this one when we dont need to specify which colour of fish we send in
+    public void DropFish()
     {
+        //Vector3 pos = transform.position + Random.insideUnitSphere * boidsSystemPrefab.GetComponent<BoidsSystem>().Radius;
+        var newBoidsSystem = Instantiate(boidsSystemPrefab, transform.position, Quaternion.identity);
+        BoidsSystem boidsSystem = newBoidsSystem.GetComponent<BoidsSystem>();
         foreach (Follower f in listOfFishes)
         {
             if (f.GetComponent<NPCFollow>().isFollowingPlayer)
@@ -187,10 +194,16 @@ public class NPCFishUtil : MonoBehaviour
         foreach (Follower f in fishToRemove)
         {
             listOfFishes.Remove(f); //Removes fishes from the list of fishes 
+            boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
-            Destroy(f.gameObject, 5);
-            //f.gameObject.SetActive(false);
+            f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
+
+            //Destroy(f.GetComponent<BoidsAgent>().owner.gameObject); //Destroy the Boidssystem that the fish has.
+            //FishCounter.fishCounterInstance.RemoveSchool(f.GetComponent<BoidsAgent>().owner);
+            //FishCounter.fishCounterInstance.RecountFishes = true;
+
+            //Destroy(f.gameObject, 5);
 
         }
         fishToRemove.Clear(); //Clear the fish to remove list.
@@ -211,3 +224,4 @@ public class NPCFishUtil : MonoBehaviour
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 }
+
