@@ -75,6 +75,7 @@ public class Coral : MonoBehaviour
     {
         //SetUITexts();
     }
+
     private void SetUITexts()
     {
        // yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
