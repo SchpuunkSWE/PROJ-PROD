@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5479316761850850852}
   - component: {fileID: 5479316761850850855}
+  - component: {fileID: 8035718805624910952}
+  - component: {fileID: 1543836845965273097}
+  - component: {fileID: 8782745209570191893}
   m_Layer: 0
   m_Name: FishBoidsSystem_YellowFish_Prefab
   m_TagString: Untagged
@@ -48,3 +51,53 @@ MonoBehaviour:
   radius: 2
   randomGoal: 1
   agents: []
+--- !u!135 &8035718805624910952
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479316761850850853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 43.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1543836845965273097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479316761850850853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b52d3a320011c04baaa4fddc8fb2cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &8782745209570191893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479316761850850853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769f8a328f8315a4da5d619ff1cd34a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitterType: 
+  EventName: NPC_Friendly_Fish_Generic
+  StopEvent: NPC_Friendly_Fish_Generic_Stop
