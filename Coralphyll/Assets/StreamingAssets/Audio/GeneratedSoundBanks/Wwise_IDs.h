@@ -15,6 +15,8 @@ namespace AK
     {
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
+        static const AkUniqueID ENEMY_CHASING = 2227269361U;
+        static const AkUniqueID ENEMY_CHASING_STOP = 3177611540U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
@@ -30,6 +32,7 @@ namespace AK
         static const AkUniqueID NPC_FRIENDLY_RED_STOP = 3941370595U;
         static const AkUniqueID NPC_FRIENDLY_YELLOW = 2379275139U;
         static const AkUniqueID NPC_FRIENDLY_YELLOW_STOP = 1435982318U;
+        static const AkUniqueID ONESHOT_CORALCOMPLETED = 1671773852U;
         static const AkUniqueID ONESHOT_ENEMYALERT = 1157870456U;
         static const AkUniqueID ONESHOT_SEACREATURE = 4269048160U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;

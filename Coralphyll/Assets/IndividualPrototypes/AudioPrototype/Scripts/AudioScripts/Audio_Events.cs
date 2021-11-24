@@ -14,7 +14,7 @@ public class Audio_Events : MonoBehaviour
     public bool inMainMenu = true;
     private bool hasPlayedAlert=false;
     private string currentLevelState;
-    private int tempCoral = 0;
+    private int tempCoral = 1;
     private int victoryCondition;
     NPCFishUtil fishInventory;
     AIController[] aiContr;
@@ -54,6 +54,9 @@ public class Audio_Events : MonoBehaviour
             case "EnemyAlert":
                 AkSoundEngine.PostEvent("OneShot_EnemyAlert", gameObject);
                 break;
+            case "CoralCompleted":
+                AkSoundEngine.PostEvent("OneShot_CoralCompleted", gameObject);
+                break;
             default:
                 break;
         }
@@ -76,37 +79,37 @@ public class Audio_Events : MonoBehaviour
     public void LevelCompletionCheck()
     {      
         checkPoint = GameObject.FindObjectsOfType<CheckPoint>();
-        string temp = SceneManager.GetActiveScene().ToString();
-        Debug.Log(temp);
+        int temp = SceneManager.GetActiveScene().buildIndex;
+
         //corals = GameObject.FindObjectsOfType<Coral>();
         switch (temp)
         {
-            case "Level1":
+            case 1:
                 victoryCondition = 1;
                 break;
-            case "Level2":
+            case 2:
                 victoryCondition = 2;
                 break;
-            case "Level3":
+            case 3:
                 victoryCondition = 3;
                 break;
-            case "Level4":
+            case 4:
                 victoryCondition = 3;
                 break;
         }
-        if (corals.Length>=tempCoral)
+        Debug.Log("buildInd:"+temp + " vic:" + victoryCondition+ " check:"+checkPoint.Length+ " tempCor:"+tempCoral);
+        if (checkPoint.Length>=tempCoral)
         {
-            Audio_StingerCue("CoralCompleted");
-            if (corals.Length == victoryCondition)
+            if (checkPoint.Length == victoryCondition)
             {
                 Audio_LevelState("Victory");
             }
             else
             {
+                Audio_StingerCue("CoralCompleted");
                 currentLevelState = "Default";
             }
             tempCoral++;
-
         }
 
 

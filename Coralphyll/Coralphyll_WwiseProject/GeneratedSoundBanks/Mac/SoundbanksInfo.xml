@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="661667801">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2085410544">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -22,7 +22,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2291381170">
+		<SoundBank Id="3161908922" Language="SFX" Hash="123439508">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -47,6 +47,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2227269361" Name="Enemy_Chasing" ObjectPath="\Events\Default Work Unit\Ambience\Enemy_Chasing" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="778665504" Language="SFX">
+							<ShortName>ES_Crooked Teeth Edit.wav</ShortName>
+							<Path>SFX\ES_Crooked Teeth Edit_8AA56E5C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3177611540" Name="Enemy_Chasing_Stop" ObjectPath="\Events\Default Work Unit\Ambience\Enemy_Chasing_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2996183927" Name="fs_player_swim" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.396629" DurationMax="1.864276">
 					<IncludedMemoryFiles>
 						<File Id="402119525" Language="SFX">
@@ -95,6 +104,7 @@
 										<File Id="86766305"/>
 										<File Id="275220307"/>
 										<File Id="526842401"/>
+										<File Id="581889451"/>
 										<File Id="768155864"/>
 									</Media>
 								</SwitchContainer>
@@ -169,6 +179,14 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1435982318" Name="NPC_Friendly_Yellow_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1671773852" Name="OneShot_CoralCompleted" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_CoralCompleted" DurationType="OneShot" DurationMin="13.813791" DurationMax="13.813791">
+					<IncludedMemoryFiles>
+						<File Id="275837605" Language="SFX">
+							<ShortName>ES_Paint Me with Courage_Victory_Stinger.wav</ShortName>
+							<Path>SFX\ES_Paint Me with Courage_Victory_Stinger_2A3D128C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1157870456" Name="OneShot_EnemyAlert" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_EnemyAlert" DurationType="OneShot" DurationMin="1.614127" DurationMax="1.614127">
 					<IncludedMemoryFiles>
 						<File Id="948809142" Language="SFX">
@@ -265,6 +283,10 @@
 					<ShortName>Battle_Section2.wav</ShortName>
 					<Path>SFX\Battle_Section2_D79FB2B7.wem</Path>
 				</File>
+				<File Id="581889451" Language="SFX">
+					<ShortName>ES_Eyes of Yours_short.wav</ShortName>
+					<Path>SFX\ES_Eyes of Yours_short_D79FB2B7.wem</Path>
+				</File>
 				<File Id="646329306" Language="SFX">
 					<ShortName>HitThump_EnemySound.wav</ShortName>
 					<Path>SFX\HitThump_EnemySound_D79FB2B7.wem</Path>
@@ -284,6 +306,10 @@
 				<File Id="768752221" Language="SFX">
 					<ShortName>PingMelody_SomethingCompleted.wav</ShortName>
 					<Path>SFX\PingMelody_SomethingCompleted_10C4C929.wem</Path>
+				</File>
+				<File Id="778665504" Language="SFX">
+					<ShortName>ES_Crooked Teeth Edit.wav</ShortName>
+					<Path>SFX\ES_Crooked Teeth Edit_8AA56E5C.wem</Path>
 				</File>
 				<File Id="781440480" Language="SFX">
 					<ShortName>Ambience_underwater_background.wav</ShortName>

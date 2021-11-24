@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d02af12ed0308f4ab62d8224a28d927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDefaultListener: 1
+  isDefaultListener: 0
   listenerId: 0
 --- !u!114 &2036221226
 MonoBehaviour:
@@ -36,6 +36,46 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &5544173662994857065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604448303415429704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1473826c351a956419e4e54e9a8a194b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9f67aef17ea704b4b902670ab2140631, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!54 &4013938082440835988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604448304899582664}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!135 &1007953733124706012
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -189,22 +229,6 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
---- !u!54 &4013938082440835988
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3604448304899582664}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &8856176490676353948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.49999857
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.y
@@ -270,11 +294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.06704
+      value: -8.900001
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.49999857
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.y
@@ -282,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.06704
+      value: -8.900001
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalRotation.w
