@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3204741330753180819
 Transform:
@@ -31,6 +31,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &2448361822243263179
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267634612797699024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 779124053231882627, guid: 9768e68c60b613c4cbb0ad8eb888eb87, type: 3}
 --- !u!1001 &9114687724082351745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,8 +100,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Barnacles_Small_Placeholder
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9768e68c60b613c4cbb0ad8eb888eb87, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9768e68c60b613c4cbb0ad8eb888eb87, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9768e68c60b613c4cbb0ad8eb888eb87, type: 3}
+--- !u!1 &8267634612797699024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9768e68c60b613c4cbb0ad8eb888eb87, type: 3}
+  m_PrefabInstance: {fileID: 9114687724082351745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8788591385054259562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9768e68c60b613c4cbb0ad8eb888eb87, type: 3}
