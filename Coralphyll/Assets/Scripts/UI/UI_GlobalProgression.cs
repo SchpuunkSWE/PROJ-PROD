@@ -191,7 +191,7 @@ public class UI_GlobalProgression : MonoBehaviour
             }
 
     }
-    private void setDefaultCoralImageColor(){
+    public void setDefaultCoralImageColor(){
         coral1I = coral1UI.GetComponent<Image>();
         coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
         coral2I = coral2UI.GetComponent<Image>();

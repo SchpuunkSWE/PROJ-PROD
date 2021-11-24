@@ -9,9 +9,13 @@ public class UI_Trigger : MonoBehaviour
     private GameObject coralPanel; //Set in inspector
 
     [SerializeField]
+    private GameObject inGameCanvas;
+
+    [SerializeField]
     private GameObject safezonePanel; //Set in inspector
 
     private GameObject myCoral;
+    private bool uiOpened;
     //public GameObject fishWheelPanel;
     //public GameObject fishWheelButtonPanel;
 
@@ -43,7 +47,10 @@ public class UI_Trigger : MonoBehaviour
             }
             else
             {
-                coralPanel.SetActive(true); //...Otherwise activate UI for coral
+                uiOpened = coralPanel.activeSelf;
+                coralPanel.SetActive(true); 
+
+                //...Otherwise activate UI for coral
                 //fishWheelPanel.SetActive(true);
                 //fishWheelButtonPanel.SetActive(true);
                 //fishWheelPanel.GetComponent<FishWheel>().panelEnabled= true;
@@ -71,7 +78,11 @@ public class UI_Trigger : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
-            coralPanel.SetActive(false);
+            if(!uiOpened){
+               coralPanel.SetActive(false); 
+            }
+            
+            inGameCanvas.GetComponent<UI_GlobalProgression>().setDefaultCoralImageColor();
             //fishWheelPanel.SetActive(false);
             //fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
             //fishWheelPanel.GetComponent<FishWheel>().panelEnabled= false;
