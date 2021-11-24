@@ -55,6 +55,7 @@ public class NPCFishUtil : MonoBehaviour
             TransferFish(FishColour.BLUE);
             TransferFish(FishColour.RED);
             TransferFish(FishColour.YELLOW);
+            coral.GetComponent<Coral>().ReceiveFish();
         }
 
         if (other.CompareTag("SafeZone"))
@@ -106,7 +107,7 @@ public class NPCFishUtil : MonoBehaviour
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
         }
 
-        coral.GetComponent<Coral>().ReceiveFish();
+        
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 
