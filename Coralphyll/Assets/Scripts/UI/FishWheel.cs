@@ -73,6 +73,7 @@ public class FishWheel : MonoBehaviour
         
                     
                     previousItemSc.DeSelect();
+                    panelEnabled = false;
 
                 }
             } else{
