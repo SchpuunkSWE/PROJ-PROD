@@ -180,12 +180,8 @@ public class NPCFishUtil : MonoBehaviour
 
     public void DropFish()
     {
-        //Vector3 pos = transform.position + Random.insideUnitSphere * boidsSystemPrefab.GetComponent<BoidsSystem>().Radius;
         var newBoidsSystem = Instantiate(boidsSystemPrefab, transform.position, Quaternion.identity);
         BoidsSystem boidsSystem = newBoidsSystem.GetComponent<BoidsSystem>();
-        float startTime = 0f;
-        float waitFor = 4f;
-        bool timerStart = false;
 
         foreach (Follower f in listOfFishes)
         {
@@ -197,7 +193,6 @@ public class NPCFishUtil : MonoBehaviour
         }
         foreach (Follower f in fishToRemove)
         {
-            Debug.Log(timerStart);
             listOfFishes.Remove(f); //Removes fishes from the list of fishes 
             boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
