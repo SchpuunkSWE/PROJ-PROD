@@ -54,7 +54,6 @@ public class FishCounter : MonoBehaviour
 
         foreach (Coral c in coralsInScene)
         {
-            Debug.Log("BAjs");
             totalYellowCoralNeeds += c.fishSlotsAvailable(FishColour.YELLOW);
             totalRedCoralNeeds += c.fishSlotsAvailable(FishColour.RED);
             totalBlueCoralNeeds += c.fishSlotsAvailable(FishColour.BLUE);
@@ -89,7 +88,7 @@ public class FishCounter : MonoBehaviour
                             break;
                     }
                 }
-            //}
+            }
         }
 
         Debug.Log("Coral Needs: " + totalYellowCoralNeeds + ", " + totalRedCoralNeeds + ", " + totalBlueCoralNeeds);
@@ -152,6 +151,7 @@ public class FishCounter : MonoBehaviour
             recountFishes = true;
         }
 
+        
     }
     private int CalculateFishToSpawn(int needs, int total)
     {
@@ -165,4 +165,5 @@ public class FishCounter : MonoBehaviour
     {
         fishSchoolsInScene.Remove(boidsSystem.gameObject);
     }
+    
 }
