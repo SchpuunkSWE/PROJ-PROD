@@ -7,10 +7,19 @@ public class OptionsMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject OptionMenu;
+   // public TabGroup tabGroup;
+    //public TabButton startButton;
     // Start is called before the first frame update
     void Start()
     {
+      //tabGroup.OnTabSelected(startButton);
+
         
+    }
+    void Awake()
+    {
+        //tabGroup.OnTabSelected(startButton);
+
     }
 
     // Update is called once per frame
