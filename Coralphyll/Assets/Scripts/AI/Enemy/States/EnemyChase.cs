@@ -5,9 +5,10 @@ using UnityEngine;
 public class EnemyChase : EnemyState
 {
     [SerializeField] private float baseChaseSpeed = 5;
-    [SerializeField] private float fishFactor;
+    [SerializeField] private float fishFactor = .5f;
     [SerializeField] private float checkCooldown = 2;
     private float currentCheckCooldown;
+    private int fishAmount;
 
     [SerializeField] private float attackDistance;
     [SerializeField] private float lostTargetDistance;
@@ -22,8 +23,9 @@ public class EnemyChase : EnemyState
     {
         base.HandleUpdate();
         //Set destination to player
-        AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * 1 + fishFactor * Time.deltaTime);
+        AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * (1 + fishFactor * fishAmount) * Time.deltaTime);
         RotateTowards(AIController.Player.transform);
+        HandleCooldown();
     }
 
     public override void EvaluateTransitions()
@@ -56,7 +58,7 @@ public class EnemyChase : EnemyState
         {
             currentCheckCooldown = checkCooldown;
             NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
-            fishFactor = fishUtil.getListOfFishes().Count;
+            fishAmount = fishUtil.getListOfFishes().Count;
         }
     }
 }

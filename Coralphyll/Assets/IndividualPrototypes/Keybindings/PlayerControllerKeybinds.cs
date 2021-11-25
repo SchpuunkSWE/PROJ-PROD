@@ -114,6 +114,7 @@ public class PlayerControllerKeybinds : MonoBehaviour
 
     private void PlayerBoost()
     {
-        playerController.Boost();
+        if(playerController.isBoostReady)
+            playerController.StartBoost();
     }
 }
