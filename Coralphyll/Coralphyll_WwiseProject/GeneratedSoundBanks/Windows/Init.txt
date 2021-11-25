@@ -8,6 +8,7 @@ Switch	ID	Name	Switch Group			Notes
 
 State Group	ID	Name			Wwise Object Path	Notes
 	444815956	PlayerLife			\Default Work Unit\PlayerLife	
+	1942696649	Effects			\EffectStates\Effects	
 	2702523344	Gameplay_Switch			\Default Work Unit\Gameplay_Switch	
 	3826569560	Music_State			\Default Work Unit\Music_State	
 
@@ -15,6 +16,8 @@ State	ID	Name	State Group			Notes
 	655265632	Alive	PlayerLife			
 	748895195	None	PlayerLife			
 	2044049779	Dead	PlayerLife			
+	303990094	ReverbOn	Effects			
+	748895195	None	Effects			
 	748895195	None	Gameplay_Switch			
 	3604647259	MainMenu	Gameplay_Switch			
 	748895195	None	Music_State			
@@ -34,6 +37,14 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	85412153	Ambience			\Default Work Unit\Ambience	
 	393239870	SFX			\Default Work Unit\SFX	
 	3991942870	Music			\Default Work Unit\Music	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	301991745	Reverb_Music			\Default Work Unit\Music\Reverb_Music	
+	306711088	Reverb_Ambience			\Default Work Unit\Ambience\Reverb_Ambience	
+	3434922741	Reverb_SFX			\Default Work Unit\SFX\Reverb_SFX	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2662085913	Large_Church1	Wwise Matrix Reverb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
