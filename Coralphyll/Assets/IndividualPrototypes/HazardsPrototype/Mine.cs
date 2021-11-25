@@ -68,6 +68,11 @@ public class Mine : MonoBehaviour
         {
             Explode();
         }
+
+        if(other.tag == "Enemy")
+        {
+            other.GetComponent<AIController>().IsDazed = true;
+        }
     }
 
     private void Explode()
@@ -82,4 +87,5 @@ public class Mine : MonoBehaviour
         };
         EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
     }
+
 }

@@ -15,13 +15,9 @@ public class StartMenu : MonoBehaviour
     private bool optionsOpen;
 
 
-
-
     public void PressStartButton(){
         SceneManager.LoadScene("Level1");
-
     }
-
     public void OpenOptionsButton(){
         if(optionsOpen == false){
             interactionPanel.SetActive(true);

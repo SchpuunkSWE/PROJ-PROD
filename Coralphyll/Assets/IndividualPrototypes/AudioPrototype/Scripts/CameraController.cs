@@ -122,6 +122,20 @@ public class CameraController : MonoBehaviour
             if(followTransform.localPosition.z < -5)
                 followTransform.localPosition = new Vector3(followTransform.localPosition.x, followTransform.localPosition.y, -5f);
 
+        if (Time.timeScale == 0)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         }
         //When player releases right mousebutton, stop rotating camera
         //If player is not right-clicking, camera won't move with cursor and the mouse is unlocked.
