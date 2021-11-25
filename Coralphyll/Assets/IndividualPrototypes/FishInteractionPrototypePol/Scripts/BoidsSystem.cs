@@ -7,11 +7,15 @@ public class BoidsSystem : MonoBehaviour
     [SerializeField] private int numAgents = 10;
     [SerializeField] private float radius = 2;
     [SerializeField] private bool randomGoal;
+    [SerializeField] private bool isOnCoral;
+
+    private bool noAgentsLeft = false;
 
     public Vector3 GoalPosition { get; private set; }
     public List<GameObject> agents = new List<GameObject>();
 
     public float Radius { get => radius; set => radius = value; }
+
 
     private void Start()
     {
@@ -22,11 +26,15 @@ public class BoidsSystem : MonoBehaviour
             newAgent.GetComponent<BoidsAgent>().owner = this;
             agents.Add(newAgent);
         }
+        if (transform.parent != null)
+        {
+            isOnCoral = transform.parent.GetComponentInChildren<Coral>() != null;
+        }
     }
 
     //Object pooling for instantiating fish during runtime?
     private void Update()
-    { 
+    {
         //Maybe if stationary boids should have small variation in goal i could add this instead of center of system
         if (randomGoal)
         {
@@ -39,6 +47,9 @@ public class BoidsSystem : MonoBehaviour
         {
             GoalPosition = transform.position;
         }
+
+        //CheckAgentsAmount();
+
     }
 
     private void OnDrawGizmos()
@@ -59,4 +70,31 @@ public class BoidsSystem : MonoBehaviour
         agents.Add(agent);
         agent.GetComponent<BoidsAgent>().owner = this;
     }
+
+
+    //Molly change
+    public void CheckAgentsAmount()
+    {
+        if (agents.Count > numAgents && !isOnCoral)
+        {
+            agents.Clear();
+
+
+            //This potentially needs change now because of object pooling fishes?
+            //cuz it be trying to instantiate fish prefabs
+            for (int i = 0; i < numAgents; i++)
+            {
+                Vector3 pos = transform.position + Random.insideUnitSphere * radius;
+                var newAgent = Instantiate(agentPrefab, pos, Quaternion.identity, transform);
+                newAgent.GetComponent<BoidsAgent>().owner = this;
+                agents.Add(newAgent);
+            }
+        }
+    }
+
+    public void IncreaseNumAgents(int num)
+    {
+        numAgents += num;
+    }
+
 }
