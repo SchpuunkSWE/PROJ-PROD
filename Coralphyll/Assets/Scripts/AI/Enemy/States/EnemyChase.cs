@@ -4,6 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "EnemyState/ChaseState")]
 public class EnemyChase : EnemyState
 {
+    [SerializeField] private float baseChaseSpeed = 5;
+    [SerializeField] private float fishFactor;
+    [SerializeField] private float checkCooldown = 2;
+    private float currentCheckCooldown;
+
     [SerializeField] private float attackDistance;
     [SerializeField] private float lostTargetDistance;
 
@@ -17,7 +22,7 @@ public class EnemyChase : EnemyState
     {
         base.HandleUpdate();
         //Set destination to player
-        AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, 5 * Time.deltaTime);
+        AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * 1 + fishFactor * Time.deltaTime);
         RotateTowards(AIController.Player.transform);
     }
 
@@ -41,6 +46,17 @@ public class EnemyChase : EnemyState
         else if (DistanceToPlayer() > lostTargetDistance)
         {
             stateMachine.Transition<EnemyPatrol>();
+        }
+    }
+
+    private void HandleCooldown()
+    {
+        currentCheckCooldown -= Time.deltaTime;
+        if (currentCheckCooldown < 0)
+        {
+            currentCheckCooldown = checkCooldown;
+            NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
+            fishFactor = fishUtil.getListOfFishes().Count;
         }
     }
 }
