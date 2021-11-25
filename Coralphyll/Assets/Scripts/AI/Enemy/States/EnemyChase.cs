@@ -22,8 +22,9 @@ public class EnemyChase : EnemyState
     {
         base.HandleUpdate();
         //Set destination to player
-        AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * 1 + fishFactor * Time.deltaTime);
+        AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * (1 + fishFactor * .5f) * Time.deltaTime);
         RotateTowards(AIController.Player.transform);
+        HandleCooldown();
     }
 
     public override void EvaluateTransitions()
