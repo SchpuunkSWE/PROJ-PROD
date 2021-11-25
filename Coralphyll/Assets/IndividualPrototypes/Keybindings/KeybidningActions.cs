@@ -6,5 +6,6 @@ public enum KeybindingActions
     Back,
     Right,
     Left,
-    Boost
+    Boost,
+    DropFish
 }

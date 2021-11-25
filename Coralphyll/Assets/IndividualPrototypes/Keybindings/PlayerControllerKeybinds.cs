@@ -35,13 +35,19 @@ public class PlayerControllerKeybinds : MonoBehaviour
         {
             PlayerResetMomentum();
         }
-        if (inputManager.GetKey(KeybindingActions.SwimUp))
+        if (inputManager.GetKey(KeybindingActions.SwimUp) || Input.GetAxisRaw("SwimUp") > 0.01f)
         {
-            PlayerAxisY(1f);
+            if (inputManager.GetKey(KeybindingActions.SwimUp))
+                PlayerAxisY(1f);
+            else
+                PlayerAxisY(Input.GetAxisRaw("SwimUp"));
         }
-        if (inputManager.GetKey(KeybindingActions.SwimDown))
+        if (inputManager.GetKey(KeybindingActions.SwimDown) || Input.GetAxisRaw("Dive") > 0.01f)
         {
-            PlayerAxisY(-1f);
+            if (inputManager.GetKey(KeybindingActions.SwimDown))
+                PlayerAxisY(-1f);
+            else
+                PlayerAxisY(-Input.GetAxisRaw("Dive"));
         }
         if(inputManager.GetKey(KeybindingActions.Forward) || Input.GetAxisRaw("Vertical") > 0.01f)
         {
@@ -73,9 +79,14 @@ public class PlayerControllerKeybinds : MonoBehaviour
                 PlayerAxisX(Input.GetAxisRaw("Horizontal"));
         }
 
-        if(inputManager.GetKey(KeybindingActions.Boost))
+        if(inputManager.GetKey(KeybindingActions.Boost) || Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             PlayerBoost();
+        }
+
+        if (inputManager.GetKey(KeybindingActions.DropFish) || Input.GetKeyDown(KeyCode.JoystickButton2))
+        {
+            gameObject.GetComponent<NPCFishUtil>().DropFish();
         }
     }
        

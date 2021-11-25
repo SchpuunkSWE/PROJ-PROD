@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -11,15 +12,18 @@ public class CameraController : MonoBehaviour
     public float rotationLerp = 0.5f;
     [SerializeField, Min(1), Tooltip("Speed at which the camera returns to its normal position")]
     private float returnSpeed = 90f;
-    private int noLookInversion = 1;
+    private int noLookInversion = - 1;
     private Transform originalLookDirection;
     private bool isReturningToNormalRotation = false;
+    public CinemachineVirtualCamera vcam;
+    private Cinemachine3rdPersonFollow vcamFollower;
     // Start is called before the first frame update
     void Start()
     {
         originalLookDirection = transform;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        vcamFollower = vcam.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class CameraController : MonoBehaviour
         {
             lookInput.x = Input.GetAxis("Mouse X");
             lookInput.y = Input.GetAxis("Mouse Y") * noLookInversion;
+            lookInput.x += Input.GetAxis("Joystick Camera X");
+            lookInput.y += -Input.GetAxis("Joystick Camera Y") * noLookInversion;
 
             // Basically a copy-paste of the code that controls the character, except this part when holding down left-click you only rotate the camera and not the player.
             if (Input.GetMouseButton(0))
@@ -115,18 +121,18 @@ public class CameraController : MonoBehaviour
 
         if (Input.mouseScrollDelta.y != 0)
         {
-            if (Mathf.Abs(followTransform.localPosition.z) <= 5f)
-                followTransform.position += -followTransform.forward * Input.mouseScrollDelta.y; 
-            if(followTransform.localPosition.z > 5)
-                followTransform.localPosition = new Vector3(followTransform.localPosition.x, followTransform.localPosition.y, 5f);
-            if(followTransform.localPosition.z < -5)
-                followTransform.localPosition = new Vector3(followTransform.localPosition.x, followTransform.localPosition.y, -5f);
+            if (vcamFollower.CameraDistance <= 18f)
+                vcamFollower.CameraDistance += Input.mouseScrollDelta.y;
+            if (vcamFollower.CameraDistance > 18f)
+                vcamFollower.CameraDistance = 18f;
+            if (vcamFollower.CameraDistance < 4f)
+                vcamFollower.CameraDistance = 4f;
 
-        if (Time.timeScale == 0)
+            if (Time.timeScale == 0)
         {
             if (Input.GetMouseButton(0))
             {
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
             }
         }
