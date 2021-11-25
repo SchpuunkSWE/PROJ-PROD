@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}" SchemaVersion="103" RootDocumentID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}" ParentDocumentID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}">
+	<AudioObjects>
+		<WorkUnit Name="Stingers" ID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}" OwnerID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}" PersistMode="Nested">
+			<ChildrenList>
+				<RandomSequenceContainer Name="Alert" ID="{4A2F8566-334A-4B43-8AC2-EC017F7B2D8B}" ShortID="43885302">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx" ID="{9B09CEDE-318A-47CF-A8DE-E8551EC09B5B}" ShortID="310543304">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx" ID="{8B87636C-9A4C-4858-ACF3-F7365D3F35D0}">
+									<Language>SFX</Language>
+									<AudioFile>413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="948809142"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx" ID="{8B87636C-9A4C-4858-ACF3-F7365D3F35D0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</RandomSequenceContainer>
+				<Sound Name="Coral_Completed" ID="{CF724F29-B55F-4607-A676-A269D4818264}" ShortID="324148386">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="ES_Paint Me with Courage_Victory_Stinger" ID="{9B0D0855-0646-4028-A170-1290110EE784}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.8"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="2.7"/>
+								<Property Name="FadeOutShape" Type="int16" Value="6"/>
+								<Property Name="LoopEnd" Type="Real64" Value="13.2149278660886"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>ES_Paint Me with Courage_Victory_Stinger.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="275837605"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="ES_Paint Me with Courage_Victory_Stinger" ID="{9B0D0855-0646-4028-A170-1290110EE784}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<ActorMixer Name="NPC_DropOff" ID="{B2CEB46E-BD37-4FBF-971F-A98B9944C42B}" ShortID="1018740186">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="ES_PREL Sweeper High 7 - SFX Producer" ID="{88247D7D-C67C-4B06-88E7-10F9A52E9785}" ShortID="893114150">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{D73579D9-AC5E-44B2-9636-F837ECF4C458}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+									<ObjectRef Name="Medium_Room1" ID="{71B802A7-03E2-4998-B241-B2B84FE9DDFF}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ES_PREL Sweeper High 7 - SFX Producer" ID="{4643536B-BC7A-44D8-8C4F-F7B4C386CB66}">
+									<Language>SFX</Language>
+									<AudioFile>ES_PREL Sweeper High 7 - SFX Producer.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="638976678"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ES_PREL Sweeper High 7 - SFX Producer" ID="{4643536B-BC7A-44D8-8C4F-F7B4C386CB66}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

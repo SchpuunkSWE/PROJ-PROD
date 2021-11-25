@@ -15,8 +15,12 @@ public class AIController : MonoBehaviour
     public GameObject Player { get; set; }
     public LayerMask VisionMask { get; set; }
     public AIPath Path { get => path; set => path = value; }
+    public StateMachine StateMachine { get => stateMachine; }
 
     public static bool CanFollowPlayer { get; set; } = true;
+
+    //Molly Change
+    public bool IsDazed { get => IsDazed; set => IsDazed = value; }
 
     public float Speed;
 

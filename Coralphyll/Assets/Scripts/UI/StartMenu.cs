@@ -6,30 +6,26 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     public GameObject starmenuPanel;
-    public GameObject interactionPanel;
-    public GameObject accessibilitypanel;
+ //  public GameObject interactionPanel;
+   // public GameObject accessibilitypanel;
     public GameObject optionsPanel;
-    public GameObject visionAidPanel;
-    public GameObject audioOptionsPanel;
+   // public GameObject visionAidPanel;
+   // public GameObject audioOptionsPanel;
 
     private bool optionsOpen;
 
 
-
-
     public void PressStartButton(){
         SceneManager.LoadScene("Level1");
-
     }
-
     public void OpenOptionsButton(){
         if(optionsOpen == false){
-            interactionPanel.SetActive(true);
+            optionsPanel.SetActive(true);
         openVisionAidPanel();
         optionsOpen = true;
         }else 
         {
-            interactionPanel.SetActive(false);
+            optionsPanel.SetActive(false);
             optionsOpen = false;
 
         }
@@ -37,15 +33,11 @@ public class StartMenu : MonoBehaviour
         
     }
     public void openVisionAidPanel(){
-        interactionPanel.SetActive(true);
-        visionAidPanel.SetActive(true);
-        audioOptionsPanel.SetActive(false);
+     
     }
 
     public void openAudioOptions(){
-        interactionPanel.SetActive(true);
-        visionAidPanel.SetActive(false);
-        audioOptionsPanel.SetActive(true);
+    
     }
 
 }

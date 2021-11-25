@@ -30,68 +30,91 @@ public class PlayerControllerKeybinds : MonoBehaviour
     {
         if (inputManager.GetKeyUp(KeybindingActions.SwimUp) || inputManager.GetKeyUp(KeybindingActions.SwimDown)
         || inputManager.GetKeyUp(KeybindingActions.Forward) || inputManager.GetKeyUp(KeybindingActions.Back) ||
-       inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left))
+       inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left)
+       || Input.GetAxisRaw("Vertical") <= 0.01f && Input.GetAxisRaw("Vertical") >= -0.01f || Input.GetAxisRaw("Horizontal") >= -0.01f && Input.GetAxisRaw("Horizontal") <= 0.01f)
         {
             PlayerResetMomentum();
         }
-        if (inputManager.GetKey(KeybindingActions.SwimUp))
+        if (inputManager.GetKey(KeybindingActions.SwimUp) || Input.GetAxisRaw("SwimUp") > 0.01f)
         {
-            PlayerSwimUp();
+            if (inputManager.GetKey(KeybindingActions.SwimUp))
+                PlayerAxisY(1f);
+            else
+                PlayerAxisY(Input.GetAxisRaw("SwimUp"));
         }
-        if (inputManager.GetKey(KeybindingActions.SwimDown))
+        if (inputManager.GetKey(KeybindingActions.SwimDown) || Input.GetAxisRaw("Dive") > 0.01f)
         {
-            PlayerDive();
+            if (inputManager.GetKey(KeybindingActions.SwimDown))
+                PlayerAxisY(-1f);
+            else
+                PlayerAxisY(-Input.GetAxisRaw("Dive"));
         }
-        if(inputManager.GetKey(KeybindingActions.Forward))
+        if(inputManager.GetKey(KeybindingActions.Forward) || Input.GetAxisRaw("Vertical") > 0.01f)
         {
-            PlayerForward();
+            if (inputManager.GetKey(KeybindingActions.Forward))
+                PlayerAxisZ(1f);
+            else
+                PlayerAxisZ(Input.GetAxisRaw("Vertical"));
         }
-        if(inputManager.GetKey(KeybindingActions.Back))
+        if(inputManager.GetKey(KeybindingActions.Back) || Input.GetAxisRaw("Vertical") < 0.01f)
         {
-            PlayerBack();
+            if(inputManager.GetKey(KeybindingActions.Back))
+                PlayerAxisZ(-1f);
+            else
+                PlayerAxisZ(Input.GetAxisRaw("Vertical"));
+
         }
-        if(inputManager.GetKey(KeybindingActions.Right))
+        if(inputManager.GetKey(KeybindingActions.Right) || Input.GetAxisRaw("Horizontal") > 0.01f)
         {
-            PlayerRight();
+            if (inputManager.GetKey(KeybindingActions.Right))
+                PlayerAxisX(1f);
+            else
+                PlayerAxisX(Input.GetAxisRaw("Horizontal"));
         }
-        if(inputManager.GetKey(KeybindingActions.Left))
+        if(inputManager.GetKey(KeybindingActions.Left) || Input.GetAxisRaw("Horizontal") < 0.01f)
         {
-            PlayerLeft();
+            if (inputManager.GetKey(KeybindingActions.Left))
+                PlayerAxisX(-1f);
+            else
+                PlayerAxisX(Input.GetAxisRaw("Horizontal"));
         }
+
+        if(inputManager.GetKey(KeybindingActions.Boost) || Input.GetKeyDown(KeyCode.JoystickButton0))
+        {
+            PlayerBoost();
+        }
+
+        if (inputManager.GetKey(KeybindingActions.DropFish) || Input.GetKeyDown(KeyCode.JoystickButton2))
+        {
+            gameObject.GetComponent<NPCFishUtil>().DropFish();
+        }
+    }
        
+    
+
+    private void PlayerAxisZ(float input)
+    {
+        playerController.AxisZFunction(input);
     }
 
-    public void PlayerSwimUp()
+    private void PlayerAxisX(float input)
     {
-        playerController.SwimUpFunction();
+        playerController.AxisXFunction(input);
     }
-    public void PlayerDive()
+    
+    private void PlayerAxisY(float input)
     {
-        playerController.DiveFunction();
-    }
-
-    public void PlayerForward()
-    {
-        playerController.ForwardFunction();
+        playerController.AxisYFunction(input);
     }
 
-    public void PlayerBack()
-    {
-        playerController.BackFunction();
-    }
-
-    public void PlayerLeft()
-    {
-        playerController.LeftFunction();
-    }
-
-    public void PlayerRight()
-    {
-        playerController.RightFunction();
-    }
-
-    public void PlayerResetMomentum()
+    private void PlayerResetMomentum()
     {
         playerController.ResetMomentumFunction();
+    }
+
+    private void PlayerBoost()
+    {
+        if(playerController.isBoostReady)
+            playerController.StartBoost();
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -11,15 +12,18 @@ public class CameraController : MonoBehaviour
     public float rotationLerp = 0.5f;
     [SerializeField, Min(1), Tooltip("Speed at which the camera returns to its normal position")]
     private float returnSpeed = 90f;
-    private int noLookInversion = -1;
+    private int noLookInversion = - 1;
     private Transform originalLookDirection;
     private bool isReturningToNormalRotation = false;
+    public CinemachineVirtualCamera vcam;
+    private Cinemachine3rdPersonFollow vcamFollower;
     // Start is called before the first frame update
     void Start()
     {
         originalLookDirection = transform;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        vcamFollower = vcam.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class CameraController : MonoBehaviour
         {
             lookInput.x = Input.GetAxis("Mouse X");
             lookInput.y = Input.GetAxis("Mouse Y") * noLookInversion;
+            lookInput.x += Input.GetAxis("Joystick Camera X");
+            lookInput.y += -Input.GetAxis("Joystick Camera Y") * noLookInversion;
 
             // Basically a copy-paste of the code that controls the character, except this part when holding down left-click you only rotate the camera and not the player.
             if (Input.GetMouseButton(0))
@@ -112,9 +118,31 @@ public class CameraController : MonoBehaviour
                 //followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
             }
         }
-        
 
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            if (vcamFollower.CameraDistance <= 18f)
+                vcamFollower.CameraDistance += Input.mouseScrollDelta.y;
+            if (vcamFollower.CameraDistance > 18f)
+                vcamFollower.CameraDistance = 18f;
+            if (vcamFollower.CameraDistance < 4f)
+                vcamFollower.CameraDistance = 4f;
 
+            if (Time.timeScale == 0)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            }
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        }
         //When player releases right mousebutton, stop rotating camera
         //If player is not right-clicking, camera won't move with cursor and the mouse is unlocked.
     }
