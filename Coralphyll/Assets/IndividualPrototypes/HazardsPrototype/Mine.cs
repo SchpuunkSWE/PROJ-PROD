@@ -85,8 +85,6 @@ public class Mine : MonoBehaviour
             victim = playerController.gameObject,
             killer = this.gameObject
         };
-        NPCFishUtil.NPCFishUtilInstance.KillAllFish();
-        Debug.Log("fish died");
         EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
     }
 
