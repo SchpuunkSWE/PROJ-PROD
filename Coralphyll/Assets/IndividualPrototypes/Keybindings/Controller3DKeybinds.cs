@@ -48,7 +48,6 @@ public class Controller3DKeybinds : MonoBehaviour
         PlayerInput();
         HitDetection();
         ApplyVelocity();
-        IncrementTimer();
     }
 
     
@@ -69,7 +68,7 @@ public class Controller3DKeybinds : MonoBehaviour
     private void CalculateVelocity(Vector3 input)
     {
         velocity += input * speed * Time.deltaTime;
-        if (velocity.magnitude > maxVelocityValue)
+        if (velocity.magnitude > maxVelocityValue && boostComplete)
         {
             velocity = velocity.normalized * maxVelocityValue;
         }
@@ -191,29 +190,34 @@ public class Controller3DKeybinds : MonoBehaviour
         playerInput += transform.right * input;
     }
 
-    private float timer = 0;
-    private float cooldown = 5;
-    private bool isBoostReady = true;
+    [SerializeField]
+    private float boostCooldown = 5;
+    public bool isBoostReady = true;
+    private bool boostComplete = true;
     [SerializeField]
     private float boostPower = 10;
+    [SerializeField]
+    private float boostDuration = 1;
 
-    private void IncrementTimer()
+ 
+    public void StartBoost()
     {
-        if(!isBoostReady)
-            timer += Time.deltaTime;
-        if (timer > cooldown)
-        {
-            timer = 0;
-            isBoostReady = true;
-        }
+        isBoostReady = false;
+        StartCoroutine(Boost());
     }
-    public void Boost()
+
+    private IEnumerator Boost()
     {
-        if(isBoostReady)
+        float startTime = Time.time;
+        boostComplete = false;
+        while(Time.time < startTime + boostDuration)
         {
-            ResetMomentumFunction();
-            velocity += transform.forward * boostPower;
-            isBoostReady = false;
+            velocity = (velocity.magnitude < 2f) ? maxVelocityValue * transform.forward * speed * boostPower * Time.deltaTime : velocity + transform.forward * boostPower * Time.deltaTime;
+
+            yield return null;
         }
+        boostComplete = true;
+        yield return new WaitForSeconds(boostCooldown);
+        isBoostReady = true;        
     }
 }
