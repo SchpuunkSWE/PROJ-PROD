@@ -82,15 +82,13 @@ public class NPCFollow : MonoBehaviour
         }
     }
 
-    //public void SetFollowSpeeed(float speed)
-    //{
-    //    followSpeed = speed;
-    //}
+    public void SetFollowSpeed(float speed)
+    {
+        followSpeed = speed;
+    }
 
-    //public float GetFollowSpeed()
-    //{
-    //    return followSpeed;
-    //}
-
-
+    public float GetFollowSpeed()
+    {
+        return followSpeed;
+    }
 }
