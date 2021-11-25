@@ -55,6 +55,7 @@ public class NPCFishUtil : MonoBehaviour
             TransferFish(FishColour.BLUE);
             TransferFish(FishColour.RED);
             TransferFish(FishColour.YELLOW);
+            coral.GetComponent<Coral>().ReceiveFish();
         }
 
         if (other.CompareTag("SafeZone"))
@@ -106,7 +107,7 @@ public class NPCFishUtil : MonoBehaviour
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
         }
 
-        coral.GetComponent<Coral>().ReceiveFish();
+        
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 
@@ -180,9 +181,9 @@ public class NPCFishUtil : MonoBehaviour
 
     public void DropFish()
     {
-        //Vector3 pos = transform.position + Random.insideUnitSphere * boidsSystemPrefab.GetComponent<BoidsSystem>().Radius;
         var newBoidsSystem = Instantiate(boidsSystemPrefab, transform.position, Quaternion.identity);
         BoidsSystem boidsSystem = newBoidsSystem.GetComponent<BoidsSystem>();
+
         foreach (Follower f in listOfFishes)
         {
             if (f.GetComponent<NPCFollow>().isFollowingPlayer)
@@ -198,6 +199,8 @@ public class NPCFishUtil : MonoBehaviour
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
+            StartCoroutine(MakeFishCollectible(f));
+            Debug.Log("StartCoroutine KÖRD");
 
             //Destroy(f.GetComponent<BoidsAgent>().owner.gameObject); //Destroy the Boidssystem that the fish has.
             //FishCounter.fishCounterInstance.RemoveSchool(f.GetComponent<BoidsAgent>().owner);
@@ -207,6 +210,15 @@ public class NPCFishUtil : MonoBehaviour
 
         }
         fishToRemove.Clear(); //Clear the fish to remove list.
+    }
+
+    private IEnumerator MakeFishCollectible(Follower follower)
+    {
+        Debug.Log("Coroutine Waiting");
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Coroutine started");
+        follower.Collectable = true; //So that you can pick up fish again.
+        follower.RGB.detectCollisions = true; //Turn on collision on fish.        
     }
 
     public void KillFish()
