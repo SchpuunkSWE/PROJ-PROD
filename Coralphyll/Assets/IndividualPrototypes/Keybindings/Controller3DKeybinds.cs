@@ -48,6 +48,7 @@ public class Controller3DKeybinds : MonoBehaviour
         PlayerInput();
         HitDetection();
         ApplyVelocity();
+        IncrementTimer();
     }
 
     
@@ -171,37 +172,48 @@ public class Controller3DKeybinds : MonoBehaviour
         }
     }
 
-    public void SwimUpFunction()
-    {       
-        playerInput += transform.up;       
-    }
-    public void DiveFunction()
-    {    
-        playerInput += -transform.up;
+    public void AxisYFunction(float input)
+    {
+        playerInput += transform.up * input;
     }
 
     public void ResetMomentumFunction()
     {
         playerInput = Vector3.zero;
     }
-    public void ForwardFunction()
+    public void AxisZFunction(float input)
     {
-        playerInput += transform.forward;
+        playerInput += transform.forward * input;
     }
 
-    public void BackFunction()
+    public void AxisXFunction(float input)
     {
-        playerInput += -transform.forward;
+        playerInput += transform.right * input;
     }
 
-    public void RightFunction()
-    {
-        playerInput += transform.right;
-    }
+    private float timer = 0;
+    private float cooldown = 5;
+    private bool isBoostReady = true;
+    [SerializeField]
+    private float boostPower = 10;
 
-    public void LeftFunction()
+    private void IncrementTimer()
     {
-        playerInput += -transform.right;
+        if(!isBoostReady)
+            timer += Time.deltaTime;
+        if (timer > cooldown)
+        {
+            timer = 0;
+            isBoostReady = true;
+        }
     }
-
+    public void Boost()
+    {
+        if(isBoostReady)
+        {
+            ResetMomentumFunction();
+            velocity += transform.forward * boostPower;
+            isBoostReady = false;
+        }
+    }
 }
