@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
     public GameObject OptionMenu;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,6 @@ public class OptionsMenu : MonoBehaviour
     public void CloseOptionsMenu()
     {
         OptionMenu.SetActive(false);
-        pauseMenu.SetActive(true);
 
     }
 }

@@ -60,8 +60,8 @@ public class PauseMenuUI : MonoBehaviour
 
     }
     public void Options(){
-        optionsPanel.SetActive(true);
-        pauseMenuUI.SetActive(false);
+        //optionsPanel.SetActive(true);
+        //pauseMenuUI.SetActive(false);
 
 
     }
