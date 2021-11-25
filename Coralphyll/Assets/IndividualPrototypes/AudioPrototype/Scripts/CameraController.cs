@@ -127,7 +127,7 @@ public class CameraController : MonoBehaviour
                 vcamFollower.CameraDistance = 18f;
             if (vcamFollower.CameraDistance < 4f)
                 vcamFollower.CameraDistance = 4f;
-
+        }
             if (Time.timeScale == 0)
         {
             if (Input.GetMouseButton(0))
@@ -147,4 +147,4 @@ public class CameraController : MonoBehaviour
         //If player is not right-clicking, camera won't move with cursor and the mouse is unlocked.
     }
 
-}
+
