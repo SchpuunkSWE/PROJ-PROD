@@ -20,6 +20,16 @@ public class NPCFishUtil : MonoBehaviour
 
     private FishColour fish;
 
+    #region Singleton Quickversion
+    public static NPCFishUtil NPCFishUtilInstance;
+
+    private void Awake()
+    {
+        NPCFishUtilInstance = this;
+    }
+
+    #endregion
+
 
     public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
     {
@@ -234,6 +244,27 @@ public class NPCFishUtil : MonoBehaviour
         listOfFishes.Remove(fish);
         Destroy(fish.gameObject);
         fishToRemove.Clear(); //Clear the fish to remove list.
+        FishCounter.fishCounterInstance.RecountFishes = true;
+    }
+
+    public void KillAllFish()
+    {
+        foreach (Follower f in listOfFishes)
+        {
+            if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+            {
+                fishToRemove.Add(f);
+            }
+        }
+
+        foreach (Follower f in fishToRemove)
+        {
+            listOfFishes.Remove(f);
+            Destroy(f.gameObject);
+        }
+
+        fishToRemove.Clear(); //Clear the fish to remove list.
+        FishCounter.fishCounterInstance.RecountFishes = true;
     }
 }
 
