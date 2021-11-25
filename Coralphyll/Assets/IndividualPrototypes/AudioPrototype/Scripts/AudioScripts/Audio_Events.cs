@@ -12,7 +12,7 @@ public class Audio_Events : MonoBehaviour
     public bool inCombat = false;
     private int fishes = 0;
     public bool inMainMenu = true;
-    private bool hasPlayedAlert=false;
+    private bool hasPlayedAlert = false;
     private string currentLevelState;
     private int tempCoral = 1;
     private int victoryCondition;
@@ -22,6 +22,9 @@ public class Audio_Events : MonoBehaviour
     Coral[] corals;
     private float time;
     private float tempTime;
+    private float musicStateCD;
+    private int tempCoralFish;
+    private int tempCoralFish2;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,10 +33,12 @@ public class Audio_Events : MonoBehaviour
         fishInventory = GetComponent<NPCFishUtil>();
         fishes = fishInventory.getListOfFishes().Count;
         Debug.Log("Fishes: " + fishInventory.getListOfFishes().Count);
+        corals = GameObject.FindObjectsOfType<Coral>();
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
         Audio_GameState("StartGame");
         Audio_PlayerState(isAlive);
+
     }
     private void Update()
     {
@@ -45,7 +50,7 @@ public class Audio_Events : MonoBehaviour
             FishInventoryCheck();
         }
         LevelCompletionCheck();
-        
+
     }
     public void Audio_StingerCue(string cue)
     {
@@ -56,6 +61,9 @@ public class Audio_Events : MonoBehaviour
                 break;
             case "CoralCompleted":
                 AkSoundEngine.PostEvent("OneShot_CoralCompleted", gameObject);
+                break;
+            case "FishDropOff":
+                AkSoundEngine.PostEvent("NPC_DropOff", gameObject);
                 break;
             default:
                 break;
@@ -77,7 +85,7 @@ public class Audio_Events : MonoBehaviour
         }
     }
     public void LevelCompletionCheck()
-    {      
+    {
         checkPoint = GameObject.FindObjectsOfType<CheckPoint>();
         int temp = SceneManager.GetActiveScene().buildIndex;
 
@@ -97,8 +105,8 @@ public class Audio_Events : MonoBehaviour
                 victoryCondition = 3;
                 break;
         }
-     //   Debug.Log("buildInd:"+temp + " vic:" + victoryCondition+ " check:"+checkPoint.Length+ " tempCor:"+tempCoral);
-        if (checkPoint.Length>=tempCoral)
+        // Debug.Log("buildInd:" + temp + " vic:" + victoryCondition + " check:" + checkPoint.Length + " tempCor:" + tempCoral);
+        if (checkPoint.Length >= tempCoral)
         {
             if (checkPoint.Length == victoryCondition)
             {
@@ -106,8 +114,8 @@ public class Audio_Events : MonoBehaviour
             }
             else
             {
-                Audio_StingerCue("CoralCompleted");
                 currentLevelState = "Default";
+                Audio_StingerCue("CoralCompleted");
             }
             tempCoral++;
         }
@@ -123,34 +131,57 @@ public class Audio_Events : MonoBehaviour
             AkSoundEngine.PostEvent("NPC_Friendly_Pickup", gameObject);
         }
         fishes = tempFish;
+        tempCoralFish2 = 0;
+        for (int i = 0; i < corals.Length; i++)
+        {
+            tempCoralFish2 += corals[i].fishSlotsAvailable(FishColour.BLUE);
+            tempCoralFish2 += corals[i].fishSlotsAvailable(FishColour.YELLOW);
+            tempCoralFish2 += corals[i].fishSlotsAvailable(FishColour.RED);
+        }
+
+        if (tempCoralFish2 < tempCoralFish)
+        {
+            Debug.Log("2ND: Coral 2:" + tempCoralFish2 + " Coral 1:" + tempCoralFish);
+            Audio_StingerCue("FishDropOff");
+        }
+        tempCoralFish = tempCoralFish2;
+
+
     }
     private void CombatCheck()
     {
         if (aiContr.Length != 0)
         {
-
-
-        for(int i = 0; i < aiContr.Length; i++)
-        {
-            inCombat = false;
-
-            if (aiContr[i].StateMachine.CurrentState is EnemyChase || aiContr[i].StateMachine.CurrentState is EnemyAttack)
+            for (int i = 0; i < aiContr.Length; i++)
             {
+                inCombat = false;
+
+                if (aiContr[i].StateMachine.CurrentState is EnemyChase || aiContr[i].StateMachine.CurrentState is EnemyAttack)
+                {
                     if (!hasPlayedAlert)
                     {
                         Audio_StingerCue("EnemyAlert");
+                        Debug.Log("Incombat: CD: " + musicStateCD + " Time: " + time);
                     }
                     Audio_LevelState("Combat");
+
+                    musicStateCD = time + 3f;
                     inCombat = true;
                     hasPlayedAlert = true;
-                break;
+                    break;
+                }
+            }
+            if (!inCombat && musicStateCD < time)
+            {
+                Audio_LevelState("Exploring");
+                hasPlayedAlert = false;
+                musicStateCD = time + 3f;
+                Debug.Log("NOTincombat: CD: " + musicStateCD + " Time: " + time);
             }
         }
-        if (!inCombat)
+        else
         {
             Audio_LevelState("Exploring");
-                hasPlayedAlert = false;
-        }
         }
     }
     public void Audio_PlayerState(bool isAlive)
@@ -196,14 +227,14 @@ public class Audio_Events : MonoBehaviour
         {
 
             case "StartGame":
-                if (AudioScene.Levels<2)
+                if (AudioScene.Levels < 2)
                 {
-                    Debug.Log(AudioScene.Levels+"Hello");
+                    Debug.Log(AudioScene.Levels + "Hello");
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
                 }
-        break;
+                break;
         }
     }
 
