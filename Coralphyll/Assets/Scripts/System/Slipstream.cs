@@ -24,7 +24,7 @@ public class Slipstream : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-       float oldSpeed = player.OGSpeed;
+        float oldSpeed = player.OGSpeed;
         float oldVelocity = player.OGMaxVelocityValue;
         player = other.GetComponentInParent<Controller3DKeybinds>();
         if (other.CompareTag("Player"))

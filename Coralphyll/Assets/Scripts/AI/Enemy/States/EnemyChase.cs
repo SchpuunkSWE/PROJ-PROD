@@ -24,6 +24,12 @@ public class EnemyChase : EnemyState
     public override void EvaluateTransitions()
     {
         base.EvaluateTransitions();
+
+        //Molly Change
+        //if (AIController.IsDazed)
+        //{
+        //    stateMachine.Transition<EnemyDazed>();
+        //}CULPRIT
         if (!CanSeePlayer() || AIController.CanFollowPlayer == false)
         {
             stateMachine.Transition<EnemyPatrol>();

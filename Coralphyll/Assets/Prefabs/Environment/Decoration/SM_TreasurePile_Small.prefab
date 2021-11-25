@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 7386304218176752002}
   - component: {fileID: 5849814280000112167}
   - component: {fileID: 8559724762626716397}
-  m_Layer: 0
+  - component: {fileID: 3253867079745216222}
+  m_Layer: 3
   m_Name: SM_TreasurePile_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7386304218176752002
 Transform:
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7911342548802949944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.713, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,11 +60,11 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1976799459468813334, guid: 1fa9548868afdb54090de847488a5312, type: 3}
-  - {fileID: 5639013036093701669, guid: 1fa9548868afdb54090de847488a5312, type: 3}
-  - {fileID: 6571650710849813262, guid: 1fa9548868afdb54090de847488a5312, type: 3}
-  - {fileID: 7079990655745427318, guid: 1fa9548868afdb54090de847488a5312, type: 3}
-  - {fileID: -59136025557594432, guid: 1fa9548868afdb54090de847488a5312, type: 3}
+  - {fileID: 2100000, guid: 905240c8e3e656648948cef677f0528f, type: 2}
+  - {fileID: 2100000, guid: 2beec5eade43d4745a940cec8e13ca07, type: 2}
+  - {fileID: 2100000, guid: 9003c9e69e17aa9449ad645cf253ec56, type: 2}
+  - {fileID: 2100000, guid: d83d57cdc5260b146aa01025c1b7b1a8, type: 2}
+  - {fileID: 2100000, guid: f19ff841054661c429e878433e7f962d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3253867079745216222
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911342548802949944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2035779304291709640, guid: 1fa9548868afdb54090de847488a5312, type: 3}
