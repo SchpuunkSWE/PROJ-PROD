@@ -39,5 +39,9 @@ public class StartMenu : MonoBehaviour
     public void openAudioOptions(){
     
     }
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 
 }
