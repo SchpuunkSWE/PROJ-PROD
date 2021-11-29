@@ -142,6 +142,7 @@ public class Coral : MonoBehaviour
         if (completable && ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded)))
         {
             complete = true;
+            completable = false;
 
             //Set CheckPoint
             this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
