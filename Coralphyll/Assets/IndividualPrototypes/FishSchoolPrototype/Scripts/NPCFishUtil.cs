@@ -151,17 +151,21 @@ public class NPCFishUtil : MonoBehaviour
     {
         NPCFishUtil listScript = player.gameObject.GetComponent<NPCFishUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
         NPCFollow nPCFollow = follower.GetComponent<NPCFollow>();
+        BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>(); //Hämtar Boids Systemet som fisken är child till.
         int positionInList = nPCFollow.PositionInList;
         positionInList = listScript.AddToSchool(follower.transform.gameObject.GetComponent<Follower>()); //L�gger till fisken till listan och returnerar platsen i listan den f�r.
         if (positionInList >= 0) //Om vi f�r tillbaka ett v�rde �ver 0... 
         {
             nPCFollow.PositionInList = positionInList;
             nPCFollow.fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi s�tter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista.
-            follower.GetComponentInParent<BoidsSystem>().RemoveAgent(follower.gameObject); //Tar bort agent från listan av agents.
+            boidsSystem.RemoveAgent(follower.gameObject); //Tar bort agent från listan av agents.
+            follower.transform.SetParent(null);
             nPCFollow.isFollowingPlayer = true; //Vi s�tter fiskens status till att f�lja spelaren.
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
+
+            
         }
     }
 

@@ -76,9 +76,11 @@ public class NPCFollow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         follower = GetComponent<Follower>();
+        //BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>();
         if (other.CompareTag("Player") && follower.Collectable == true)
         {
             other.GetComponent<NPCFishUtil>().PickUpFish(other.gameObject, follower);
+            //boidsSystem.transform.DetachChildren();
         }
     }
 
