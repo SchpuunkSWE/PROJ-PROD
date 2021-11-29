@@ -8,6 +8,8 @@ public class BoidsSystem : MonoBehaviour
     [SerializeField] private float radius = 2;
     [SerializeField] private bool randomGoal;
     [SerializeField] private bool isOnCoral;
+    [SerializeField] private bool dontDelete;
+    [SerializeField] private bool isSpawnPoint;
 
     private bool noAgentsLeft = false;
 
@@ -49,7 +51,7 @@ public class BoidsSystem : MonoBehaviour
         }
 
         //CheckAgentsAmount();
-
+        CheckBoidsSystem();
     }
 
     private void OnDrawGizmos()
@@ -97,4 +99,16 @@ public class BoidsSystem : MonoBehaviour
         numAgents += num;
     }
 
+    public void CheckBoidsSystem()
+    {
+        if(!isOnCoral && dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        {
+            gameObject.SetActive(false);
+            Debug.Log("Boids system inactive");
+        } else if (!isOnCoral && !dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        {
+            Destroy(gameObject);
+            Debug.Log("Boids system destroyed");
+        }
+    }
 }
