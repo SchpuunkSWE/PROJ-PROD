@@ -23,7 +23,7 @@ public class TrashPile : MonoBehaviour
 
     private void Update()
     {
-        FloatAround();
+        //FloatAround();
     }
     private void OnTriggerEnter(Collider other)
     {
