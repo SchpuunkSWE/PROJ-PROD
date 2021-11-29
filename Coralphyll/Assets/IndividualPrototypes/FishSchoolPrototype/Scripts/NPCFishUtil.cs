@@ -66,7 +66,7 @@ public class NPCFishUtil : MonoBehaviour
             TransferFish(FishColour.RED);
             TransferFish(FishColour.YELLOW);
             coral.GetComponent<Coral>().ReceiveFish();
-            
+
         }
 
         if (other.CompareTag("SafeZone"))
@@ -118,7 +118,7 @@ public class NPCFishUtil : MonoBehaviour
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
         }
 
-        
+
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 
@@ -250,22 +250,25 @@ public class NPCFishUtil : MonoBehaviour
 
     public void KillAllFish()
     {
-        foreach (Follower f in listOfFishes)
+        if (listOfFishes.Count > 0)
         {
-            if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+            foreach (Follower f in listOfFishes)
             {
-                fishToRemove.Add(f);
+                if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+                {
+                    fishToRemove.Add(f);
+                }
             }
-        }
 
-        foreach (Follower f in fishToRemove)
-        {
-            listOfFishes.Remove(f);
-            Destroy(f.gameObject);
-        }
+            foreach (Follower f in fishToRemove)
+            {
+                listOfFishes.Remove(f);
+                Destroy(f.gameObject);
+            }
 
-        fishToRemove.Clear(); //Clear the fish to remove list.
-        FishCounter.fishCounterInstance.RecountFishes = true;
+            fishToRemove.Clear(); //Clear the fish to remove list.
+            FishCounter.fishCounterInstance.RecountFishes = true;
+        }
     }
 }
 
