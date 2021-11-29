@@ -27,12 +27,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject sceneTransitionGate;
     
-    [SerializeField]
-    private int totalCoralAmount; //Set in inspector, amount of corals in scene
+
+    private int totalCoralAmount; //Amount of corals in scene
 
     private int completedCoralAmount = 0; //Amount of corals with fully completed needs
 
-    private bool runOnce = false;
+    private bool runOnce = false; //Prevent LevelComplete() from running multiple times
 
     public void SetCompletedCoralAmount()
     {

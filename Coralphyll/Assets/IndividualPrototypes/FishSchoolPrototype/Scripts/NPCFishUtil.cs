@@ -66,6 +66,7 @@ public class NPCFishUtil : MonoBehaviour
             TransferFish(FishColour.RED);
             TransferFish(FishColour.YELLOW);
             coral.GetComponent<Coral>().ReceiveFish();
+            
         }
 
         if (other.CompareTag("SafeZone"))
