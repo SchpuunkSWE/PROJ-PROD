@@ -1,5 +1,4 @@
 //Author: Pol Lozano Llorens
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "EnemyState/ChaseState")]
@@ -11,11 +10,8 @@ public class EnemyChase : EnemyState
     private float currentCheckCooldown;
     private int fishAmount;
 
-    [SerializeField] private float detectionRange = 20f;
-    [SerializeField] private float raycastOffset = 2.5f;
     [SerializeField] private float attackDistance;
     [SerializeField] private float lostTargetDistance;
-    [SerializeField] private LayerMask collisionMask;
 
     public override void Enter()
     {
@@ -26,17 +22,10 @@ public class EnemyChase : EnemyState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        HandleCooldown();
-
         //Set destination to player
-        PathFinding();
-        Move();
-        //AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * (1 + fishFactor * fishAmount) * Time.deltaTime);
-    }
-
-    private void Move()
-    {
-        AIController.transform.position += AIController.transform.forward * baseChaseSpeed * (1 + fishFactor * fishAmount) * Time.deltaTime;
+        AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * (1 + fishFactor * fishAmount) * Time.deltaTime);
+        RotateTowards(AIController.Player.transform);
+        HandleCooldown();
     }
 
     public override void EvaluateTransitions()
@@ -71,36 +60,5 @@ public class EnemyChase : EnemyState
             NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
             fishAmount = fishUtil.getListOfFishes().Count;
         }
-    }
-
-    private void PathFinding()
-    {
-        RaycastHit hit;
-        Vector3 offset = Vector3.zero;
-
-        Vector3 left = AIController.transform.position - AIController.transform.right * raycastOffset;
-        Vector3 right = AIController.transform.position + AIController.transform.right * raycastOffset;
-        Vector3 up = AIController.transform.position + AIController.transform.up * raycastOffset;
-        Vector3 down = AIController.transform.position - AIController.transform.up * raycastOffset;
-
-        Debug.DrawRay(left, AIController.transform.forward * detectionRange, Color.red);
-        Debug.DrawRay(right, AIController.transform.forward * detectionRange, Color.red);
-        Debug.DrawRay(up, AIController.transform.forward * detectionRange, Color.red);
-        Debug.DrawRay(down, AIController.transform.forward * detectionRange, Color.red);
-
-        if(Physics.Raycast(left,AIController.transform.forward, out hit, detectionRange, collisionMask))
-            offset += Vector3.right;    
-        else if (Physics.Raycast(right, AIController.transform.forward, out hit, detectionRange, collisionMask))
-            offset -= Vector3.right;
-
-        if (Physics.Raycast(up, AIController.transform.forward, out hit, detectionRange, collisionMask))
-            offset += Vector3.up;
-        else if (Physics.Raycast(down, AIController.transform.forward, out hit, detectionRange, collisionMask))
-            offset -= Vector3.up;
-
-        if (offset != Vector3.zero)
-            AIController.transform.Rotate(offset * 5f * Time.deltaTime);
-        else
-            RotateTowards(AIController.Player.transform);
     }
 }
