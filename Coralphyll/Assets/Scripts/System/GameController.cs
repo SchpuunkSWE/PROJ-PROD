@@ -37,6 +37,8 @@ public class GameController : MonoBehaviour
     public void SetCompletedCoralAmount()
     {
         completedCoralAmount++;
+        Debug.Log("Completed Coral Amount: " + completedCoralAmount);
+
     }
 
     private void CheckLevelProgress()
@@ -65,8 +67,29 @@ public class GameController : MonoBehaviour
         CheckLevelProgress();
     }
 
+    private int CountCoralsInscene()
+    {
+        int i = 0;
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("FunctionalCoral"))
+        {
+            if (!go.GetComponent<Coral>().IsSafezone)
+            {
+                i++;
+            }
+            
+        }
+        return i;
+        //return GameObject.FindGameObjectsWithTag("FunctionalCoral").Length;    
+    }
+
     private void Awake()
     {
+        completedCoralAmount = 0;
+        totalCoralAmount = CountCoralsInscene();
+        runOnce = false;
+        Debug.Log("Total Amount of Corals In Scene: " + totalCoralAmount);
+        Debug.Log("Completed Coral Amount: " + completedCoralAmount);
+
         sceneTransitionGate.SetActive(false);
         if (instance == null)
         {

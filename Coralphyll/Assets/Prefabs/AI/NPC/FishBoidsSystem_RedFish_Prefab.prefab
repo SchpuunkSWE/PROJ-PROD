@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3622195279284752523}
   - component: {fileID: 3622195279284752532}
+  - component: {fileID: 3210759501619679209}
+  - component: {fileID: 3766369569780935772}
+  - component: {fileID: 3082390306090930299}
   m_Layer: 0
   m_Name: FishBoidsSystem_RedFish_Prefab
   m_TagString: Untagged
@@ -27,7 +30,8 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.37658837, z: -0, w: 0.92638075}
   m_LocalPosition: {x: 14.84, y: -2.83, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4038497772165585949}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,4 +51,117 @@ MonoBehaviour:
   numAgents: 9
   radius: 2
   randomGoal: 1
+  isOnCoral: 0
   agents: []
+--- !u!114 &3210759501619679209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622195279284752522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769f8a328f8315a4da5d619ff1cd34a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitterType: 
+  EventName: NPC_Friendly_Fish_Generic
+  StopEvent: NPC_Friendly_Fish_Generic_Stop
+--- !u!114 &3766369569780935772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622195279284752522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b52d3a320011c04baaa4fddc8fb2cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!135 &3082390306090930299
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622195279284752522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 43.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &5392542686053692487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3622195279284752523}
+    m_Modifications:
+    - target: {fileID: 27378255290308449, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_Name
+      value: FishWhirlEffect_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+--- !u!4 &4038497772165585949 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8276922680666400858, guid: 66bfabeeeb04c6f41a6b7249b9a42277, type: 3}
+  m_PrefabInstance: {fileID: 5392542686053692487}
+  m_PrefabAsset: {fileID: 0}
