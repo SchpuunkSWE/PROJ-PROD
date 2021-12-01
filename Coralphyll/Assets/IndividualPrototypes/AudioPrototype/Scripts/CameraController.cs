@@ -38,8 +38,8 @@ public class CameraController : MonoBehaviour
         {
             lookInput.x = Input.GetAxis("Mouse X");
             lookInput.y = Input.GetAxis("Mouse Y") * noLookInversion;
-            lookInput.x = Input.GetAxis("Joystick Camera X");
-            lookInput.y = -Input.GetAxis("Joystick Camera Y") * noLookInversion;
+            lookInput.x += Input.GetAxis("Joystick Camera X");
+            lookInput.y += -Input.GetAxis("Joystick Camera Y") * noLookInversion;
 
             // Basically a copy-paste of the code that controls the character, except this part when holding down left-click you only rotate the camera and not the player.
             if (Input.GetMouseButton(0))
@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
                 #endregion
 
                 //Rotate followTransform horizontally based upon mouse input and rotationpower(sensitivity)
-                followTransform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower, Vector3.up).normalized;
+                followTransform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower, Vector3.up);
 
             }
             else
