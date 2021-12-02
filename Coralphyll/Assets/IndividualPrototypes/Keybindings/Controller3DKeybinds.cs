@@ -36,10 +36,13 @@ public class Controller3DKeybinds : MonoBehaviour
     public float kineticFrictionVariable = 0.16f;
     public float airResistance = 0.8f;
     public bool isGrounded;
+
+    private Rigidbody rb;
     private void Awake()
     {
         //capsuleCollider = GetComponent<CapsuleCollider>();
         sphereCollider = GetComponent<SphereCollider>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -48,9 +51,9 @@ public class Controller3DKeybinds : MonoBehaviour
         PlayerInput();
         HitDetection();
         ApplyVelocity();
+        Rotate();
     }
 
-    
     private void PlayerInput()
     {
         playerInput = Vector3.ClampMagnitude(playerInput, 1);
@@ -187,9 +190,30 @@ public class Controller3DKeybinds : MonoBehaviour
 
     public void AxisXFunction(float input)
     {
-        playerInput += transform.right * input;
+        //transform.rotation *= Quaternion.AngleAxis(input, Vector3.up);
+        angularVelocity.y += input * rotationSpeed * Time.deltaTime;
+        if (Mathf.Abs(angularVelocity.y) < 0.1f)
+            angularVelocity.y = 0;
+        if (angularVelocity.y > maxRotationSpeed)
+            angularVelocity.y = maxRotationSpeed;
+        if (angularVelocity.y < -maxRotationSpeed)
+            angularVelocity.y = -maxRotationSpeed;
+
+        transform.rotation *= Quaternion.AngleAxis(angularVelocity.y * 0.5f, Vector3.up);
     }
 
+    private void Rotate()
+    { 
+        angularVelocity -= angularVelocity.normalized * angularDrag * Time.deltaTime;
+    }
+    [SerializeField]
+    private Vector3 angularVelocity = Vector3.zero;
+    [SerializeField]
+    private float rotationSpeed = 10;
+    [SerializeField]
+    private float angularDrag = 3;
+    [SerializeField]
+    private float maxRotationSpeed = 2;
     [SerializeField]
     private float boostCooldown = 5;
     public bool isBoostReady = true;
