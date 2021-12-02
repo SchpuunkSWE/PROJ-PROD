@@ -6,19 +6,22 @@ public class Moray_Trigger : MonoBehaviour
 {
     private Moray moray;
     private Controller3DKeybinds player;
+    private Transform lungePoint;
     private bool lunging = false;
     private bool chasing = false;
+    private float waitTime = 1f;
 
     private void Awake()
     {
         moray = GetComponentInChildren<Moray>();
+        lungePoint = GetComponentInChildren<Transform>();
     }
 
     private void Update()
     {
         if (lunging)
         {
-            moray.LungeAttack(player.gameObject);
+            moray.Lunge(lungePoint.gameObject);
         }
 
         if (chasing)
@@ -42,14 +45,11 @@ public class Moray_Trigger : MonoBehaviour
         //Pause before chasing
         StartCoroutine(WaitBeforeChase());
 
-        //Debug.Log("Lunging = " + lunging.ToString());
-        //Debug.Log("Chaseing = " + chasing.ToString());
     }
 
     private IEnumerator WaitBeforeChase()
     {
-        Debug.Log("Waiting 5 secs");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(waitTime);
         chasing = true;
     }
 }
