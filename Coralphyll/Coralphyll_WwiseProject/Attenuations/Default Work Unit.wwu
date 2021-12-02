@@ -3,9 +3,9 @@
 	<Attenuations>
 		<WorkUnit Name="Default Work Unit" ID="{F3BBA799-FABE-48A8-97CC-1297279114C7}" PersistMode="Standalone">
 			<ChildrenList>
-				<Attenuation Name="att_generic_25m" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" ShortID="1022813749">
+				<Attenuation Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" ShortID="1022813749">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="25"/>
+						<Property Name="RadiusMax" Type="Real64" Value="40"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -17,21 +17,26 @@
 									<PointList>
 										<Point>
 											<XPos>0</XPos>
-											<YPos>0</YPos>
+											<YPos>-3.5</YPos>
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>5.02577</XPos>
-											<YPos>0</YPos>
+											<XPos>6.41756</XPos>
+											<YPos>-3.5</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>14.94845</XPos>
-											<YPos>-10.48748</YPos>
+											<XPos>13.26103</XPos>
+											<YPos>-6.27652</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>25</XPos>
+											<XPos>23.25493</XPos>
+											<YPos>-9.3622</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>40</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -58,12 +63,12 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>15.0451</XPos>
+											<XPos>24.07216</XPos>
 											<YPos>62</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>25</XPos>
+											<XPos>40</XPos>
 											<YPos>62</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -87,17 +92,17 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>6.47552</XPos>
+											<XPos>10.360832</XPos>
 											<YPos>49.48454</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>12.44845</XPos>
+											<XPos>19.91752</XPos>
 											<YPos>0.51546</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>25</XPos>
+											<XPos>40</XPos>
 											<YPos>0</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -210,12 +215,119 @@
 										</Point>
 										<Point>
 											<XPos>5.044775</XPos>
-											<YPos>-0</YPos>
+											<YPos>0</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
 											<XPos>15</XPos>
-											<YPos>-0</YPos>
+											<YPos>0</YPos>
+											<Flags>37</Flags>
+										</Point>
+									</PointList>
+								</Curve>
+							</CurveUsageInfo>
+						</SpreadUsage>
+						<FocusUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+						</FocusUsage>
+					</CurveUsageInfoList>
+				</Attenuation>
+				<Attenuation Name="att_enemy_70m" ID="{96AAFF3B-D233-4F85-B215-83CD8BDE0D9E}" ShortID="19676155">
+					<PropertyList>
+						<Property Name="RadiusMax" Type="Real64" Value="70"/>
+					</PropertyList>
+					<CurveUsageInfoList>
+						<VolumeDryUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+								<Curve Name="VolumeDry" ID="{E816D826-91A7-4C17-A8E6-AE96E10A0C02}">
+									<PropertyList>
+										<Property Name="Flags" Type="int32" Value="3"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>0</XPos>
+											<YPos>-2.3508</YPos>
+											<Flags>5</Flags>
+										</Point>
+										<Point>
+											<XPos>13.12176</XPos>
+											<YPos>-3.89465</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>58.3316</XPos>
+											<YPos>-9.41974</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>70</XPos>
+											<YPos>-200</YPos>
+											<Flags>37</Flags>
+										</Point>
+									</PointList>
+								</Curve>
+							</CurveUsageInfo>
+						</VolumeDryUsage>
+						<VolumeWetGameUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+						</VolumeWetGameUsage>
+						<VolumeWetUserUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+						</VolumeWetUserUsage>
+						<LowPassFilterUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+								<Curve Name="LowPassFilter" ID="{95F6DEFD-70DA-4CDF-96DF-199F550C9F83}">
+									<PropertyList>
+										<Property Name="Flags" Type="int32" Value="65537"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>0</XPos>
+											<YPos>0</YPos>
+											<Flags>5</Flags>
+										</Point>
+										<Point>
+											<XPos>42.12628</XPos>
+											<YPos>62</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>70</XPos>
+											<YPos>62</YPos>
+											<Flags>37</Flags>
+										</Point>
+									</PointList>
+								</Curve>
+							</CurveUsageInfo>
+						</LowPassFilterUsage>
+						<HighPassFilterUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+						</HighPassFilterUsage>
+						<SpreadUsage>
+							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+								<Curve Name="Spread" ID="{F4CF581B-D7E6-44AC-8939-BF2D86E22193}">
+									<PropertyList>
+										<Property Name="Flags" Type="int32" Value="1"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>0</XPos>
+											<YPos>49.48452</YPos>
+											<Flags>5</Flags>
+										</Point>
+										<Point>
+											<XPos>18.131456</XPos>
+											<YPos>49.48454</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>34.85566</XPos>
+											<YPos>0.51546</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>70</XPos>
+											<YPos>0</YPos>
 											<Flags>37</Flags>
 										</Point>
 									</PointList>
