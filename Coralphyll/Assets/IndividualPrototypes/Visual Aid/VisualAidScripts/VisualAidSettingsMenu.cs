@@ -10,7 +10,7 @@ public class VisualAidSettingsMenu : MonoBehaviour
     public Volume volume;
     //public bool overrideFog;
     //public Fog fog;
-    public DepthOfField dof;
+    //public DepthOfField dof;
     public LiftGammaGain lgg;
     private ColorAdjustments colorAdjustments;
     private Vector4 defaultGammaValue;
@@ -31,10 +31,10 @@ public class VisualAidSettingsMenu : MonoBehaviour
         }*/
 
         //get dof override
-        if(volumeProfile.TryGet<DepthOfField>(out DepthOfField actualDof))
+        /*if(volumeProfile.TryGet<DepthOfField>(out DepthOfField actualDof))
         {
             dof = actualDof;
-        }
+        }*/
 
         //get color adjustments
         if (volumeProfile.TryGet<ColorAdjustments>(out ColorAdjustments actualColorAdjustments))
@@ -77,7 +77,7 @@ public class VisualAidSettingsMenu : MonoBehaviour
         colorAdjustments.contrast.value = defaultContrastValue;
 
         //turn on depth of field
-        dof.active = true;
+        //dof.active = true;
     }
 
     public void SetBrightness (float currentValue)
@@ -117,10 +117,10 @@ public class VisualAidSettingsMenu : MonoBehaviour
         fog.enabled.value = isFog;
     }*/
 
-    public void SetDof (bool isDof)
+    /*public void SetDof (bool isDof)
     {
         dof.active = isDof; 
-    }
+    }*/
 
     public void SetHighContrastMode(bool isHighContrastMode)
     {

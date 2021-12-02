@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1809078484
 Transform:
   m_ObjectHideFlags: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 1945914769274498487}
   - component: {fileID: 1312148046}
   m_Layer: 0
-  m_Name: ExposureSlider
+  m_Name: BrightnessSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2835,7 +2835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056415385341021697}
   m_Layer: 0
-  m_Name: Exposure
+  m_Name: Brightness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2875,7 +2875,7 @@ GameObject:
   - component: {fileID: 9194750090648831730}
   - component: {fileID: 1977421290240516454}
   m_Layer: 0
-  m_Name: ExposureNumber
+  m_Name: BrightnessNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3204,7 +3204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000040400268}
+  m_AnchoredPosition: {x: 0, y: 0.00021664501}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4371256880235137164
@@ -4833,7 +4833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 0}
-  dof: {fileID: 0}
   lgg: {fileID: 0}
   brightnessSlider: {fileID: 1312148046}
   contrastSlider: {fileID: 5354008427867638298}
@@ -5987,7 +5986,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4371256880331547396}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.95843655
+  m_Size: 0.9520072
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7896,7 +7895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &682674642558270765
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9089,7 +9088,7 @@ GameObject:
   - component: {fileID: 9608743354572995}
   - component: {fileID: 2171601754233234220}
   m_Layer: 0
-  m_Name: ExposureLabel
+  m_Name: BrightnessLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9155,4 +9154,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exposure
+  m_Text: Brightness
