@@ -102,16 +102,4 @@ public class TrashPile : MonoBehaviour
         playerController.Speed = playerController.OGSpeed;
         playerController.MaxVelocityValue = playerController.OGMaxVelocityValue;
     }
-
-    //private void FloatAround()
-    //{
-    //    if (Vector3.Distance(transform.position, patrolPoint.position) < stoppingDistance)
-    //    {
-    //        patrolPoint = path.Next();
-    //        Debug.Log("Next path " + path.Next());
-    //    }
-    //    Debug.Log("Current patrolpoint " + patrolPoint);
-    //    transform.position = Vector3.MoveTowards(transform.position, patrolPoint.position, 2 * Time.deltaTime);
-    //    //RotateTowards(patrolPoint);
-    //}
 }
