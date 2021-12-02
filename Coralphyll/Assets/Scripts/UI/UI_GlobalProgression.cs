@@ -15,6 +15,13 @@ public class UI_GlobalProgression : MonoBehaviour
     public Slider c3Yellow;
     public Slider c3Red;
     public Slider c3Blue;
+    public GameObject coral1UI;
+    public GameObject coral2UI;
+    public GameObject coral3UI;
+    private Image coral1I;
+    private Image coral2I;
+    private Image coral3I;
+
     
     
     
@@ -36,10 +43,14 @@ public class UI_GlobalProgression : MonoBehaviour
     public void setGlobalProgression(int coralNr, int color, int fishAmount, int fishNeeded)
     {
         //witch coral does this work on
+        setCurrentCoral(coralNr);
+        Debug.Log("Set current coral");
+
     
                 switch(color) 
                 {
                     case 0:
+                    
 
                         changeYellowSlider (coralNr, fishAmount, fishNeeded);
                         
@@ -136,6 +147,57 @@ public class UI_GlobalProgression : MonoBehaviour
     }
 
     private void OpenCoralPanels(){
+
+    }
+
+    private void setCurrentCoral(int coralNr){
+         switch(coralNr) 
+            {
+            case 1:
+            coral1I = coral1UI.GetComponent<Image>();
+            coral1UI.GetComponent<Image>().color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
+            Debug.Log(coral1UI.GetComponent<Image>().color);
+            coral2I = coral2UI.GetComponent<Image>();
+            coral2UI.GetComponent<Image>().color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.5f);
+            Debug.Log(coral2UI);
+            coral3I = coral3UI.GetComponent<Image>();
+            coral3I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.5f);
+
+                break;
+            case 2:
+            coral1I = coral1UI.GetComponent<Image>();
+            coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.5f);
+            coral2I = coral2UI.GetComponent<Image>();
+            coral2I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
+            coral3I = coral3UI.GetComponent<Image>();
+            coral3I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.5f);
+                
+                
+                break;
+            case 3:
+            coral1I = coral1UI.GetComponent<Image>();
+            coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.5f);
+            coral2I = coral2UI.GetComponent<Image>();
+            coral2I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.5f);
+            coral3I = coral3UI.GetComponent<Image>();
+            coral3I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
+                
+                
+                break;
+            default:
+            setDefaultCoralImageColor();
+         
+                break;
+            }
+
+    }
+    public void setDefaultCoralImageColor(){
+        coral1I = coral1UI.GetComponent<Image>();
+        coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
+        coral2I = coral2UI.GetComponent<Image>();
+        coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
+        coral3I = coral3UI.GetComponent<Image>();
+        coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
 
     }
 }

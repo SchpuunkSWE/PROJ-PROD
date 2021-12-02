@@ -53,7 +53,7 @@ public class NPCFollow : MonoBehaviour
 
                 if (targetDistance >= allowedDistance)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed); //G�r s� att NPC r�r sig mot spelaren.
+                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed * Time.deltaTime); //G�r s� att NPC r�r sig mot spelaren.
                 }
             }
         }
@@ -76,21 +76,21 @@ public class NPCFollow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         follower = GetComponent<Follower>();
+        //BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>();
         if (other.CompareTag("Player") && follower.Collectable == true)
         {
             other.GetComponent<NPCFishUtil>().PickUpFish(other.gameObject, follower);
+            //boidsSystem.transform.DetachChildren();
         }
     }
 
-    //public void SetFollowSpeeed(float speed)
-    //{
-    //    followSpeed = speed;
-    //}
+    public void SetFollowSpeed(float speed)
+    {
+        followSpeed = speed;
+    }
 
-    //public float GetFollowSpeed()
-    //{
-    //    return followSpeed;
-    //}
-
-
+    public float GetFollowSpeed()
+    {
+        return followSpeed;
+    }
 }

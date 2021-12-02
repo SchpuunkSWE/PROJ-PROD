@@ -44,7 +44,7 @@ public class Coral : MonoBehaviour
     private ParticleSystem IncompletedParticles;
 
     [SerializeField]
-    private bool complete = false;
+    public bool complete = false;
 
     [SerializeField]
     private bool completable = false; //Set in inspector for Corals that can be completed.(Dont check for safezones)
@@ -75,6 +75,7 @@ public class Coral : MonoBehaviour
     {
         //SetUITexts();
     }
+
     private void SetUITexts()
     {
        // yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
@@ -141,6 +142,7 @@ public class Coral : MonoBehaviour
         if (completable && ((yellowFishesAmount >= yellowFishesNeeded) && (redFishesAmount >= redFishesNeeded) && (blueFishesAmount >= blueFishesNeeded)))
         {
             complete = true;
+            completable = false;
 
             //Set CheckPoint
             this.gameObject.transform.GetChild(1).gameObject.SetActive(true);

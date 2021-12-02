@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyPatrol : EnemyState
 {
     [SerializeField] private float chaseDistance;
-   // [SerializeField] private float hearingRange;
+    //[SerializeField] private float hearingRange;
     [SerializeField] private float stoppingDistance;
 
     private Transform patrolPoint;
@@ -37,6 +37,12 @@ public class EnemyPatrol : EnemyState
         {
             stateMachine.Transition<EnemyChase>();
         }
+
+        ////Molly Change
+        //if (AIController.IsDazed)
+        //{
+        //    stateMachine.Transition<EnemyDazed>();
+        //}
         
         /*if(DistanceToPlayer() < hearingRange)
         {

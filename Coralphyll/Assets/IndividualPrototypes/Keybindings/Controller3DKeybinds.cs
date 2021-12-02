@@ -68,7 +68,7 @@ public class Controller3DKeybinds : MonoBehaviour
     private void CalculateVelocity(Vector3 input)
     {
         velocity += input * speed * Time.deltaTime;
-        if (velocity.magnitude > maxVelocityValue)
+        if (velocity.magnitude > maxVelocityValue && boostComplete)
         {
             velocity = velocity.normalized * maxVelocityValue;
         }
@@ -171,37 +171,53 @@ public class Controller3DKeybinds : MonoBehaviour
         }
     }
 
-    public void SwimUpFunction()
-    {       
-        playerInput += transform.up;       
-    }
-    public void DiveFunction()
-    {    
-        playerInput += -transform.up;
+    public void AxisYFunction(float input)
+    {
+        playerInput += transform.up * input;
     }
 
     public void ResetMomentumFunction()
     {
         playerInput = Vector3.zero;
     }
-    public void ForwardFunction()
+    public void AxisZFunction(float input)
     {
-        playerInput += transform.forward;
+        playerInput += transform.forward * input;
     }
 
-    public void BackFunction()
+    public void AxisXFunction(float input)
     {
-        playerInput += -transform.forward;
+        playerInput += transform.right * input;
     }
 
-    public void RightFunction()
+    [SerializeField]
+    private float boostCooldown = 5;
+    public bool isBoostReady = true;
+    private bool boostComplete = true;
+    [SerializeField]
+    private float boostPower = 10;
+    [SerializeField]
+    private float boostDuration = 1;
+
+ 
+    public void StartBoost()
     {
-        playerInput += transform.right;
+        isBoostReady = false;
+        StartCoroutine(Boost());
     }
 
-    public void LeftFunction()
+    private IEnumerator Boost()
     {
-        playerInput += -transform.right;
-    }
+        float startTime = Time.time;
+        boostComplete = false;
+        while(Time.time < startTime + boostDuration)
+        {
+            velocity = (velocity.magnitude < 2f) ? maxVelocityValue * transform.forward * speed * boostPower * Time.deltaTime : velocity + transform.forward * boostPower * Time.deltaTime;
 
+            yield return null;
+        }
+        boostComplete = true;
+        yield return new WaitForSeconds(boostCooldown);
+        isBoostReady = true;        
+    }
 }

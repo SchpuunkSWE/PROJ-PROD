@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
+public class BoidsSystem : MonoBehaviour
 {
     [SerializeField] private GameObject agentPrefab;
     [SerializeField] private int numAgents = 10;
     [SerializeField] private float radius = 2;
     [SerializeField] private bool randomGoal;
     [SerializeField] private bool isOnCoral;
+    [SerializeField] private bool dontDelete;
+    [SerializeField] private bool isSpawnPoint;
 
     private bool noAgentsLeft = false;
 
@@ -16,10 +18,6 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
 
     public float Radius { get => radius; set => radius = value; }
 
-
-    //Molly Change
-    public string tag;
-    //End Molly Change
 
     private void Start()
     {
@@ -30,12 +28,15 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
             newAgent.GetComponent<BoidsAgent>().owner = this;
             agents.Add(newAgent);
         }
-        isOnCoral = transform.parent.GetComponentInChildren<Coral>() != null;
+        if (transform.parent != null)
+        {
+            isOnCoral = transform.parent.GetComponentInChildren<Coral>() != null;
+        }
     }
 
     //Object pooling for instantiating fish during runtime?
     private void Update()
-    { 
+    {
         //Maybe if stationary boids should have small variation in goal i could add this instead of center of system
         if (randomGoal)
         {
@@ -49,8 +50,8 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
             GoalPosition = transform.position;
         }
 
-        CheckAgentsAmount();
-
+        //CheckAgentsAmount();
+        CheckBoidsSystem();
     }
 
     private void OnDrawGizmos()
@@ -76,10 +77,13 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
     //Molly change
     public void CheckAgentsAmount()
     {
-        if(agents.Count > numAgents && !isOnCoral)
+        if (agents.Count > numAgents && !isOnCoral)
         {
             agents.Clear();
 
+
+            //This potentially needs change now because of object pooling fishes?
+            //cuz it be trying to instantiate fish prefabs
             for (int i = 0; i < numAgents; i++)
             {
                 Vector3 pos = transform.position + Random.insideUnitSphere * radius;
@@ -90,14 +94,21 @@ public class BoidsSystem : MonoBehaviour, IPooledObject //Molly Change
         }
     }
 
-    public void SetNumAgents(int num)
+    public void IncreaseNumAgents(int num)
     {
-        numAgents = num;
+        numAgents += num;
     }
 
-    public void OnObjectSpawn()
+    public void CheckBoidsSystem()
     {
-
+        if(!isOnCoral && dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        {
+            gameObject.SetActive(false);
+            Debug.Log("Boids system inactive");
+        } else if (!isOnCoral && !dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        {
+            Destroy(gameObject);
+            Debug.Log("Boids system destroyed");
+        }
     }
-    //End Molly Change
 }
