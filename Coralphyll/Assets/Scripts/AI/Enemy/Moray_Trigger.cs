@@ -9,10 +9,17 @@ public class Moray_Trigger : MonoBehaviour
     private Transform lungePoint;
     private bool lunging = false;
     private bool chasing = false;
+    private bool canChase = false;
     private float waitTime = 1f;
 
+
+    public void SetCanChase(bool value)
+    {
+        canChase = value;
+    }
     private void Awake()
     {
+        canChase = false;
         moray = GetComponentInChildren<Moray>();
         lungePoint = GetComponentInChildren<Transform>();
     }
@@ -35,16 +42,18 @@ public class Moray_Trigger : MonoBehaviour
         {
             player = other.GetComponentInParent<Controller3DKeybinds>();
             lunging = true;
+            canChase = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         lunging = false;
-
-        //Pause before chasing
-        StartCoroutine(WaitBeforeChase());
-
+        if (canChase)
+        {
+            //Pause before chasing
+            StartCoroutine(WaitBeforeChase());
+        }
     }
 
     private IEnumerator WaitBeforeChase()

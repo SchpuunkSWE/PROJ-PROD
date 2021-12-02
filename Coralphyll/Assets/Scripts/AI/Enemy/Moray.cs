@@ -11,8 +11,10 @@ public class Moray : MonoBehaviour
     private float lairDistance = 0.2f;
     private bool ready = true;
     private Vector3 lairLocation; //Cache original location
+    private Moray_Trigger mt;
     void Start()
     {
+        mt = GetComponentInParent<Moray_Trigger>();
         //Set lair-location to be original spawn location
         lairLocation = transform.position;
     }
@@ -53,6 +55,7 @@ public class Moray : MonoBehaviour
             if (!InRange(target.transform.position, chaseDistance))
             {
                 ReturnToLair();
+                mt.SetCanChase(false);
             }
         }
         else
