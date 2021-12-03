@@ -103,7 +103,7 @@ public class ObjectPooler : MonoBehaviour
             poolDictionary[tag].Enqueue(objctToSpawn);
         }
         
-        Debug.Log("Amount in list: " + boidSystem.agents.Count);
+        //Debug.Log("Amount in list: " + boidSystem.agents.Count);
 
         boidSystem.IncreaseNumAgents(amountToSpawn);       
     }
