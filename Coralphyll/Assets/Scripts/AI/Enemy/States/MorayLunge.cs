@@ -1,3 +1,4 @@
+//Author: Molly Röle
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class MorayLunge : MorayState
 {
     [SerializeField]
     private float lungeSpeed = 50f;
+    private float allowedDistance = 0.5f;
+    private bool hasLunged = false;
     public override void Enter()
     {
         base.Enter();
@@ -15,16 +18,25 @@ public class MorayLunge : MorayState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        SetMorayPos(Vector3.MoveTowards(GetMorayPos().position, GetPlayerPos().position, lungeSpeed * Time.deltaTime));
-        //GetMorayPos().transform.LookAt(GetPlayerPos());
+        AIMorayController.UpdatePosition(GetLungePoint(), lungeSpeed);
+        hasLunged = Vector3.Distance(GetMorayPos().position, GetLungePoint()) <= allowedDistance;
     }
 
     public override void EvaluateTransitions()
     {
         base.EvaluateTransitions();
-        //Om träffat spelaren/ätit en fisk:
-            //Simma tillbaka till lair
-        //Om inte träffat spelaren/ätit en fisk:
-            //Stalk/följ efter en kort bit
+        //If finished lunging and close enough to player, attack
+        if(hasLunged)
+        {
+            if (Vector3.Distance(GetMorayPos().position, GetPlayerPos().position) <= attackDistance)
+            {
+                stateMachine.Transition<MorayAttack>();
+            }
+            //If not, start chasing
+            else
+            {
+                stateMachine.Transition<MorayChase>();
+            }
+        }
     }
 }

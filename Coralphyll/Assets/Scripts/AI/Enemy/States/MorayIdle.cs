@@ -1,3 +1,4 @@
+//Author: Molly Röle
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,18 +10,19 @@ public class MorayIdle : MorayState
     public override void Enter()
     {
         base.Enter();
+        AIMorayController.ResetRotation();
     }
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        GotLungeTarget(sightRange);
     }
 
     public override void EvaluateTransitions()
     {
         base.EvaluateTransitions();
-        //raycasta rakt fram från muränan, om något kommer emellan så byt till lunge state
+        
+        //If player is between moray and end of raycast, lunge
         if (GotLungeTarget(sightRange))
         {
             stateMachine.Transition<MorayLunge>();

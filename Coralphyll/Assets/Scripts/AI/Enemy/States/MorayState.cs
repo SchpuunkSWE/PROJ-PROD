@@ -1,3 +1,4 @@
+//Author: Molly Röle
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,49 +9,45 @@ public abstract class MorayState : State
     public AIMorayController AIMorayController => morayController = morayController != null ? morayController : (AIMorayController)owner;
 
     protected float baseSpeed = 2f;
-    private int playerLayer = 6;
+    protected float attackDistance = 1f;
+
     public override void Enter()
     {
         Debug.Log("ENTER: " + stateMachine.CurrentState + "   " + AIMorayController.transform.position);
     }
 
-    public override void HandleUpdate()
-    {
-
-    }
-
     protected Vector3 GetLungePoint()
     {
-        return morayController.LungePoint.position;
+        return AIMorayController.GetLungePoint().position;
     }
 
     protected Transform GetPlayerPos()
     {
-        return morayController.Player.transform;
+        return AIMorayController.GetPlayerObject().transform;
     }
 
     protected Transform GetMorayPos()
     {
-        return morayController.transform;
+        return AIMorayController.transform;
     }
 
     protected void SetMorayPos(Vector3 pos)
     {
-        morayController.transform.position = pos;
+        AIMorayController.transform.position = pos;
     }
 
     protected Vector3 GetLairPos()
     {
-        return morayController.LairLocation;
+        return AIMorayController.GetLairLocation();
     }
 
     protected bool GotLungeTarget(float distance)
     {
         RaycastHit objectHit;
-        Vector3 fwd = morayController.transform.TransformDirection(Vector3.forward);
-        Debug.DrawRay(morayController.transform.position, fwd * distance, Color.green);
+        Vector3 fwd = AIMorayController.transform.TransformDirection(Vector3.forward);
+        Debug.DrawRay(AIMorayController.transform.position, fwd * distance, Color.green);
         //return Physics.Raycast(morayController.transform.position, fwd, out objectHit, distance, playerLayer);
-        if(Physics.Raycast(morayController.transform.position, fwd, out objectHit, distance, playerLayer))
+        if(Physics.Raycast(morayController.transform.position, fwd, out objectHit, distance, AIMorayController.GetPlayerLayer()))
         {
             Debug.Log("Hit: " + objectHit.transform.gameObject.name);
             return true;
@@ -59,5 +56,10 @@ public abstract class MorayState : State
         {
             return false;
         }
+    }
+
+    public override void HandleUpdate()
+    {
+
     }
 }
