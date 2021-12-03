@@ -58,6 +58,7 @@ public class Audio_Events : MonoBehaviour
         {
             case "EnemyAlert":
                 AkSoundEngine.PostEvent("OneShot_EnemyAlert", gameObject);
+               // AkSoundEngine.PostEvent("SharkHuff", gameObject);
                 break;
             case "CoralCompleted":
                 AkSoundEngine.PostEvent("OneShot_CoralCompleted", gameObject);
@@ -65,6 +66,9 @@ public class Audio_Events : MonoBehaviour
             case "FishDropOff":
                 AkSoundEngine.PostEvent("NPC_DropOff", gameObject);
                 break;
+            case "FishEat":
+                AkSoundEngine.PostEvent("FishEat", gameObject);
+                    break;
             default:
                 break;
         }
@@ -130,7 +134,6 @@ public class Audio_Events : MonoBehaviour
         {
             AkSoundEngine.PostEvent("NPC_Friendly_Pickup", gameObject);
         }
-        fishes = tempFish;
         tempCoralFish2 = 0;
         for (int i = 0; i < corals.Length; i++)
         {
@@ -138,12 +141,16 @@ public class Audio_Events : MonoBehaviour
             tempCoralFish2 += corals[i].fishSlotsAvailable(FishColour.YELLOW);
             tempCoralFish2 += corals[i].fishSlotsAvailable(FishColour.RED);
         }
-
         if (tempCoralFish2 < tempCoralFish)
         {
             Debug.Log("2ND: Coral 2:" + tempCoralFish2 + " Coral 1:" + tempCoralFish);
             Audio_StingerCue("FishDropOff");
         }
+        if (tempFish < fishes && tempCoralFish2 == tempCoralFish)
+        {
+            AkSoundEngine.PostEvent("FishEat", gameObject);
+        }
+        fishes = tempFish;
         tempCoralFish = tempCoralFish2;
 
 
@@ -162,8 +169,8 @@ public class Audio_Events : MonoBehaviour
                     {
                         Audio_StingerCue("EnemyAlert");
                         Debug.Log("Incombat: CD: " + musicStateCD + " Time: " + time);
+                        Audio_LevelState("Combat");
                     }
-                    Audio_LevelState("Combat");
 
                     musicStateCD = time + 3f;
                     inCombat = true;
@@ -200,11 +207,13 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "Exploring":
+                AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
                 AkSoundEngine.SetState("Music_State", "Exploring");
                 currentLevelState = "Exploring";
                 break;
             case "Combat":
-                AkSoundEngine.SetState("Music_State", "Combat");
+                //   AkSoundEngine.SetState("Music_State", "Combat");
+                AkSoundEngine.PostEvent("MusicState_Combat", gameObject);
                 currentLevelState = "Combat";
                 break;
             case "Victory":
@@ -229,7 +238,6 @@ public class Audio_Events : MonoBehaviour
             case "StartGame":
                 if (AudioScene.Levels < 2)
                 {
-                    Debug.Log(AudioScene.Levels + "Hello");
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
