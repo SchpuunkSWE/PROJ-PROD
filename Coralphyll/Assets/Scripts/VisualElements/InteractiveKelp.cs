@@ -12,9 +12,18 @@ public class InteractiveKelp : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("writeToMaterial");
+        //StartCoroutine("writeToMaterial");
     }
 
+    void Update()
+    {
+        playerPosition = player.transform.position;
+        for (int i = 0; i < materials.Length; i++)
+        {
+            materials[i].SetVector("_position", playerPosition);
+        }
+    }
+    /*
     IEnumerator writeToMaterial()
     {
         while (true)
@@ -26,5 +35,5 @@ public class InteractiveKelp : MonoBehaviour
 
             yield return null;
         }
-    }
+    }*/
 }
