@@ -15,9 +15,12 @@ namespace AK
     {
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
+        static const AkUniqueID CHAR_DASH = 667507884U;
         static const AkUniqueID FISHEAT = 2968903799U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
+        static const AkUniqueID GARBAGE_PLAY = 143285903U;
+        static const AkUniqueID GARBAGE_STOP = 2902390157U;
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;

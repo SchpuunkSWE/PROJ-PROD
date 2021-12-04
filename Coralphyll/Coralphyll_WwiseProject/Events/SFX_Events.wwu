@@ -321,6 +321,35 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Hazards" ID="{20390DF7-0810-4E36-BC9A-DAA0FCA1CEE0}" ShortID="6209399">
+					<ChildrenList>
+						<Event Name="Garbage_Play" ID="{148C8B25-2B6E-4573-826E-CB54125C3F2C}">
+							<ChildrenList>
+								<Action Name="" ID="{6D724474-5005-4434-9454-161A3A47F476}" ShortID="115617184">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Garbage_Stop" ID="{F95D3402-D2C1-4283-9FB3-093A4B3C62DF}">
+							<ChildrenList>
+								<Action Name="" ID="{881923C1-5CA6-4F62-8453-AE307F416DAB}" ShortID="758791380">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

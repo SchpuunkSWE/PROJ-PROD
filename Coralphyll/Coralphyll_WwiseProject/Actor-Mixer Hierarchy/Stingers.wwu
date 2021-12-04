@@ -373,6 +373,102 @@
 						<ActiveSource Name="SharkHuff" ID="{5266DF33-2624-4553-80B7-F250F451F71F}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="Dash" ID="{B7287A67-B4EF-4BB4-9228-B29F48BC6137}" ShortID="911224495">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>330</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{CF9DBB26-0F70-4BD6-8BC6-DAFFAFD1ED79}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Min" Type="Real64" Value="-200"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Dashdash" ID="{119E9CCE-782A-47DF-856D-1D4A574ED47D}">
+							<Language>SFX</Language>
+							<AudioFile>Dashdash.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="235590326"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Dashdash" ID="{119E9CCE-782A-47DF-856D-1D4A574ED47D}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" ShortID="934664046">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="MakeUpGain" Type="Real64">
+							<ValueList>
+								<Value>10</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-2000</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="att_shark" ID="{EFABFC98-57D9-418A-97CC-D6BE14446174}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="blubblub" ID="{CCE5E83A-5BA8-416C-8729-0918951F0532}">
+							<PropertyList>
+								<Property Name="CrossfadeDuration" Type="Real64" Value="1087.326"/>
+								<Property Name="CrossfadeShape" Type="int16" Value="3"/>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.876450909090916"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.688640000000003"/>
+								<Property Name="LoopBegin" Type="Real64" Value="7.76285090909091"/>
+								<Property Name="LoopEnd" Type="Real64" Value="42.3200581818182"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="6.82379636363637"/>
+								<Property Name="TrimEnd" Type="Real64" Value="43.1339054545455"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>blubblub.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="429926201"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="blubblub" ID="{CCE5E83A-5BA8-416C-8729-0918951F0532}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

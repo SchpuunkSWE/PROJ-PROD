@@ -109,7 +109,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2777202292">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2576586837">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -131,6 +131,14 @@
 						<File Id="256295936" Language="SFX">
 							<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
 							<Path>SFX\Ambience 5 - SFX Producer_403B8FF9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="667507884" Name="Char_Dash" ObjectPath="\Events\Default Work Unit\character_movement\Char_Dash" DurationType="OneShot" DurationMin="1.939403" DurationMax="2.176907">
+					<IncludedMemoryFiles>
+						<File Id="235590326" Language="SFX">
+							<ShortName>Dashdash.wav</ShortName>
+							<Path>SFX\Dashdash_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -158,6 +166,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="143285903" Name="Garbage_Play" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Garbage_Play" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="429926201" Language="SFX">
+							<ShortName>blubblub.wav</ShortName>
+							<Path>SFX\blubblub_9DF73B11.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2902390157" Name="Garbage_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Garbage_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" DurationType="OneShot" DurationMin="126.150002" DurationMax="126.150002"/>
 				<Event Id="815172640" Name="MusicState_Exploring" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
@@ -358,6 +375,10 @@
 					<ShortName>FishEat_1.wav</ShortName>
 					<Path>SFX\FishEat_1_10C4C929.wem</Path>
 				</File>
+				<File Id="235590326" Language="SFX">
+					<ShortName>Dashdash.wav</ShortName>
+					<Path>SFX\Dashdash_10C4C929.wem</Path>
+				</File>
 				<File Id="256295936" Language="SFX">
 					<ShortName>Ambience 5 - SFX Producer.wav</ShortName>
 					<Path>SFX\Ambience 5 - SFX Producer_403B8FF9.wem</Path>
@@ -373,6 +394,10 @@
 				<File Id="402119525" Language="SFX">
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
 					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
+				</File>
+				<File Id="429926201" Language="SFX">
+					<ShortName>blubblub.wav</ShortName>
+					<Path>SFX\blubblub_9DF73B11.wem</Path>
 				</File>
 				<File Id="460680903" Language="SFX">
 					<ShortName>HitReverb_enemySound_maybe.wav</ShortName>
