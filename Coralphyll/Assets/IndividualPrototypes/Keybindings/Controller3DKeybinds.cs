@@ -193,7 +193,8 @@ public class Controller3DKeybinds : MonoBehaviour
 
     public void AxisXFunction(float input)
     {
-        transform.rotation *= Quaternion.AngleAxis(input, Vector3.up);
+        playerInput += transform.right * input;
+        //transform.rotation *= Quaternion.AngleAxis(input, Vector3.up);
         //angularVelocity.y += input * rotationSpeed * Time.deltaTime;
         //if (Mathf.Abs(angularVelocity.y) < 0.1f)
         //    angularVelocity.y = 0;
@@ -218,13 +219,13 @@ public class Controller3DKeybinds : MonoBehaviour
     [SerializeField]
     private float maxRotationSpeed = 2;
     [SerializeField]
-    private float boostCooldown = 5;
+    private float boostCooldown = 4;
     public bool isBoostReady = true;
     private bool boostComplete = true;
     [SerializeField]
-    private float boostPower = 10;
+    private float boostPower = 15;
     [SerializeField]
-    private float boostDuration = 1;
+    private float boostDuration = 2;
     [SerializeField]
     private float maxBoostSpeed = 50f;
 
@@ -240,10 +241,13 @@ public class Controller3DKeybinds : MonoBehaviour
         float startTime = Time.time;
         boostComplete = false;
         AkSoundEngine.PostEvent("Char_Dash", gameObject);
+
         while (Time.time < startTime + boostDuration)
         {
-            if(velocity.magnitude < maxBoostSpeed)
-             velocity = velocity + transform.forward * boostPower * Time.deltaTime;
+            if (velocity.magnitude < maxBoostSpeed)
+            {
+                velocity += transform.forward * speed * boostPower * Time.deltaTime;
+            }
             yield return null;
         }
         boostComplete = true;
