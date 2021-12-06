@@ -18,6 +18,7 @@ public class NPCFollow : MonoBehaviour
 
     private RaycastHit shot;
     public bool isFollowingPlayer = false;
+    private Controller3DKeybinds playerControllerScript;
 
     //[SerializeField]
     //private bool collectable = true;
@@ -46,6 +47,9 @@ public class NPCFollow : MonoBehaviour
             Vector3 direction = (fishTarget.transform.position + fishTarget.transform.TransformDirection(Vector3.forward)) - transform.position; //Räknar ut vart NPC ska titta.
             
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 10f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
+
+            if(playerControllerScript.velocity.magnitude >= 0.1f)
+                followSpeed = playerControllerScript.velocity.magnitude - 0.1f;
 
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out shot))
             {
@@ -80,6 +84,7 @@ public class NPCFollow : MonoBehaviour
         if (other.CompareTag("Player") && follower.Collectable == true)
         {
             other.GetComponent<NPCFishUtil>().PickUpFish(other.gameObject, follower);
+            playerControllerScript = fishTarget.transform.parent.transform.parent.GetComponent<Controller3DKeybinds>();
             //boidsSystem.transform.DetachChildren();
         }
     }
