@@ -7,6 +7,7 @@ public class EnemyAttack : EnemyState
     [SerializeField] private float chaseDistance;
     [SerializeField] private float cooldown;
     [SerializeField] private float attackDistance;
+    [SerializeField] private float fishPerBite;
 
     private float currentCooldown;
     private bool attacking;
@@ -55,7 +56,8 @@ public class EnemyAttack : EnemyState
         var fishes = fishUtil.getListOfFishes();
         if (fishes.Count > 0)
         {
-            fishUtil.KillFish();
+            for (int i = 0; i < fishPerBite; i++)           
+                fishUtil.KillFish(); 
         }
         else
         {

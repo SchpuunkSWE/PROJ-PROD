@@ -97,13 +97,13 @@ public class CameraController : MonoBehaviour
                 var angle = transform.localEulerAngles.x;
 
                 //Clamp the Up/Down rotation
-                if (angle > 180 && angle < 330)
+                if (angle > 180 && angle < 280)
                 {
-                    angles.x = 330;
+                    angles.x = 280;
                 }
-                else if (angle < 180 && angle > 30)
+                else if (angle < 180 && angle > 60)
                 {
-                    angles.x = 30;
+                    angles.x = 60;
                 }
 
                 //Vector3 vertical = new Vector3(angles.x, 0, 0);
@@ -111,8 +111,9 @@ public class CameraController : MonoBehaviour
                 #endregion
 
                 //Rotate player horizontally based upon mouse input and rotationpower(sensitivity)
-                transform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower, Vector3.up);
-
+                float rotationMagic = (followTransform.eulerAngles.x > 180) ? (followTransform.eulerAngles.x / 450) : 1 - (followTransform.eulerAngles.x / 100);
+                transform.rotation *= Quaternion.AngleAxis(lookInput.x * rotationPower * rotationMagic, Vector3.up);
+                
                 originalLookDirection.localEulerAngles = transform.localEulerAngles;
                 //reset the y rotation of the look transform
                 //followTransform.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
@@ -128,15 +129,11 @@ public class CameraController : MonoBehaviour
             if (vcamFollower.CameraDistance < 4f)
                 vcamFollower.CameraDistance = 4f;
         }
-            if (Time.timeScale == 0)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.lockState = CursorLockMode.Confined;
-
+        if (Time.timeScale == 0)
+            {
             if (Input.GetMouseButton(0))
             {
-                //Cursor.lockState = CursorLockMode.None;
-                //Cursor.lockState = CursorLockMode.Confined;
+                Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
             }
         }

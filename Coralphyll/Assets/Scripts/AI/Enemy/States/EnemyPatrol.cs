@@ -6,8 +6,9 @@ using UnityEngine;
 public class EnemyPatrol : EnemyState
 {
     [SerializeField] private float chaseDistance;
-    //[SerializeField] private float hearingRange;
+    [SerializeField] private float smellingRange = 3f;
     [SerializeField] private float stoppingDistance;
+
 
     private Transform patrolPoint;
 
@@ -33,10 +34,11 @@ public class EnemyPatrol : EnemyState
     public override void EvaluateTransitions()
     {
         base.EvaluateTransitions();
-        if (CanSeePlayer() && DistanceToPlayer() < chaseDistance && AIController.CanFollowPlayer)
+        if (CanSeePlayer() || DistanceToPlayer() < smellingRange) { 
+        if (DistanceToPlayer() < chaseDistance && AIController.CanFollowPlayer)
         {
             stateMachine.Transition<EnemyChase>();
-        }
+        } }
 
         ////Molly Change
         //if (AIController.IsDazed)
