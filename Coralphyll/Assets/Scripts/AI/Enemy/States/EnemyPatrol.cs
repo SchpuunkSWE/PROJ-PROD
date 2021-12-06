@@ -35,15 +35,17 @@ public class EnemyPatrol : EnemyState
     {
         base.EvaluateTransitions();
 
-        if (DistanceToPlayer() < smellingRange)
+        if (AIController.CanFollowPlayer)
         {
-            stateMachine.Transition<EnemyChase>();
+            if (DistanceToPlayer() < smellingRange)
+            {
+                stateMachine.Transition<EnemyChase>();
+            }
+            else if (CanSeePlayer() && DistanceToPlayer() < chaseDistance)
+            {
+                stateMachine.Transition<EnemyChase>();
+            }
         }
-        else if (CanSeePlayer() && DistanceToPlayer() < chaseDistance && AIController.CanFollowPlayer)
-        {
-            stateMachine.Transition<EnemyChase>();
-        }
-
         ////Molly Change
         //if (AIController.IsDazed)
         //{
