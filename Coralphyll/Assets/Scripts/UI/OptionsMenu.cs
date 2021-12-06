@@ -13,6 +13,8 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
       //tabGroup.OnTabSelected(startButton);
+      Cursor.lockState = CursorLockMode.None;
+      Cursor.lockState = CursorLockMode.Confined;
 
         
     }
