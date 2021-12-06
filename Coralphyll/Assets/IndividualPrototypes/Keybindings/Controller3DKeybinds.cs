@@ -239,11 +239,11 @@ public class Controller3DKeybinds : MonoBehaviour
     {
         float startTime = Time.time;
         boostComplete = false;
-        while(Time.time < startTime + boostDuration)
+        AkSoundEngine.PostEvent("Char_Dash", gameObject);
+        while (Time.time < startTime + boostDuration)
         {
             if(velocity.magnitude < maxBoostSpeed)
              velocity = velocity + transform.forward * boostPower * Time.deltaTime;
-
             yield return null;
         }
         boostComplete = true;

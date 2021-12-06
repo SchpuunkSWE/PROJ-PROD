@@ -13,10 +13,10 @@ public class WwAudioEmitter : MonoBehaviour
     {
         //  AkSoundEngine.StopPlayingID
         AkSoundEngine.RegisterGameObj(this.gameObject);
-        if (emitterType == "EnemyEel")
+       /* if (emitterType == "EnemyEel")
         {
             AkSoundEngine.PostEvent(EventName, this.gameObject);
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)

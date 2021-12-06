@@ -131,10 +131,12 @@ public class CameraController : MonoBehaviour
         }
         if (Time.timeScale == 0)
             {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
             if (Input.GetMouseButton(0))
             {
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
+               // Cursor.lockState = CursorLockMode.Confined;
+              //  Cursor.visible = true;
             }
         }
         else
