@@ -4,7 +4,7 @@ public class BoidsAgent : MonoBehaviour
 {
     public BoidsSystem owner;
 
-    [SerializeField] private float speed = 1f;
+    [SerializeField] private float speed = 0.001f;
     [SerializeField] private float rotationSpeed = 4.0f;
 
     [SerializeField] private float maxNeighbourDistance = 3.0f; //Social Distancing (Separation)
@@ -26,7 +26,7 @@ public class BoidsAgent : MonoBehaviour
         {
             Vector3 direction = owner.transform.position - transform.position;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-            speed = Random.Range(0.5f, 1);
+            speed = (Vector3.Distance(transform.position, owner.transform.position) >= owner.Radius * 1.1f) ?  10 : Random.Range(0.5f, 1);
         }
         else
         {

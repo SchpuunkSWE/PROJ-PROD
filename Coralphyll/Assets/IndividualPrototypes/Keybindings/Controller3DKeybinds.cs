@@ -73,7 +73,7 @@ public class Controller3DKeybinds : MonoBehaviour
         if (velocity.magnitude < maxVelocityValue)
             velocity += input * speed * Time.deltaTime;
         else
-            velocity = input * velocity.magnitude;
+            velocity = (velocity + input).normalized * velocity.magnitude;
         if (velocity.magnitude > maxVelocityValue && boostComplete)
         {
            DecelerateVelocity();
@@ -223,11 +223,11 @@ public class Controller3DKeybinds : MonoBehaviour
     public bool isBoostReady = true;
     private bool boostComplete = true;
     [SerializeField]
-    private float boostPower = 15;
+    private float boostPower = 5;
     [SerializeField]
-    private float boostDuration = 2;
+    private float boostDuration = 1.5f;
     [SerializeField]
-    private float maxBoostSpeed = 50f;
+    private float maxBoostSpeed = 40f;
 
  
     public void StartBoost()
