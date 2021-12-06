@@ -12,6 +12,7 @@ public class EnemyChase : EnemyState
 
     [SerializeField] private float attackDistance;
     [SerializeField] private float lostTargetDistance;
+    [SerializeField] private float smellingRange= 2f; //how close the enemy can be and feel the player even if they cant see them
 
     public override void Enter()
     {
@@ -37,7 +38,7 @@ public class EnemyChase : EnemyState
         //{
         //    stateMachine.Transition<EnemyDazed>();
         //}CULPRIT
-        if (!CanSeePlayer() || AIController.CanFollowPlayer == false)
+        if (!CanSeePlayer() && DistanceToPlayer() > smellingRange || AIController.CanFollowPlayer == false)
         {
             stateMachine.Transition<EnemyPatrol>();
         }
