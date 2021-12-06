@@ -48,8 +48,8 @@ public class NPCFollow : MonoBehaviour
             
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 10f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
 
-            if(playerControllerScript.velocity.magnitude >= 0.1f)
-                followSpeed = playerControllerScript.velocity.magnitude - 0.1f;
+
+            followSpeed = (playerControllerScript.velocity.magnitude >= 0.1f) ? playerControllerScript.velocity.magnitude - 0.1f : 5f;
 
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out shot))
             {
