@@ -4,7 +4,7 @@ public class BoidsAgent : MonoBehaviour
 {
     public BoidsSystem owner;
 
-    [SerializeField] private float speed = 0.001f;
+    [SerializeField] private float speed = 1f;
     [SerializeField] private float rotationSpeed = 4.0f;
 
     [SerializeField] private float maxNeighbourDistance = 3.0f; //Social Distancing (Separation)

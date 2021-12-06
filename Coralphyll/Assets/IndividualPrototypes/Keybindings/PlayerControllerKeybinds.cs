@@ -31,7 +31,7 @@ public class PlayerControllerKeybinds : MonoBehaviour
         if (inputManager.GetKeyUp(KeybindingActions.SwimUp) || inputManager.GetKeyUp(KeybindingActions.SwimDown)
         || inputManager.GetKeyUp(KeybindingActions.Forward) || inputManager.GetKeyUp(KeybindingActions.Back) ||
        inputManager.GetKeyUp(KeybindingActions.Right) || inputManager.GetKeyUp(KeybindingActions.Left)
-       || Input.GetAxisRaw("Vertical") <= 0.01f && Input.GetAxisRaw("Vertical") >= -0.01f || Input.GetAxisRaw("Horizontal") >= -0.01f && Input.GetAxisRaw("Horizontal") <= 0.01f)
+       || Mathf.Abs(Input.GetAxisRaw("Vertical")) <= 0.01f || Mathf.Abs(Input.GetAxisRaw("Horizontal")) <= 0.01f)
         {
             PlayerResetMomentum();
         }

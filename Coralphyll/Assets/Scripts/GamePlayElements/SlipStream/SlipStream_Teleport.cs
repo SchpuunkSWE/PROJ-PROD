@@ -57,22 +57,24 @@ public class SlipStream_Teleport : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //TODO: Do I even need lines 63-70?
-        float oldSpeed = player.OGSpeed;
-        float oldVelocity = player.OGMaxVelocityValue;
-        player = other.GetComponentInParent<Controller3DKeybinds>();
         if (other.CompareTag("Player"))
         {
-            player.Speed = oldSpeed; //sets the speed to the usual speed
+            //TODO: Do I even need lines 63-70?
+            float oldSpeed = player.OGSpeed;
+            float oldVelocity = player.OGMaxVelocityValue;
+            player = other.GetComponentInParent<Controller3DKeybinds>();
+        
+            player.Speed = newPlayerSpeed; //sets the speed to the usual speed
+            player.velocity = player.velocity.normalized * newPlayerSpeed;
             player.MaxVelocityValue = oldVelocity; //sets maxVelocity to the usual maxVelocity.
-        }
 
-        //Reset follower fish speed
-        foreach (Follower fish in player.gameObject.GetComponent<NPCFishUtil>().getListOfFishes())
-        {
-            fish.gameObject.GetComponent<NPCFollow>().SetFollowSpeed(originalFishSpeed);
-        }
+            //Reset follower fish speed
+            foreach (Follower fish in player.gameObject.GetComponent<NPCFishUtil>().getListOfFishes())
+            {
+                fish.gameObject.GetComponent<NPCFollow>().SetFollowSpeed(originalFishSpeed);
+            }
 
-        inStream = false;
+            inStream = false;
+        }
     }
 }
