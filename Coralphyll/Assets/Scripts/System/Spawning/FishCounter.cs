@@ -161,6 +161,11 @@ public class FishCounter : MonoBehaviour
         return i;
     }
 
+    public void AddSchool(BoidsSystem boidsSystem)
+    {
+        fishSchoolsInScene.Add(boidsSystem.gameObject);
+    }
+
     public void RemoveSchool(BoidsSystem boidsSystem)
     {
         fishSchoolsInScene.Remove(boidsSystem.gameObject);

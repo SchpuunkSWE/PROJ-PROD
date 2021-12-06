@@ -70,10 +70,13 @@ public class Controller3DKeybinds : MonoBehaviour
     #region Velocity
     private void CalculateVelocity(Vector3 input)
     {
-        velocity += input * speed * Time.deltaTime;
+        if (velocity.magnitude < maxVelocityValue)
+            velocity += input * speed * Time.deltaTime;
+        else
+            velocity = input * velocity.magnitude;
         if (velocity.magnitude > maxVelocityValue && boostComplete)
         {
-            velocity = velocity.normalized * maxVelocityValue;
+           DecelerateVelocity();
         }
     }
 
@@ -190,16 +193,16 @@ public class Controller3DKeybinds : MonoBehaviour
 
     public void AxisXFunction(float input)
     {
-        //transform.rotation *= Quaternion.AngleAxis(input, Vector3.up);
-        angularVelocity.y += input * rotationSpeed * Time.deltaTime;
-        if (Mathf.Abs(angularVelocity.y) < 0.1f)
-            angularVelocity.y = 0;
-        if (angularVelocity.y > maxRotationSpeed)
-            angularVelocity.y = maxRotationSpeed;
-        if (angularVelocity.y < -maxRotationSpeed)
-            angularVelocity.y = -maxRotationSpeed;
+        transform.rotation *= Quaternion.AngleAxis(input, Vector3.up);
+        //angularVelocity.y += input * rotationSpeed * Time.deltaTime;
+        //if (Mathf.Abs(angularVelocity.y) < 0.1f)
+        //    angularVelocity.y = 0;
+        //if (angularVelocity.y > maxRotationSpeed)
+        //    angularVelocity.y = maxRotationSpeed;
+        //if (angularVelocity.y < -maxRotationSpeed)
+        //    angularVelocity.y = -maxRotationSpeed;
 
-        transform.rotation *= Quaternion.AngleAxis(angularVelocity.y * 0.5f, Vector3.up);
+        //transform.rotation *= Quaternion.AngleAxis(angularVelocity.y * 0.5f, Vector3.up);
     }
 
     private void Rotate()
@@ -222,6 +225,8 @@ public class Controller3DKeybinds : MonoBehaviour
     private float boostPower = 10;
     [SerializeField]
     private float boostDuration = 1;
+    [SerializeField]
+    private float maxBoostSpeed = 50f;
 
  
     public void StartBoost()
@@ -236,7 +241,8 @@ public class Controller3DKeybinds : MonoBehaviour
         boostComplete = false;
         while(Time.time < startTime + boostDuration)
         {
-            velocity = (velocity.magnitude < 2f) ? maxVelocityValue * transform.forward * speed * boostPower * Time.deltaTime : velocity + transform.forward * boostPower * Time.deltaTime;
+            if(velocity.magnitude < maxBoostSpeed)
+             velocity = velocity + transform.forward * boostPower * Time.deltaTime;
 
             yield return null;
         }

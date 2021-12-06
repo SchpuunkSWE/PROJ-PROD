@@ -200,6 +200,7 @@ public class NPCFishUtil : MonoBehaviour
         {
             var newBoidsSystem = Instantiate(boidsSystemPrefab, transform.position, Quaternion.identity);
             BoidsSystem boidsSystem = newBoidsSystem.GetComponent<BoidsSystem>();
+            FishCounter.fishCounterInstance.AddSchool(boidsSystem);
 
             foreach (Follower f in listOfFishes)
             {
