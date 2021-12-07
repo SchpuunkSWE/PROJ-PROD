@@ -18,13 +18,14 @@ public class NavigationArrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Transform target = GetClosestTarget(tagName);
+            Transform target = GetClosestTarget(tagName);
 
-        Vector3 direction = target.position - arrow.transform.position; //Räknar ut vart pil ska titta.
+            Vector3 direction = target.position - arrow.transform.position; //Räknar ut vart pil ska titta.
 
-        arrow.transform.rotation = Quaternion.Slerp(arrow.transform.rotation, Quaternion.LookRotation(direction), 5f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
-
-        MakeArrowTransparent(target);
+            arrow.transform.rotation = Quaternion.Slerp(arrow.transform.rotation, Quaternion.LookRotation(direction), 5f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
+            
+            ChangeArrowColour(target);
+            MakeArrowTransparent(target);        
     }
     public Transform GetClosestTarget(string targetTag)
     {
@@ -59,5 +60,38 @@ public class NavigationArrow : MonoBehaviour
         Debug.Log("alpha: " + alphaValue);
 
         rend.material.color = new Color(matColour.r, matColour.g, matColour.b, alphaValue);
+    }
+
+    private void ChangeArrowColour(Transform target)
+    { 
+        Renderer rendArrow = visualArrow.gameObject.GetComponent<Renderer>();
+
+        if(tagName == "NPCFish")
+        {
+            Follower fish = target.GetComponent<Follower>();
+            FishColour fishColour = fish.GetColour();
+
+            switch (fishColour)
+            {
+                case FishColour.YELLOW:
+                    rendArrow.material.color = Color.yellow;
+                    break;
+                case FishColour.RED:
+                    rendArrow.material.color = Color.red;
+                    break;
+                case FishColour.BLUE:
+                    rendArrow.material.color = Color.blue;
+                    break;
+                //default:
+                //    rendArrow.material.color = Color.white;
+                //    break;
+            }
+        }
+        else
+        {
+            rendArrow.material.color = Color.white;
+        }
+        //Renderer rendTarget = target.gameObject.GetComponentInChildren<Renderer>();
+        //rendArrow.material.color = rendTarget.material.color;
     }
 }
