@@ -7,8 +7,8 @@ public class SlipStream_Teleport : MonoBehaviour
     [SerializeField]
     private float newPlayerSpeed = 40;
 
-    [SerializeField]
-    private float newMaxVelocity = 50;
+    // [SerializeField]
+    // private float newMaxVelocity = 50;
 
     [SerializeField]
     private Transform goalPosition;

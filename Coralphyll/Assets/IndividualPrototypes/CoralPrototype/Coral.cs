@@ -16,20 +16,20 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private int blueFishesNeeded;
 
-    [SerializeField]
-    Text yellowFishesText;
-    [SerializeField]
-    Text redFishesText;
-    [SerializeField]
-    Text blueFishesText;
+    // [SerializeField]
+    // Text yellowFishesText;
+    // [SerializeField]
+    // Text redFishesText;
+    // [SerializeField]
+    // Text blueFishesText;
 
     private int yellowFishesAmount;
     private int redFishesAmount;
     private int blueFishesAmount;
 
-    private string yellowBaseTxt = "Yellow Fishes: ";
-    private string redBaseTxt = "Red Fishes: ";
-    private string blueBaseTxt = "Blue Fishes: ";
+    // private string yellowBaseTxt = "Yellow Fishes: ";
+    // private string redBaseTxt = "Red Fishes: ";
+    // private string blueBaseTxt = "Blue Fishes: ";
 
     private MeshRenderer mRenderer;
 

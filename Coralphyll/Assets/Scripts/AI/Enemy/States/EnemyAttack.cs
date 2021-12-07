@@ -56,7 +56,7 @@ public class EnemyAttack : EnemyState
         var fishes = fishUtil.getListOfFishes();
         if (fishes.Count > 0)
         {
-            for (int i = 0; i < fishPerBite; i++)           
+            for (int i = 0; i < Mathf.Min(fishPerBite,fishes.Count); i++)           
                 fishUtil.KillFish(); 
         }
         else
