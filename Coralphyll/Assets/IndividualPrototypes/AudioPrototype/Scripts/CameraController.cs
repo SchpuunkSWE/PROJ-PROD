@@ -133,6 +133,7 @@ public class CameraController : MonoBehaviour
             {
             Cursor.lockState = CursorLockMode.None;
             Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             if (Input.GetMouseButton(0))
             {
                // Cursor.lockState = CursorLockMode.Confined;
