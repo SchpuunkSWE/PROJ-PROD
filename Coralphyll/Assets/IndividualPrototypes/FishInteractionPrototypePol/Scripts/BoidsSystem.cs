@@ -11,7 +11,7 @@ public class BoidsSystem : MonoBehaviour
     [SerializeField] private bool dontDelete;
     [SerializeField] private bool isSpawnPoint;
 
-    private bool noAgentsLeft = false;
+    //private bool noAgentsLeft = false;
 
     public Vector3 GoalPosition { get; private set; }
     public List<GameObject> agents = new List<GameObject>();
@@ -108,6 +108,7 @@ public class BoidsSystem : MonoBehaviour
             Debug.Log("Boids system inactive");
         } else if (!isOnCoral && !dontDelete && !isSpawnPoint && transform.childCount <= 1)
         {
+            FishCounter.fishCounterInstance.RemoveSchool(this);
             Destroy(gameObject);
             Debug.Log("Boids system destroyed");
         }

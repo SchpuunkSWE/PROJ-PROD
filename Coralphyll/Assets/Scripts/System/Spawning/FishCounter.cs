@@ -89,6 +89,7 @@ public class FishCounter : MonoBehaviour
                     }
                 }
             }
+            
         }
 
         Debug.Log("Coral Needs: " + totalYellowCoralNeeds + ", " + totalRedCoralNeeds + ", " + totalBlueCoralNeeds);
