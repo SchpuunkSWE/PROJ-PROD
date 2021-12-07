@@ -108,6 +108,7 @@ public class BoidsSystem : MonoBehaviour
             Debug.Log("Boids system inactive");
         } else if (!isOnCoral && !dontDelete && !isSpawnPoint && transform.childCount <= 1)
         {
+            FishCounter.fishCounterInstance.RemoveSchool(this);
             Destroy(gameObject);
             Debug.Log("Boids system destroyed");
         }
