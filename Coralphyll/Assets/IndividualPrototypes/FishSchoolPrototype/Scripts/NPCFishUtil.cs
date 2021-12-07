@@ -196,7 +196,7 @@ public class NPCFishUtil : MonoBehaviour
             }
             foreach (Follower f in fishToRemove)
             {
-               NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
+                NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
                 listOfFishes.Remove(f); //Removes fishes from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
                 nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
@@ -205,7 +205,7 @@ public class NPCFishUtil : MonoBehaviour
                 f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
                 StartCoroutine(MakeFishCollectible(f));
                 Debug.Log("StartCoroutine KÖRD");
-            }    
+            }
             fishToRemove.Clear(); //Clear the fish to remove list.
 
         }
@@ -261,44 +261,24 @@ public class NPCFishUtil : MonoBehaviour
     }
     private void SelectNavArrowTarget()
     {
-        if(navArrow == null)
+        if (navArrow == null)
         {
             return;
         }
 
-        if (GameController.Instance.IslevelCompleted)
+        if (GameController.Instance.IslevelCompleted)// If the level is completed...
         {
-            navArrow.SetTargetTag("Exit");
+            navArrow.SetTargetTag("Exit"); //...Set the tag that the arrow should point at to Exit.
             return;
         }
 
         if (listOfFishes.Count < 1) // If the list contains less than 1 fish...
         {
-            navArrow.SetTargetTag("NPCFish"); //Set the tag that the arrow should point at to fish...
+            navArrow.SetTargetTag("NPCFish"); //...Set the tag that the arrow should point at to NPCFish.
             return;
         }
 
-        navArrow.SetTargetTag("Coral"); // Otherwise set it to coral
-
-        //if (navArrow != null)
-        //{
-        //    if (listOfFishes.Count < 1 && !GameController.Instance.IslevelCompleted) // If the list contains less than 1 fish...
-        //    {
-        //        navArrow.SetTargetTag("NPCFish"); //Set the tag that the arrow should point at to fish...
-
-        //    }else if (GameController.Instance.IslevelCompleted)
-        //    {
-        //        navArrow.SetTargetTag("Exit");
-        //    }
-        //    else
-        //    {
-        //        navArrow.SetTargetTag("Coral"); // Otherwise set it to coral
-        //    }
-        //}
-        //else if(navArrow != null && GameController.Instance.IslevelCompleted)
-        //{
-        //    navArrow.SetTargetTag("Exit");
-        //}
+        navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
     }
 }
 
