@@ -7,8 +7,8 @@ public class SlipStream_Teleport : MonoBehaviour
     [SerializeField]
     private float newPlayerSpeed = 40;
 
-    [SerializeField]
-    private float newMaxVelocity = 50;
+    // [SerializeField]
+    // private float newMaxVelocity = 50;
 
     [SerializeField]
     private Transform goalPosition;
@@ -35,11 +35,13 @@ public class SlipStream_Teleport : MonoBehaviour
 
             //Fetch original fish speed (I have to find a better way to do this? hehe)
             List<Follower> followers = player.gameObject.GetComponent<NPCFishUtil>().getListOfFishes();
-            Follower ogFish = followers[0];
-            originalFishSpeed = ogFish.gameObject.GetComponent<NPCFollow>().GetFollowSpeed();
-            
+            if(followers.Count > 0){
+                Follower ogFish = followers[0];
+                originalFishSpeed = ogFish.gameObject.GetComponent<NPCFollow>().GetFollowSpeed();
+            }
+
             //Increase speed of follower fishes as well so that they don't fall too far behind
-            foreach (Follower fish in player.gameObject.GetComponent<NPCFishUtil>().getListOfFishes())
+            foreach (Follower fish in followers)
             {
                 fish.gameObject.GetComponent<NPCFollow>().SetFollowSpeed(newFishSpeed);
             }

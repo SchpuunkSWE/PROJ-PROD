@@ -26,8 +26,8 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 targetPoint;
     private Vector3 heading;
 
-    private float newFishSpeed = 20f;
-    private float originalFishSpeed = 0f;
+    // private float newFishSpeed = 20f;
+    // private float originalFishSpeed = 0f;
 
     void Start()
     {
@@ -87,7 +87,7 @@ public class MovingPlatform : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Om man vill aktivera streamen i samband med att en korall spawnar "Spawnables",
-        //så skulle man kunna köra detta i Start() istället typ?
+        //sï¿½ skulle man kunna kï¿½ra detta i Start() istï¿½llet typ?
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.AddComponent<Rigidbody>();
