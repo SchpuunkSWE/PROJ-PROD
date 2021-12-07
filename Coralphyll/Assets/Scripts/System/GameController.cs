@@ -34,6 +34,10 @@ public class GameController : MonoBehaviour
 
     private bool runOnce = false; //Prevent LevelComplete() from running multiple times
 
+    [SerializeField]
+    private bool islevelCompleted = false;
+    public bool IslevelCompleted { get => islevelCompleted; }
+
     public void SetCompletedCoralAmount()
     {
         completedCoralAmount++;
@@ -46,6 +50,7 @@ public class GameController : MonoBehaviour
         if (completedCoralAmount >= totalCoralAmount)
         {
             LevelComplete();
+            islevelCompleted = true;
         }
     }
 
@@ -87,6 +92,7 @@ public class GameController : MonoBehaviour
         completedCoralAmount = 0;
         totalCoralAmount = CountCoralsInscene();
         runOnce = false;
+        islevelCompleted = false;
         Debug.Log("Total Amount of Corals In Scene: " + totalCoralAmount);
         Debug.Log("Completed Coral Amount: " + completedCoralAmount);
 
