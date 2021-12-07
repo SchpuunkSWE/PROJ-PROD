@@ -18,18 +18,21 @@ public class NavigationArrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            Transform target = GetClosestTarget(tagName);
+        Transform target = GetClosestTarget(tagName);
 
+        if (target != null)
+        {
             Vector3 direction = target.position - arrow.transform.position; //Räknar ut vart pil ska titta.
 
             arrow.transform.rotation = Quaternion.Slerp(arrow.transform.rotation, Quaternion.LookRotation(direction), 5f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
-            
+
             ChangeArrowColour(target);
-            MakeArrowTransparent(target);        
+            MakeArrowTransparent(target);
+        }
     }
     public Transform GetClosestTarget(string targetTag)
     {
-        GameObject[] arrayOfTargets = GameObject.FindGameObjectsWithTag(targetTag); 
+        GameObject[] arrayOfTargets = GameObject.FindGameObjectsWithTag(targetTag);
         Transform closestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
@@ -48,25 +51,25 @@ public class NavigationArrow : MonoBehaviour
 
     public void SetTargetTag(string s)
     {
-         tagName = s;
+        tagName = s;
     }
 
-    private void MakeArrowTransparent(Transform target) 
+    private void MakeArrowTransparent(Transform target)
     {
         Renderer rend = visualArrow.transform.GetComponent<Renderer>();
         Color matColour = rend.material.color;
         float dist = Vector3.Distance(arrow.transform.position, target.position);
-        float alphaValue = Mathf.Clamp(((dist * arrowTransparencyMult) - (arrowTransparencyMinRange * arrowTransparencyMult)) /100, 0f, 1f); //Calculates a transparency value between 0-1
+        float alphaValue = Mathf.Clamp(((dist * arrowTransparencyMult) - (arrowTransparencyMinRange * arrowTransparencyMult)) / 100, 0f, 1f); //Calculates a transparency value between 0-1
         Debug.Log("alpha: " + alphaValue);
 
         rend.material.color = new Color(matColour.r, matColour.g, matColour.b, alphaValue);
     }
 
     private void ChangeArrowColour(Transform target)
-    { 
+    {
         Renderer rendArrow = visualArrow.gameObject.GetComponent<Renderer>();
 
-        if(tagName == "NPCFish")
+        if (tagName == "NPCFish")
         {
             Follower fish = target.GetComponent<Follower>();
             FishColour fishColour = fish.GetColour();
@@ -82,9 +85,9 @@ public class NavigationArrow : MonoBehaviour
                 case FishColour.BLUE:
                     rendArrow.material.color = Color.blue;
                     break;
-                //default:
-                //    rendArrow.material.color = Color.white;
-                //    break;
+                    //default:
+                    //    rendArrow.material.color = Color.white;
+                    //    break;
             }
         }
         else
