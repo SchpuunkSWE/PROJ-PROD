@@ -85,16 +85,14 @@ public class NavigationArrow : MonoBehaviour
                 case FishColour.BLUE:
                     rendArrow.material.color = Color.blue;
                     break;
-                    //default:
-                    //    rendArrow.material.color = Color.white;
-                    //    break;
+                default:
+                    rendArrow.material.color = Color.gray;
+                    break;
             }
         }
         else
         {
             rendArrow.material.color = Color.white;
         }
-        //Renderer rendTarget = target.gameObject.GetComponentInChildren<Renderer>();
-        //rendArrow.material.color = rendTarget.material.color;
     }
 }
