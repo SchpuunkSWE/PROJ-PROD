@@ -438,8 +438,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeAllowed: 5
-  slowedSpeed: 5
+  playerSlowedSpeed: 5
   decreasedMaxVelocity: 2.5
+  path: {fileID: 0}
+  trashPileSpeed: 1
+  stoppingDistance: 0
 --- !u!1001 &272203653916719575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3002,6 +3005,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 95b0fc532ab1907459d48152fe4436c4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fcd4a04bee9a8f74aa7a6071fd36a19d, type: 2}
     - target: {fileID: 919132149155446097, guid: 95b0fc532ab1907459d48152fe4436c4, type: 3}
       propertyPath: m_Name
       value: SM_TrashPile_Placeholder
