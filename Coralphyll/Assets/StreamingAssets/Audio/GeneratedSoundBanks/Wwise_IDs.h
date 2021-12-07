@@ -15,14 +15,20 @@ namespace AK
     {
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
-        static const AkUniqueID ENEMY_CHASING = 2227269361U;
-        static const AkUniqueID ENEMY_CHASING_STOP = 3177611540U;
+        static const AkUniqueID CHAR_DASH = 667507884U;
+        static const AkUniqueID FISHEAT = 2968903799U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
+        static const AkUniqueID GARBAGE_PLAY = 143285903U;
+        static const AkUniqueID GARBAGE_STOP = 2902390157U;
+        static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
+        static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
         static const AkUniqueID MUSICSTATE_STARTOFLEVEL = 4090089807U;
-        static const AkUniqueID NPC_ENEMY_EEL = 1225286108U;
-        static const AkUniqueID NPC_ENEMY_EEL_STOP = 907852203U;
+        static const AkUniqueID NEW_EVENT = 3050945240U;
+        static const AkUniqueID NPC_DROPOFF = 3939156573U;
+        static const AkUniqueID NPC_ENEMY_SHARK = 3909403805U;
+        static const AkUniqueID NPC_ENEMY_SHARK_STOP = 3192907696U;
         static const AkUniqueID NPC_FRIENDLY_BLUE = 2396901519U;
         static const AkUniqueID NPC_FRIENDLY_BLUE_STOP = 1686688698U;
         static const AkUniqueID NPC_FRIENDLY_FISH_GENERIC = 4098783091U;
@@ -39,10 +45,22 @@ namespace AK
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT_STOP = 1255022652U;
+        static const AkUniqueID SHARKHUFF = 638605449U;
     } // namespace EVENTS
 
     namespace STATES
     {
+        namespace EFFECTS
+        {
+            static const AkUniqueID GROUP = 1942696649U;
+
+            namespace STATE
+            {
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID REVERBON = 303990094U;
+            } // namespace STATE
+        } // namespace EFFECTS
+
         namespace GAMEPLAY_SWITCH
         {
             static const AkUniqueID GROUP = 2702523344U;
@@ -116,14 +134,22 @@ namespace AK
         static const AkUniqueID RTPC_MUSICVOLUME = 2378823330U;
         static const AkUniqueID RTPC_MUSICVOLUMEMASTER = 3732907812U;
         static const AkUniqueID RTPC_PLAYERALIVE = 1824124715U;
+        static const AkUniqueID RTPC_PLAYERDEPTH = 3095049895U;
+        static const AkUniqueID RTPC_REVERB = 4143461479U;
         static const AkUniqueID RTPC_SFXVOLUME = 2644490154U;
         static const AkUniqueID RTPC_SPEEDOFCHARACTER = 2977442876U;
     } // namespace GAME_PARAMETERS
+
+    namespace TRIGGERS
+    {
+        static const AkUniqueID FISH_EATEN = 1787465173U;
+    } // namespace TRIGGERS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID MAIN = 3161908922U;
+        static const AkUniqueID TEST = 3157003241U;
     } // namespace BANKS
 
     namespace BUSSES
@@ -132,6 +158,13 @@ namespace AK
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID REVERB_AMBIENCE = 306711088U;
+        static const AkUniqueID REVERB_MUSIC = 301991745U;
+        static const AkUniqueID REVERB_SFX = 3434922741U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {

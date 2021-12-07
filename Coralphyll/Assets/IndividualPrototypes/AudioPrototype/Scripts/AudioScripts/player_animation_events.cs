@@ -19,6 +19,8 @@ public class player_animation_events : MonoBehaviour
         playerSpeed = playerInfo.velocity.magnitude;
         CheckPlayerVelocity();
         AkSoundEngine.SetRTPCValue("RTPC_SpeedOfCharacter", playerSpeed);
+        AkSoundEngine.SetRTPCValue("RTPC_PlayerDepth", (int)transform.position.z);
+        //Debug.Log("Player depth: "+ (int)transform.position.y);
         time = time + Time.deltaTime;
     }
     public void Fs_player_swim()
