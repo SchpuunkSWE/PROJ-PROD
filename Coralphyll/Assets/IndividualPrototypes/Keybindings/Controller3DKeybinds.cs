@@ -51,7 +51,6 @@ public class Controller3DKeybinds : MonoBehaviour
         PlayerInput();
         HitDetection();
         ApplyVelocity();
-        Rotate();
     }
 
     private void PlayerInput()
@@ -206,19 +205,19 @@ public class Controller3DKeybinds : MonoBehaviour
         //transform.rotation *= Quaternion.AngleAxis(angularVelocity.y * 0.5f, Vector3.up);
     }
 
-    private void Rotate()
-    { 
-        angularVelocity -= angularVelocity.normalized * angularDrag * Time.deltaTime;
-    }
-    [SerializeField]
-    private Vector3 angularVelocity = Vector3.zero;
-    [SerializeField]
-    private float rotationSpeed = 10;
-    [SerializeField]
-    private float angularDrag = 3;
-    [SerializeField]
-    private float maxRotationSpeed = 2;
-    [SerializeField]
+    // private void Rotate()
+    // { 
+    //     angularVelocity -= angularVelocity.normalized * angularDrag * Time.deltaTime;
+    // }
+    // [SerializeField]
+    // private Vector3 angularVelocity = Vector3.zero;
+    // [SerializeField]
+    // private float rotationSpeed = 10;
+    // [SerializeField]
+    // private float angularDrag = 3;
+    // [SerializeField]
+    // private float maxRotationSpeed = 2;
+    // [SerializeField]
     private float boostCooldown = 4;
     public bool isBoostReady = true;
     private bool boostComplete = true;

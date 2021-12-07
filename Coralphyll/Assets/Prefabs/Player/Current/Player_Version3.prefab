@@ -176,10 +176,10 @@ MonoBehaviour:
   kineticFrictionVariable: 0.16
   airResistance: 0.8
   isGrounded: 0
-  boostCooldown: 5
   isBoostReady: 1
   boostPower: 10
   boostDuration: 1
+  maxBoostSpeed: 40
 --- !u!114 &2990192918727094429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,15 +326,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000019073486
+      value: -0.000002861023
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77000046
+      value: 0.76999664
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351807340516, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.9
+      value: -8.900006
       objectReference: {fileID: 0}
     - target: {fileID: 5252014351992834782, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: ShoulderOffset.x
@@ -342,15 +342,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000019073486
+      value: -0.000002861023
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77000046
+      value: 0.76999664
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.9
+      value: -8.900006
       objectReference: {fileID: 0}
     - target: {fileID: 5252014352344281544, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalRotation.w
@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -8004499784510817594, guid: 4c5ba2cc360d40d4f83d959aee1088e1, type: 3}
+    - target: {fileID: 5252014353810559316, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5252014353810559317, guid: 45d972f6d4fbd1c49b2fc1dd318e4a60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
