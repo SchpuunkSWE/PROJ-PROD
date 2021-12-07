@@ -147,7 +147,7 @@ public class NPCFishUtil : MonoBehaviour
     //    fishToRemove.Clear(); //Clear the fish to remove list.
     //}
 
-    public void PickUpFish(GameObject player, Follower follower)
+    public bool PickUpFish(GameObject player, Follower follower)
     {
         NPCFishUtil listScript = player.gameObject.GetComponent<NPCFishUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
         NPCFollow nPCFollow = follower.GetComponent<NPCFollow>();
@@ -164,9 +164,9 @@ public class NPCFishUtil : MonoBehaviour
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
-
-            
+            return true;
         }
+        return false;
     }
 
     public void FindAndPickUpFish(FishColour fishColour)
