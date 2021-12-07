@@ -54,10 +54,13 @@ public class EnemyAttack : EnemyState
         //Attack stuff
         NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
         var fishes = fishUtil.getListOfFishes();
+        float amountToKill = Mathf.Min(fishPerBite, fishes.Count);
         if (fishes.Count > 0)
         {
-            for (int i = 0; i < fishPerBite; i++)           
-                fishUtil.KillFish(); 
+            for (int i = 0; i < amountToKill; i++)
+            {
+                fishUtil.KillFish();
+            }       
         }
         else
         {
