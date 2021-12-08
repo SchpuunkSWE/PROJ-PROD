@@ -16,7 +16,9 @@ public class TrashPile : MonoBehaviour
     private float trashPileSpeed = 1f;
     [SerializeField] 
     private float stoppingDistance;
-    //[SerializeField] private GameObject trashPileDarkAnimGO; //Animation to play when player enters trash pile.
+    [SerializeField] 
+    private GameObject trashPileDarkAnimGO; //Animation to play when player enters trash pile.
+    private Animator anim;
 
     private Controller3DKeybinds playerController;
     private float timeWhenEntered; //Which point in time the player came into contact with trash pile.
@@ -31,7 +33,7 @@ public class TrashPile : MonoBehaviour
         patrolPoint = path.GetPath[0];
         Debug.Log("Start patrolpoint: " + patrolPoint);
 
-        //anim = trashPileDarkAnimGO.GetComponent<Animator>();
+        anim = trashPileDarkAnimGO.GetComponent<Animator>();
 
 
     }
@@ -46,8 +48,8 @@ public class TrashPile : MonoBehaviour
         if (other.tag == "Player")
         {           
             inTrashPile = true;
-            //trashPileDarkAnimGO.SetActive(true);
-            //anim.SetTrigger("");
+            trashPileDarkAnimGO.SetActive(true);
+            anim.SetTrigger("TriggerTrashBlackScreen");
             timeWhenEntered = Time.time;
             SlowPlayer();
         }
@@ -63,7 +65,7 @@ public class TrashPile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inTrashPile = false;
-            //trashPileDarkAnimGO.SetActive(false);
+            trashPileDarkAnimGO.SetActive(false);
             RestorePlayerSpeed();
         }
     }
