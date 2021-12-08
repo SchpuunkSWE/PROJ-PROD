@@ -84,6 +84,272 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="NPC" ID="{FCBA2137-58BF-4B09-99A7-3D841721DCA7}" ShortID="476372907">
+					<ChildrenList>
+						<Event Name="NPC_Friendly_Red" ID="{2CA439E7-AA90-4E8B-9023-E58754EDDE4F}">
+							<ChildrenList>
+								<Action Name="" ID="{F79B80AC-DBC6-4F49-B4E0-C04B9975A83A}" ShortID="67968150">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish_2" ID="{58CA01DF-BE27-4718-B4C8-168AE78D4204}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Red_Stop" ID="{62B47DF3-59BB-448D-AEE8-3E9EB2947358}">
+							<ChildrenList>
+								<Action Name="" ID="{0A2BCF8B-F5D4-4B1F-8018-0ABAF1C318EA}" ShortID="631966395">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish_2" ID="{58CA01DF-BE27-4718-B4C8-168AE78D4204}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Blue" ID="{53A88DE2-A106-46F1-8EBD-FB0E132FD1B6}">
+							<ChildrenList>
+								<Action Name="" ID="{60645F61-4E2C-4C9C-A5F1-C4C2A13B5E94}" ShortID="145174993">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish_Updated" ID="{3EFCC4F7-EDFB-4386-8307-1F6062F0D32C}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Blue_Stop" ID="{361A9BC0-8755-41EA-9DF8-B38427621B16}">
+							<ChildrenList>
+								<Action Name="" ID="{BF0944E2-74FA-487B-A535-BC9916030038}" ShortID="437689352">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish_Updated" ID="{3EFCC4F7-EDFB-4386-8307-1F6062F0D32C}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Yellow_Stop" ID="{6E070CCF-7482-48C2-8C71-95166031544F}">
+							<ChildrenList>
+								<Action Name="" ID="{D61085A6-A5D6-453B-9853-FEE11E66B21A}" ShortID="182354206">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish3_updated" ID="{A11F7B5A-54FD-4514-AAED-BDE0F6CDF741}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Yellow" ID="{AFBD79A8-97BB-47C7-86FB-C8F2664A7700}">
+							<ChildrenList>
+								<Action Name="" ID="{1A63A6C2-8D15-473B-9D8D-71D65CF79337}" ShortID="709620369">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_FriendlyFish3_updated" ID="{A11F7B5A-54FD-4514-AAED-BDE0F6CDF741}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Enemy_Shark" ID="{79FC8CC7-25DC-43FE-A171-FC36FA3C69AB}">
+							<ChildrenList>
+								<Action Name="" ID="{DD0ABD88-5DB4-4647-B319-A6970B82BD02}" ShortID="1024837433">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SharkGrowl" ID="{D4EDF6AF-6641-47DB-8EB9-D1486B6DCAAC}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Enemy_Shark_Stop" ID="{CAB89302-6E58-4299-A7AE-E48748EE3658}">
+							<ChildrenList>
+								<Action Name="" ID="{A0D8E80B-0F72-4BEA-867D-810A92BCB407}" ShortID="379499186">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SharkGrowl" ID="{D4EDF6AF-6641-47DB-8EB9-D1486B6DCAAC}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Pickup" ID="{07F781FC-5DBB-4776-BF99-1243D562020A}">
+							<ChildrenList>
+								<Action Name="" ID="{9D48F173-3754-4DB8-97AD-5CBAC23C10E3}" ShortID="844615823">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ping_final_pickup" ID="{BC486980-E68A-4806-B888-0CC329D56FB0}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7A5336D9-7E51-4189-A139-87538603B30A}" ShortID="62761759">
+									<PropertyList>
+										<Property Name="FadeInCurve" Type="int16" Value="3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ping_final_pickup" ID="{BC486980-E68A-4806-B888-0CC329D56FB0}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Fish_Generic" ID="{37138CAB-3E66-4696-8339-E656AFA2E284}">
+							<ChildrenList>
+								<Action Name="" ID="{6E2543B9-9B55-452E-90AF-002A1BF6D970}" ShortID="59535334">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Water_Sprout" ID="{A5919356-3DEF-4B35-A456-FC4EB92C1322}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Friendly_Fish_Generic_Stop" ID="{7B23007E-71AF-49EE-96A0-6F5F8F042A68}">
+							<ChildrenList>
+								<Action Name="" ID="{F1753DF9-64CA-4AF1-BAB0-1E690C768F64}" ShortID="438490033">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="5"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Water_Sprout" ID="{A5919356-3DEF-4B35-A456-FC4EB92C1322}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_DropOff" ID="{D94B2F73-1C62-41ED-9C68-7E98D3B4160E}">
+							<ChildrenList>
+								<Action Name="" ID="{CBED853C-8015-4D8B-82AD-D7215F73F5FA}" ShortID="259628728">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ES_PREL Sweeper High 7 - SFX Producer" ID="{88247D7D-C67C-4B06-88E7-10F9A52E9785}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="OneShots" ID="{4768E1C1-6025-42E7-AEA5-4554264DBC4B}" ShortID="754587510">
+					<ChildrenList>
+						<Event Name="OneShot_SeaCreature" ID="{09232773-35A9-4C42-90F8-5A5BFAB0BA15}">
+							<ChildrenList>
+								<Action Name="" ID="{9A137751-C8DB-4E54-85B3-EE13FC95DB47}" ShortID="621952146">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ES_Sea Creature Moan 5 - SFX Producer" ID="{BBDB8E8E-8A28-4EB3-BA94-0E0B1E852A3C}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="OneShot_EnemyAlert" ID="{37E091AA-B42A-4DF9-BE6B-5E4B16A66C3E}">
+							<ChildrenList>
+								<Action Name="" ID="{6A1AE9C9-8062-45DD-AAA0-ADB54C12EEB1}" ShortID="997738387">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx" ID="{9B09CEDE-318A-47CF-A8DE-E8551EC09B5B}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="OneShot_CoralCompleted" ID="{34643604-3300-4B32-8021-A9F666823A09}">
+							<ChildrenList>
+								<Action Name="" ID="{B2041355-6DBF-48CF-8817-889E1920D3C1}" ShortID="570039406">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Coral_Completed" ID="{CF724F29-B55F-4607-A676-A269D4818264}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="EffectZones" ID="{4EA23CE1-F92F-4068-BF49-E524DDB87EBA}" ShortID="610335808">
+					<ChildrenList>
+						<Event Name="New_Event" ID="{DDCD2514-2BED-4487-A800-764A3354CC61}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="SharkRelated" ID="{3DA6862F-D311-4AC7-BC4C-2F070D123929}" ShortID="200243532">
+					<ChildrenList>
+						<Event Name="FishEat" ID="{FF4F0913-DF40-46C5-AC41-01C3F643C580}">
+							<ChildrenList>
+								<Action Name="" ID="{FE926C6D-171F-4CDA-9097-0B769BAB98DD}" ShortID="883785556">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FishEat" ID="{AF57F1AF-97BE-423E-95F6-7577AC597A5D}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SharkHuff" ID="{4CA939F2-4981-4DC8-9734-38A6E173AE89}">
+							<ChildrenList>
+								<Action Name="" ID="{599BF765-69F4-4258-8A0E-DBFDA3BB581D}" ShortID="786726038">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SharkHuff" ID="{407BB1D5-13CF-45A1-9926-FCF8EEC7B818}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Hazards" ID="{20390DF7-0810-4E36-BC9A-DAA0FCA1CEE0}" ShortID="6209399">
+					<ChildrenList>
+						<Event Name="Garbage_Play" ID="{148C8B25-2B6E-4573-826E-CB54125C3F2C}">
+							<ChildrenList>
+								<Action Name="" ID="{6D724474-5005-4434-9454-161A3A47F476}" ShortID="115617184">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Garbage_Stop" ID="{F95D3402-D2C1-4283-9FB3-093A4B3C62DF}">
+							<ChildrenList>
+								<Action Name="" ID="{881923C1-5CA6-4F62-8453-AE307F416DAB}" ShortID="758791380">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

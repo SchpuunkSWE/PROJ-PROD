@@ -3,44 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 public class player_animation_events : MonoBehaviour
 {
-
-    [SerializeField] private AK.Wwise.State playerLife;
-    [SerializeField] private AK.Wwise.State playerDead;
-
-    public string playerSwim = "fs_player_swim";
-    public string playerSwimSprint = "fs_player_swim_sprint";
-    public string RTPC_SpeedOfCharacter = "RTPC_SpeedOfCharacter";
-    public string RTPC_playerAlive = "RTPC_PlayerAlive";
-    public string wwise_stateGroup_playerLife = "playerLife";
-
     public float playerSpeed;
-    public float playerAlive = 1;
     public float time;
-    private Controller3D playerInfo;
+    private Controller3DKeybinds playerInfo;
     Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         AkSoundEngine.RegisterGameObj(gameObject);
-        playerInfo = GetComponent<Controller3D>();
+        playerInfo = GetComponent<Controller3DKeybinds>();
         anim = GetComponent<Animator>();
-        AkSoundEngine.SetRTPCValue(RTPC_playerAlive, playerAlive);
-        AkSoundEngine.SetState(wwise_stateGroup_playerLife, "Alive");
 }
     private void Update()
     {
         playerSpeed = playerInfo.velocity.magnitude;
         CheckPlayerVelocity();
-        AkSoundEngine.SetRTPCValue(RTPC_SpeedOfCharacter, playerSpeed);
+        AkSoundEngine.SetRTPCValue("RTPC_SpeedOfCharacter", playerSpeed);
+        AkSoundEngine.SetRTPCValue("RTPC_PlayerDepth", (int)transform.position.z);
+        //Debug.Log("Player depth: "+ (int)transform.position.y);
         time = time + Time.deltaTime;
-       /* if (time > 15f)
-        {
-            AkSoundEngine.SetState(wwise_stateGroup_playerLife, "Dead");
-        }*/
     }
     public void Fs_player_swim()
     {
-        AkSoundEngine.PostEvent(playerSwim, gameObject);
+        AkSoundEngine.PostEvent("fs_player_swim", gameObject);
     }
     public void CheckPlayerVelocity()
     {
@@ -65,12 +50,12 @@ public class player_animation_events : MonoBehaviour
         //The calculation returns a percentage value of how fast we are
         //going compared to the max velocity that the players velocity vector is allowed to have, 
         //Which will return a value of between 0~ and 1~. 
-        anim.speed = (1f + (1 * (playerSpeed / playerInfo.maxVelocityValue)));
+        anim.speed = (1f + (1 * (playerSpeed / 10f)));
     }
     
     public void fs_player_sprint()
     {
-        AkSoundEngine.PostEvent(playerSwimSprint, gameObject);
+        AkSoundEngine.PostEvent("fs_player_swim_sprint", gameObject);
     }
 
 }

@@ -40,19 +40,22 @@ public class FishWheel : MonoBehaviour
     {
         if(panelEnabled)
         {
-            Debug.Log("panel is enabled");
+            
+            
             //make the 0 position in the middle off the screen
             //ändra något med att dela först. för nu är den baserad på upplösningen.
             normalisedMousePosition = new Vector2(Input.mousePosition.x - Screen.width/2, Input.mousePosition.y - Screen.height/2);
+            
             // calculate current angle from center of the screen
             currentAngle = Mathf.Atan2(normalisedMousePosition.y, normalisedMousePosition.x)*Mathf.Rad2Deg;
             currentAngle = (currentAngle+360 + offsetAngle)%360;
-            selection = (int) currentAngle/120;
+            selection = (int) currentAngle/60;
+            
 
             // om x^2 + y^2 är mindre än exit radius ^2 ska exit väljas. 
             if(normalisedMousePosition.x * normalisedMousePosition.x + normalisedMousePosition.y * normalisedMousePosition.y >= exitRadius * exitRadius)
             {
-                exitHovering = false;
+                
                 
                 if(selection != previousSelection) {
                 previousItemSc = menuItems[previousSelection].GetComponent<FishWheelItem>();
@@ -60,16 +63,23 @@ public class FishWheel : MonoBehaviour
                 previousSelection = selection;
                 itemSc = menuItems[selection].GetComponent<FishWheelItem>();
                 itemSc.Select();
+                exitHovering = false;
 
                 }
                 else{
                     // fixa så att exitknappen till previous
                     //fixa så att  exitknappen ljus
                     // fixa så att så att de andra deselectas
+                    
             
         
+                    if(!exitHovering){
+                        previousItemSc.DeSelect();
+
+                    }
                     
-                    previousItemSc.DeSelect();
+                    exitHovering = false;
+                    
 
                 }
             } else{
