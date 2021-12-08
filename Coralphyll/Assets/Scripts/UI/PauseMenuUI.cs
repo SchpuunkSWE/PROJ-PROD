@@ -62,6 +62,7 @@ public class PauseMenuUI : MonoBehaviour
     }
     public void Options(){
         optionsPanel.SetActive(true);
+        optionsPanel.GetComponent<OptionsMenu>().setToggles();
         pauseMenuUI.SetActive(false);
 
 
