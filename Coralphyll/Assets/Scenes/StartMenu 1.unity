@@ -230,6 +230,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 411485877483578174, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411485877483578174, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 132147206}
+    - target: {fileID: 411485877483578174, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: valueChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 411485877483578174, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI_Text_Settings, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 448561486694191166, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2690,6 +2706,7 @@ GameObject:
   - component: {fileID: 132147202}
   - component: {fileID: 132147201}
   - component: {fileID: 132147205}
+  - component: {fileID: 132147206}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2793,6 +2810,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starmenuPanel: {fileID: 444148753}
   optionsPanel: {fileID: 326969724}
+  voiceAssist: 0
+--- !u!114 &132147206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132147200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc456f1d72105c40aed2851d36d09db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartButtonObject: {fileID: 0}
+  OptionButtonObject: {fileID: 0}
+  HowToPlayButtonObject: {fileID: 0}
+  VisualButtonObject: {fileID: 0}
+  UIOptionsObject: {fileID: 0}
+  TextSizeObject: {fileID: 0}
+  TextToSpeachObject: {fileID: 0}
+  tt1GO: []
+  tt2GO: []
+  tt3GO: []
+  tt1Text: []
+  tt2Text: []
+  tt3Text: []
+  DeafaultTextSizeTT1: 0
+  DeafaultTextSizeTT2: 0
+  DeafaultTextSizeTT3: 0
+  targetSize: 0
+  TT1_Size1: 15
+  TT1_Size2: 20
+  TT1_Size3: 25
+  TT1_Size4: 0
+  TT1_Size5: 0
+  TT2_Size1: 0
+  TT2_Size2: 0
+  TT2_Size3: 0
+  TT2_Size4: 0
+  TT2_Size5: 0
+  TT3_Size1: 0
+  TT3_Size2: 0
+  TT3_Size3: 0
+  TT3_Size4: 0
+  TT3_Size5: 0
 --- !u!1 &143512274
 GameObject:
   m_ObjectHideFlags: 0
