@@ -5,5 +5,7 @@ public enum KeybindingActions
     Forward,
     Back,
     Right,
-    Left
+    Left,
+    Boost,
+    DropFish
 }

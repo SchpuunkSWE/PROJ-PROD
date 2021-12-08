@@ -5,6 +5,7 @@ public abstract class EnemyState : State
 {
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float turnSpeed;
+    [SerializeField] protected float viewAngle = 70;
 
     private AIController aiController;
     public AIController AIController => aiController = aiController != null ? aiController : (AIController)owner;
@@ -21,8 +22,9 @@ public abstract class EnemyState : State
 
     protected bool CanSeePlayer()
     {
-        //TODO Fix better line of sight
-        return !Physics.Linecast(aiController.transform.position, aiController.Player.transform.position, aiController.VisionMask);
+        //Checks fov angle
+        float angle = Vector3.Angle(AIController.transform.forward, AIController.Player.transform.position - AIController.transform.position);
+        return (Mathf.Abs(angle) < viewAngle) && !Physics.Linecast(aiController.transform.position, aiController.Player.transform.position, aiController.VisionMask);
     }
 
     protected float DistanceToPoint(Vector3 point)
