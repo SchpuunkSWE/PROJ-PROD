@@ -44,7 +44,7 @@ public class TargetIndicator : MonoBehaviour
         //Do stuff if picked as main target
 
         float distanceBetweenObjects = Vector3.Distance(mainCamera.transform.parent.GetChild(1).transform.position, target.transform.position);
-        if (distanceBetweenObjects > indicatorRange) 
+        if (!(distanceBetweenObjects < indicatorRange)) 
         {
             
             if (OffScreenTargetIndicator.gameObject.activeSelf == true) OffScreenTargetIndicator.gameObject.SetActive(false);
