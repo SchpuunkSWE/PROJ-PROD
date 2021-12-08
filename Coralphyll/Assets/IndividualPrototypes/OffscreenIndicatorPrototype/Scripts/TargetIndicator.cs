@@ -18,11 +18,21 @@ public class TargetIndicator : MonoBehaviour
     private RectTransform rectTransform;
     [SerializeField]
     private float indicatorRange = 10;
+    [SerializeField]
+    private float targetDistance = 10;
+
+    private Animator anim;
+    [SerializeField]
+    private GameObject arrowAnimation;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         
+    }
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
     }
 
 
@@ -50,9 +60,14 @@ public class TargetIndicator : MonoBehaviour
             if (OffScreenTargetIndicator.gameObject.activeSelf == true) OffScreenTargetIndicator.gameObject.SetActive(false);
             if (TargetIndicatorImage.isActiveAndEnabled == false) TargetIndicatorImage.enabled = true;
         }
-        if(distanceBetweenObjects < 30)
+        if(distanceBetweenObjects < targetDistance)
         {
-            //MakeBigger
+            OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(150, 150);
+            anim.SetBool("ArrowShakeAnim", true);
+        } else if (distanceBetweenObjects > targetDistance)
+        {
+            OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(100, 100);
+            anim.SetBool("ArrowShakeAnim", false);
         }
         
         

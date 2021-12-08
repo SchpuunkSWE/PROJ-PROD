@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7469018755797928292}
   - component: {fileID: 5857754842249891078}
   - component: {fileID: 2264584804488274735}
+  - component: {fileID: 7438574414134333237}
   m_Layer: 5
   m_Name: TargetIndicator
   m_TagString: Untagged
@@ -92,6 +93,28 @@ MonoBehaviour:
   TargetIndicatorImage: {fileID: 5857754842249891078}
   OffScreenTargetIndicator: {fileID: 1042378713173496505}
   IndicatorOutOfSightOffset: 20
+  indicatorRange: 55
+  targetDistance: 30
+  arrowAnimation: {fileID: 8855269731093374147}
+--- !u!95 &7438574414134333237
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4064983835322529105}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64ca5e3ad3aa4b34285c8006f6dbc126, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8855269731093374147
 GameObject:
   m_ObjectHideFlags: 0
