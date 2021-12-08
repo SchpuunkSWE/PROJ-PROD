@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
         Debug.Log("Total Amount of Corals In Scene: " + totalCoralAmount);
         Debug.Log("Completed Coral Amount: " + completedCoralAmount);
 
-        sceneTransitionGate.SetActive(false);
+        //sceneTransitionGate.SetActive(false);
         if (instance == null)
         {
             instance = this;

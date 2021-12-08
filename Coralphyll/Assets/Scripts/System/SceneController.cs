@@ -11,10 +11,10 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private ParticleSystem openedParticles; //Bara ngt för att visa att den finns när den aktiveras 
 
-    //[SerializeField]
-    //private Image fadeImage;
+    [SerializeField]
+    private Image fadeImage;
 
-    //private float alpha;
+    private float alpha;
 
     public ParticleSystem GetParticles()
     {
@@ -23,26 +23,26 @@ public class SceneController : MonoBehaviour
     private void Start()
     {
         //sceneToload = SceneManager.GetActiveScene().buildIndex + 1; //Switches to the scene after the current one
-        //StartCoroutine(FadeIn());
+        StartCoroutine(FadeIn());
     }
-    //private IEnumerator FadeIn()
-    //{
-    //    alpha = 1;
+    private IEnumerator FadeIn()
+    {
+        alpha = 1;
 
-    //    while (alpha > 0)
-    //    {
-    //        alpha -= Time.deltaTime;
-    //        fadeImage.color = new Color(0, 0, 0, alpha);
-    //        yield return new WaitForSeconds(0);
-    //    }
-    //    fadeImage.gameObject.SetActive(false);
-    //}
+        while (alpha > 0)
+        {
+            alpha -= Time.deltaTime;
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return new WaitForSeconds(0);
+        }
+        fadeImage.gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        //fadeImage.gameObject.SetActive(true);
+        fadeImage.gameObject.SetActive(true);
         if (other.CompareTag("Player"))
         {
-            //StartCoroutine(FadeOut());
+            StartCoroutine(FadeOut());
             SceneManager.LoadScene(sceneToLoad);
         }
     }
@@ -52,17 +52,18 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    //private IEnumerator FadeOut()
-    //{
-    //    alpha = 0;
+    private IEnumerator FadeOut()
+    {
+        alpha = 0;
 
-    //    while (alpha < 1)
-    //    {
-    //        alpha += Time.deltaTime;
-    //        fadeImage.color = new Color(0, 0, 0, alpha);
-    //        yield return new WaitForSeconds(0);
-    //    }
+        while (alpha < 1)
+        {
+            alpha += Time.deltaTime;
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return new WaitForSeconds(0);
+        }
 
-    //    SceneManager.LoadScene(sceneToLoad);
-    //}
+        SceneManager.LoadScene(sceneToLoad);
+        gameObject.SetActive(false);
+    }
 }
