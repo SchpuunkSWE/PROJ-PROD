@@ -89,6 +89,7 @@ public class FishCounter : MonoBehaviour
                     }
                 }
             }
+            
         }
 
         Debug.Log("Coral Needs: " + totalYellowCoralNeeds + ", " + totalRedCoralNeeds + ", " + totalBlueCoralNeeds);
@@ -159,6 +160,11 @@ public class FishCounter : MonoBehaviour
         //i = i + (int)0.1 * i;
         //i += 3;
         return i;
+    }
+
+    public void AddSchool(BoidsSystem boidsSystem)
+    {
+        fishSchoolsInScene.Add(boidsSystem.gameObject);
     }
 
     public void RemoveSchool(BoidsSystem boidsSystem)

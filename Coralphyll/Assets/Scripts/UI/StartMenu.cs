@@ -14,7 +14,11 @@ public class StartMenu : MonoBehaviour
 
     private bool optionsOpen;
 
-
+    void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void PressStartButton(){
         SceneManager.LoadScene("Level1");
     }

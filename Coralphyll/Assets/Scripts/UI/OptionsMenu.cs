@@ -2,30 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
+    
     public GameObject pauseMenu;
     public GameObject OptionMenu;
+    //lägg in enemy outline script
+    //lägg in hint script
+    //lägg in offscreen indicator
+
+    public bool isStartMenu;
+    public GameObject exitButton;
    // public TabGroup tabGroup;
     //public TabButton startButton;
     // Start is called before the first frame update
+    public GameObject enemyOutlineToggle;
+    public GameObject hintToggle;
+    public GameObject indicatorToggle;
+    
+
+    
     void Start()
     {
       //tabGroup.OnTabSelected(startButton);
+      Cursor.lockState = CursorLockMode.None;
+      Cursor.lockState = CursorLockMode.Confined;
+      setToggles();
 
         
     }
     void Awake()
     {
         //tabGroup.OnTabSelected(startButton);
+        if (isStartMenu){
+            exitButton.SetActive(false);
+        }
+
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     public void CloseOptionsMenu()
@@ -33,6 +55,18 @@ public class OptionsMenu : MonoBehaviour
         OptionMenu.SetActive(false);
         pauseMenu.SetActive(true);
 
+    }
+
+    public void EnemyOutline(bool enemyOutline){
+        PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
+        
+    }
+
+    public void HintSystem(bool hintSystem){
+        PlayerPrefs.SetInt("HintSystem", BoolToInt(hintSystem));
+    }
+    public void OffScreenIndicator(bool offScreen){
+        PlayerPrefs.SetInt("OffscreenIndicator", BoolToInt(offScreen));
     }
 
     public void startLevel1()
@@ -53,6 +87,28 @@ public class OptionsMenu : MonoBehaviour
     public void startLevel4()
     {
         SceneManager.LoadScene(4);
+
+    }
+
+    private int BoolToInt(bool boolean){
+        if (boolean){
+            return 1;
+        } else{
+            return 0;
+        }
+    }
+    private bool IntToBool(int i){
+        if (i == 1){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public void setToggles(){
+        enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("EnemyOutline") );
+        hintToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("HintSystem") );
+        indicatorToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("OffscreenIndicator") );
 
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyPatrol : EnemyState
 {
     [SerializeField] private float chaseDistance;
-    [SerializeField] private float smellingRange = 3f;
+    [SerializeField] private float smellingRange = 20f;
     [SerializeField] private float stoppingDistance;
 
 
@@ -15,7 +15,7 @@ public class EnemyPatrol : EnemyState
     public override void Enter()
     {
         base.Enter();
-        AIController.Renderer.material.color = Color.green;
+        //AIController.Renderer.material.color = Color.green;
         patrolPoint = AIController.Path.GetPath[0];
     }
 
@@ -34,18 +34,24 @@ public class EnemyPatrol : EnemyState
     public override void EvaluateTransitions()
     {
         base.EvaluateTransitions();
-        if (CanSeePlayer() || DistanceToPlayer() < smellingRange) { 
-        if (DistanceToPlayer() < chaseDistance && AIController.CanFollowPlayer)
-        {
-            stateMachine.Transition<EnemyChase>();
-        } }
 
+        if (AIController.CanFollowPlayer)
+        {
+            if (DistanceToPlayer() < smellingRange)
+            {
+                stateMachine.Transition<EnemyChase>();
+            }
+            else if (CanSeePlayer() && DistanceToPlayer() < chaseDistance)
+            {
+                stateMachine.Transition<EnemyChase>();
+            }
+        }
         ////Molly Change
         //if (AIController.IsDazed)
         //{
         //    stateMachine.Transition<EnemyDazed>();
         //}
-        
+
         /*if(DistanceToPlayer() < hearingRange)
         {
             
