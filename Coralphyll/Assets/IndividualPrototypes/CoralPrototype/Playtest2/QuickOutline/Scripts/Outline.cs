@@ -147,8 +147,8 @@ public class Outline : MonoBehaviour {
         return outlineColor;
     }
 
-    void Update() 
-  {
+    void Update()
+    {
         //Molly Change
         outlineFillMaterial.SetColor("_OutlineColor", LerpColour());
 
@@ -158,7 +158,7 @@ public class Outline : MonoBehaviour {
 
             UpdateMaterialProperties();
         }
-  }
+    }
 
   void OnDisable() {
     foreach (var renderer in renderers) {
