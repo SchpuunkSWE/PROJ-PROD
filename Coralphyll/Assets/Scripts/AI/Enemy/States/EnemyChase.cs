@@ -17,7 +17,7 @@ public class EnemyChase : EnemyState
     public override void Enter()
     {
         base.Enter();
-        AIController.Renderer.material.color = Color.yellow;
+        //AIController.Renderer.material.color = Color.yellow;
     }
 
     public override void HandleUpdate()
