@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3006530337274216706}
+  - component: {fileID: 2271766671704277688}
   m_Layer: 0
   m_Name: PlantCorals_Messy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 125
   m_IsActive: 1
 --- !u!4 &3006530337274216706
 Transform:
@@ -31,6 +32,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2271766671704277688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209576310933203628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec21b79cb4706b74aba4b12ff921e15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScale: 1
+  minScale: 0
+--- !u!64 &344443791639398826
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587999640100944841}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -126370582498607325, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}
 --- !u!1001 &7317386950893045400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,12 +111,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68a2a2045f0a3774f88b6f48e58b22c1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d3fd36a89576eda4e9c6cd7e856068a1, type: 2}
     - target: {fileID: 919132149155446097, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}
       propertyPath: m_Name
       value: SM_PlantCorals_Messy_Placeholder
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 125
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}
+--- !u!1 &7587999640100944841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}
+  m_PrefabInstance: {fileID: 7317386950893045400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7063383457802641779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d84a864b10c1b840b48b5595c9aa3d4, type: 3}

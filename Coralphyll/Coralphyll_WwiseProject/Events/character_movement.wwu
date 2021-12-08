@@ -4,6 +4,17 @@
 		<WorkUnit Name="character_movement" ID="{88BACEA2-5606-4AA0-AC66-B5C51CAE867D}" OwnerID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" PersistMode="Nested">
 			<ChildrenList>
 				<WorkUnit Name="swimSounds" ID="{55842EE0-1C30-4703-86D0-42E7349A3E16}" PersistMode="Reference"/>
+				<Event Name="Char_Dash" ID="{5366C1BC-C6BC-49C4-BBBA-56E571C1F490}">
+					<ChildrenList>
+						<Action Name="" ID="{DA2D618D-7328-42DF-A126-A0039DD02EE1}" ShortID="945656126">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dash" ID="{B7287A67-B4EF-4BB4-9228-B29F48BC6137}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

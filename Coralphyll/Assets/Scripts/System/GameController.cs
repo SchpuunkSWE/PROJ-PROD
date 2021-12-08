@@ -27,16 +27,22 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject sceneTransitionGate;
     
-    [SerializeField]
-    private int totalCoralAmount; //Set in inspector, amount of corals in scene
+
+    private int totalCoralAmount; //Amount of corals in scene
 
     private int completedCoralAmount = 0; //Amount of corals with fully completed needs
 
-    private bool runOnce = false;
+    private bool runOnce = false; //Prevent LevelComplete() from running multiple times
+
+    [SerializeField]
+    private bool islevelCompleted = false;
+    public bool IslevelCompleted { get => islevelCompleted; }
 
     public void SetCompletedCoralAmount()
     {
         completedCoralAmount++;
+        Debug.Log("Completed Coral Amount: " + completedCoralAmount);
+
     }
 
     private void CheckLevelProgress()
@@ -44,6 +50,7 @@ public class GameController : MonoBehaviour
         if (completedCoralAmount >= totalCoralAmount)
         {
             LevelComplete();
+            islevelCompleted = true;
         }
     }
 
@@ -65,8 +72,30 @@ public class GameController : MonoBehaviour
         CheckLevelProgress();
     }
 
+    private int CountCoralsInscene()
+    {
+        int i = 0;
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("FunctionalCoral"))
+        {
+            if (!go.GetComponent<Coral>().IsSafezone)
+            {
+                i++;
+            }
+            
+        }
+        return i;
+        //return GameObject.FindGameObjectsWithTag("FunctionalCoral").Length;    
+    }
+
     private void Awake()
     {
+        completedCoralAmount = 0;
+        totalCoralAmount = CountCoralsInscene();
+        runOnce = false;
+        islevelCompleted = false;
+        Debug.Log("Total Amount of Corals In Scene: " + totalCoralAmount);
+        Debug.Log("Completed Coral Amount: " + completedCoralAmount);
+
         sceneTransitionGate.SetActive(false);
         if (instance == null)
         {

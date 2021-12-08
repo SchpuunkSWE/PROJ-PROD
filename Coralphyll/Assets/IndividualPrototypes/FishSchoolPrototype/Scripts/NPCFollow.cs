@@ -18,6 +18,7 @@ public class NPCFollow : MonoBehaviour
 
     private RaycastHit shot;
     public bool isFollowingPlayer = false;
+    private Controller3DKeybinds playerControllerScript;
 
     //[SerializeField]
     //private bool collectable = true;
@@ -47,13 +48,16 @@ public class NPCFollow : MonoBehaviour
             
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 10f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
 
+
+            followSpeed = (playerControllerScript.velocity.magnitude >= 0.1f) ? playerControllerScript.velocity.magnitude - 0.1f : 5f;
+
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out shot))
             {
                 targetDistance = shot.distance;
 
                 if (targetDistance >= allowedDistance)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed); //G�r s� att NPC r�r sig mot spelaren.
+                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed * Time.deltaTime); //G�r s� att NPC r�r sig mot spelaren.
                 }
             }
         }
@@ -76,11 +80,23 @@ public class NPCFollow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         follower = GetComponent<Follower>();
+        //BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>();
         if (other.CompareTag("Player") && follower.Collectable == true)
         {
-            other.GetComponent<NPCFishUtil>().PickUpFish(other.gameObject, follower);
+            bool addedFish = other.GetComponent<NPCFishUtil>().PickUpFish(other.gameObject, follower);
+            if(addedFish)
+                playerControllerScript = fishTarget.transform.parent.transform.parent.GetComponent<Controller3DKeybinds>();
+            //boidsSystem.transform.DetachChildren();
         }
     }
 
+    public void SetFollowSpeed(float speed)
+    {
+        followSpeed = speed;
+    }
 
+    public float GetFollowSpeed()
+    {
+        return followSpeed;
+    }
 }
