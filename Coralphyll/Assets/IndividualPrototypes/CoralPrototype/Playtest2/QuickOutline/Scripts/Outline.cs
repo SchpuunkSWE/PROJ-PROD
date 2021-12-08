@@ -1,4 +1,11 @@
-﻿
+﻿//
+//  Outline.cs
+//  QuickOutline
+//
+//  Created by Chris Nolet on 3/30/18.
+//  Copyright © 2018 Chris Nolet. All rights reserved.
+//
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,11 +56,10 @@ public class Outline : MonoBehaviour {
   [SerializeField]
   private Mode outlineMode;
 
-    //[SerializeField]
-    Color outlineColor = Color.white;
+  [SerializeField]
+  private Color outlineColor = Color.white;
 
-
-    [SerializeField, Range(0f, 10f)]
+  [SerializeField, Range(0f, 10f)]
   private float outlineWidth = 2f;
 
   [Header("Optional")]
@@ -74,14 +80,8 @@ public class Outline : MonoBehaviour {
 
   private bool needsUpdate;
 
-    //Molly change
-    [SerializeField] Color[] myColours;
-    [SerializeField] [Range(0f, 1f)] float lerpTime;
-    private int colourIndex = 0;
-    private float t = 0f;
+  void Awake() {
 
-    void Awake() {
-    
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
 
@@ -129,36 +129,13 @@ public class Outline : MonoBehaviour {
     }
   }
 
-    //Molly Change
-    private Color LerpColour()
-    {
+  void Update() {
+    if (needsUpdate) {
+      needsUpdate = false;
 
-        outlineColor = Color.Lerp(outlineColor, myColours[colourIndex], lerpTime * Time.deltaTime);
-
-        //Change colour-index
-        t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
-        if (t > 0.9f)
-        {
-            t = 0f;
-            colourIndex++;
-            //Reset colourIndex when it's greater than or equal to array length
-            colourIndex = (colourIndex >= myColours.Length) ? 0 : colourIndex;
-        }
-        return outlineColor;
+      UpdateMaterialProperties();
     }
-
-    void Update()
-    {
-        //Molly Change
-        outlineFillMaterial.SetColor("_OutlineColor", LerpColour());
-
-        if (needsUpdate) 
-        {
-            needsUpdate = false;
-
-            UpdateMaterialProperties();
-        }
-    }
+  }
 
   void OnDisable() {
     foreach (var renderer in renderers) {
@@ -263,7 +240,7 @@ public class Outline : MonoBehaviour {
   void UpdateMaterialProperties() {
 
     // Apply properties according to mode
-    outlineFillMaterial.SetColor("_OutlineColor", LerpColour());
+    outlineFillMaterial.SetColor("_OutlineColor", outlineColor);
 
     switch (outlineMode) {
       case Mode.OutlineAll:
