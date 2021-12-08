@@ -15,7 +15,7 @@ public class EnemyPatrol : EnemyState
     public override void Enter()
     {
         base.Enter();
-        AIController.Renderer.material.color = Color.green;
+        //AIController.Renderer.material.color = Color.green;
         patrolPoint = AIController.Path.GetPath[0];
     }
 
