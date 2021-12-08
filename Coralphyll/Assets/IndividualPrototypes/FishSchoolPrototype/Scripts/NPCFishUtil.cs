@@ -29,21 +29,23 @@ public class NPCFishUtil : MonoBehaviour
     {
         NPCFishUtilInstance = this;
         navArrow = transform.gameObject.GetComponent<NavigationArrow>();
-        SelectNavArrowTarget();
     }
 
     #endregion
+
+    private void FixedUpdate()
+    {
+        SelectNavArrowTarget();
+    }
     public int AddToSchool(Follower fol) //Kanske döpa om (till AddTOInventory)
     {
         if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//Om det inte finns plats eller om fisken redan finns i listan...
         {
-            SelectNavArrowTarget();
             return -1; //returner default v�rde eftersom positionInList inte kan s�ttas till null
         }
         //Om metoden inte har returnerats...
         listOfFishes.Add(fol);
         fol.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
-        SelectNavArrowTarget();
         return listOfFishes.IndexOf(fol);
     }
 
@@ -123,7 +125,6 @@ public class NPCFishUtil : MonoBehaviour
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
         }
         fishToRemove.Clear(); //Clear the fish to remove list.
-        SelectNavArrowTarget();
     }
 
     public bool PickUpFish(GameObject player, Follower follower)
@@ -195,15 +196,16 @@ public class NPCFishUtil : MonoBehaviour
             }
             foreach (Follower f in fishToRemove)
             {
+                NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
                 listOfFishes.Remove(f); //Removes fishes from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
-                f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+                nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
+                nPCFollow.fishTarget = null;
                 f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
                 f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
                 StartCoroutine(MakeFishCollectible(f));
                 Debug.Log("StartCoroutine KÖRD");
             }
-            SelectNavArrowTarget();
             fishToRemove.Clear(); //Clear the fish to remove list.
 
         }
@@ -233,7 +235,6 @@ public class NPCFishUtil : MonoBehaviour
         Destroy(fish.gameObject);
         fishToRemove.Clear(); //Clear the fish to remove list.
         FishCounter.fishCounterInstance.RecountFishes = true;
-        SelectNavArrowTarget();
     }
 
     public void KillAllFish()
@@ -256,26 +257,28 @@ public class NPCFishUtil : MonoBehaviour
 
             fishToRemove.Clear(); //Clear the fish to remove list.
             FishCounter.fishCounterInstance.RecountFishes = true;
-            SelectNavArrowTarget();
         }
     }
     private void SelectNavArrowTarget()
     {
-        if (navArrow != null) //&& !GameController.Instance.IslevelCompleted)
+        if (navArrow == null)
         {
-            if (listOfFishes.Count < 1) // If the list contain 1 fish ... arrayOfTargets.Length 
-            {
-                navArrow.SetTargetTag("NPCFish"); //... Set the tag that the arrow should point at to fish
-            }
-            else
-            {
-                navArrow.SetTargetTag("Coral"); // Otherwise set it to coral
-            }
+            return;
         }
-        //else if(navArrow != null && GameController.Instance.IslevelCompleted)
-        //{
-        //    navArrow.SetTargetTag("Exit");
-        //}
+
+        if (GameController.Instance.IslevelCompleted)// If the level is completed...
+        {
+            navArrow.SetTargetTag("Exit"); //...Set the tag that the arrow should point at to Exit.
+            return;
+        }
+
+        if (listOfFishes.Count < 1) // If the list contains less than 1 fish...
+        {
+            navArrow.SetTargetTag("NPCFish"); //...Set the tag that the arrow should point at to NPCFish.
+            return;
+        }
+
+        navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
     }
 }
 
