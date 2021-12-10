@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606368239}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6234637022276566899}
@@ -168,8 +168,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.2
+      scalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -661,9 +661,9 @@ ParticleSystem:
     enabled: 1
     type: 8
     angle: 0
-    length: 4.65
+    length: 3.74
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.14
+    radiusThickness: 0.3
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 7.3
+      value: 5.08
       mode: 0
       spread: 0
       speed:
@@ -3177,8 +3177,8 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7
-      minScalar: 0.4
+      scalar: 0.35
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5247,13 +5247,13 @@ ParticleSystemRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
+  m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c164110d7b46ca649b76a156855515d8, type: 2}
+  - {fileID: 2100000, guid: 79a845d216ed23a4fae5f1968ac8284c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5311,7 +5311,7 @@ GameObject:
   - component: {fileID: 4973244852228070453}
   - component: {fileID: 2663178461324185334}
   m_Layer: 0
-  m_Name: BlackSmokeBottom
+  m_Name: WhiteSmokeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5325,7 +5325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567586463348994274}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.76, z: 0}
+  m_LocalPosition: {x: 0, y: -0.61, z: 0}
   m_LocalScale: {x: 0.57, y: 0.57, z: 0.57}
   m_Children: []
   m_Father: {fileID: 6234637022276566899}
@@ -5962,7 +5962,7 @@ ParticleSystem:
     angle: 6.66
     length: 1.75
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.54
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -6045,7 +6045,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 9.17
+      value: 7.53
       mode: 0
       spread: 0
       speed:
@@ -6602,9 +6602,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.00628932, g: 0, b: 0.0754717, a: 0}
-        key1: {r: 0.0052049384, g: 0, b: 0.0754717, a: 0.88235295}
-        key2: {r: 0, g: 0, b: 0, a: 0.78431374}
+        key0: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0}
+        key1: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0.42745098}
+        key2: {r: 0, g: 0, b: 0, a: 0.34509805}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -6631,9 +6631,9 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 0}
-        key1: {r: 0.0013409294, g: 0, b: 0.028301895, a: 0.88235295}
-        key2: {r: 0, g: 0, b: 0, a: 0.78431374}
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.41960785}
+        key2: {r: 0, g: 0, b: 0, a: 0.20392157}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -10057,7 +10057,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe6afa4b3acc97b45833085e13871a67, type: 2}
+  - {fileID: 2100000, guid: 69dc9b0f094c5bd4184a787825d393e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10115,7 +10115,7 @@ GameObject:
   - component: {fileID: 1856026522139779103}
   - component: {fileID: 4057518309577152622}
   m_Layer: 0
-  m_Name: BlackParticles
+  m_Name: WhiteParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11406,8 +11406,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.0076391287, g: 0, b: 0.122641504, a: 0}
-        key1: {r: 0.0025366817, g: 0, b: 0.03773582, a: 1}
+        key0: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
+        key1: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0.8784314}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -11435,8 +11435,8 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.0016102329, g: 0, b: 0.03773582, a: 0}
-        key1: {r: 0, g: 0, b: 0, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0.8784314}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -14919,7 +14919,7 @@ GameObject:
   - component: {fileID: 8590411526514346611}
   - component: {fileID: 8590411526514346610}
   m_Layer: 0
-  m_Name: OilCloudEffect
+  m_Name: CloudOilEffect_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21263,7 +21263,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.003915994, g: 0, b: 0.103773594, a: 0}
+        key0: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0}
         key1: {r: 0, g: 0.00069880934, b: 0.0754717, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0.84705883}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -21292,7 +21292,7 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 0}
         key1: {r: 0, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0.88235295}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -24961,7 +24961,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9643bb6db09a75f4681582be29e3578c, type: 2}
+  - {fileID: 2100000, guid: 20ab9a652ca41ea4c8f123415aa2a2ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25019,7 +25019,7 @@ GameObject:
   - component: {fileID: 8590411525245997347}
   - component: {fileID: 8590411525245997346}
   m_Layer: 0
-  m_Name: BlackSmokeUpper
+  m_Name: WhiteSmokeUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25753,7 +25753,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 9.16
+      value: 5.59
       mode: 0
       spread: 0
       speed:
@@ -26310,9 +26310,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.00628932, g: 0, b: 0.0754717, a: 0}
-        key1: {r: 0.0052049384, g: 0, b: 0.0754717, a: 0.88235295}
-        key2: {r: 0, g: 0, b: 0, a: 0.78431374}
+        key0: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0}
+        key1: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0.42745098}
+        key2: {r: 0, g: 0, b: 0, a: 0.34509805}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -26339,9 +26339,9 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 0}
-        key1: {r: 0.0013409294, g: 0, b: 0.028301895, a: 0.88235295}
-        key2: {r: 0, g: 0, b: 0, a: 0.78431374}
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.41960785}
+        key2: {r: 0, g: 0, b: 0, a: 0.20392157}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -29765,7 +29765,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe6afa4b3acc97b45833085e13871a67, type: 2}
+  - {fileID: 2100000, guid: 69dc9b0f094c5bd4184a787825d393e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29823,7 +29823,7 @@ GameObject:
   - component: {fileID: 8590411525261527710}
   - component: {fileID: 8590411525261527709}
   m_Layer: 0
-  m_Name: BlackSmokeBase
+  m_Name: WhiteSmokeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29837,7 +29837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8590411525261527707}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.57, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 0.57, y: 0.57, z: 0.57}
   m_Children: []
   m_Father: {fileID: 6234637022276566899}
@@ -30557,7 +30557,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 14.1
+      value: 6.97
       mode: 0
       spread: 0
       speed:
@@ -31114,9 +31114,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.00628932, g: 0, b: 0.0754717, a: 0}
-        key1: {r: 0.0052049384, g: 0, b: 0.0754717, a: 0.88235295}
-        key2: {r: 0, g: 0, b: 0, a: 0.78431374}
+        key0: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0}
+        key1: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0.42745098}
+        key2: {r: 0, g: 0, b: 0, a: 0.34509805}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -31143,9 +31143,9 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 0}
-        key1: {r: 0.0013409294, g: 0, b: 0.028301895, a: 0.88235295}
-        key2: {r: 0, g: 0, b: 0, a: 0.78431374}
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.41960785}
+        key2: {r: 0, g: 0, b: 0, a: 0.20392157}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -34569,7 +34569,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe6afa4b3acc97b45833085e13871a67, type: 2}
+  - {fileID: 2100000, guid: 69dc9b0f094c5bd4184a787825d393e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
