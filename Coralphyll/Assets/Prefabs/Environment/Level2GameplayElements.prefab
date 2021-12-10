@@ -42,6 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 322794179959008835}
+  - component: {fileID: 322794179832061765}
   m_Layer: 0
   m_Name: Fish&Enemies
   m_TagString: Untagged
@@ -73,6 +74,22 @@ Transform:
   m_Father: {fileID: 322794179637623998}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322794179832061765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322794179959009212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc520e75a889ae42af6f5f159145bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  targetIndicators: []
+  MainCamera: {fileID: 0}
+  TargetIndicatorPrefab: {fileID: 4064983835322529105, guid: 57465abdf4ce3074093077c36464974f, type: 3}
 --- !u!1 &322794181202069734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,15 +1718,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348079201517325725, guid: 876d2b0a361e5ca43acdf2c921df110a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 98.38
+      value: 95.59
       objectReference: {fileID: 0}
     - target: {fileID: 4348079201517325725, guid: 876d2b0a361e5ca43acdf2c921df110a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37
+      value: 38.01
       objectReference: {fileID: 0}
     - target: {fileID: 4348079201517325725, guid: 876d2b0a361e5ca43acdf2c921df110a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -49.88
+      value: -49.86
       objectReference: {fileID: 0}
     - target: {fileID: 4348079201517325725, guid: 876d2b0a361e5ca43acdf2c921df110a, type: 3}
       propertyPath: m_LocalRotation.w
