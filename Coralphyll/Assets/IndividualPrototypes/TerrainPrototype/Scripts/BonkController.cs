@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class BonkController : MonoBehaviour
 {
@@ -12,11 +13,16 @@ public class BonkController : MonoBehaviour
     public GameObject indicator;
 
 
+    PlayerIndex playerIndex;
+    GamePadState state;
+    GamePadState prevState;
+
+
     void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
 
-        overlapping = true;
+        overlapping = false;
         Debug.Log("Enter");
 
         audioSource.PlayOneShot(bonk1);
@@ -26,7 +32,18 @@ public class BonkController : MonoBehaviour
 
     void Update()
     {
-        
+        //if (Input.GetKeyDown("joystick button 0"))
+        if(overlapping)
+        {
+            Debug.Log("START VIBRATE");
+            GamePad.SetVibration(playerIndex, .1f, .1f);
+        }
+
+        //if (Input.GetKeyDown("joystick button 1"))
+        if(!overlapping)
+        {
+            GamePad.SetVibration(playerIndex, .0f, .0f);
+        }
     }
 
 
