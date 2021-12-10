@@ -2,10 +2,20 @@ using UnityEngine;
 
 public class BoingScript : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1f)] private float maxScale; //Maximum scale for game object to grow to
-    [SerializeField] [Range(0, 1f)] private float minScale; //Minimum scale for game object to grow from
+    [SerializeField]
+    private float maxScale; //Maximum scale for game object to grow to
+    [SerializeField] [Range(0, 1f)] 
+    private float minScale; //Minimum scale for game object to grow from
     private float time;
 
+    private void Start()
+    {
+        //maxScale = transform.localScale.x;
+    }
+    private void Awake()
+    {
+        maxScale = transform.localScale.x;
+    }
     void Update()
     {
         transform.localScale = Vector3.one * Mathfx.Berp(minScale, maxScale, time); //scales gameobject according to Berp Curve
