@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 6271473063410433755}
   - component: {fileID: 6964645382677426558}
   - component: {fileID: 5135110017826784692}
-  m_Layer: 0
+  - component: {fileID: 7043120755838368586}
+  m_Layer: 3
   m_Name: Seastar_Thin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 125
   m_IsActive: 1
 --- !u!4 &6271473063410433755
 Transform:
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 37cb4de0f6b918e4f8395e94f63eec65, type: 2}
+  - {fileID: 2100000, guid: e63357d09fb39c440a8e0086c2f24416, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7043120755838368586
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648279703686882401}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 908116187877662721, guid: 646f3917075b76446a8e3191364760b4, type: 3}

@@ -16,13 +16,14 @@ public class PauseMenuUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        optionsPanel.SetActive(false);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
             if(GameisPaused)
             {
@@ -39,6 +40,7 @@ public class PauseMenuUI : MonoBehaviour
   public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        optionsPanel.SetActive(false);
         Time.timeScale = 1f;
         GameisPaused = false;
     }
@@ -60,6 +62,7 @@ public class PauseMenuUI : MonoBehaviour
     }
     public void Options(){
         optionsPanel.SetActive(true);
+        optionsPanel.GetComponent<OptionsMenu>().setToggles();
         pauseMenuUI.SetActive(false);
 
 

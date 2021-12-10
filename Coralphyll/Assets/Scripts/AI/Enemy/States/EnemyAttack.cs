@@ -7,6 +7,7 @@ public class EnemyAttack : EnemyState
     [SerializeField] private float chaseDistance;
     [SerializeField] private float cooldown;
     [SerializeField] private float attackDistance;
+    [SerializeField] private float fishPerBite;
 
     private float currentCooldown;
     private bool attacking;
@@ -15,7 +16,7 @@ public class EnemyAttack : EnemyState
     {
         base.Enter();
         currentCooldown = cooldown;
-        AIController.Renderer.material.color = Color.red;
+        //AIController.Renderer.material.color = Color.red;
         //AIController.Animator.SetBool("Attacking", true);
     }
 
@@ -33,14 +34,17 @@ public class EnemyAttack : EnemyState
 
     public override void EvaluateTransitions()
     {
-        base.EvaluateTransitions();
-        if (!CanSeePlayer())
+        //Do not transition during cooldown
+        if (!attacking)
         {
-            stateMachine.Transition<EnemyAlert>();
-        }
-        if (DistanceToPlayer() > chaseDistance)
-        {
-            stateMachine.Transition<EnemyChase>();
+            if (!CanSeePlayer())
+            {
+                stateMachine.Transition<EnemyAlert>();
+            }
+            if (DistanceToPlayer() > chaseDistance)
+            {
+                stateMachine.Transition<EnemyChase>();
+            }
         }
     }
 
@@ -48,20 +52,37 @@ public class EnemyAttack : EnemyState
     {
         attacking = true;
         //Attack stuff
-
-        DeathInfo d = new DeathInfo {
-            victim = AIController.Player,
-            killer = AIController.gameObject
-        };
-        EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
+        NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
+        var fishes = fishUtil.getListOfFishes();
+        float amountToKill = Mathf.Min(fishPerBite, fishes.Count);
+        if (fishes.Count > 0)
+        {
+            for (int i = 0; i < amountToKill; i++)
+            {
+                fishUtil.KillFish();
+            }       
+        }
+        else
+        {
+            //Kill player if it has no fishes picked up
+            DeathInfo d = new DeathInfo
+            {
+                victim = AIController.Player,
+                killer = AIController.gameObject
+            };
+            EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
+        }
     }
 
     private void HandleCooldown()
     {
-        currentCooldown -= Time.deltaTime;
+        currentCooldown -= Time.deltaTime; 
+        //AIController.Renderer.material.color = Color.magenta;
+
         if (currentCooldown < 0)
         {
             attacking = false;
+            //AIController.Renderer.material.color = Color.red;
             currentCooldown = cooldown;
         }
     }

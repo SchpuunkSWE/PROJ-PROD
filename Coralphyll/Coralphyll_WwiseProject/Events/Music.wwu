@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Music" ID="{B07DD209-781B-416B-A400-821FE2783074}" OwnerID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" PersistMode="Nested">
 			<ChildrenList>
-				<Event Name="MusicState_Initiate" ID="{7E28617B-5582-4C8B-BAAC-3AF3EF5F6694}">
+				<Event Name="MusicState_StartOfLevel" ID="{7E28617B-5582-4C8B-BAAC-3AF3EF5F6694}">
 					<ChildrenList>
 						<Action Name="" ID="{5331DF70-EA8A-4957-9F75-14D53647232E}" ShortID="462283652">
 							<PropertyList>
@@ -32,17 +32,62 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{D460CE91-D1A7-4A82-BCA2-F0E566EF4A92}" ShortID="341467687">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_MainMenu" ID="{B327CC15-8DC2-43C4-814D-B689EC306B9E}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="MusicState_Combat" ID="{95E4D3EF-720B-48CD-935E-B56477C3515C}">
 					<ChildrenList>
-						<Action Name="" ID="{BA518D2C-AC72-45FB-B745-1807F32F866E}" ShortID="844333515">
+						<Action Name="" ID="{6A3D9222-F60C-4D10-A877-697B09DDB37A}" ShortID="1028938421">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="5"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Combat" ID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{19CB9DB6-1BD3-472C-A249-B9F05538A58F}" ShortID="393398233">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="36"/>
+								<Property Name="SeekPercent" Type="Real64" Value="30">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{70DFCA5C-B417-41C7-9718-506DCFF4EE59}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-5"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience" ID="{9F4FAB50-D781-471B-8EAC-27E668608D3B}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{EDCA83BA-F365-43C2-92FE-6A6B9B1B3CFF}" ShortID="894793288">
+							<PropertyList>
+								<Property Name="FadeInCurve" Type="int16" Value="5"/>
+								<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience" ID="{9F4FAB50-D781-471B-8EAC-27E668608D3B}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -50,6 +95,18 @@
 				</Event>
 				<Event Name="MusicState_Exploring" ID="{FA19BE0C-2160-46F3-90C3-11DF3864843F}">
 					<ChildrenList>
+						<Action Name="" ID="{0382DD1A-6023-48C4-9264-7F3571131606}" ShortID="981614979">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeInCurve" Type="int16" Value="5"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{BEF28C98-356C-4DA2-A3E1-A69513AC458A}" ShortID="291599317">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="22"/>
@@ -57,6 +114,73 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{ABBAF910-B339-489A-8883-71E4AB512C6B}" ShortID="534808481">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="5"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience" ID="{9F4FAB50-D781-471B-8EAC-27E668608D3B}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicEvent_Victory" ID="{EFC25002-69CF-4A3A-BE51-368C019C9137}">
+					<ChildrenList>
+						<Action Name="" ID="{79BC701F-C01E-47A1-80C9-8644B8284E03}" ShortID="654611042">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Victory" ID="{71016D14-1C72-437D-9D62-829C3176B568}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicState_MainMenu" ID="{C1DAD64D-EE1A-4342-8283-360EF1487410}">
+					<ChildrenList>
+						<Action Name="" ID="{D17628D0-EA1B-4A01-B10A-6D777AE73C1B}" ShortID="148358821">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MainMenu" ID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{4512F02B-1BDD-4650-AE4E-EB1891E7AD3A}" ShortID="673282958">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dead" ID="{7474C406-E888-41DB-B549-88F6FEF467D7}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{3A4C4D7E-C4BF-40E4-A3C5-38526D2D3B9A}" ShortID="229232867">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_MainMenu" ID="{B327CC15-8DC2-43C4-814D-B689EC306B9E}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9DE605F6-A3BC-4DD3-8601-27183EAA740F}" ShortID="135548099">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
