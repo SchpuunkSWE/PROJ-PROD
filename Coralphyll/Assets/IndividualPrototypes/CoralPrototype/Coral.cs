@@ -56,6 +56,9 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private GameObject spawnableDecor;
 
+    [SerializeField]
+    private GameObject deSpawnableDecor;
+
     public bool Completable { get => completable; }
 
 
@@ -169,6 +172,7 @@ public class Coral : MonoBehaviour
         IncompletedParticles.Stop();
 
         spawnableDecor.SetActive(true);
+        deSpawnableDecor.SetActive(false);
     }
 
     public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.
