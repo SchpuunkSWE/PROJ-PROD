@@ -3,51 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TrashPile : MonoBehaviour
-{
-    //private AudioSource audioSource;
-    private Controller3DKeybinds playerController;
-    //[SerializeField] private AIPath path;
-    //[SerializeField] private float stoppingDistance;
-
+{    
     [SerializeField] 
-    private float timeAllowed = 5f; //Time player is allowed in trash pile before they die
+    private float timeAllowed = 5f; //Time player is allowed in trash pile before they die.
     [SerializeField]
-    private float slowedSpeed = 5f;
+    private float playerSlowedSpeed = 5f; //The speed player gets when in Trash Pile.
     [SerializeField]
     private float decreasedMaxVelocity = 2.5f;
-    private float timeWhenEntered; //Which point in time the player came into contact with trash pile
-    private bool inTrashPile = false; //Bool to see if player is currently in contact with trash pile
-    //[SerializeField] private GameObject trashPileDarkAnimGO; //Animation to play when player enters trash pile
+    [SerializeField] 
+    private AIPath path;
+    [SerializeField]
+    private float trashPileSpeed = 1f;
+    [SerializeField] 
+    private float stoppingDistance;
+    [SerializeField] 
+    private GameObject trashPileDarkAnimGO; //Animation to play when player enters trash pile.
+    private Animator anim;
 
-    //private Animator anim; //Reference to animator on gameobject
-
+    private Controller3DKeybinds playerController;
+    private float timeWhenEntered; //Which point in time the player came into contact with trash pile.
+    private bool inTrashPile = false; //Bool to see if player is currently in contact with trash pile.
     private Transform patrolPoint;
+    //private Animator anim; //Reference to animator on gameobject
+  
     private void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
         playerController = FindObjectOfType(typeof(Controller3DKeybinds)) as Controller3DKeybinds;
         //path = GetComponent<AIPath>();
-        //patrolPoint = path.GetPath[0];
+        patrolPoint = path.GetPath[0];
         Debug.Log("Start patrolpoint: " + patrolPoint);
 
-        //anim = trashPileDarkAnimGO.GetComponent<Animator>();
+        anim = trashPileDarkAnimGO.GetComponent<Animator>();
 
 
     }
 
     private void Update()
     {
-        //FloatAround();
         KillTimer();
-
+        MoveTrashPile();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {           
             inTrashPile = true;
-            //trashPileDarkAnimGO.SetActive(true);
-            //anim.SetTrigger("");
+            trashPileDarkAnimGO.SetActive(true);
+            anim.SetTrigger("TriggerTrashBlackScreen");
             timeWhenEntered = Time.time;
             SlowPlayer();
         }
@@ -63,7 +65,7 @@ public class TrashPile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inTrashPile = false;
-            //trashPileDarkAnimGO.SetActive(false);
+            trashPileDarkAnimGO.SetActive(false);
             RestorePlayerSpeed();
         }
     }
@@ -93,7 +95,7 @@ public class TrashPile : MonoBehaviour
 
     private void SlowPlayer()
     {
-        playerController.Speed = slowedSpeed;
+        playerController.Speed = playerSlowedSpeed;
         playerController.MaxVelocityValue = decreasedMaxVelocity;
     }
 
@@ -102,16 +104,12 @@ public class TrashPile : MonoBehaviour
         playerController.Speed = playerController.OGSpeed;
         playerController.MaxVelocityValue = playerController.OGMaxVelocityValue;
     }
-
-    //private void FloatAround()
-    //{
-    //    if (Vector3.Distance(transform.position, patrolPoint.position) < stoppingDistance)
-    //    {
-    //        patrolPoint = path.Next();
-    //        Debug.Log("Next path " + path.Next());
-    //    }
-    //    Debug.Log("Current patrolpoint " + patrolPoint);
-    //    transform.position = Vector3.MoveTowards(transform.position, patrolPoint.position, 2 * Time.deltaTime);
-    //    //RotateTowards(patrolPoint);
-    //}
+    private void MoveTrashPile()
+    {
+        if (Vector3.Distance(transform.position, patrolPoint.position) < stoppingDistance)
+        {
+            patrolPoint = path.Next();
+        }
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoint.position, trashPileSpeed * Time.deltaTime);
+    }
 }
