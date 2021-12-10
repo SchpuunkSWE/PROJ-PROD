@@ -8,10 +8,6 @@ public class BoingScript : MonoBehaviour
     private float minScale; //Minimum scale for game object to grow from
     private float time;
 
-    private void Start()
-    {
-        //maxScale = transform.localScale.x;
-    }
     private void Awake()
     {
         maxScale = transform.localScale.x;
