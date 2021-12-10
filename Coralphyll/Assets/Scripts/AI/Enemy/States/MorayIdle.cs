@@ -6,7 +6,7 @@ using UnityEngine;
 public class MorayIdle : MorayState
 {
     [SerializeField]
-    private float sightRange = 15f;
+    private float sightRange = 5f;
     public override void Enter()
     {
         base.Enter();
@@ -21,11 +21,16 @@ public class MorayIdle : MorayState
     public override void EvaluateTransitions()
     {
         base.EvaluateTransitions();
-        
+
         //If player is between moray and end of raycast, lunge
         if (GotLungeTarget(sightRange))
         {
             stateMachine.Transition<MorayLunge>();
         }
+
+        //if (CanSeePlayer(sightRange))
+        //{
+        //    stateMachine.Transition<MorayLunge>();
+        //}
     }
 }
