@@ -45,7 +45,7 @@ public class BonkController : MonoBehaviour
     {
         if(overlapping)
         {
-            Debug.Log("START VIBRATE");
+            //Debug.Log("START VIBRATE");
             GamePad.SetVibration(playerIndex, .1f, .1f);
             AkSoundEngine.PostEvent("FishEat", gameObject);
         }
