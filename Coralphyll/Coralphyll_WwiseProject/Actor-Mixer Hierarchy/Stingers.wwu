@@ -4,9 +4,19 @@
 		<WorkUnit Name="Stingers" ID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}" OwnerID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}" PersistMode="Nested">
 			<ChildrenList>
 				<RandomSequenceContainer Name="Alert" ID="{4A2F8566-334A-4B43-8AC2-EC017F7B2D8B}" ShortID="43885302">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+							<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
@@ -15,6 +25,11 @@
 					<ChildrenList>
 						<Sound Name="413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx" ID="{9B09CEDE-318A-47CF-A8DE-E8551EC09B5B}" ShortID="310543304">
 							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-5</Value>
@@ -375,20 +390,28 @@
 				</Sound>
 				<Sound Name="Dash" ID="{B7287A67-B4EF-4BB4-9228-B29F48BC6137}" ShortID="911224495">
 					<PropertyList>
-						<Property Name="Pitch" Type="int32">
+						<Property Name="MakeUpGain" Type="Real64">
 							<ValueList>
-								<Value>330</Value>
+								<Value>-2</Value>
 							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{CF9DBB26-0F70-4BD6-8BC6-DAFFAFD1ED79}">
 										<PropertyList>
 											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Min" Type="Real64" Value="-200"/>
+											<Property Name="Max" Type="Real64" Value="100"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
 										</PropertyList>
 									</Modifier>
 								</ModifierInfo>
 							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -400,36 +423,64 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="Dashdash" ID="{119E9CCE-782A-47DF-856D-1D4A574ED47D}">
+						<AudioFileSource Name="Water_Bubble_Whoosh_Emerge_Fast_02" ID="{E998CB5D-7086-4BC9-82A9-8504269F9303}">
+							<PropertyList>
+								<Property Name="LoopBegin" Type="Real64" Value="4.4684895959596"/>
+								<Property Name="LoopEnd" Type="Real64" Value="7.42850818181818"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="4.34041186868687"/>
+								<Property Name="TrimEnd" Type="Real64" Value="7.49966247474749"/>
+							</PropertyList>
 							<Language>SFX</Language>
-							<AudioFile>Dashdash.wav</AudioFile>
+							<AudioFile>Water_Bubble_Whoosh_Emerge_Fast_02.wav</AudioFile>
 							<MediaIDList>
-								<MediaID ID="235590326"/>
+								<MediaID ID="330193651"/>
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ObjectLists/>
 					<ActiveSourceList>
-						<ActiveSource Name="Dashdash" ID="{119E9CCE-782A-47DF-856D-1D4A574ED47D}" Platform="Linked"/>
+						<ActiveSource Name="Water_Bubble_Whoosh_Emerge_Fast_02" ID="{E998CB5D-7086-4BC9-82A9-8504269F9303}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" ShortID="934664046">
 					<PropertyList>
 						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>12</Value>
+							</ValueList>
+						</Property>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>12</Value>
+							</ValueList>
+						</Property>
 						<Property Name="MakeUpGain" Type="Real64">
 							<ValueList>
-								<Value>10</Value>
+								<Value>-2</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
-								<Value>-2000</Value>
+								<Value>-1870</Value>
 							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{EC8B001F-ED4B-4926-9FE5-CA25FA921DC0}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="200"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>4</Value>
+								<Value>-3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -440,33 +491,32 @@
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
 						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+							<ObjectRef Name="Extreme_Limiting_1" ID="{8F08A8A7-3313-4E5D-9EBD-2B1B564DE411}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="blubblub" ID="{CCE5E83A-5BA8-416C-8729-0918951F0532}">
+						<AudioFileSource Name="Bubble_Rise_Soft_01" ID="{72276412-AADB-4D19-BF44-3802531FE533}">
 							<PropertyList>
-								<Property Name="CrossfadeDuration" Type="Real64" Value="1087.326"/>
-								<Property Name="CrossfadeShape" Type="int16" Value="3"/>
-								<Property Name="FadeInDuration" Type="Real64" Value="0.876450909090916"/>
-								<Property Name="FadeOutDuration" Type="Real64" Value="0.688640000000003"/>
-								<Property Name="LoopBegin" Type="Real64" Value="7.76285090909091"/>
-								<Property Name="LoopEnd" Type="Real64" Value="42.3200581818182"/>
+								<Property Name="CrossfadeDuration" Type="Real64" Value="434.331"/>
+								<Property Name="LoopBegin" Type="Real64" Value="12.8257920454545"/>
+								<Property Name="LoopEnd" Type="Real64" Value="18.0494681818182"/>
 								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-								<Property Name="TrimBegin" Type="Real64" Value="6.82379636363637"/>
-								<Property Name="TrimEnd" Type="Real64" Value="43.1339054545455"/>
+								<Property Name="TrimBegin" Type="Real64" Value="12.2923102272727"/>
 							</PropertyList>
 							<Language>SFX</Language>
-							<AudioFile>blubblub.wav</AudioFile>
+							<AudioFile>Bubble_Rise_Soft_01.wav</AudioFile>
 							<MediaIDList>
-								<MediaID ID="429926201"/>
+								<MediaID ID="377016321"/>
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ObjectLists/>
 					<ActiveSourceList>
-						<ActiveSource Name="blubblub" ID="{CCE5E83A-5BA8-416C-8729-0918951F0532}" Platform="Linked"/>
+						<ActiveSource Name="Bubble_Rise_Soft_01" ID="{72276412-AADB-4D19-BF44-3802531FE533}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
