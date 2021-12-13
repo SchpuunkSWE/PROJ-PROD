@@ -16,11 +16,23 @@ public class TargetIndicator : MonoBehaviour
     private RectTransform canvasRect;
 
     private RectTransform rectTransform;
+    [SerializeField]
+    private float indicatorRange = 10;
+    [SerializeField]
+    private float targetDistance = 10;
+
+    private Animator anim;
+    [SerializeField]
+    private GameObject arrowAnimation;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         
+    }
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
     }
 
 
@@ -34,15 +46,31 @@ public class TargetIndicator : MonoBehaviour
 
     public void UpdateTargetIndicator()
     {
-        /*float distanceBetweenObjects = Vector3.Distance(mainCamera.transform.position, target.transform.position);
-        if (distanceBetweenObjects > distanceToObject) 
-        {
-        }*/ 
+        
 
         SetIndicatorPosition();
         //Adjust distance display
         //Turn on or off when in range/out of range
         //Do stuff if picked as main target
+
+        float distanceBetweenObjects = Vector3.Distance(mainCamera.transform.parent.GetChild(1).transform.position, target.transform.position);
+        if (!(distanceBetweenObjects < indicatorRange)) 
+        {
+            
+            if (OffScreenTargetIndicator.gameObject.activeSelf == true) OffScreenTargetIndicator.gameObject.SetActive(false);
+            if (TargetIndicatorImage.isActiveAndEnabled == false) TargetIndicatorImage.enabled = true;
+        }
+        if(distanceBetweenObjects < targetDistance)
+        {
+            OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(150, 150);
+            anim.SetBool("ArrowShakeAnim", true);
+        } else if (distanceBetweenObjects > targetDistance)
+        {
+            OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(100, 100);
+            anim.SetBool("ArrowShakeAnim", false);
+        }
+        
+        
     }
 
     protected void SetIndicatorPosition()
