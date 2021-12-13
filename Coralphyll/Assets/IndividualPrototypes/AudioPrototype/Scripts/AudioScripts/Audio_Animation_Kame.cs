@@ -61,7 +61,7 @@ public class Audio_Animation_Kame : MonoBehaviour
     }
     public void CheckPlayerVelocity()
     {
-        anim.speed = (1f + (1 * (playerSpeed / 10f)));
+        //anim.speed = (1f + (1 * (playerSpeed / 10f)));
     }
 
     public void Fs_player_sprint()
