@@ -182,7 +182,6 @@ public class Audio_Events : MonoBehaviour
                 Audio_LevelState("Exploring");
                 hasPlayedAlert = false;
                 musicStateCD = time + 3f;
-                Debug.Log("NOTincombat: CD: " + musicStateCD + " Time: " + time);
             }
         }
         else
