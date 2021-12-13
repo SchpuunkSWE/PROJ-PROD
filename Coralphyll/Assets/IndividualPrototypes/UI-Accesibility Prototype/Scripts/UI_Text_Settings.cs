@@ -28,6 +28,8 @@ public class UI_Text_Settings : MonoBehaviour
     private  TextMeshProUGUI font;
     private RectTransform m_RectTransform;
 
+    public GameObject button;
+
 
 
 
@@ -275,6 +277,8 @@ public class UI_Text_Settings : MonoBehaviour
             }
         
     }
+
+   
 
     private void changetextsizeTT3(float value){
         /*
