@@ -38,6 +38,10 @@ public class GameController : MonoBehaviour
     private bool islevelCompleted = false;
     public bool IslevelCompleted { get => islevelCompleted; }
 
+    [SerializeField]
+    private GameObject devMenu;
+    private bool activated = false;
+
     public void SetCompletedCoralAmount()
     {
         completedCoralAmount++;
@@ -70,6 +74,11 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         CheckLevelProgress();
+
+        if (Input.GetKeyDown(KeyCode.AltGr))
+        {
+            ToggleDevMenu();
+        }
     }
 
     private int CountCoralsInscene()
@@ -89,6 +98,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        devMenu.SetActive(false);
         completedCoralAmount = 0;
         totalCoralAmount = CountCoralsInscene();
         runOnce = false;
@@ -148,5 +158,19 @@ public class GameController : MonoBehaviour
     public void PickUpRedFishBtn()
     {
         player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.RED);
+    }
+
+    private void ToggleDevMenu()
+    {
+        activated = !activated;
+
+        if (activated)
+        {
+            devMenu.SetActive(true);
+        }
+        else
+        {
+            devMenu.SetActive(false);
+        }
     }
 }

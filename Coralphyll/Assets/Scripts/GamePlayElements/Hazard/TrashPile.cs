@@ -24,8 +24,13 @@ public class TrashPile : MonoBehaviour
     private float timeWhenEntered; //Which point in time the player came into contact with trash pile.
     private bool inTrashPile = false; //Bool to see if player is currently in contact with trash pile.
     private Transform patrolPoint;
+
+    public float TimeAllowed { get => timeAllowed; set => timeAllowed = value; }
+    public float TrashPileSpeed { get => trashPileSpeed; set => trashPileSpeed = value; }
+    public float PlayerSlowedSpeed { get => playerSlowedSpeed; set => playerSlowedSpeed = value; }
+
     //private Animator anim; //Reference to animator on gameobject
-  
+
     private void Start()
     {
         playerController = FindObjectOfType(typeof(Controller3DKeybinds)) as Controller3DKeybinds;
