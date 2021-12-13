@@ -149,6 +149,8 @@ public class Coral : MonoBehaviour
             gameController.SetCompletedCoralAmount();
 
             SpreadColour();
+
+            TimeStamper.TimeStamperInstance.WriteToTxtFile("BAAAJSSSS");
         }
     }
 

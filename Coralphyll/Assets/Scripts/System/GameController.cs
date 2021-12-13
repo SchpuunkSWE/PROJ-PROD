@@ -59,10 +59,12 @@ public class GameController : MonoBehaviour
         if (!runOnce)
         {
             //Open a gate to next level
-            Debug.Log("Level Complete!");
+            //Debug.Log("Level Complete!");
             sceneTransitionGate.SetActive(true);
             Instantiate(sceneTransitionGate.GetComponent<SceneController>().GetParticles(), sceneTransitionGate.transform.position, sceneTransitionGate.transform.rotation); //Spawn particles on gate so player can see it (temp)
             runOnce = true;
+            TimeStamper.TimeStamperInstance.WriteToTxtFile("Level completed ");
+            Debug.Log("Time to complete level " + Time.timeSinceLevelLoad);
         }
         
     }
