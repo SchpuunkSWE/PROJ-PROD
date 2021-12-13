@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AutoSaveUI : MonoBehaviour
+public class SaveUI : MonoBehaviour
 {
     [SerializeField] GameObject autosaveUI;
     public static bool isAutoSaving = false;
@@ -28,21 +28,24 @@ public class AutoSaveUI : MonoBehaviour
         //txtProgress.text = Mathf.Floor(progress * 100).ToString();
         fxHolder.rotation = Quaternion.Euler(new Vector3(0f, 0f, -progress * 360));
         //animator.SetBool("isAutoSaving", false);
+        
         if(isAutoSaving)
         {
-            AutoSaving();
+            PlaySavingAnim();
         }
     }
 
-    public void AutoSaving()
+    public void PlaySavingAnim()
     {
 
+        
+        animator.SetBool("isAutoSaving", true);
+        
+        StartCoroutine(wait());
+        
         //autosaveUI.SetActive(true);
         //isAutoSaving = true;
-        animator.SetBool("isAutoSaving", true);
         //new WaitForSeconds(5);
-        //animator.SetBool("isAutoSaving", false);
-        StartCoroutine(wait());
         //animator.SetBool("isAutoSaving", false);
         /*
         if (isAutoSaving)
