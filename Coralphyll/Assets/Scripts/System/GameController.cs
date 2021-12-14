@@ -47,7 +47,11 @@ public class GameController : MonoBehaviour
         Debug.Log("Total Amount of Corals In Scene: " + totalCoralAmount);
         Debug.Log("Completed Coral Amount: " + completedCoralAmount);
 
-        sceneTransitionGate.SetActive(false);
+        if (sceneTransitionGate != null)
+        {
+            sceneTransitionGate.SetActive(false);
+        }
+
         if (instance == null)
         {
             instance = this;
@@ -86,8 +90,11 @@ public class GameController : MonoBehaviour
         {
             //Open a gate to next level
             //Debug.Log("Level Complete!");
-            sceneTransitionGate.SetActive(true);
-            Instantiate(sceneTransitionGate.GetComponent<SceneController>().GetParticles(), sceneTransitionGate.transform.position, sceneTransitionGate.transform.rotation); //Spawn particles on gate so player can see it (temp)
+            if (sceneTransitionGate != null)
+            {
+                sceneTransitionGate.SetActive(true);
+                Instantiate(sceneTransitionGate.GetComponent<SceneController>().GetParticles(), sceneTransitionGate.transform.position, sceneTransitionGate.transform.rotation); //Spawn particles on gate so player can see it (temp)
+            }
             runOnce = true;
             Logger.LoggerInstance.CreateTextFile("#LevelCompleted, " + Time.timeSinceLevelLoad + " seconds, " + "#TimeToCompleteLevel \n");
             Debug.Log("Time to complete level " + Time.timeSinceLevelLoad);
@@ -119,36 +126,51 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("DepositBlueFishButton pressed");
 
-        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.BLUE);
-
+        if (player != null)
+        {
+            player.GetComponent<NPCFishUtil>().TransferFish(FishColour.BLUE);
+        }
     }
 
     public void DepositYellowFishButton()
     {
         Debug.Log("DepositYellowFishButton pressed");
-
-        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.YELLOW);
+        if (player != null)
+        {
+            player.GetComponent<NPCFishUtil>().TransferFish(FishColour.YELLOW);
+        }
     }
 
     public void DepositRedFishButton()
     {
         Debug.Log("DepositRedFishButton pressed");
-
-        player.GetComponent<NPCFishUtil>().TransferFish(FishColour.RED);
+        if (player != null)
+        {
+            player.GetComponent<NPCFishUtil>().TransferFish(FishColour.RED);
+        }
     }
 
     public void PickUpBlueFishBtn()
     {
         Debug.Log("PickUpBlueFishBtn pressed");
-        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.BLUE);
+        if (player != null)
+        {
+            player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.BLUE);
+        }
     }
     public void PickUpYellowFishBtn()
     {
-        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.YELLOW);
+        if (player != null)
+        {
+            player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.YELLOW);
+        }
     }
 
     public void PickUpRedFishBtn()
     {
-        player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.RED);
+        if (player != null)
+        {
+            player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.RED);
+        }
     }
 }
