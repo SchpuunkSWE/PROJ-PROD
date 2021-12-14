@@ -167,10 +167,12 @@ public class GameController : MonoBehaviour
         if (activated)
         {
             devMenu.SetActive(true);
+            Time.timeScale = 0f;
         }
         else
         {
             devMenu.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 }

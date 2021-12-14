@@ -18,7 +18,10 @@ public class PlayerControllerKeybinds : MonoBehaviour
             return player;
         }
     }
+
     private InputManager inputManager;
+    private bool canDropFish = true;
+    public bool CanDropFish { get => canDropFish; set => canDropFish = value; }
 
     void Start()
     {
@@ -86,7 +89,11 @@ public class PlayerControllerKeybinds : MonoBehaviour
 
         if (inputManager.GetKey(KeybindingActions.DropFish) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            gameObject.GetComponent<NPCFishUtil>().DropFish();
+            if (canDropFish)
+            {
+                gameObject.GetComponent<NPCFishUtil>().DropFish();
+            }
+
         }
     }
        
@@ -114,7 +121,7 @@ public class PlayerControllerKeybinds : MonoBehaviour
 
     private void PlayerBoost()
     {
-        if(playerController.isBoostReady)
+        if(playerController.IsBoostReady)
             playerController.StartBoost();
     }
 }

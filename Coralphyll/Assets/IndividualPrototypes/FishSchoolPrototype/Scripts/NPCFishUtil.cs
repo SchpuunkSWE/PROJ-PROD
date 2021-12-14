@@ -22,6 +22,8 @@ public class NPCFishUtil : MonoBehaviour
 
     private NavigationArrow navArrow;
 
+    public GameObject[] ArrayOfTargets { get => arrayOfTargets; set => arrayOfTargets = value; }
+
     #region Singleton Quickversion
     public static NPCFishUtil NPCFishUtilInstance;
 
@@ -32,6 +34,24 @@ public class NPCFishUtil : MonoBehaviour
     }
 
     #endregion
+
+    public void LoopFollowTargets(int value)
+    {
+        int count = 0;
+        for(int i = 0; i < arrayOfTargets.Length; i++)
+        {
+            if(count < value)
+            {
+                arrayOfTargets[i].SetActive(true);
+            }
+            else
+            {
+                arrayOfTargets[i].SetActive(false);
+            }
+
+            count++;
+        }
+    }
 
     private void FixedUpdate()
     {

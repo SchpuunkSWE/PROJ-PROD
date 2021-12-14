@@ -9,11 +9,47 @@ public class VariableSettings : MonoBehaviour
 
     private TrashPile trashPile;
 
+    [SerializeField]
+    private List<GameObject> trashPiles;
+
+    [SerializeField]
+    private List<GameObject> corals;
+
+    [SerializeField]
+    private List<GameObject> safeZones;
+
+    [SerializeField]
+    private List<GameObject> enemySharks;
+
+    [SerializeField]
+    private List<GameObject> enemyMorays;
+
+    [SerializeField]
+    private List<GameObject> fishSchools;
+
+
     private void Awake()
     {
         playerControllerKeybinds = PlayerControllerKeybinds.Player;
         player = playerControllerKeybinds.gameObject.GetComponent<Controller3DKeybinds>();
         trashPile = FindObjectOfType<TrashPile>();
+    }
+
+    private void ActivateObjectsInList(List<GameObject> listToPopulate, int amount)
+    {
+        int count = 0;
+        foreach (GameObject go in listToPopulate)
+        {
+            if(count < amount)
+            {
+                go.SetActive(true);
+            }
+            else
+            {
+                go.SetActive(false);
+            }
+            count++;
+        }
     }
 
     #region Player
@@ -45,26 +81,27 @@ public class VariableSettings : MonoBehaviour
 
     public void SetPlayerCanBoost(bool value)
     {
-        //Need to add a variable for this in player
+        player.IsBoostReady = value;
     }
     #endregion
 
     public void SetPlayerFollowTargetAmount(float value)
     {
         int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
-        //Need to change NPCFishUtil for this
+        player.GetComponent<NPCFishUtil>().LoopFollowTargets(inputValue);
     }
 
     public void SetPlayerCanDropFishAnywhere(bool value)
     {
-        //Need to change NPCFishUtil for this
+        playerControllerKeybinds.CanDropFish = value;
     }
     #endregion
 
     #region NPCFish
-    public void SetInitialSchoolAmount(int value)
+    public void SetInitialSchoolAmount(float value)
     {
-        //Control amount of schools at start
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        ActivateObjectsInList(fishSchools, inputValue);
     }
 
     public void SetSchoolSizeAmount(int value)
@@ -84,9 +121,10 @@ public class VariableSettings : MonoBehaviour
         //Decides whether or not Coral can take more fish than it needs
     }
 
-    public void SetTotalCoralAmount(int value)
+    public void SetTotalCoralAmount(float value)
     {
-        //Start with all Corals deactivated and then just do set active on desired amount?
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        ActivateObjectsInList(corals, inputValue);
     }
 
     public void SetCoralSafetyRange()
@@ -106,9 +144,10 @@ public class VariableSettings : MonoBehaviour
         //Control size of safe area around safezone
     }
 
-    public void SetTotalSafezoneAmount(int value)
+    public void SetTotalSafezoneAmount(float value)
     {
-        //Start with all Safezones deactivated and then just do set active on desired amount?
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        ActivateObjectsInList(safeZones, inputValue);
     }
     #endregion
 
@@ -128,16 +167,17 @@ public class VariableSettings : MonoBehaviour
         trashPile.PlayerSlowedSpeed = value;
     }
 
-    public void TrashPileRemovesPlayerBoost(bool value)
+    public void SetTotalAmountOfTrashPiles(float value)
     {
-        //Decides whether or not player can boost within trashpile
-        //SetPlayerCanBoost(value); ?
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        ActivateObjectsInList(trashPiles, inputValue);
     }
 
-    public void SetTotalAmountOfTrashPiles(int value)
+    public void TrashPileRemovesPlayerBoost(bool value)
     {
-        //Start with all trash piles deactivated and then just do set active on desired amount?
+        trashPile.TrashRemovesPlayerBoost = value;
     }
+
 
     #endregion
 
@@ -184,9 +224,10 @@ public class VariableSettings : MonoBehaviour
         //Control whether or not shark can eat player if player has no fishes
     }
 
-    public void SetTotalAmountOfSharks(int value)
+    public void SetTotalAmountOfSharks(float value)
     {
-
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        ActivateObjectsInList(enemySharks, inputValue);
     }
     #endregion
 
@@ -205,9 +246,10 @@ public class VariableSettings : MonoBehaviour
     {
         //TBA
     }
-    public void SetTotalAmountOfMorays(int value)
+    public void SetTotalAmountOfMorays(float value)
     {
-
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        ActivateObjectsInList(enemyMorays, inputValue);
     }
     #endregion
 

@@ -220,7 +220,7 @@ public class Controller3DKeybinds : MonoBehaviour
     // private float maxRotationSpeed = 2;
     // [SerializeField]
     private float boostCooldown = 4;
-    public bool isBoostReady = true;
+    private bool isBoostReady = true;
     private bool boostComplete = true;
     [SerializeField]
     private float boostPower = 5;
@@ -232,6 +232,7 @@ public class Controller3DKeybinds : MonoBehaviour
     public float BoostDuration { get => boostDuration; set => boostDuration = value; }
     public float BoostCooldown { get => boostCooldown; set => boostCooldown = value; }
     public float MaxBoostSpeed { get => maxBoostSpeed; set => maxBoostSpeed = value; }
+    public bool IsBoostReady { get => isBoostReady; set => isBoostReady = value; }
 
     public void StartBoost()
     {
