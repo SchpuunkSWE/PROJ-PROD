@@ -6859,8 +6859,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1066934068
-SphereCollider:
+--- !u!64 &1066934068
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6869,9 +6869,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1066934069
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12404,7 +12405,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-314940
+  m_Name: pb_Mesh-110818
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23263,7 +23264,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-314914
+  m_Name: pb_Mesh-110782
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23892,11 +23893,11 @@ PrefabInstance:
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 615105642}
-    - target: {fileID: 896735061469148559, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
+    - target: {fileID: 896735061410890421, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
       propertyPath: gp
       value: 
       objectReference: {fileID: 1076762}
-    - target: {fileID: 896735061469148559, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
+    - target: {fileID: 896735061410890421, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 287576546}
@@ -23948,15 +23949,15 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 287576546}
-    - target: {fileID: 896735062981813963, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
+    - target: {fileID: 896735062922514929, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
       propertyPath: coralPanel
       value: 
       objectReference: {fileID: 1076761}
-    - target: {fileID: 896735062981813963, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
+    - target: {fileID: 896735062922514929, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
       propertyPath: inGameCanvas
       value: 
       objectReference: {fileID: 2004538925}
-    - target: {fileID: 896735062981813963, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
+    - target: {fileID: 896735062922514929, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
       propertyPath: safezonePanel
       value: 
       objectReference: {fileID: 1251583082}
@@ -24056,10 +24057,6 @@ PrefabInstance:
       propertyPath: deSpawnableDecor
       value: 
       objectReference: {fileID: 646790687}
-    - target: {fileID: 1953859539024655888, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 51.74
-      objectReference: {fileID: 0}
     - target: {fileID: 6646487024682882798, guid: 03e2c5b72473c684aa438a251b51c60b, type: 3}
       propertyPath: m_RootOrder
       value: 1
