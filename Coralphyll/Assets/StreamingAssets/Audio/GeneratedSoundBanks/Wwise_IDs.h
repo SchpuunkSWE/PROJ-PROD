@@ -18,6 +18,9 @@ namespace AK
         static const AkUniqueID CHAR_DASH = 667507884U;
         static const AkUniqueID CUTSCENE_LEVEL1_AMBIENCE = 2212933930U;
         static const AkUniqueID CUTSCENE_LEVEL1_VOICE = 3304948164U;
+        static const AkUniqueID CUTSCENE_LEVEL2_AMBIENCE = 2945618175U;
+        static const AkUniqueID CUTSCENE_LEVEL2_SHARKBITE = 3451548568U;
+        static const AkUniqueID CUTSCENE_LEVEL2_VOICE = 1672897699U;
         static const AkUniqueID FISHEAT = 2968903799U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
@@ -150,7 +153,6 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID CUTSCENES = 3765803840U;
         static const AkUniqueID MAIN = 3161908922U;
         static const AkUniqueID TEST = 3157003241U;
     } // namespace BANKS
