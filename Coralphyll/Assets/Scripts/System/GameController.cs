@@ -89,7 +89,7 @@ public class GameController : MonoBehaviour
             sceneTransitionGate.SetActive(true);
             Instantiate(sceneTransitionGate.GetComponent<SceneController>().GetParticles(), sceneTransitionGate.transform.position, sceneTransitionGate.transform.rotation); //Spawn particles on gate so player can see it (temp)
             runOnce = true;
-            Logger.LoggerInstance.CreateTextFile("#LevelCompleted, " + Time.timeSinceLevelLoad + " seconds, " + "#TimeToCompleteLevel");
+            Logger.LoggerInstance.CreateTextFile("#LevelCompleted, " + Time.timeSinceLevelLoad + " seconds, " + "#TimeToCompleteLevel \n");
             Debug.Log("Time to complete level " + Time.timeSinceLevelLoad);
         }
 
