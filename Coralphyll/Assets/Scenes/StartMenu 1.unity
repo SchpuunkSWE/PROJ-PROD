@@ -194,6 +194,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 189626052331506687, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
+      propertyPath: tt1GO.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189626052331506687, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
+      propertyPath: tt1Text.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 234667204870004013, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
       propertyPath: isStartMenu
       value: 1
@@ -2634,7 +2642,8 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 189626052331506687, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
 --- !u!1 &108886207
 GameObject:
@@ -3301,7 +3310,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132147200}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fc456f1d72105c40aed2851d36d09db, type: 3}
   m_Name: 
@@ -3313,7 +3322,12 @@ MonoBehaviour:
   UIOptionsObject: {fileID: 0}
   TextSizeObject: {fileID: 0}
   TextToSpeachObject: {fileID: 0}
-  tt1GO: []
+  tt1GO:
+  - {fileID: 586799863}
+  - {fileID: 1292184984}
+  - {fileID: 2090292527}
+  - {fileID: 1916237427}
+  - {fileID: 1417980746}
   tt2GO: []
   tt3GO: []
   tt1Text: []
