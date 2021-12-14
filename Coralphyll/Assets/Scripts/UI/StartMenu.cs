@@ -23,6 +23,8 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
         Logger.LoggerInstance.CreateTextFile("#PlayTestSTARTED");
+        Logger.LoggerInstance.CreateTextFile("Level 1: ");
+
     }
     public void OpenOptionsButton(){
         if(optionsOpen == false){
