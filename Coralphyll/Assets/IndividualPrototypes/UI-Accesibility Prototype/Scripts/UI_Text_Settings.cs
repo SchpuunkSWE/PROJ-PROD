@@ -103,16 +103,16 @@ public class UI_Text_Settings : MonoBehaviour
     }
 
     private void assignTextToGameobject(){
-        StartButtonText = StartButtonObject.GetComponent<Text>();
-        OptionButtonText = OptionButtonObject.GetComponent<Text>();
-        HowToPlayButtonText = HowToPlayButtonObject.GetComponent<Text>();
-        VisualButtonText = VisualButtonObject.GetComponent<Text>();
+      //  StartButtonText = StartButtonObject.GetComponent<Text>();
+       // OptionButtonText = OptionButtonObject.GetComponent<Text>();
+      //  HowToPlayButtonText = HowToPlayButtonObject.GetComponent<Text>();
+        //VisualButtonText = VisualButtonObject.GetComponent<Text>();
       //  AudioButtonText = AudioButtonObject.GetComponent<Text>();
        // ControlButtonText = ControlButtonObject.GetComponent<Text>();
-        UIOptionsText = UIOptionsObject.GetComponent<Text>();
-        TextSizeText = TextSizeObject.GetComponent<Text>();
+       // UIOptionsText = UIOptionsObject.GetComponent<Text>();
+     //   TextSizeText = TextSizeObject.GetComponent<Text>();
        // TextBackgroundText = TextBackgroundObject.GetComponent<Text>();
-       TextToSpeachText = TextToSpeachObject.GetComponent<Text>();
+     //  TextToSpeachText = TextToSpeachObject.GetComponent<Text>();
        // VisualAidText = VisualAidObject.GetComponent<Text>();
       /* foreach (GameObject i in tt1GO)
                 {
