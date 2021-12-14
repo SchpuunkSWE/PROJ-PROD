@@ -14,6 +14,9 @@ public class NPCFishUtil : MonoBehaviour
     [SerializeField]
     private GameObject boidsSystemPrefab; //Set in editor
 
+    private bool runFishLogOnce = false; //Prevent fish log from running multiple times
+    private bool runFirstCoralLogOnce = false; //Prevent coral log from running multiple times
+
     private GameObject boidsSystemGO;
 
     private Coral coral;
@@ -63,6 +66,12 @@ public class NPCFishUtil : MonoBehaviour
         if (other.CompareTag("Coral"))
         {
             Debug.Log("Coral Tagged");
+
+            if (!runFirstCoralLogOnce)
+            {
+                Logger.LoggerInstance.CreateTextFile("#FoundFirstCoral");
+                runFirstCoralLogOnce = true;
+            }
 
             coral = other.GetComponentInParent<Coral>();
             boidsSystemGO = coral.boidsSystemGO; //GameObject of coral.
@@ -144,6 +153,13 @@ public class NPCFishUtil : MonoBehaviour
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
+
+            if (!runFishLogOnce)
+            {
+                Logger.LoggerInstance.CreateTextFile("#FirstFishPickedUp");
+                runFishLogOnce = true;
+            }
+
             return true;
         }
         return false;

@@ -10,6 +10,7 @@ public class MorayLunge : MorayState
     private float lungeSpeed = 50f;
     private float allowedDistance = 0.5f;
     private bool hasLunged = false;
+    private bool runOnce = false; //Only log once
     public override void Enter()
     {
         base.Enter();
@@ -20,6 +21,11 @@ public class MorayLunge : MorayState
         base.HandleUpdate();
         AIMorayController.UpdatePosition(GetLungePoint(), lungeSpeed);
         hasLunged = Vector3.Distance(GetMorayPos().position, GetLungePoint()) <= allowedDistance;
+        if (!runOnce)
+        {
+            Logger.LoggerInstance.CreateTextFile("#FirstTimeMorayLunged");
+            runOnce = true;
+        }
     }
 
     public override void EvaluateTransitions()
