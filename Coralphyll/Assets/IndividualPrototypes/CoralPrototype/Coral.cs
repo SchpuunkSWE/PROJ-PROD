@@ -7,7 +7,6 @@ public class Coral : MonoBehaviour
 {
     //Tweak how many fish of each colour the coral needs in inspector
     [SerializeField]
-
     private int thisCoralNr;
     [SerializeField]
     private int yellowFishesNeeded;
@@ -16,22 +15,20 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private int blueFishesNeeded;
 
-    [SerializeField]
-    Text yellowFishesText;
-    [SerializeField]
-    Text redFishesText;
-    [SerializeField]
-    Text blueFishesText;
+    // [SerializeField]
+    // Text yellowFishesText;
+    // [SerializeField]
+    // Text redFishesText;
+    // [SerializeField]
+    // Text blueFishesText;
 
     private int yellowFishesAmount;
     private int redFishesAmount;
     private int blueFishesAmount;
 
-    private string yellowBaseTxt = "Yellow Fishes: ";
-    private string redBaseTxt = "Red Fishes: ";
-    private string blueBaseTxt = "Blue Fishes: ";
-
-    private MeshRenderer mRenderer;
+    // private string yellowBaseTxt = "Yellow Fishes: ";
+    // private string redBaseTxt = "Red Fishes: ";
+    // private string blueBaseTxt = "Blue Fishes: ";
 
     [SerializeField]
     private GameController gameController;
@@ -56,6 +53,9 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private GameObject spawnableDecor;
 
+    [SerializeField]
+    private GameObject deSpawnableDecor;
+
     public bool Completable { get => completable; }
 
 
@@ -67,8 +67,6 @@ public class Coral : MonoBehaviour
         yellowFishesAmount = 0;
         redFishesAmount = 0;
         blueFishesAmount = 0;
-
-        mRenderer = gameObject.GetComponent<MeshRenderer>();
     }
 
     private void Start()
@@ -156,19 +154,12 @@ public class Coral : MonoBehaviour
 
     private void SpreadColour()
     {
-        // Spread colour/Increase saturation
-        Debug.Log("Spreading Colour!");
-        Debug.Log(mRenderer.material.name);
-
-        Color newCoralColour = new Color(59, 250, 0);
-
-        mRenderer.material.SetColor("_BaseColor", newCoralColour);
-
         Instantiate(CompletedParticles, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
 
         IncompletedParticles.Stop();
 
         spawnableDecor.SetActive(true);
+        deSpawnableDecor.SetActive(false);
     }
 
     public int fishSlotsAvailable(FishColour fishColour) //Calculates remaining slots for a specific fish colour.

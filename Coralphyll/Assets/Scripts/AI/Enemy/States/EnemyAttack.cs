@@ -16,7 +16,7 @@ public class EnemyAttack : EnemyState
     {
         base.Enter();
         currentCooldown = cooldown;
-        AIController.Renderer.material.color = Color.red;
+        //AIController.Renderer.material.color = Color.red;
         //AIController.Animator.SetBool("Attacking", true);
     }
 
@@ -54,10 +54,13 @@ public class EnemyAttack : EnemyState
         //Attack stuff
         NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
         var fishes = fishUtil.getListOfFishes();
+        float amountToKill = Mathf.Min(fishPerBite, fishes.Count);
         if (fishes.Count > 0)
         {
-            for (int i = 0; i < fishPerBite; i++)           
-                fishUtil.KillFish(); 
+            for (int i = 0; i < amountToKill; i++)
+            {
+                fishUtil.KillFish();
+            }       
         }
         else
         {
@@ -74,12 +77,12 @@ public class EnemyAttack : EnemyState
     private void HandleCooldown()
     {
         currentCooldown -= Time.deltaTime; 
-        AIController.Renderer.material.color = Color.magenta;
+        //AIController.Renderer.material.color = Color.magenta;
 
         if (currentCooldown < 0)
         {
             attacking = false;
-            AIController.Renderer.material.color = Color.red;
+            //AIController.Renderer.material.color = Color.red;
             currentCooldown = cooldown;
         }
     }

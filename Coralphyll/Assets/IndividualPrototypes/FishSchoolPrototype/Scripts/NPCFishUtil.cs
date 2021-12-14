@@ -20,26 +20,33 @@ public class NPCFishUtil : MonoBehaviour
 
     private FishColour fish;
 
+    private NavigationArrow navArrow;
+
     #region Singleton Quickversion
     public static NPCFishUtil NPCFishUtilInstance;
 
     private void Awake()
     {
         NPCFishUtilInstance = this;
+        navArrow = transform.gameObject.GetComponent<NavigationArrow>();
     }
 
     #endregion
 
-
-    public int AddToSchool(Follower go) //Kanske döpa om (till AddTOInventory)
+    private void FixedUpdate()
     {
-        if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(go))//Om det inte finns plats eller om fisken redan finns i listan...
+        SelectNavArrowTarget();
+    }
+    public int AddToSchool(Follower fol) //Kanske döpa om (till AddTOInventory)
+    {
+        if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//Om det inte finns plats eller om fisken redan finns i listan...
         {
             return -1; //returner default v�rde eftersom positionInList inte kan s�ttas till null
         }
         //Om metoden inte har returnerats...
-        listOfFishes.Add(go);
-        return listOfFishes.IndexOf(go);
+        listOfFishes.Add(fol);
+        fol.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
+        return listOfFishes.IndexOf(fol);
     }
 
     public GameObject GetTargetPositionObject(int i) //H�mtar TargetObject fr�n array
@@ -117,37 +124,10 @@ public class NPCFishUtil : MonoBehaviour
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
         }
-
-
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
 
-    //public void TransferFish() //Use this one when we dont need to specify which colour of fish we send in
-    //{
-    //    BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
-
-    //    foreach (Follower f in listOfFishes)
-    //    {
-    //        if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fish && fishToRemove.Count < coral.fishSlotsAvailable(fish))
-    //        {
-    //            fishToRemove.Add(f);
-    //        }
-
-    //    }
-    //    foreach (Follower f in fishToRemove)
-    //    {
-    //        listOfFishes.Remove(f); //Removes fishes from the list of fishes 
-    //        boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
-    //        f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
-    //        f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
-    //        f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
-    //    }
-
-    //    coral.GetComponent<Coral>().ReceiveFish();
-    //    fishToRemove.Clear(); //Clear the fish to remove list.
-    //}
-
-    public void PickUpFish(GameObject player, Follower follower)
+    public bool PickUpFish(GameObject player, Follower follower)
     {
         NPCFishUtil listScript = player.gameObject.GetComponent<NPCFishUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
         NPCFollow nPCFollow = follower.GetComponent<NPCFollow>();
@@ -164,9 +144,9 @@ public class NPCFishUtil : MonoBehaviour
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
-
-            
+            return true;
         }
+        return false;
     }
 
     public void FindAndPickUpFish(FishColour fishColour)
@@ -200,7 +180,11 @@ public class NPCFishUtil : MonoBehaviour
         {
             var newBoidsSystem = Instantiate(boidsSystemPrefab, transform.position, Quaternion.identity);
             BoidsSystem boidsSystem = newBoidsSystem.GetComponent<BoidsSystem>();
-            FishCounter.fishCounterInstance.AddSchool(boidsSystem);
+
+            if (FishCounter.fishCounterInstance != null)
+            {
+                FishCounter.fishCounterInstance.AddSchool(boidsSystem);
+            }
 
             foreach (Follower f in listOfFishes)
             {
@@ -212,22 +196,18 @@ public class NPCFishUtil : MonoBehaviour
             }
             foreach (Follower f in fishToRemove)
             {
+                NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
                 listOfFishes.Remove(f); //Removes fishes from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
-                f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+                nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
+                nPCFollow.fishTarget = null;
                 f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
                 f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
                 StartCoroutine(MakeFishCollectible(f));
                 Debug.Log("StartCoroutine KÖRD");
-
-                //Destroy(f.GetComponent<BoidsAgent>().owner.gameObject); //Destroy the Boidssystem that the fish has.
-                //FishCounter.fishCounterInstance.RemoveSchool(f.GetComponent<BoidsAgent>().owner);
-                //FishCounter.fishCounterInstance.RecountFishes = true;
-
-                //Destroy(f.gameObject, 5);
-
             }
             fishToRemove.Clear(); //Clear the fish to remove list.
+
         }
     }
 
@@ -237,7 +217,8 @@ public class NPCFishUtil : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Debug.Log("Coroutine started");
         follower.Collectable = true; //So that you can pick up fish again.
-        follower.RGB.detectCollisions = true; //Turn on collision on fish.        
+        follower.RGB.detectCollisions = true; //Turn on collision on fish.      
+        follower.transform.gameObject.tag = "NPCFish"; //Changes the tag of the fish back to NPCFish so it can be a target for the arrow
     }
 
     public void KillFish()
@@ -277,6 +258,27 @@ public class NPCFishUtil : MonoBehaviour
             fishToRemove.Clear(); //Clear the fish to remove list.
             FishCounter.fishCounterInstance.RecountFishes = true;
         }
+    }
+    private void SelectNavArrowTarget()
+    {
+        if (navArrow == null)
+        {
+            return;
+        }
+
+        if (GameController.Instance.IslevelCompleted)// If the level is completed...
+        {
+            navArrow.SetTargetTag("Exit"); //...Set the tag that the arrow should point at to Exit.
+            return;
+        }
+
+        if (listOfFishes.Count < 1) // If the list contains less than 1 fish...
+        {
+            navArrow.SetTargetTag("NPCFish"); //...Set the tag that the arrow should point at to NPCFish.
+            return;
+        }
+
+        navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
     }
 }
 
