@@ -39,7 +39,7 @@ public class Logger : MonoBehaviour
             File.WriteAllText(txtDocumentName, "TIMESTAMPS: \n \n"); //Creates a header for the txt file if it doesent exist. 
         }
 
-        File.AppendAllText(txtDocumentName, description + DateTime.Now + "\n"); //Sends to log. 
+        File.AppendAllText(txtDocumentName, DateTime.Now + ", " + description+ "\n"); //Sends to log. 
     }
 
     public void WriteToTxtFile(string description)
