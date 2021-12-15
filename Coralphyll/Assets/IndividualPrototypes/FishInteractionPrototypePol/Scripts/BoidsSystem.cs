@@ -101,14 +101,18 @@ public class BoidsSystem : MonoBehaviour
 
     public void CheckBoidsSystem()
     {
-        if(!isOnCoral && dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        if (!isOnCoral && dontDelete && !isSpawnPoint && transform.childCount <= 1)
         {
             AkSoundEngine.PostEvent("NPC_Friendly_Fish_Generic_Stop", gameObject);
             gameObject.SetActive(false);
             Debug.Log("Boids system inactive");
-        } else if (!isOnCoral && !dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        }
+        else if (!isOnCoral && !dontDelete && !isSpawnPoint && transform.childCount <= 1)
         {
-            FishCounter.fishCounterInstance.RemoveSchool(this);
+            if (FishCounter.fishCounterInstance != null)
+            {
+                FishCounter.fishCounterInstance.RemoveSchool(this);
+            }
             Destroy(gameObject);
             Debug.Log("Boids system destroyed");
         }

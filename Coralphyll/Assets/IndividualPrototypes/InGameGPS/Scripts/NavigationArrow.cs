@@ -47,6 +47,7 @@ public class NavigationArrow : MonoBehaviour
             }
         }
         return closestTarget;
+
     }
 
     public void SetTargetTag(string s)
