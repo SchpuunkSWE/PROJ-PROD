@@ -27,7 +27,7 @@ public class AIController : MonoBehaviour
     private void Awake()
     {
         Renderer = GetComponent<MeshRenderer>();
-        Animator = GetComponent<Animator>();
+        Animator = GetComponentInChildren<Animator>();
         Player = PlayerControllerKeybinds.Player.gameObject; //Get from player
         stateMachine = new StateMachine(this, states);
     }
