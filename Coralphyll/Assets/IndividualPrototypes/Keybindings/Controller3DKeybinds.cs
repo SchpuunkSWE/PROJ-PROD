@@ -220,7 +220,7 @@ public class Controller3DKeybinds : MonoBehaviour
     // [SerializeField]
     private float boostCooldown = 4;
     public bool isBoostReady = true;
-    private bool boostComplete = true;
+    public bool boostComplete = true;
     [SerializeField]
     private float boostPower = 5;
     [SerializeField]
