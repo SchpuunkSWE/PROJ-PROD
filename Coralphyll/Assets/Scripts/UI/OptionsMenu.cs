@@ -79,14 +79,14 @@ public class OptionsMenu : MonoBehaviour
     public void NavigationArrow(bool navArrow)
     {
         PlayerPrefs.SetInt("NavigationArrow", BoolToInt(navArrow));
-        GameObject navigationArrow = GameObject.FindGameObjectWithTag("Arrow");
-        if (navArrowToggle.GetComponent<Toggle>().isOn)
+        GameObject navigationArrow = GameObject.FindGameObjectWithTag("Arrow"); //Find gameObject with tag Arrow. In this case this should be ArrowParent. 
+        if (navArrowToggle.GetComponent<Toggle>().isOn) //Check if the toggle is toggled.
         {
-            navigationArrow.transform.GetChild(0).gameObject.SetActive(true);
+            navigationArrow.transform.GetChild(0).gameObject.SetActive(true); //Activate the child object to the object we found before. In this case it should be the Arrow.
         }
         else
         {
-            navigationArrow.transform.GetChild(0).gameObject.SetActive(false);
+            navigationArrow.transform.GetChild(0).gameObject.SetActive(false); //Inactivate the child object. 
         }      
     }
 
