@@ -6,16 +6,17 @@ using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
-    
+
     public GameObject pauseMenu;
     public GameObject OptionMenu;
     //lägg in enemy outline script
     //lägg in hint script
     //lägg in offscreen indicator
+    //private NavigationArrow navigationArrow;
 
     public bool isStartMenu;
     public GameObject exitButton;
-   // public TabGroup tabGroup;
+    // public TabGroup tabGroup;
     //public TabButton startButton;
     // Start is called before the first frame update
     public GameObject enemyOutlineToggle;
@@ -27,28 +28,30 @@ public class OptionsMenu : MonoBehaviour
 
     void Start()
     {
-      //tabGroup.OnTabSelected(startButton);
-      Cursor.lockState = CursorLockMode.None;
-      Cursor.lockState = CursorLockMode.Confined;
-      setToggles();
+        //tabGroup.OnTabSelected(startButton);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
+        setToggles();
+        //navigationArrow = GetComponent<NavigationArrow>();
 
-        
+
     }
     void Awake()
     {
         //tabGroup.OnTabSelected(startButton);
-        if (isStartMenu){
+        if (isStartMenu)
+        {
             exitButton.SetActive(false);
         }
 
-        
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     public void CloseOptionsMenu()
@@ -58,21 +61,36 @@ public class OptionsMenu : MonoBehaviour
 
     }
 
-    public void EnemyOutline(bool enemyOutline){
+    public void EnemyOutline(bool enemyOutline)
+    {
         PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
-        
+
     }
 
-    public void HintSystem(bool hintSystem){
+    public void HintSystem(bool hintSystem)
+    {
         PlayerPrefs.SetInt("HintSystem", BoolToInt(hintSystem));
     }
-    public void OffScreenIndicator(bool offScreen){
+    public void OffScreenIndicator(bool offScreen)
+    {
         PlayerPrefs.SetInt("OffscreenIndicator", BoolToInt(offScreen));
     }
 
     public void NavigationArrow(bool navArrow)
     {
         PlayerPrefs.SetInt("NavigationArrow", BoolToInt(navArrow));
+        //NavigationArrow navigationArrow = GetComponent<NavigationArrow>();
+        Transform navArrowTransform = GetComponent<NavigationArrow>().transform.GetChild(2);
+        //Transform navArrowTransform = navigationArrow.transform;
+        //Transform childTransform = navArrowTransform.Find("ArrowParent");
+        if (!navArrowTransform.gameObject.activeSelf)
+        {
+            navArrowTransform.gameObject.SetActive(true);
+        }
+        else
+        {
+            navArrowTransform.gameObject.SetActive(false);
+        }
     }
 
     public void startLevel1()
@@ -96,25 +114,34 @@ public class OptionsMenu : MonoBehaviour
 
     }
 
-    private int BoolToInt(bool boolean){
-        if (boolean){
+    private int BoolToInt(bool boolean)
+    {
+        if (boolean)
+        {
             return 1;
-        } else{
+        }
+        else
+        {
             return 0;
         }
     }
-    private bool IntToBool(int i){
-        if (i == 1){
+    private bool IntToBool(int i)
+    {
+        if (i == 1)
+        {
             return true;
-        } else{
+        }
+        else
+        {
             return false;
         }
     }
 
-    public void setToggles(){
-        enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("EnemyOutline") );
-        hintToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("HintSystem") );
-        indicatorToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("OffscreenIndicator") );
+    public void setToggles()
+    {
+        enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("EnemyOutline"));
+        hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
+        indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
     }
 }
