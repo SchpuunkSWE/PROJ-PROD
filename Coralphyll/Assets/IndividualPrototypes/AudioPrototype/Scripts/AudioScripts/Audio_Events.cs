@@ -40,6 +40,10 @@ public class Audio_Events : MonoBehaviour
         Audio_PlayerState(isAlive);
 
     }
+    private void Start()
+    {
+        //Audio_GameState("StartGame");
+    }
     private void Update()
     {
         time += Time.deltaTime;
@@ -182,7 +186,6 @@ public class Audio_Events : MonoBehaviour
                 Audio_LevelState("Exploring");
                 hasPlayedAlert = false;
                 musicStateCD = time + 3f;
-                Debug.Log("NOTincombat: CD: " + musicStateCD + " Time: " + time);
             }
         }
         else

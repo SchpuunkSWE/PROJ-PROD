@@ -37,6 +37,8 @@ public class EnemyAttack : EnemyState
         //Do not transition during cooldown
         if (!attacking)
         {
+            AIController.Animator.SetBool("attacking", false);
+
             if (!CanSeePlayer())
             {
                 stateMachine.Transition<EnemyAlert>();
@@ -51,6 +53,7 @@ public class EnemyAttack : EnemyState
     private void Attack()
     {
         attacking = true;
+        AIController.Animator.SetBool("attacking", true);
         //Attack stuff
         NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
         var fishes = fishUtil.getListOfFishes();
