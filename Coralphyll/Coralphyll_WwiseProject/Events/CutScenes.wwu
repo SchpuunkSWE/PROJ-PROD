@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{575B1DE0-7F0A-4E43-88E7-38494A49CE82}" SchemaVersion="103">
+	<Events>
+		<WorkUnit Name="CutScenes" ID="{575B1DE0-7F0A-4E43-88E7-38494A49CE82}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Level1" ID="{A7D51C13-B6F2-428D-BEE4-DB4FA91F7E12}" ShortID="429694810">
+					<ChildrenList>
+						<Event Name="Cutscene_Level1_Ambience" ID="{0AE06198-14D2-4D76-A991-7ED7DF28DB90}">
+							<ChildrenList>
+								<Action Name="" ID="{7F56F8B2-AFBA-445B-BC98-28459B6E9290}" ShortID="924590545">
+									<PropertyList>
+										<Property Name="FadeInCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambience" ID="{F855F232-2EEB-4EA8-93B9-4044B031268E}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Cutscene_Level1_Voice" ID="{F69DC8ED-E6FD-4A17-8C2C-50A6569CEE82}">
+							<ChildrenList>
+								<Action Name="" ID="{E4BD8390-86B9-4A43-9689-954C332B2DB2}" ShortID="765228152">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VoiceOverIntro" ID="{6CACDB38-D3F7-46EC-8FC6-1A2B0FCB2C94}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Level2" ID="{783AED32-6425-4798-BA49-9D019A348AD6}" ShortID="934718465">
+					<ChildrenList>
+						<Event Name="Cutscene_level2_Ambience" ID="{9EDFAC15-2F7D-49AE-AF02-A2A2247449DF}">
+							<ChildrenList>
+								<Action Name="" ID="{1465C636-B2D1-4E7F-A370-4D88F971B221}" ShortID="750223481">
+									<PropertyList>
+										<Property Name="FadeInCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambience" ID="{D1ECFEF7-F891-4E3E-A1FC-96FD9705B462}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Cutscene_level2_Voice" ID="{813DF2F2-0FFC-46F9-8FE7-49842A92BF7B}">
+							<ChildrenList>
+								<Action Name="" ID="{1B06BDD8-73FD-4718-ACFD-A22C729A3CB8}" ShortID="768977422">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Voiceover2" ID="{5506DCE1-C4AA-4AE2-9732-0BB7F6A3963B}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Cutscene_level2_SharkBite" ID="{39CD10D7-B0CB-48DF-8923-125C5A08B05A}">
+							<ChildrenList>
+								<Action Name="" ID="{FBBD98A9-0BA2-4E38-896A-F32C217A9E28}" ShortID="650312447">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FishEat" ID="{AF57F1AF-97BE-423E-95F6-7577AC597A5D}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SkipCutscene" ID="{1FB08943-9CD1-4D71-84BD-B9F057DC77E8}">
+							<ChildrenList>
+								<Action Name="" ID="{833D139B-1E1D-4B03-B1C9-3F4C21B27653}" ShortID="615198890">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Voiceover2" ID="{5506DCE1-C4AA-4AE2-9732-0BB7F6A3963B}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5D5D8A52-34CF-4175-8A71-199A0CC586AB}" ShortID="243625895">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambience" ID="{D1ECFEF7-F891-4E3E-A1FC-96FD9705B462}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8E6B142F-AB90-414E-AFFF-9CB4D573E88E}" ShortID="1017052258">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambience" ID="{F855F232-2EEB-4EA8-93B9-4044B031268E}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{420E549A-0ACC-4D3E-A8BF-C2C2D20C171A}" ShortID="406984968">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VoiceOverIntro" ID="{6CACDB38-D3F7-46EC-8FC6-1A2B0FCB2C94}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{506B697A-1B41-4A8E-856D-15CA089416B4}" ShortID="312949749">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ES_The Smallest of Miracles (Sting) - Magnus Ringblom" ID="{BE891826-68EE-437F-B0B6-B2937B64B44C}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Credits" ID="{D7567515-D0A4-4EFD-8FE6-BA239A6646CD}" ShortID="1060960798">
+					<ChildrenList>
+						<Event Name="Cutscene_PlayCredits" ID="{AFC35EF9-09D6-4BE8-A1A2-5F1C70DC0E8F}">
+							<ChildrenList>
+								<Action Name="" ID="{B491547E-AC9F-45C6-9F86-83A6D0D09AEE}" ShortID="47451330">
+									<PropertyList>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LostPortalsINtoTheWater_Short" ID="{36D271DF-D357-4B3F-8CDA-B3DE9EA7196D}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PauseEverything" ID="{66600F3C-E3AC-4234-9503-343DE68B36DC}">
+							<ChildrenList>
+								<Action Name="" ID="{F45EAAE2-960B-4CA1-8B90-7775D16CEC49}" ShortID="335275535">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="8"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ResumeEverything" ID="{344A8FD6-7E2E-4159-8CFE-BEF0F869035D}">
+							<ChildrenList>
+								<Action Name="" ID="{640FB55E-CCE8-4145-8458-E78E4C5E853C}" ShortID="475023317">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="10"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Level4" ID="{ECE898A1-AC1F-4E6B-8444-183C6353CAAD}" ShortID="924163093">
+					<ChildrenList>
+						<Event Name="Cutscene_level4_stinger" ID="{CF92F91C-CAC2-4A4E-B5BD-0BDCEF1DDCE8}">
+							<ChildrenList>
+								<Action Name="" ID="{7181AC22-B67A-477A-B036-2CDB3CD03C82}" ShortID="883046931">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="1"/>
+										<Property Name="FadeInCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ES_The Smallest of Miracles (Sting) - Magnus Ringblom" ID="{BE891826-68EE-437F-B0B6-B2937B64B44C}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

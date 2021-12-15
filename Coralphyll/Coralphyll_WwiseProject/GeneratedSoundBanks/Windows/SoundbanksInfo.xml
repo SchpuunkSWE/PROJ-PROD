@@ -27,7 +27,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3157003241" Language="SFX" Hash="1314189990">
+		<SoundBank Id="3157003241" Language="SFX" Hash="2544749314">
 			<ObjectPath>\SoundBanks\Default Work Unit\Test</ObjectPath>
 			<ShortName>Test</ShortName>
 			<Path>Test.bnk</Path>
@@ -50,6 +50,8 @@
 						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="1002625444" Name="PauseEverything_01" ObjectPath="\Events\MusicEvents\PauseEverything_01" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4118159355" Name="ResumeEverything_01" ObjectPath="\Events\MusicEvents\ResumeEverything_01" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="252260266" Language="SFX">
@@ -109,7 +111,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3418311877">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3242595586">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -138,10 +140,11 @@
 					<IncludedMemoryFiles>
 						<File Id="330193651" Language="SFX">
 							<ShortName>Water_Bubble_Whoosh_Emerge_Fast_02.wav</ShortName>
-							<Path>SFX\Water_Bubble_Whoosh_Emerge_Fast_02_02FB6EEC.wem</Path>
+							<Path>SFX\Water_Bubble_Whoosh_Emerge_Fast_02_5C213D77.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3451548568" Name="Cutscene_level2_SharkBite" ObjectPath="\Events\CutScenes\Level2\Cutscene_level2_SharkBite" DurationType="OneShot" DurationMin="0.589181" DurationMax="0.742322"/>
 				<Event Id="2968903799" Name="FishEat" ObjectPath="\Events\Default Work Unit\SFX_Events\SharkRelated\FishEat" DurationType="OneShot" DurationMin="0.589181" DurationMax="0.742322">
 					<IncludedMemoryFiles>
 						<File Id="232149957" Language="SFX">
@@ -150,23 +153,27 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2996183927" Name="fs_player_swim" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim" DurationType="OneShot" DurationMin="0.842094" DurationMax="1.097493">
+				<Event Id="2996183927" Name="fs_player_swim" ObjectPath="\Events\Default Work Unit\character_movement\swimSounds\fs_player_swim" DurationType="OneShot" DurationMin="0.842094" DurationMax="1.231879">
 					<IncludedMemoryFiles>
 						<File Id="229478866" Language="SFX">
 							<ShortName>Whoosh_Slow_01.wav</ShortName>
-							<Path>SFX\Whoosh_Slow_01_0E28A52F.wem</Path>
+							<Path>SFX\Whoosh_Slow_01_D1DB3320.wem</Path>
 						</File>
 						<File Id="329628777" Language="SFX">
 							<ShortName>Whoosh_Slow_01.wav</ShortName>
-							<Path>SFX\Whoosh_Slow_01_02DAF67A.wem</Path>
+							<Path>SFX\Whoosh_Slow_01_4F21659B.wem</Path>
 						</File>
 						<File Id="523404514" Language="SFX">
 							<ShortName>Whoosh_Slow_01.wav</ShortName>
-							<Path>SFX\Whoosh_Slow_01_44CF0E32.wem</Path>
+							<Path>SFX\Whoosh_Slow_01_2E2DE6F3.wem</Path>
+						</File>
+						<File Id="545832823" Language="SFX">
+							<ShortName>Whoosh_Slow_01.wav</ShortName>
+							<Path>SFX\Whoosh_Slow_01_2F10F605.wem</Path>
 						</File>
 						<File Id="842372335" Language="SFX">
 							<ShortName>Whoosh_Slow_01.wav</ShortName>
-							<Path>SFX\Whoosh_Slow_01_217CF8DF.wem</Path>
+							<Path>SFX\Whoosh_Slow_01_6C6AE246.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -174,7 +181,7 @@
 					<IncludedMemoryFiles>
 						<File Id="539642640" Language="SFX">
 							<ShortName>Whoosh_Slow_01.wav</ShortName>
-							<Path>SFX\Whoosh_Slow_01_59227969.wem</Path>
+							<Path>SFX\Whoosh_Slow_01_7CE3B482.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -182,7 +189,7 @@
 					<IncludedMemoryFiles>
 						<File Id="377016321" Language="SFX">
 							<ShortName>Bubble_Rise_Soft_01.wav</ShortName>
-							<Path>SFX\Bubble_Rise_Soft_01_E34B40AD.wem</Path>
+							<Path>SFX\Bubble_Rise_Soft_01_917040AF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -357,11 +364,6 @@
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
-			<IncludedAuxBusses>
-				<AuxBus Id="301991745" Name="Reverb_Music" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Music\Reverb_Music"/>
-				<AuxBus Id="306711088" Name="Reverb_Ambience" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Ambience\Reverb_Ambience"/>
-				<AuxBus Id="3434922741" Name="Reverb_SFX" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\SFX\Reverb_SFX"/>
-			</IncludedAuxBusses>
 			<IncludedMemoryFiles>
 				<File Id="92155153" Language="SFX">
 					<ShortName>ping_final_pickup.wav</ShortName>
@@ -385,7 +387,7 @@
 				</File>
 				<File Id="229478866" Language="SFX">
 					<ShortName>Whoosh_Slow_01.wav</ShortName>
-					<Path>SFX\Whoosh_Slow_01_0E28A52F.wem</Path>
+					<Path>SFX\Whoosh_Slow_01_D1DB3320.wem</Path>
 				</File>
 				<File Id="232149957" Language="SFX">
 					<ShortName>FishEat_1.wav</ShortName>
@@ -405,15 +407,15 @@
 				</File>
 				<File Id="329628777" Language="SFX">
 					<ShortName>Whoosh_Slow_01.wav</ShortName>
-					<Path>SFX\Whoosh_Slow_01_02DAF67A.wem</Path>
+					<Path>SFX\Whoosh_Slow_01_4F21659B.wem</Path>
 				</File>
 				<File Id="330193651" Language="SFX">
 					<ShortName>Water_Bubble_Whoosh_Emerge_Fast_02.wav</ShortName>
-					<Path>SFX\Water_Bubble_Whoosh_Emerge_Fast_02_02FB6EEC.wem</Path>
+					<Path>SFX\Water_Bubble_Whoosh_Emerge_Fast_02_5C213D77.wem</Path>
 				</File>
 				<File Id="377016321" Language="SFX">
 					<ShortName>Bubble_Rise_Soft_01.wav</ShortName>
-					<Path>SFX\Bubble_Rise_Soft_01_E34B40AD.wem</Path>
+					<Path>SFX\Bubble_Rise_Soft_01_917040AF.wem</Path>
 				</File>
 				<File Id="402119525" Language="SFX">
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
@@ -429,11 +431,15 @@
 				</File>
 				<File Id="523404514" Language="SFX">
 					<ShortName>Whoosh_Slow_01.wav</ShortName>
-					<Path>SFX\Whoosh_Slow_01_44CF0E32.wem</Path>
+					<Path>SFX\Whoosh_Slow_01_2E2DE6F3.wem</Path>
 				</File>
 				<File Id="539642640" Language="SFX">
 					<ShortName>Whoosh_Slow_01.wav</ShortName>
-					<Path>SFX\Whoosh_Slow_01_59227969.wem</Path>
+					<Path>SFX\Whoosh_Slow_01_7CE3B482.wem</Path>
+				</File>
+				<File Id="545832823" Language="SFX">
+					<ShortName>Whoosh_Slow_01.wav</ShortName>
+					<Path>SFX\Whoosh_Slow_01_2F10F605.wem</Path>
 				</File>
 				<File Id="638976678" Language="SFX">
 					<ShortName>ES_PREL Sweeper High 7 - SFX Producer.wav</ShortName>
@@ -469,7 +475,7 @@
 				</File>
 				<File Id="842372335" Language="SFX">
 					<ShortName>Whoosh_Slow_01.wav</ShortName>
-					<Path>SFX\Whoosh_Slow_01_217CF8DF.wem</Path>
+					<Path>SFX\Whoosh_Slow_01_6C6AE246.wem</Path>
 				</File>
 				<File Id="948809142" Language="SFX">
 					<ShortName>413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx.wav</ShortName>
@@ -480,12 +486,6 @@
 					<Path>SFX\Chime_FriendlyFish3_updated_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
-			<GameParameters>
-				<GameParameter Id="2378823330" Name="RTPC_MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_MusicVolume"/>
-				<GameParameter Id="2582501215" Name="RTPC_MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_MasterVolume"/>
-				<GameParameter Id="2644490154" Name="RTPC_SFXVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_SFXVolume"/>
-				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
-			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="444815956" Name="PlayerLife" ObjectPath="\States\Default Work Unit\PlayerLife" GUID="{E5007303-F886-48F0-9BBF-63CC74A9BE15}">
 					<States>
@@ -520,6 +520,98 @@
 					</States>
 				</StateGroup>
 			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="4196917472" Language="SFX" Hash="1443849985">
+			<ObjectPath>\SoundBanks\Default Work Unit\LargeSongs</ObjectPath>
+			<ShortName>LargeSongs</ShortName>
+			<Path>LargeSongs.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2212933930" Name="Cutscene_Level1_Ambience" ObjectPath="\Events\CutScenes\Level1\Cutscene_Level1_Ambience" DurationType="OneShot" DurationMin="26.940666" DurationMax="26.940666">
+					<IncludedMemoryFiles>
+						<File Id="708875662" Language="SFX">
+							<ShortName>Fantasy_World_Awakening_01.wav</ShortName>
+							<Path>SFX\Fantasy_World_Awakening_01_4B23975F.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3304948164" Name="Cutscene_Level1_Voice" ObjectPath="\Events\CutScenes\Level1\Cutscene_Level1_Voice" DurationType="OneShot" DurationMin="27.483994" DurationMax="27.483994">
+					<IncludedMemoryFiles>
+						<File Id="29329179" Language="SFX">
+							<ShortName>VoiceActing_Level1.wav</ShortName>
+							<Path>SFX\VoiceActing_Level1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2945618175" Name="Cutscene_level2_Ambience" ObjectPath="\Events\CutScenes\Level2\Cutscene_level2_Ambience" DurationType="OneShot" DurationMin="19.396339" DurationMax="19.396339">
+					<IncludedMemoryFiles>
+						<File Id="274289462" Language="SFX">
+							<ShortName>Moments_Life short.wav</ShortName>
+							<Path>SFX\Moments_Life short_C5DA4045.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3451548568" Name="Cutscene_level2_SharkBite" ObjectPath="\Events\CutScenes\Level2\Cutscene_level2_SharkBite" DurationType="OneShot" DurationMin="0.589181" DurationMax="0.742322">
+					<IncludedMemoryFiles>
+						<File Id="232149957" Language="SFX">
+							<ShortName>FishEat_1.wav</ShortName>
+							<Path>SFX\FishEat_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1672897699" Name="Cutscene_level2_Voice" ObjectPath="\Events\CutScenes\Level2\Cutscene_level2_Voice" DurationType="OneShot" DurationMin="19.762915" DurationMax="19.762915">
+					<IncludedMemoryFiles>
+						<File Id="722294309" Language="SFX">
+							<ShortName>Level2_Voiceacting.wav</ShortName>
+							<Path>SFX\Level2_Voiceacting_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3295537989" Name="Cutscene_level4_stinger" ObjectPath="\Events\CutScenes\Level4\Cutscene_level4_stinger" DurationType="OneShot" DurationMin="20.331730" DurationMax="20.331730">
+					<IncludedMemoryFiles>
+						<File Id="652670948" Language="SFX">
+							<ShortName>ES_The Smallest of Miracles (Sting) - Magnus Ringblom.wav</ShortName>
+							<Path>SFX\ES_The Smallest of Miracles (Sting) - Magnus Ringblom_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="650132800" Name="Cutscene_PlayCredits" ObjectPath="\Events\CutScenes\Credits\Cutscene_PlayCredits" DurationType="OneShot" DurationMin="173.027374" DurationMax="173.027374">
+					<IncludedMemoryFiles>
+						<File Id="1014736026" Language="SFX">
+							<ShortName>LostPortalsINtoTheWater_Short.wav</ShortName>
+							<Path>SFX\LostPortalsINtoTheWater_Short_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3490942038" Name="PauseEverything" ObjectPath="\Events\CutScenes\Credits\PauseEverything" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3714063287" Name="ResumeEverything" ObjectPath="\Events\CutScenes\Credits\ResumeEverything" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3576905580" Name="SkipCutscene" ObjectPath="\Events\CutScenes\Level2\SkipCutscene" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="29329179" Language="SFX">
+					<ShortName>VoiceActing_Level1.wav</ShortName>
+					<Path>SFX\VoiceActing_Level1_10C4C929.wem</Path>
+				</File>
+				<File Id="274289462" Language="SFX">
+					<ShortName>Moments_Life short.wav</ShortName>
+					<Path>SFX\Moments_Life short_C5DA4045.wem</Path>
+				</File>
+				<File Id="652670948" Language="SFX">
+					<ShortName>ES_The Smallest of Miracles (Sting) - Magnus Ringblom.wav</ShortName>
+					<Path>SFX\ES_The Smallest of Miracles (Sting) - Magnus Ringblom_10C4C929.wem</Path>
+				</File>
+				<File Id="708875662" Language="SFX">
+					<ShortName>Fantasy_World_Awakening_01.wav</ShortName>
+					<Path>SFX\Fantasy_World_Awakening_01_4B23975F.wem</Path>
+				</File>
+				<File Id="722294309" Language="SFX">
+					<ShortName>Level2_Voiceacting.wav</ShortName>
+					<Path>SFX\Level2_Voiceacting_10C4C929.wem</Path>
+				</File>
+				<File Id="1014736026" Language="SFX">
+					<ShortName>LostPortalsINtoTheWater_Short.wav</ShortName>
+					<Path>SFX\LostPortalsINtoTheWater_Short_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

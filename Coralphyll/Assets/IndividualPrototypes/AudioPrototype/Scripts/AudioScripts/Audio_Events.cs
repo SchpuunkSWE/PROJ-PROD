@@ -40,6 +40,10 @@ public class Audio_Events : MonoBehaviour
         Audio_PlayerState(isAlive);
 
     }
+    private void Start()
+    {
+        //Audio_GameState("StartGame");
+    }
     private void Update()
     {
         time += Time.deltaTime;

@@ -42,12 +42,18 @@ public class PauseMenuUI : MonoBehaviour
         pauseMenuUI.SetActive(false);
         optionsPanel.SetActive(false);
         Time.timeScale = 1f;
+        AkSoundEngine.PostEvent("ResumeEverything", GameObject.FindGameObjectWithTag("MainCamera"));
+        AkSoundEngine.PostEvent("ResumeEverything_01", GameObject.FindGameObjectWithTag("MainCamera"));
+        AkSoundEngine.PostEvent("ResumeEverything", GameObject.FindGameObjectWithTag("CinemachineCamera"));
         GameisPaused = false;
     }
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        AkSoundEngine.PostEvent("PauseEverything", GameObject.FindGameObjectWithTag("MainCamera"));
+        AkSoundEngine.PostEvent("PauseEverything_01", GameObject.FindGameObjectWithTag("MainCamera"));
+        AkSoundEngine.PostEvent("PauseEverything", GameObject.FindGameObjectWithTag("CinemachineCamera"));
         GameisPaused = true;
     }
     public void Menu()
