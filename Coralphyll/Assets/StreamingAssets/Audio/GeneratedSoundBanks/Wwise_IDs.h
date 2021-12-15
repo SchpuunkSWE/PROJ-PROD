@@ -51,6 +51,7 @@ namespace AK
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT_STOP = 1255022652U;
         static const AkUniqueID SHARKHUFF = 638605449U;
+        static const AkUniqueID SKIPCUTSCENE = 3576905580U;
     } // namespace EVENTS
 
     namespace STATES

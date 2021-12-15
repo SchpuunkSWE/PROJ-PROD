@@ -8,6 +8,10 @@
 						<Event Name="Cutscene_Level1_Ambience" ID="{0AE06198-14D2-4D76-A991-7ED7DF28DB90}">
 							<ChildrenList>
 								<Action Name="" ID="{7F56F8B2-AFBA-445B-BC98-28459B6E9290}" ShortID="924590545">
+									<PropertyList>
+										<Property Name="FadeInCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ambience" ID="{F855F232-2EEB-4EA8-93B9-4044B031268E}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
@@ -19,6 +23,9 @@
 						<Event Name="Cutscene_Level1_Voice" ID="{F69DC8ED-E6FD-4A17-8C2C-50A6569CEE82}">
 							<ChildrenList>
 								<Action Name="" ID="{E4BD8390-86B9-4A43-9689-954C332B2DB2}" ShortID="765228152">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.5"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="VoiceOverIntro" ID="{6CACDB38-D3F7-46EC-8FC6-1A2B0FCB2C94}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
@@ -34,6 +41,10 @@
 						<Event Name="Cutscene_level2_Ambience" ID="{9EDFAC15-2F7D-49AE-AF02-A2A2247449DF}">
 							<ChildrenList>
 								<Action Name="" ID="{1465C636-B2D1-4E7F-A370-4D88F971B221}" ShortID="750223481">
+									<PropertyList>
+										<Property Name="FadeInCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ambience" ID="{D1ECFEF7-F891-4E3E-A1FC-96FD9705B462}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
@@ -45,6 +56,9 @@
 						<Event Name="Cutscene_level2_Voice" ID="{813DF2F2-0FFC-46F9-8FE7-49842A92BF7B}">
 							<ChildrenList>
 								<Action Name="" ID="{1B06BDD8-73FD-4718-ACFD-A22C729A3CB8}" ShortID="768977422">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.5"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Voiceover2" ID="{5506DCE1-C4AA-4AE2-9732-0BB7F6A3963B}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
@@ -59,6 +73,58 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="FishEat" ID="{AF57F1AF-97BE-423E-95F6-7577AC597A5D}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SkipCutscene" ID="{1FB08943-9CD1-4D71-84BD-B9F057DC77E8}">
+							<ChildrenList>
+								<Action Name="" ID="{833D139B-1E1D-4B03-B1C9-3F4C21B27653}" ShortID="615198890">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Voiceover2" ID="{5506DCE1-C4AA-4AE2-9732-0BB7F6A3963B}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5D5D8A52-34CF-4175-8A71-199A0CC586AB}" ShortID="243625895">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambience" ID="{D1ECFEF7-F891-4E3E-A1FC-96FD9705B462}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8E6B142F-AB90-414E-AFFF-9CB4D573E88E}" ShortID="1017052258">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambience" ID="{F855F232-2EEB-4EA8-93B9-4044B031268E}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{420E549A-0ACC-4D3E-A8BF-C2C2D20C171A}" ShortID="406984968">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VoiceOverIntro" ID="{6CACDB38-D3F7-46EC-8FC6-1A2B0FCB2C94}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

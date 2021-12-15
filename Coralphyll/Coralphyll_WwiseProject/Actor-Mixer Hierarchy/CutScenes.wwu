@@ -16,6 +16,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Fantasy_World_Awakening_01" ID="{6742BEFD-2A22-489D-B405-63C95E77EBA4}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="3.44706666666667"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="26.9406666666667"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Fantasy_World_Awakening_01.wav</AudioFile>
 									<MediaIDList>
@@ -45,17 +50,17 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="VoiceOverIntro" ID="{1CE2D41B-E768-478A-BFC0-7814636B1717}">
+								<AudioFileSource Name="VoiceActing_Level1" ID="{72CACC75-6458-469D-849D-F9918AF46366}">
 									<Language>SFX</Language>
-									<AudioFile>VoiceOverIntro.wav</AudioFile>
+									<AudioFile>VoiceActing_Level1.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="909686574"/>
+										<MediaID ID="29329179"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="VoiceOverIntro" ID="{1CE2D41B-E768-478A-BFC0-7814636B1717}" Platform="Linked"/>
+								<ActiveSource Name="VoiceActing_Level1" ID="{72CACC75-6458-469D-849D-F9918AF46366}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -66,6 +71,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+									<ObjectRef Name="Extreme_Limiting_1" ID="{8F08A8A7-3313-4E5D-9EBD-2B1B564DE411}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Ambience" ID="{4F3DF33A-6CD6-44CB-AC96-43BC56173AAA}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
@@ -96,7 +104,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
