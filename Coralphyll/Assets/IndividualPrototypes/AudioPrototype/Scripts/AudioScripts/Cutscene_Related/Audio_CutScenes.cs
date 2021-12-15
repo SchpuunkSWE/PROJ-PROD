@@ -22,6 +22,7 @@ public class Audio_CutScenes : MonoBehaviour
             case "Level1":
                 AkSoundEngine.PostEvent("Cutscene_Level1_Voice", gameObject);
                 AkSoundEngine.PostEvent("Cutscene_Level1_Ambience", gameObject);
+               // FindObjectOfType<Audio_Pause>().CinemaMode();
                 Debug.Log("Playing");
                 break;
             case "Cutscene_Level1":

@@ -36,13 +36,13 @@ public class Audio_Events : MonoBehaviour
         corals = GameObject.FindObjectsOfType<Coral>();
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
-        Audio_GameState("StartGame");
+        //Audio_GameState("StartGame");
         Audio_PlayerState(isAlive);
 
     }
     private void Start()
     {
-        //Audio_GameState("StartGame");
+        Audio_GameState("StartGame");
     }
     private void Update()
     {

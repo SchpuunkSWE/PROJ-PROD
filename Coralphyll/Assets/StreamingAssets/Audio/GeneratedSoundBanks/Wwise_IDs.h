@@ -50,8 +50,10 @@ namespace AK
         static const AkUniqueID ONESHOT_SEACREATURE = 4269048160U;
         static const AkUniqueID PAUSEEVERYTHING = 3490942038U;
         static const AkUniqueID PAUSEEVERYTHING_01 = 1002625444U;
+        static const AkUniqueID PAUSEEVERYTHING_02 = 1002625447U;
         static const AkUniqueID RESUMEEVERYTHING = 3714063287U;
         static const AkUniqueID RESUMEEVERYTHING_01 = 4118159355U;
+        static const AkUniqueID RESUMEEVERYTHING_02 = 4118159352U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
@@ -161,9 +163,9 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID LARGESONGS = 4196917472U;
+        static const AkUniqueID CUTSCENES = 3765803840U;
         static const AkUniqueID MAIN = 3161908922U;
-        static const AkUniqueID TEST = 3157003241U;
+        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BANKS
 
     namespace BUSSES

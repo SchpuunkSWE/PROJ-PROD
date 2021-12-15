@@ -42,14 +42,14 @@ public class PauseMenuUI : MonoBehaviour
         pauseMenuUI.SetActive(false);
         optionsPanel.SetActive(false);
         Time.timeScale = 1f;
-        AkSoundEngine.PostEvent("ResumeEverything", GameObject.FindGameObjectWithTag("CinemachineCamera"));
+        FindObjectOfType<Audio_Pause>().ResumeFunction();
         GameisPaused = false;
     }
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        AkSoundEngine.PostEvent("PauseEverything", GameObject.FindGameObjectWithTag("CinemachineCamera"));
+        FindObjectOfType<Audio_Pause>().PauseFunction();
         GameisPaused = true;
     }
     public void Menu()
