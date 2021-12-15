@@ -6,33 +6,56 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     public GameObject starmenuPanel;
-    public GameObject interactionPanel;
-    public GameObject accessibilitypanel;
+ //  public GameObject interactionPanel;
+   // public GameObject accessibilitypanel;
     public GameObject optionsPanel;
-    public GameObject visionAidPanel;
-    public GameObject audioOptionsPanel;
+   // public GameObject visionAidPanel;
+   // public GameObject audioOptionsPanel;
+    public bool voiceAssist;
+   
 
+    private bool optionsOpen;
 
-
-
-    public void PressStartButton(){
+    void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public void PressStartButton()
+    {
         SceneManager.LoadScene("Level1");
+        Logger.LoggerInstance.CreateTextFile("#PlayTestSTARTED");
+        Logger.LoggerInstance.CreateTextFile("Level 1: ");
 
     }
-
     public void OpenOptionsButton(){
+        if(optionsOpen == false){
+            optionsPanel.SetActive(true);
         openVisionAidPanel();
+        optionsOpen = true;
+        }else 
+        {
+            optionsPanel.SetActive(false);
+            optionsOpen = false;
+
+        }
+       
     }
     public void openVisionAidPanel(){
-        interactionPanel.SetActive(true);
-        visionAidPanel.SetActive(true);
-        audioOptionsPanel.SetActive(false);
+     
     }
 
     public void openAudioOptions(){
-        interactionPanel.SetActive(true);
-        visionAidPanel.SetActive(false);
-        audioOptionsPanel.SetActive(true);
+    
+    }
+    public void exitGame()
+    {
+        Application.Quit();
+    }
+
+     public void activateVoiceAssist (bool vA){
+        voiceAssist = true;
+
     }
 
 }

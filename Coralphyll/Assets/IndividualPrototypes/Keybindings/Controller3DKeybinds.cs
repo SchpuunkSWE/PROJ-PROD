@@ -5,13 +5,29 @@ using UnityEngine;
 public class Controller3DKeybinds : MonoBehaviour
 {
     public Vector3 velocity;
-    public float speed = 30f;
+
+    [SerializeField]
+    private float speed = 30f;
+    public float Speed { get => speed; set => speed = value; }
+
+    [SerializeField]
+    private  float oGspeed = 30;
+    public float OGSpeed { get => oGspeed;}
+
+    [SerializeField]
+    private float oGMaxVelocityValue = 5f;
+    public float OGMaxVelocityValue { get => oGMaxVelocityValue; }
+
+    [SerializeField]
+    private float maxVelocityValue = 5f;
+    public float MaxVelocityValue { get => maxVelocityValue; set => maxVelocityValue = value; }
+
     public Vector3 playerInput;
     public float decelerateValue = 7f;
     public float velocityXSmoothValue = 0.2f;
     public float velocityZSmoothValue = 0.2f;
     public float velocityYSmoothValue = 0.2f;
-    public float maxVelocityValue = 5f;
+
     //public CapsuleCollider capsuleCollider;
     public SphereCollider sphereCollider;
     public LayerMask collisionMask;
@@ -19,37 +35,30 @@ public class Controller3DKeybinds : MonoBehaviour
     public float standardStaticFrictionVariable = 0.5f;
     public float kineticFrictionVariable = 0.16f;
     public float airResistance = 0.8f;
-    [HideInInspector] public float gravity = 9f;
-    public float jumpForce = 8f;
-    public float maxJumpForce = 8f;
     public bool isGrounded;
+
+    private Rigidbody rb;
     private void Awake()
     {
         //capsuleCollider = GetComponent<CapsuleCollider>();
         sphereCollider = GetComponent<SphereCollider>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerInput();
-        //ApplyGravity();
         HitDetection();
         ApplyVelocity();
-
     }
 
-    
     private void PlayerInput()
     {
+        playerInput = Vector3.ClampMagnitude(playerInput, 1);
         if (playerInput.magnitude > float.Epsilon)
         {
-            if (velocity.magnitude < 1f)
-            {
-                velocity += playerInput.normalized;
-            }
             CalculateVelocity(playerInput);
-
         }
         else
         {
@@ -60,55 +69,55 @@ public class Controller3DKeybinds : MonoBehaviour
     #region Velocity
     private void CalculateVelocity(Vector3 input)
     {
-        velocity += input.normalized * speed * Time.deltaTime;
-        Vector3 lateralVelocity = new Vector3(velocity.x, 0, velocity.z);
-        if (lateralVelocity.magnitude > maxVelocityValue)
+        if (velocity.magnitude < maxVelocityValue)
+            velocity += input * speed * Time.deltaTime;
+        else
+            velocity = (velocity + input).normalized * velocity.magnitude;
+        if (velocity.magnitude > maxVelocityValue && boostComplete)
         {
-            velocity = velocity.normalized * maxVelocityValue;
+           DecelerateVelocity();
         }
     }
+
     private void ApplyVelocity()
     {
         velocity *= Mathf.Pow(airResistance, Time.deltaTime);
         transform.position += velocity * Time.deltaTime;
     }
-    private void ApplyGravity()
-    {
-        velocity += Vector3.down * gravity * Time.deltaTime;
-    }
+    
     private void DecelerateVelocity()
     {
-        Vector3 projectedDir = velocity;//new Vector3(velocity.x, 0.0f, velocity.z);
-        float absValue = Mathf.Abs(projectedDir.magnitude);
-        projectedDir = projectedDir.normalized;
+        float absValue = Mathf.Abs(new Vector3(velocity.x, 0, velocity.z).magnitude);
         if (decelerateValue > absValue)
         {
             velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.2f);
             velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.2f);
+        }
+        absValue = Mathf.Abs(velocity.y);
+        if (decelerateValue > absValue)
+        {
             velocity.y = Mathf.SmoothDamp(velocity.y, 0, ref velocityYSmoothValue, 0.2f);
         }
-        else
+        //absValue = Mathf.Abs(velocity.z);
+        //if (decelerateValue > absValue)
+        //{
+            
+        //}
+        absValue = Mathf.Abs(velocity.magnitude);
+        if (decelerateValue < absValue)
         {
-            velocity -= projectedDir * decelerateValue * Time.deltaTime;
-
-            /* This might be necessary to include for smoother deceleration 
-            velocity.x = Mathf.SmoothDamp(velocity.x, 0, ref velocityXSmoothValue, 0.1f);
-             velocity.z = Mathf.SmoothDamp(velocity.z, 0, ref velocityZSmoothValue, 0.1f);*/
+            velocity -= velocity.normalized * decelerateValue * Time.deltaTime;
         }
 
     }
+
     #endregion
 
     #region Hit Detection
     private void HitDetection()
     {
-        //Capsule cast to check for collissions. 
+        //Sphere cast to check for collissions. 
         RaycastHit hit;
-        //Vector3 upperPoint = transform.position + Vector3.up * (capsuleCollider.height / 2 - capsuleCollider.radius);
-        //Vector3 lowerPoint = transform.position + Vector3.down * (capsuleCollider.height / 2 - capsuleCollider.radius);
-        //Physics.CapsuleCast(upperPoint, lowerPoint, capsuleCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
-        //Debug.DrawLine(upperPoint, velocity.normalized, Color.red);
-        //Debug.DrawLine(lowerPoint, velocity.normalized, Color.blue);
         Physics.SphereCast(transform.position + sphereCollider.center, sphereCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
 
         //Raycast to check if player is grounded.
@@ -127,7 +136,7 @@ public class Controller3DKeybinds : MonoBehaviour
 
         }
 
-        if (hit.collider) //If the capsulecast hit anything within velocity.normalized range
+        if (hit.collider) //If the spherecast hit anything within velocity.normalized range
         {
             float distanceToCollisionPoint = skinWidth / Vector3.Dot(velocity.normalized, hit.normal);
             float allowedMovementDistance = hit.distance + distanceToCollisionPoint;
@@ -167,51 +176,81 @@ public class Controller3DKeybinds : MonoBehaviour
         }
     }
 
-    //DISCLAIMER: The JumpFunction and DiveFunction are placeholders for now since this should be something that exists in the playerInput section for moving along the Y-axis. 
-    //But for now, it's at least some way to move straight up and down when testing. They simply add a positive or negative force to the velocity.y as long as
-    //The magnitude of velocity.y is greater than 8f.
-    public void SwimUpFunction()
+    public void AxisYFunction(float input)
     {
-        if(Mathf.Abs(velocity.y)  < maxJumpForce) {
-            playerInput += transform.up * jumpForce;
-        }
-        else{
-            velocity.y = maxJumpForce;
-        }
-        
-    }
-    public void DiveFunction()
-    {
-        if(Mathf.Abs(velocity.y) < maxJumpForce) {
-            playerInput += -transform.up * jumpForce;
-        }
-        else{
-            velocity.y = -maxJumpForce;
-        }
+        playerInput += transform.up * input;
     }
 
     public void ResetMomentumFunction()
     {
         playerInput = Vector3.zero;
     }
-    public void ForwardFunction()
+    public void AxisZFunction(float input)
     {
-        playerInput += transform.forward * 1;
+        playerInput += transform.forward * input;
     }
 
-    public void BackFunction()
+    public void AxisXFunction(float input)
     {
-        playerInput += transform.forward * -1;
+        playerInput += transform.right * input;
+        //transform.rotation *= Quaternion.AngleAxis(input, Vector3.up);
+        //angularVelocity.y += input * rotationSpeed * Time.deltaTime;
+        //if (Mathf.Abs(angularVelocity.y) < 0.1f)
+        //    angularVelocity.y = 0;
+        //if (angularVelocity.y > maxRotationSpeed)
+        //    angularVelocity.y = maxRotationSpeed;
+        //if (angularVelocity.y < -maxRotationSpeed)
+        //    angularVelocity.y = -maxRotationSpeed;
+
+        //transform.rotation *= Quaternion.AngleAxis(angularVelocity.y * 0.5f, Vector3.up);
     }
 
-    public void RightFunction()
+    // private void Rotate()
+    // { 
+    //     angularVelocity -= angularVelocity.normalized * angularDrag * Time.deltaTime;
+    // }
+    // [SerializeField]
+    // private Vector3 angularVelocity = Vector3.zero;
+    // [SerializeField]
+    // private float rotationSpeed = 10;
+    // [SerializeField]
+    // private float angularDrag = 3;
+    // [SerializeField]
+    // private float maxRotationSpeed = 2;
+    // [SerializeField]
+    private float boostCooldown = 4;
+    public bool isBoostReady = true;
+    private bool boostComplete = true;
+    [SerializeField]
+    private float boostPower = 5;
+    [SerializeField]
+    private float boostDuration = 1.5f;
+    [SerializeField]
+    private float maxBoostSpeed = 40f;
+
+ 
+    public void StartBoost()
     {
-        playerInput += transform.right * 1;
+        isBoostReady = false;
+        StartCoroutine(Boost());
     }
 
-    public void LeftFunction()
+    private IEnumerator Boost()
     {
-        playerInput += transform.right * -1;
-    }
+        float startTime = Time.time;
+        boostComplete = false;
+        AkSoundEngine.PostEvent("Char_Dash", gameObject);
 
+        while (Time.time < startTime + boostDuration)
+        {
+            if (velocity.magnitude < maxBoostSpeed)
+            {
+                velocity += transform.forward * speed * boostPower * Time.deltaTime;
+            }
+            yield return null;
+        }
+        boostComplete = true;
+        yield return new WaitForSeconds(boostCooldown);
+        isBoostReady = true;        
+    }
 }
