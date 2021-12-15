@@ -42,6 +42,10 @@ public class Audio_CutScenes : MonoBehaviour
             case "Level3":
                 break;
             case "Level4":
+                AkSoundEngine.PostEvent("Cutscene_level4_stinger", gameObject);            
+                break;
+            case "Cutscene_Level4":
+                AkSoundEngine.PostEvent("Cutscene_level4_stinger", gameObject);
                 break;
             case "Credits":
                 AkSoundEngine.PostEvent("Cutscene_PlayCredits", gameObject);

@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID CUTSCENE_LEVEL2_AMBIENCE = 2945618175U;
         static const AkUniqueID CUTSCENE_LEVEL2_SHARKBITE = 3451548568U;
         static const AkUniqueID CUTSCENE_LEVEL2_VOICE = 1672897699U;
+        static const AkUniqueID CUTSCENE_LEVEL4_STINGER = 3295537989U;
         static const AkUniqueID CUTSCENE_PLAYCREDITS = 650132800U;
         static const AkUniqueID FISHEAT = 2968903799U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
