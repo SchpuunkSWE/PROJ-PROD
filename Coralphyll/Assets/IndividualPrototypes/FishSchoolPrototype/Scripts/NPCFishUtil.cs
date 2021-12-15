@@ -36,6 +36,11 @@ public class NPCFishUtil : MonoBehaviour
 
     #endregion
 
+    private void Start()
+    {
+        SelectNavArrowTarget();
+    }
+
     private void FixedUpdate()
     {
         SelectNavArrowTarget();
