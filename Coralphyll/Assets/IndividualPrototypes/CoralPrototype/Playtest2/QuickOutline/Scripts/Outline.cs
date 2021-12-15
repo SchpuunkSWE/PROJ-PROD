@@ -10,6 +10,11 @@ public class Outline : MonoBehaviour
 {
     private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
+    #region Singleton Quickversion
+    public static Outline outlineInstance;
+    #endregion
+
+
     public enum Mode
     {
         OutlineAll,
@@ -61,8 +66,7 @@ public class Outline : MonoBehaviour
     [SerializeField]
     private Color outlineColor = Color.white;
 
-    //[SerializeField]
-    //private FlexibleColorPicker colourPicker;
+
 
     [SerializeField, Range(0f, 10f)]
     private float outlineWidth = 2f;
@@ -110,7 +114,7 @@ public class Outline : MonoBehaviour
                 needsUpdate = true;
                 break;
         }
-        Debug.Log("Changed to: " + index);
+        
     }
 
     public void ApplyOutlineWidthInput(float value)
@@ -118,17 +122,18 @@ public class Outline : MonoBehaviour
         outlineWidth = value;
         needsUpdate = true;
     }
-    private void ApplyOutlineColourInput()
+    public void ApplyOutlineColourInput(Color colour)
     {
-        //outlineColor = colourPicker.color;
+        outlineColor = colour;
         needsUpdate = true;
     }
 
     void Awake()
     {
-
+        outlineInstance = this;
         // Cache renderers
         renderers = GetComponentsInChildren<Renderer>();
+        
 
         // Instantiate outline materials
         outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
@@ -181,7 +186,7 @@ public class Outline : MonoBehaviour
 
     void Update()
     {
-        ApplyOutlineColourInput();
+        //ApplyOutlineColourInput();
         if (needsUpdate)
         {
             needsUpdate = false;
