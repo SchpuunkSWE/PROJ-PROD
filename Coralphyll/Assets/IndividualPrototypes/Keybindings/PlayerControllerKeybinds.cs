@@ -7,6 +7,8 @@ public class PlayerControllerKeybinds : MonoBehaviour
     public Controller3DKeybinds playerController;
 
     private static PlayerControllerKeybinds player;
+
+    protected Animator anim;
     public static PlayerControllerKeybinds Player
     {
         get
@@ -23,6 +25,8 @@ public class PlayerControllerKeybinds : MonoBehaviour
     void Start()
     {
         inputManager = InputManager.instance;
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -38,45 +42,82 @@ public class PlayerControllerKeybinds : MonoBehaviour
         if (inputManager.GetKey(KeybindingActions.SwimUp) || Input.GetAxisRaw("SwimUp") > 0.01f)
         {
             if (inputManager.GetKey(KeybindingActions.SwimUp))
+            {
                 PlayerAxisY(1f);
+                anim.SetBool("up", true);
+            }
             else
+            {
                 PlayerAxisY(Input.GetAxisRaw("SwimUp"));
+                anim.SetBool("up", true);
+            }
         }
         if (inputManager.GetKey(KeybindingActions.SwimDown) || Input.GetAxisRaw("Dive") > 0.01f)
         {
             if (inputManager.GetKey(KeybindingActions.SwimDown))
+            {
                 PlayerAxisY(-1f);
+                anim.SetBool("down", true);
+            }
             else
+            {
                 PlayerAxisY(-Input.GetAxisRaw("Dive"));
+                anim.SetBool("down", true);
+            }
+                
         }
         if(inputManager.GetKey(KeybindingActions.Forward) || Input.GetAxisRaw("Vertical") > 0.01f)
         {
             if (inputManager.GetKey(KeybindingActions.Forward))
+            {
                 PlayerAxisZ(1f);
+                anim.SetBool("forward", true);
+            }
             else
+            {
                 PlayerAxisZ(Input.GetAxisRaw("Vertical"));
+                anim.SetBool("forward", true);
+            }
         }
         if(inputManager.GetKey(KeybindingActions.Back) || Input.GetAxisRaw("Vertical") < 0.01f)
         {
-            if(inputManager.GetKey(KeybindingActions.Back))
+            if (inputManager.GetKey(KeybindingActions.Back))
+            {
                 PlayerAxisZ(-1f);
+                anim.SetBool("backward", true);
+            }
             else
+            {
                 PlayerAxisZ(Input.GetAxisRaw("Vertical"));
+                anim.SetBool("backward", true);
+            }
 
         }
         if(inputManager.GetKey(KeybindingActions.Right) || Input.GetAxisRaw("Horizontal") > 0.01f)
         {
             if (inputManager.GetKey(KeybindingActions.Right))
+            {
                 PlayerAxisX(1f);
+                anim.SetBool("right", true);
+            }
             else
+            {
                 PlayerAxisX(Input.GetAxisRaw("Horizontal"));
+                anim.SetBool("right", true);
+            }
         }
         if(inputManager.GetKey(KeybindingActions.Left) || Input.GetAxisRaw("Horizontal") < 0.01f)
         {
             if (inputManager.GetKey(KeybindingActions.Left))
+            {
                 PlayerAxisX(-1f);
+                anim.SetBool("left", true);
+            }
             else
+            {
                 PlayerAxisX(Input.GetAxisRaw("Horizontal"));
+                anim.SetBool("left", true);
+            }
         }
 
         if(inputManager.GetKey(KeybindingActions.Boost) || Input.GetKeyDown(KeyCode.JoystickButton0))
@@ -110,11 +151,15 @@ public class PlayerControllerKeybinds : MonoBehaviour
     private void PlayerResetMomentum()
     {
         playerController.ResetMomentumFunction();
+        anim.SetBool("twirl", false);
     }
 
     private void PlayerBoost()
     {
         if(playerController.isBoostReady)
+        {
             playerController.StartBoost();
+            anim.SetBool("twirl", true);
+        }
     }
 }
