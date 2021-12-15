@@ -21,9 +21,10 @@ public class OptionsMenu : MonoBehaviour
     public GameObject enemyOutlineToggle;
     public GameObject hintToggle;
     public GameObject indicatorToggle;
-    
+    public GameObject navArrowToggle;
 
-    
+
+
     void Start()
     {
       //tabGroup.OnTabSelected(startButton);
@@ -69,6 +70,11 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetInt("OffscreenIndicator", BoolToInt(offScreen));
     }
 
+    public void NavArrow(bool navArrow)
+    {
+        PlayerPrefs.SetInt("NavigationArrow", BoolToInt(navArrow));
+    }
+
     public void startLevel1()
     {
         SceneManager.LoadScene(1);
@@ -109,6 +115,6 @@ public class OptionsMenu : MonoBehaviour
         enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("EnemyOutline") );
         hintToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("HintSystem") );
         indicatorToggle.GetComponent<Toggle>().isOn = IntToBool( PlayerPrefs.GetInt("OffscreenIndicator") );
-
+        navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
     }
 }
