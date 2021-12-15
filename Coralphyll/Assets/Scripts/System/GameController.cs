@@ -74,7 +74,7 @@ public class GameController : MonoBehaviour
         CheckLevelProgress();
         if ((Input.GetKeyDown(KeyCode.P) && !sceneSkipped) || (Input.GetKeyDown(KeyCode.JoystickButton6) && !sceneSkipped))
         {
-            currentDirector.time = 22f;
+            currentDirector.time = timeToSkipTo;
             sceneSkipped = true;
             GameObject obj = GameObject.FindGameObjectWithTag("CinemachineCamera");
             AkSoundEngine.PostEvent("SkipCutscene", obj);

@@ -27,7 +27,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3157003241" Language="SFX" Hash="1314189990">
+		<SoundBank Id="3157003241" Language="SFX" Hash="2544749314">
 			<ObjectPath>\SoundBanks\Default Work Unit\Test</ObjectPath>
 			<ShortName>Test</ShortName>
 			<Path>Test.bnk</Path>
@@ -50,6 +50,8 @@
 						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="1002625444" Name="PauseEverything_01" ObjectPath="\Events\MusicEvents\PauseEverything_01" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4118159355" Name="ResumeEverything_01" ObjectPath="\Events\MusicEvents\ResumeEverything_01" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="252260266" Language="SFX">
@@ -519,7 +521,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4196917472" Language="SFX" Hash="1772819167">
+		<SoundBank Id="4196917472" Language="SFX" Hash="1443849985">
 			<ObjectPath>\SoundBanks\Default Work Unit\LargeSongs</ObjectPath>
 			<ShortName>LargeSongs</ShortName>
 			<Path>LargeSongs.bnk</Path>
@@ -532,7 +534,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3304948164" Name="Cutscene_Level1_Voice" ObjectPath="\Events\CutScenes\Level1\Cutscene_Level1_Voice" DurationType="OneShot" DurationMin="25.676958" DurationMax="25.676958">
+				<Event Id="3304948164" Name="Cutscene_Level1_Voice" ObjectPath="\Events\CutScenes\Level1\Cutscene_Level1_Voice" DurationType="OneShot" DurationMin="27.483994" DurationMax="27.483994">
 					<IncludedMemoryFiles>
 						<File Id="29329179" Language="SFX">
 							<ShortName>VoiceActing_Level1.wav</ShortName>
@@ -556,7 +558,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1672897699" Name="Cutscene_level2_Voice" ObjectPath="\Events\CutScenes\Level2\Cutscene_level2_Voice" DurationType="OneShot" DurationMin="18.472937" DurationMax="18.472937">
+				<Event Id="1672897699" Name="Cutscene_level2_Voice" ObjectPath="\Events\CutScenes\Level2\Cutscene_level2_Voice" DurationType="OneShot" DurationMin="19.762915" DurationMax="19.762915">
 					<IncludedMemoryFiles>
 						<File Id="722294309" Language="SFX">
 							<ShortName>Level2_Voiceacting.wav</ShortName>
@@ -580,6 +582,8 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3490942038" Name="PauseEverything" ObjectPath="\Events\CutScenes\Credits\PauseEverything" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3714063287" Name="ResumeEverything" ObjectPath="\Events\CutScenes\Credits\ResumeEverything" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3576905580" Name="SkipCutscene" ObjectPath="\Events\CutScenes\Level2\SkipCutscene" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>

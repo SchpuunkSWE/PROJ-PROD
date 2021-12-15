@@ -48,6 +48,10 @@ namespace AK
         static const AkUniqueID ONESHOT_CORALCOMPLETED = 1671773852U;
         static const AkUniqueID ONESHOT_ENEMYALERT = 1157870456U;
         static const AkUniqueID ONESHOT_SEACREATURE = 4269048160U;
+        static const AkUniqueID PAUSEEVERYTHING = 3490942038U;
+        static const AkUniqueID PAUSEEVERYTHING_01 = 1002625444U;
+        static const AkUniqueID RESUMEEVERYTHING = 3714063287U;
+        static const AkUniqueID RESUMEEVERYTHING_01 = 4118159355U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
