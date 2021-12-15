@@ -11,6 +11,8 @@ public class EnemyChase : EnemyState
     private int fishAmount;
     private bool runOnce = false; //Only log once
 
+    private Animator anim;
+
     [SerializeField] private float attackDistance;
     [SerializeField] private float lostTargetDistance;
     [SerializeField] private float smellingRange = 2f; //how close the enemy can be and feel the player even if they cant see them
@@ -18,7 +20,11 @@ public class EnemyChase : EnemyState
     public override void Enter()
     {
         base.Enter();
-        //AIController.Renderer.material.color = Color.yellow;       
+        //AIController.Renderer.material.color = Color.yellow;    
+
+        anim = AIController.GetComponentInChildren<Animator>();
+
+        anim.SetBool("chase", true);
     }
 
     public override void HandleUpdate()
@@ -67,5 +73,11 @@ public class EnemyChase : EnemyState
             NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
             fishAmount = fishUtil.getListOfFishes().Count;
         }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        anim.SetBool("chase", false);
     }
 }
