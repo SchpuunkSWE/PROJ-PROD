@@ -70,7 +70,7 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetInt("OffscreenIndicator", BoolToInt(offScreen));
     }
 
-    public void NavArrow(bool navArrow)
+    public void NavigationArrow(bool navArrow)
     {
         PlayerPrefs.SetInt("NavigationArrow", BoolToInt(navArrow));
     }
