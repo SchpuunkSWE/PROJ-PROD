@@ -1,3 +1,6 @@
+
+// WARNING: Deprecated script, does not work but useful for reference
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +13,7 @@ public class player_animation_events : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         AkSoundEngine.RegisterGameObj(gameObject);
         playerInfo = GetComponent<Controller3DKeybinds>();
         anim = GetComponent<Animator>();
@@ -29,7 +33,7 @@ public class player_animation_events : MonoBehaviour
     }
     public void CheckPlayerVelocity()
     {
-        if (playerSpeed > 2f && playerSpeed < 11.5f)
+        /*if (playerSpeed > 2f && playerSpeed < 11.5f)
         {
             anim.SetBool("isSwimming", true);
         }
@@ -44,7 +48,7 @@ public class player_animation_events : MonoBehaviour
         else
         {
             anim.SetBool("isSprinting", false);
-        }
+        }*/
         //Sets the speed of the animation (and in effect the swim sound interval which is set as an
         //Event in the swim animation
         //The calculation returns a percentage value of how fast we are
@@ -53,7 +57,7 @@ public class player_animation_events : MonoBehaviour
         anim.speed = (1f + (1 * (playerSpeed / 10f)));
     }
     
-    public void fs_player_sprint()
+    public void Fs_player_sprint()
     {
         AkSoundEngine.PostEvent("fs_player_swim_sprint", gameObject);
     }

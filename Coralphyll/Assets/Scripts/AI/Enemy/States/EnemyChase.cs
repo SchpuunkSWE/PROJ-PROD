@@ -9,15 +9,22 @@ public class EnemyChase : EnemyState
     [SerializeField] private float checkCooldown = 2;
     private float currentCheckCooldown;
     private int fishAmount;
+    private bool runOnce = false; //Only log once
+
+    private Animator anim;
 
     [SerializeField] private float attackDistance;
     [SerializeField] private float lostTargetDistance;
-    [SerializeField] private float smellingRange= 2f; //how close the enemy can be and feel the player even if they cant see them
+    [SerializeField] private float smellingRange = 2f; //how close the enemy can be and feel the player even if they cant see them
 
     public override void Enter()
     {
         base.Enter();
-        //AIController.Renderer.material.color = Color.yellow;
+        //AIController.Renderer.material.color = Color.yellow;    
+
+        anim = AIController.GetComponentInChildren<Animator>();
+
+        anim.SetBool("chase", true);
     }
 
     public override void HandleUpdate()
@@ -27,6 +34,11 @@ public class EnemyChase : EnemyState
         AIController.transform.position = Vector3.MoveTowards(AIController.transform.position, AIController.Player.transform.position, baseChaseSpeed * (1 + fishFactor * fishAmount) * Time.deltaTime);
         RotateTowards(AIController.Player.transform);
         HandleCooldown();
+        if (!runOnce)
+        {
+            Logger.LoggerInstance.CreateTextFile("#FirstTimeSharkAggro");
+            runOnce = true;
+        }
     }
 
     public override void EvaluateTransitions()
@@ -61,5 +73,11 @@ public class EnemyChase : EnemyState
             NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
             fishAmount = fishUtil.getListOfFishes().Count;
         }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        anim.SetBool("chase", false);
     }
 }

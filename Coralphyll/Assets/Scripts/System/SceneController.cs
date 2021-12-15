@@ -44,12 +44,14 @@ public class SceneController : MonoBehaviour
         {
             //StartCoroutine(FadeOut());
             SceneManager.LoadScene(sceneToLoad);
+            Logger.LoggerInstance.CreateTextFile("Level " + sceneToLoad + ":");
         }
     }
 
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        Logger.LoggerInstance.CreateTextFile("Level " + sceneToLoad + ":");
     }
 
     //private IEnumerator FadeOut()

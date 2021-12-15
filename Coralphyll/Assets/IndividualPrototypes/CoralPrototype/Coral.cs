@@ -142,6 +142,9 @@ public class Coral : MonoBehaviour
             complete = true;
             completable = false;
 
+            Logger.LoggerInstance.CreateTextFile("#CoralCompleted");
+            //Logger.LoggerInstance.WriteToTxtFile("Coral completed: ");
+
             //Set CheckPoint
             this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
