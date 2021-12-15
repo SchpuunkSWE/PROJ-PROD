@@ -43,6 +43,9 @@ public class Audio_CutScenes : MonoBehaviour
                 break;
             case "Level4":
                 break;
+            case "Credits":
+                AkSoundEngine.PostEvent("Cutscene_PlayCredits", gameObject);
+                break;
             default:
                 break;
         }

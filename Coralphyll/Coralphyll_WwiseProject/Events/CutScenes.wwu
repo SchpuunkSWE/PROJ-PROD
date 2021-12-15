@@ -132,6 +132,24 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Credits" ID="{D7567515-D0A4-4EFD-8FE6-BA239A6646CD}" ShortID="1060960798">
+					<ChildrenList>
+						<Event Name="Cutscene_PlayCredits" ID="{AFC35EF9-09D6-4BE8-A1A2-5F1C70DC0E8F}">
+							<ChildrenList>
+								<Action Name="" ID="{B491547E-AC9F-45C6-9F86-83A6D0D09AEE}" ShortID="47451330">
+									<PropertyList>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Credits" ID="{A5EBB983-BA0C-4CD5-B210-53FCA8D2F498}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
