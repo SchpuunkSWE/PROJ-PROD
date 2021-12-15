@@ -25,11 +25,11 @@ GameObject:
   - component: {fileID: 805845336895106204}
   m_Layer: 0
   m_Name: ArrowParent
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &805845336895106204
 Transform:
   m_ObjectHideFlags: 0
@@ -203,6 +203,7 @@ MonoBehaviour:
   airResistance: 0.8
   isGrounded: 0
   isBoostReady: 1
+  boostComplete: 1
   boostPower: 10
   boostDuration: 1
   maxBoostSpeed: 40
@@ -227,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3604448304899582664}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e412d45d8a89f649bb7b21ec9437c67, type: 3}
   m_Name: 
@@ -519,7 +520,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 340df8b2ee9549247b2269468f028940, type: 2}
     - target: {fileID: 919132149155446097, guid: 30207e19a500d104c8d8fb19649f2b57, type: 3}
       propertyPath: m_Name
-      value: arrow
+      value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30207e19a500d104c8d8fb19649f2b57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30207e19a500d104c8d8fb19649f2b57, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30207e19a500d104c8d8fb19649f2b57, type: 3}

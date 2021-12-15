@@ -79,18 +79,20 @@ public class OptionsMenu : MonoBehaviour
     public void NavigationArrow(bool navArrow)
     {
         PlayerPrefs.SetInt("NavigationArrow", BoolToInt(navArrow));
+        GameObject navigationArrow = GameObject.FindGameObjectWithTag("Arrow");
+        navigationArrow.transform.GetChild(0).gameObject.SetActive(true);
         //NavigationArrow navigationArrow = GetComponent<NavigationArrow>();
-        Transform navArrowTransform = GetComponent<NavigationArrow>().transform.GetChild(2);
+        //Transform navArrowTransform = GetComponent<NavigationArrow>().transform.GetChild(2);
         //Transform navArrowTransform = navigationArrow.transform;
         //Transform childTransform = navArrowTransform.Find("ArrowParent");
-        if (!navArrowTransform.gameObject.activeSelf)
-        {
-            navArrowTransform.gameObject.SetActive(true);
-        }
-        else
-        {
-            navArrowTransform.gameObject.SetActive(false);
-        }
+        //if ()
+        //{
+        //navArrowTransform.gameObject.SetActive(true);
+        //}
+        //else
+        //{
+        //    navArrowTransform.gameObject.SetActive(false);
+        //}
     }
 
     public void startLevel1()
