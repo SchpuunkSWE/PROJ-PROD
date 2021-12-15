@@ -9,6 +9,7 @@ public class DeathListener : MonoBehaviour
     void OnDeath(DeathEvent deathEvent)
     {
         GameObject victim = deathEvent.Info.victim;
+        Logger.LoggerInstance.CreateTextFile("#PlayerDied, " + Time.timeSinceLevelLoad + " seconds, " + "#TimeUntilPlayerDied");
         Debug.Log(victim + " died");
 
         //Respawn
