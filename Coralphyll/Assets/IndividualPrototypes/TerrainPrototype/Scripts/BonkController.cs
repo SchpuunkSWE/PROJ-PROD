@@ -10,6 +10,8 @@ public class BonkController : MonoBehaviour
 
     public GameObject indicator;
 
+    private bool enableTerrainSound;
+    private bool enableTerrainIndicator;
 
     //PlayerIndex playerIndex;
 
@@ -23,6 +25,8 @@ public class BonkController : MonoBehaviour
     {
 
         overlapping = false;
+        enableTerrainSound = false;
+        enableTerrainIndicator = false;
 
         indicator.SetActive(false);
 
@@ -30,7 +34,7 @@ public class BonkController : MonoBehaviour
 
     void Update()
     {
-        if(overlapping)
+        if(overlapping && enableTerrainSound)
         {
            // GamePad.SetVibration(playerIndex, .1f, .1f);
             AkSoundEngine.PostEvent("FishEat", gameObject);
@@ -42,6 +46,16 @@ public class BonkController : MonoBehaviour
         //}
     }
 
+    public void switchActiveIndicator()
+    {
+        enableTerrainIndicator = !enableTerrainIndicator;
+    }
+
+    public void switchActiveSound()
+    {
+        enableTerrainSound = !enableTerrainSound;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,7 +63,10 @@ public class BonkController : MonoBehaviour
         {
             overlapping = true;
 
-            indicator.SetActive(true);
+            if (enableTerrainIndicator)
+            {
+                indicator.SetActive(true);
+            }
         }
     }
 
