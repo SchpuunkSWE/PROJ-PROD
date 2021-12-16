@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1210201231">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3449034410">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -27,7 +27,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3613595625">
+		<SoundBank Id="3161908922" Language="SFX" Hash="537948959">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -110,6 +110,22 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2902390157" Name="Garbage_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Garbage_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="569341283" Name="Mine_Beep" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Mine_Beep" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="3.023669" DurationMax="3.023669">
+					<IncludedMemoryFiles>
+						<File Id="394648522" Language="SFX">
+							<ShortName>Mine_Explosion.wav</ShortName>
+							<Path>SFX\Mine_Explosion_1A934BE0.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3706089396" Name="Mine_Explosion" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Mine_Explosion" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="6.402458" DurationMax="6.402458">
+					<IncludedMemoryFiles>
+						<File Id="986400805" Language="SFX">
+							<ShortName>Explosion_05_Edited.wav</ShortName>
+							<Path>SFX\Explosion_05_Edited_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" DurationType="OneShot" DurationMin="126.150002" DurationMax="126.150002"/>
 				<Event Id="815172640" Name="MusicState_Exploring" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
@@ -336,6 +352,10 @@
 					<ShortName>Bubble_Rise_Soft_01.wav</ShortName>
 					<Path>SFX\Bubble_Rise_Soft_01_917040AF.wem</Path>
 				</File>
+				<File Id="394648522" Language="SFX">
+					<ShortName>Mine_Explosion.wav</ShortName>
+					<Path>SFX\Mine_Explosion_1A934BE0.wem</Path>
+				</File>
 				<File Id="402119525" Language="SFX">
 					<ShortName>ES_Fish Splash Water 2 - SFX Producer.wav</ShortName>
 					<Path>SFX\ES_Fish Splash Water 2 - SFX Producer_D770B764.wem</Path>
@@ -403,6 +423,10 @@
 				<File Id="962159150" Language="SFX">
 					<ShortName>Chime_FriendlyFish3_updated.wav</ShortName>
 					<Path>SFX\Chime_FriendlyFish3_updated_D79FB2B7.wem</Path>
+				</File>
+				<File Id="986400805" Language="SFX">
+					<ShortName>Explosion_05_Edited.wav</ShortName>
+					<Path>SFX\Explosion_05_Edited_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 			<StateGroups>
