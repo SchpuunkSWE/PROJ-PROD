@@ -51,6 +51,69 @@
 								<ActiveSource Name="Ambience_underwater_sprout" ID="{562ECC64-2A80-45E7-B150-1CFAD0E3CDFB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Mine_Beep" ID="{6753E9BE-7C9D-44C0-ACD4-2C2B6DE4152E}" ShortID="660533313">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_mine" ID="{816F1981-8EC8-46D1-A2B5-3A1DDD2D9803}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Mine_Explosion" ID="{F92F86A2-A182-4F69-B89D-E75D9EE4C9D9}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.140635745207174"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.91413234384663"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.02366852195422"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Mine_Explosion.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="394648522"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Mine_Explosion" ID="{F92F86A2-A182-4F69-B89D-E75D9EE4C9D9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Mine_Explosion" ID="{DC28C6E9-59E3-42D9-BB14-F689EB2587B6}" ShortID="824214905">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Explosion_05_Edited" ID="{D13FFF67-FB30-42AC-99A4-EB3118924363}">
+									<Language>SFX</Language>
+									<AudioFile>Explosion_05_Edited.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="986400805"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Explosion_05_Edited" ID="{D13FFF67-FB30-42AC-99A4-EB3118924363}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<ObjectLists/>
 				</ActorMixer>

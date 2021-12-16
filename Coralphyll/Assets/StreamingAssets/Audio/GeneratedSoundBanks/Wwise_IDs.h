@@ -28,6 +28,8 @@ namespace AK
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
         static const AkUniqueID GARBAGE_PLAY = 143285903U;
         static const AkUniqueID GARBAGE_STOP = 2902390157U;
+        static const AkUniqueID MINE_BEEP = 569341283U;
+        static const AkUniqueID MINE_EXPLOSION = 3706089396U;
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
