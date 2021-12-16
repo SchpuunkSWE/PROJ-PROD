@@ -26,14 +26,12 @@ public class EnemyAttack : EnemyState
         base.HandleUpdate();
         RotateTowards(AIController.Player.transform);
 
-        //set destination to player
         if (DistanceToPlayer() < attackDistance && attacking == false)
         {
             attacking = true;
             AIController.Animator.SetTrigger("attack");
         }
 
-        //Attack();
         if (attacking)
             HandleCooldown();
     }
