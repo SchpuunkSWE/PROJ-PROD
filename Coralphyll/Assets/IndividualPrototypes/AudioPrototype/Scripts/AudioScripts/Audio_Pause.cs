@@ -39,6 +39,11 @@ public class Audio_Pause : MonoBehaviour
         PauseMusic();
         PauseSFX();
     }
+    public void CinemaModeOff()
+    {
+        ResumeMusic();
+        ResumeSFX();
+    }
 
 
     public void PauseCinematic()

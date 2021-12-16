@@ -21,6 +21,7 @@ public class Controller3DKeybinds : MonoBehaviour
     [SerializeField]
     private float maxVelocityValue = 5f;
     public float MaxVelocityValue { get => maxVelocityValue; set => maxVelocityValue = value; }
+    
 
     public Vector3 playerInput;
     public float decelerateValue = 7f;
@@ -184,8 +185,10 @@ public class Controller3DKeybinds : MonoBehaviour
     }
 
     private float boostCooldown = 4;
+
     public bool isBoostReady = true;
     public bool boostComplete = true;
+
     [SerializeField]
     private float boostPower = 5;
     [SerializeField]
@@ -193,7 +196,11 @@ public class Controller3DKeybinds : MonoBehaviour
     [SerializeField]
     private float maxBoostSpeed = 40f;
 
- 
+    public float BoostDuration { get => boostDuration; set => boostDuration = value; }
+    public float BoostCooldown { get => boostCooldown; set => boostCooldown = value; }
+    public float MaxBoostSpeed { get => maxBoostSpeed; set => maxBoostSpeed = value; }
+    public bool IsBoostReady { get => isBoostReady; set => isBoostReady = value; }
+
     public void StartBoost()
     {
         isBoostReady = false;
