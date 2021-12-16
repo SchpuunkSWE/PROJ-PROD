@@ -24,6 +24,8 @@ public class OptionsMenu : MonoBehaviour
     public GameObject indicatorToggle;
     public GameObject navArrowToggle;
     public GameObject audioIndicator;
+    public bool voiceAssist; 
+
 
 
     void Start()
@@ -99,6 +101,10 @@ public class OptionsMenu : MonoBehaviour
         {
             GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
         }*/
+
+    }
+    public void activateVoiceAssist (bool vA){
+        voiceAssist = true;
 
     }
 
