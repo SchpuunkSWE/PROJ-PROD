@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 using static Audio_Events;
 
 public class BonkController : MonoBehaviour
 {
     bool overlapping;
 
-    public AudioClip bonk1;
-
     public GameObject indicator;
 
 
-    PlayerIndex playerIndex;
+    //PlayerIndex playerIndex;
 
 
     private void Awake()
@@ -34,14 +32,14 @@ public class BonkController : MonoBehaviour
     {
         if(overlapping)
         {
-            GamePad.SetVibration(playerIndex, .1f, .1f);
+           // GamePad.SetVibration(playerIndex, .1f, .1f);
             AkSoundEngine.PostEvent("FishEat", gameObject);
         }
 
-        if(!overlapping)
-        {
-            GamePad.SetVibration(playerIndex, .0f, .0f);
-        }
+        //if(!overlapping)
+        //{
+        //    GamePad.SetVibration(playerIndex, .0f, .0f);
+        //}
     }
 
 
