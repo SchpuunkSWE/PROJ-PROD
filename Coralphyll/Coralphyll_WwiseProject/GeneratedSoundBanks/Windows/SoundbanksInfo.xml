@@ -27,7 +27,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="4077957358">
+		<SoundBank Id="3161908922" Language="SFX" Hash="893841463">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -60,11 +60,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2748011726" Name="Char_Death" ObjectPath="\Events\Default Work Unit\character_movement\Char_Death" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.482150" DurationMax="0.482150">
+					<IncludedMemoryFiles>
+						<File Id="83371456" Language="SFX">
+							<ShortName>kame_down.wav</ShortName>
+							<Path>SFX\kame_down_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1115036193" Name="Coral_Accessibility" ObjectPath="\Events\Default Work Unit\SFX_Events\Corals\Coral_Accessibility" MaxAttenuation="75.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="640379504" Language="SFX">
 							<ShortName>ChimeProj.wav</ShortName>
-							<Path>SFX\ChimeProj_6F4B070F.wem</Path>
+							<Path>SFX\ChimeProj_879B5ABF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -322,84 +330,12 @@
 					<IncludedMemoryFiles>
 						<File Id="1045868087" Language="SFX">
 							<ShortName>trashpile_acccessibility.wav</ShortName>
-							<Path>SFX\trashpile_acccessibility_E62873FC.wem</Path>
+							<Path>SFX\trashpile_acccessibility_0911B1CA.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1622604147" Name="Trashpile_Accessibility_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\OtherEnemies\Trashpile_Accessibility_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1181390666" Name="ui_" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2008469923" Name="ui__AccecibilityOptions_mp3" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__AccecibilityOptions_mp3" DurationType="OneShot" DurationMin="1.345958" DurationMax="1.345958">
-					<IncludedMemoryFiles>
-						<File Id="623064029" Language="SFX">
-							<ShortName>AccecibilityOptions_mp3.wav</ShortName>
-							<Path>SFX\AccecibilityOptions_mp3_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2403583691" Name="ui__AmbientSoundSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__AmbientSoundSlider" DurationType="OneShot" DurationMin="1.225958" DurationMax="1.225958">
-					<IncludedMemoryFiles>
-						<File Id="833513687" Language="SFX">
-							<ShortName>AmbientSoundSlider.wav</ShortName>
-							<Path>SFX\AmbientSoundSlider_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2242473039" Name="ui__BrighnettSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__BrighnettSlider" DurationType="OneShot" DurationMin="0.937958" DurationMax="0.937958">
-					<IncludedMemoryFiles>
-						<File Id="428527176" Language="SFX">
-							<ShortName>BrighnettSlider.wav</ShortName>
-							<Path>SFX\BrighnettSlider_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2706503456" Name="ui__ColorPicker" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__ColorPicker" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
-					<IncludedMemoryFiles>
-						<File Id="833139810" Language="SFX">
-							<ShortName>ColorPicker.wav</ShortName>
-							<Path>SFX\ColorPicker_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="4169169324" Name="ui__ContrastSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__ContrastSlider" DurationType="OneShot" DurationMin="1.009958" DurationMax="1.009958">
-					<IncludedMemoryFiles>
-						<File Id="39524040" Language="SFX">
-							<ShortName>ContrastSlider.wav</ShortName>
-							<Path>SFX\ContrastSlider_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3839787520" Name="ui__Controls_options" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Controls_options" DurationType="OneShot" DurationMin="1.153958" DurationMax="1.153958">
-					<IncludedMemoryFiles>
-						<File Id="631719852" Language="SFX">
-							<ShortName>Controls options.wav</ShortName>
-							<Path>SFX\Controls options_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2205825470" Name="ui__EnableOutline" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__EnableOutline" DurationType="OneShot" DurationMin="1.009958" DurationMax="1.009958">
-					<IncludedMemoryFiles>
-						<File Id="250934712" Language="SFX">
-							<ShortName>EnableOutline.wav</ShortName>
-							<Path>SFX\EnableOutline_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2055911300" Name="ui__Enemy_Outline" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Enemy_Outline" DurationType="OneShot" DurationMin="0.961958" DurationMax="0.961958">
-					<IncludedMemoryFiles>
-						<File Id="492419235" Language="SFX">
-							<ShortName>Enemy Outline.wav</ShortName>
-							<Path>SFX\Enemy Outline_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2876257003" Name="ui__ExitGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__ExitGame" DurationType="OneShot" DurationMin="0.913958" DurationMax="0.913958">
-					<IncludedMemoryFiles>
-						<File Id="350672169" Language="SFX">
-							<ShortName>ExitGame.wav</ShortName>
-							<Path>SFX\ExitGame_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="42845064" Name="ui__Exittomainmenu" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Exittomainmenu" DurationType="OneShot" DurationMin="1.081958" DurationMax="1.081958">
 					<IncludedMemoryFiles>
 						<File Id="266848158" Language="SFX">
@@ -408,7 +344,79 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="360349029" Name="ui__GamePlayhints" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__GamePlayhints" DurationType="OneShot" DurationMin="0.985958" DurationMax="0.985958">
+				<Event Id="2796487786" Name="ui_AccecibilityOptions_mp3" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_AccecibilityOptions_mp3" DurationType="OneShot" DurationMin="1.345958" DurationMax="1.345958">
+					<IncludedMemoryFiles>
+						<File Id="623064029" Language="SFX">
+							<ShortName>AccecibilityOptions_mp3.wav</ShortName>
+							<Path>SFX\AccecibilityOptions_mp3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2213029144" Name="ui_AmbientSoundSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_AmbientSoundSlider" DurationType="OneShot" DurationMin="1.225958" DurationMax="1.225958">
+					<IncludedMemoryFiles>
+						<File Id="833513687" Language="SFX">
+							<ShortName>AmbientSoundSlider.wav</ShortName>
+							<Path>SFX\AmbientSoundSlider_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3840711250" Name="ui_BrighnettSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_BrighnettSlider" DurationType="OneShot" DurationMin="0.937958" DurationMax="0.937958">
+					<IncludedMemoryFiles>
+						<File Id="428527176" Language="SFX">
+							<ShortName>BrighnettSlider.wav</ShortName>
+							<Path>SFX\BrighnettSlider_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2569102337" Name="ui_ColorPicker" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ColorPicker" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
+					<IncludedMemoryFiles>
+						<File Id="833139810" Language="SFX">
+							<ShortName>ColorPicker.wav</ShortName>
+							<Path>SFX\ColorPicker_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3548601107" Name="ui_ContrastSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ContrastSlider" DurationType="OneShot" DurationMin="1.009958" DurationMax="1.009958">
+					<IncludedMemoryFiles>
+						<File Id="39524040" Language="SFX">
+							<ShortName>ContrastSlider.wav</ShortName>
+							<Path>SFX\ContrastSlider_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2842327599" Name="ui_Controls_options" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Controls_options" DurationType="OneShot" DurationMin="1.153958" DurationMax="1.153958">
+					<IncludedMemoryFiles>
+						<File Id="631719852" Language="SFX">
+							<ShortName>Controls options.wav</ShortName>
+							<Path>SFX\Controls options_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4272550151" Name="ui_EnableOutline" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_EnableOutline" DurationType="OneShot" DurationMin="1.009958" DurationMax="1.009958">
+					<IncludedMemoryFiles>
+						<File Id="250934712" Language="SFX">
+							<ShortName>EnableOutline.wav</ShortName>
+							<Path>SFX\EnableOutline_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3166950881" Name="ui_Enemy_Outline" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Enemy_Outline" DurationType="OneShot" DurationMin="0.961958" DurationMax="0.961958">
+					<IncludedMemoryFiles>
+						<File Id="492419235" Language="SFX">
+							<ShortName>Enemy Outline.wav</ShortName>
+							<Path>SFX\Enemy Outline_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4192939332" Name="ui_ExitGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ExitGame" DurationType="OneShot" DurationMin="0.913958" DurationMax="0.913958">
+					<IncludedMemoryFiles>
+						<File Id="350672169" Language="SFX">
+							<ShortName>ExitGame.wav</ShortName>
+							<Path>SFX\ExitGame_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3851578248" Name="ui_GamePlayhints" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_GamePlayhints" DurationType="OneShot" DurationMin="0.985958" DurationMax="0.985958">
 					<IncludedMemoryFiles>
 						<File Id="558379865" Language="SFX">
 							<ShortName>GamePlayhints.wav</ShortName>
@@ -416,7 +424,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2757121332" Name="ui__HowToPlay" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__HowToPlay" DurationType="OneShot" DurationMin="0.817958" DurationMax="0.817958">
+				<Event Id="1261365893" Name="ui_HowToPlay" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_HowToPlay" DurationType="OneShot" DurationMin="0.817958" DurationMax="0.817958">
 					<IncludedMemoryFiles>
 						<File Id="335453260" Language="SFX">
 							<ShortName>HowToPlay.wav</ShortName>
@@ -424,7 +432,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="429886651" Name="ui__LoadGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__LoadGame" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
+				<Event Id="2649584764" Name="ui_LoadGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_LoadGame" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
 					<IncludedMemoryFiles>
 						<File Id="97432819" Language="SFX">
 							<ShortName>LoadGame.wav</ShortName>
@@ -432,7 +440,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2729188339" Name="ui__MainAudioSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__MainAudioSlider" DurationType="OneShot" DurationMin="1.153958" DurationMax="1.153958">
+				<Event Id="1976136582" Name="ui_MainAudioSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_MainAudioSlider" DurationType="OneShot" DurationMin="1.153958" DurationMax="1.153958">
 					<IncludedMemoryFiles>
 						<File Id="382470375" Language="SFX">
 							<ShortName>MainAudioSlider.wav</ShortName>
@@ -440,7 +448,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="740988449" Name="ui__MusicSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__MusicSlider" DurationType="OneShot" DurationMin="0.913958" DurationMax="0.913958">
+				<Event Id="3786803860" Name="ui_MusicSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_MusicSlider" DurationType="OneShot" DurationMin="0.913958" DurationMax="0.913958">
 					<IncludedMemoryFiles>
 						<File Id="617034335" Language="SFX">
 							<ShortName>MusicSlider.wav</ShortName>
@@ -448,7 +456,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="148969713" Name="ui__Navigation_Arrow" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Navigation_Arrow" DurationType="OneShot" DurationMin="1.057958" DurationMax="1.057958">
+				<Event Id="2416608830" Name="ui_Navigation_Arrow" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Navigation_Arrow" DurationType="OneShot" DurationMin="1.057958" DurationMax="1.057958">
 					<IncludedMemoryFiles>
 						<File Id="364820197" Language="SFX">
 							<ShortName>Navigation Arrow.wav</ShortName>
@@ -456,7 +464,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="813712262" Name="ui__Offscreen_Indicator" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Offscreen_Indicator" DurationType="OneShot" DurationMin="1.201958" DurationMax="1.201958">
+				<Event Id="3809578915" Name="ui_Offscreen_Indicator" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Offscreen_Indicator" DurationType="OneShot" DurationMin="1.201958" DurationMax="1.201958">
 					<IncludedMemoryFiles>
 						<File Id="1058987339" Language="SFX">
 							<ShortName>Offscreen Indicator.wav</ShortName>
@@ -464,7 +472,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3195493373" Name="ui__Options" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Options" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
+				<Event Id="2724623504" Name="ui_Options" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Options" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
 					<IncludedMemoryFiles>
 						<File Id="488253343" Language="SFX">
 							<ShortName>options.wav</ShortName>
@@ -472,7 +480,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2620783336" Name="ui__OutlineWidthSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__OutlineWidthSlider" DurationType="OneShot" DurationMin="1.225958" DurationMax="1.225958">
+				<Event Id="1517208803" Name="ui_OutlineWidthSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_OutlineWidthSlider" DurationType="OneShot" DurationMin="1.225958" DurationMax="1.225958">
 					<IncludedMemoryFiles>
 						<File Id="887289873" Language="SFX">
 							<ShortName>OutlineWidthSlider.wav</ShortName>
@@ -480,7 +488,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3323728254" Name="ui__ResumeGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__ResumeGame" DurationType="OneShot" DurationMin="0.913958" DurationMax="0.913958">
+				<Event Id="3020718913" Name="ui_ResumeGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ResumeGame" DurationType="OneShot" DurationMin="0.913958" DurationMax="0.913958">
 					<IncludedMemoryFiles>
 						<File Id="333458932" Language="SFX">
 							<ShortName>ResumeGame.wav</ShortName>
@@ -488,7 +496,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1333636588" Name="ui__SaveGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__SaveGame" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
+				<Event Id="2434109411" Name="ui_SaveGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_SaveGame" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
 					<IncludedMemoryFiles>
 						<File Id="97199819" Language="SFX">
 							<ShortName>SaveGame.wav</ShortName>
@@ -496,7 +504,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3745602166" Name="ui__Slider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Slider" DurationType="OneShot" DurationMin="0.721958" DurationMax="0.721958">
+				<Event Id="3987036369" Name="ui_Slider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Slider" DurationType="OneShot" DurationMin="0.721958" DurationMax="0.721958">
 					<IncludedMemoryFiles>
 						<File Id="146664896" Language="SFX">
 							<ShortName>Slider.wav</ShortName>
@@ -504,7 +512,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1579502386" Name="ui__SoundEffectSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__SoundEffectSlider" DurationType="OneShot" DurationMin="1.105958" DurationMax="1.105958">
+				<Event Id="169370995" Name="ui_SoundEffectSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_SoundEffectSlider" DurationType="OneShot" DurationMin="1.105958" DurationMax="1.105958">
 					<IncludedMemoryFiles>
 						<File Id="973053950" Language="SFX">
 							<ShortName>SoundEffectSlider.wav</ShortName>
@@ -512,7 +520,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2416683419" Name="ui__Start" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__Start" DurationType="OneShot" DurationMin="0.649958" DurationMax="0.649958">
+				<Event Id="1219048826" Name="ui_Start" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Start" DurationType="OneShot" DurationMin="0.649958" DurationMax="0.649958">
 					<IncludedMemoryFiles>
 						<File Id="149509411" Language="SFX">
 							<ShortName>Start.wav</ShortName>
@@ -520,7 +528,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2568820105" Name="ui__StartGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__StartGame" DurationType="OneShot" DurationMin="0.817958" DurationMax="0.817958">
+				<Event Id="2467171692" Name="ui_StartGame" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_StartGame" DurationType="OneShot" DurationMin="0.817958" DurationMax="0.817958">
 					<IncludedMemoryFiles>
 						<File Id="17199714" Language="SFX">
 							<ShortName>StartGame.wav</ShortName>
@@ -528,7 +536,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1227296639" Name="ui__TextSize" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__TextSize" DurationType="OneShot" DurationMin="1.033958" DurationMax="1.033958">
+				<Event Id="4141580188" Name="ui_TextSize" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_TextSize" DurationType="OneShot" DurationMin="1.033958" DurationMax="1.033958">
 					<IncludedMemoryFiles>
 						<File Id="354293070" Language="SFX">
 							<ShortName>TextSize.wav</ShortName>
@@ -536,7 +544,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="161966924" Name="ui__TextSizeSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__TextSizeSlider" DurationType="OneShot" DurationMin="1.105958" DurationMax="1.105958">
+				<Event Id="4186243915" Name="ui_TextSizeSlider" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_TextSizeSlider" DurationType="OneShot" DurationMin="1.105958" DurationMax="1.105958">
 					<IncludedMemoryFiles>
 						<File Id="417627029" Language="SFX">
 							<ShortName>TextSizeSlider.wav</ShortName>
@@ -544,7 +552,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1808325541" Name="ui__TextToSpeech" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__TextToSpeech" DurationType="OneShot" DurationMin="1.129958" DurationMax="1.129958">
+				<Event Id="4156240998" Name="ui_TextToSpeech" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_TextToSpeech" DurationType="OneShot" DurationMin="1.129958" DurationMax="1.129958">
 					<IncludedMemoryFiles>
 						<File Id="134385547" Language="SFX">
 							<ShortName>textToSpeech.wav</ShortName>
@@ -552,7 +560,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1853631692" Name="ui__ToggleOff" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__ToggleOff" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
+				<Event Id="1965176433" Name="ui_ToggleOff" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ToggleOff" DurationType="OneShot" DurationMin="0.793958" DurationMax="0.793958">
 					<IncludedMemoryFiles>
 						<File Id="593170898" Language="SFX">
 							<ShortName>ToggleOff.wav</ShortName>
@@ -560,7 +568,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1252274918" Name="ui__ToggleOn" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__ToggleOn" DurationType="OneShot" DurationMin="0.745958" DurationMax="0.745958">
+				<Event Id="3138968549" Name="ui_ToggleOn" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ToggleOn" DurationType="OneShot" DurationMin="0.745958" DurationMax="0.745958">
 					<IncludedMemoryFiles>
 						<File Id="284860457" Language="SFX">
 							<ShortName>ToggleOn.wav</ShortName>
@@ -568,7 +576,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1280027299" Name="ui__UIOptions" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__UIOptions" DurationType="OneShot" DurationMin="1.369958" DurationMax="1.369958">
+				<Event Id="888114418" Name="ui_UIOptions" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_UIOptions" DurationType="OneShot" DurationMin="1.369958" DurationMax="1.369958">
 					<IncludedMemoryFiles>
 						<File Id="421073233" Language="SFX">
 							<ShortName>UIOptions.wav</ShortName>
@@ -576,7 +584,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1780553545" Name="ui__VisualOptions" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__VisualOptions" DurationType="OneShot" DurationMin="1.225958" DurationMax="1.225958">
+				<Event Id="3627315268" Name="ui_VisualOptions" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_VisualOptions" DurationType="OneShot" DurationMin="1.225958" DurationMax="1.225958">
 					<IncludedMemoryFiles>
 						<File Id="146376003" Language="SFX">
 							<ShortName>VisualOptions.wav</ShortName>
@@ -593,6 +601,10 @@
 				<File Id="39524040" Language="SFX">
 					<ShortName>ContrastSlider.wav</ShortName>
 					<Path>SFX\ContrastSlider_10C4C929.wem</Path>
+				</File>
+				<File Id="83371456" Language="SFX">
+					<ShortName>kame_down.wav</ShortName>
+					<Path>SFX\kame_down_10C4C929.wem</Path>
 				</File>
 				<File Id="92155153" Language="SFX">
 					<ShortName>ping_final_pickup.wav</ShortName>
@@ -780,7 +792,7 @@
 				</File>
 				<File Id="640379504" Language="SFX">
 					<ShortName>ChimeProj.wav</ShortName>
-					<Path>SFX\ChimeProj_6F4B070F.wem</Path>
+					<Path>SFX\ChimeProj_879B5ABF.wem</Path>
 				</File>
 				<File Id="646329306" Language="SFX">
 					<ShortName>HitThump_EnemySound.wav</ShortName>
@@ -848,7 +860,7 @@
 				</File>
 				<File Id="1045868087" Language="SFX">
 					<ShortName>trashpile_acccessibility.wav</ShortName>
-					<Path>SFX\trashpile_acccessibility_E62873FC.wem</Path>
+					<Path>SFX\trashpile_acccessibility_0911B1CA.wem</Path>
 				</File>
 				<File Id="1058987339" Language="SFX">
 					<ShortName>Offscreen Indicator.wav</ShortName>
@@ -890,7 +902,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3765803840" Language="SFX" Hash="458082329">
+		<SoundBank Id="3765803840" Language="SFX" Hash="1041819743">
 			<ObjectPath>\SoundBanks\Default Work Unit\Cutscenes</ObjectPath>
 			<ShortName>Cutscenes</ShortName>
 			<Path>Cutscenes.bnk</Path>
