@@ -63,6 +63,39 @@ namespace AK
         static const AkUniqueID SHARKHUFF = 638605449U;
         static const AkUniqueID SKIPCUTSCENE = 3576905580U;
         static const AkUniqueID STOPMAINMENUMUSIC = 1420342416U;
+        static const AkUniqueID UI_ = 1181390666U;
+        static const AkUniqueID UI__ACCECIBILITYOPTIONS_MP3 = 2008469923U;
+        static const AkUniqueID UI__AMBIENTSOUNDSLIDER = 2403583691U;
+        static const AkUniqueID UI__BRIGHNETTSLIDER = 2242473039U;
+        static const AkUniqueID UI__COLORPICKER = 2706503456U;
+        static const AkUniqueID UI__CONTRASTSLIDER = 4169169324U;
+        static const AkUniqueID UI__CONTROLS_OPTIONS = 3839787520U;
+        static const AkUniqueID UI__ENABLEOUTLINE = 2205825470U;
+        static const AkUniqueID UI__ENEMY_OUTLINE = 2055911300U;
+        static const AkUniqueID UI__EXITGAME = 2876257003U;
+        static const AkUniqueID UI__EXITTOMAINMENU = 42845064U;
+        static const AkUniqueID UI__GAMEPLAYHINTS = 360349029U;
+        static const AkUniqueID UI__HOWTOPLAY = 2757121332U;
+        static const AkUniqueID UI__LOADGAME = 429886651U;
+        static const AkUniqueID UI__MAINAUDIOSLIDER = 2729188339U;
+        static const AkUniqueID UI__MUSICSLIDER = 740988449U;
+        static const AkUniqueID UI__NAVIGATION_ARROW = 148969713U;
+        static const AkUniqueID UI__OFFSCREEN_INDICATOR = 813712262U;
+        static const AkUniqueID UI__OPTIONS = 3195493373U;
+        static const AkUniqueID UI__OUTLINEWIDTHSLIDER = 2620783336U;
+        static const AkUniqueID UI__RESUMEGAME = 3323728254U;
+        static const AkUniqueID UI__SAVEGAME = 1333636588U;
+        static const AkUniqueID UI__SLIDER = 3745602166U;
+        static const AkUniqueID UI__SOUNDEFFECTSLIDER = 1579502386U;
+        static const AkUniqueID UI__START = 2416683419U;
+        static const AkUniqueID UI__STARTGAME = 2568820105U;
+        static const AkUniqueID UI__TEXTSIZE = 1227296639U;
+        static const AkUniqueID UI__TEXTSIZESLIDER = 161966924U;
+        static const AkUniqueID UI__TEXTTOSPEECH = 1808325541U;
+        static const AkUniqueID UI__TOGGLEOFF = 1853631692U;
+        static const AkUniqueID UI__TOGGLEON = 1252274918U;
+        static const AkUniqueID UI__UIOPTIONS = 1280027299U;
+        static const AkUniqueID UI__VISUALOPTIONS = 1780553545U;
     } // namespace EVENTS
 
     namespace STATES
