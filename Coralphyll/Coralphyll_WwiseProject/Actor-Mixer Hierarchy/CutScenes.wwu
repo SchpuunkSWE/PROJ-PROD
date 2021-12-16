@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}" SchemaVersion="103">
+	<AudioObjects>
+		<WorkUnit Name="CutScenes" ID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Level1" ID="{1E48AB10-9760-4482-ACFE-1F2B58A0A1A1}" ShortID="817844622">
+					<ChildrenList>
+						<Sound Name="Ambience" ID="{F855F232-2EEB-4EA8-93B9-4044B031268E}" ShortID="1032347750">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{4F3DF33A-6CD6-44CB-AC96-43BC56173AAA}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Fantasy_World_Awakening_01" ID="{6742BEFD-2A22-489D-B405-63C95E77EBA4}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="3.44706666666667"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="26.9406666666667"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Fantasy_World_Awakening_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="708875662"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Fantasy_World_Awakening_01" ID="{6742BEFD-2A22-489D-B405-63C95E77EBA4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="VoiceOverIntro" ID="{6CACDB38-D3F7-46EC-8FC6-1A2B0FCB2C94}" ShortID="402476975">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-120</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{4F3DF33A-6CD6-44CB-AC96-43BC56173AAA}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="VoiceActing_Level1" ID="{72CACC75-6458-469D-849D-F9918AF46366}">
+									<Language>SFX</Language>
+									<AudioFile>VoiceActing_Level1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="29329179"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="VoiceActing_Level1" ID="{72CACC75-6458-469D-849D-F9918AF46366}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Level2" ID="{54C44A4F-DA43-43F4-9625-4CB054C92358}" ShortID="484708381">
+					<ChildrenList>
+						<Sound Name="Ambience" ID="{D1ECFEF7-F891-4E3E-A1FC-96FD9705B462}" ShortID="739776237">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+									<ObjectRef Name="Extreme_Limiting_1" ID="{8F08A8A7-3313-4E5D-9EBD-2B1B564DE411}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{4F3DF33A-6CD6-44CB-AC96-43BC56173AAA}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Moments_Life short" ID="{7B64B41F-439F-4787-94CD-66B3289D3558}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.46695"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="3.54512916666667"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="2.11892777777778"/>
+										<Property Name="TrimEnd" Type="Real64" Value="21.5152666666666"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Moments_Life short.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="274289462"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Moments_Life short" ID="{7B64B41F-439F-4787-94CD-66B3289D3558}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Voiceover2" ID="{5506DCE1-C4AA-4AE2-9732-0BB7F6A3963B}" ShortID="274234781">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-120</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ambience" ID="{4F3DF33A-6CD6-44CB-AC96-43BC56173AAA}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Level2_Voiceacting" ID="{42559F51-06FC-443B-A366-7ADE529E272F}">
+									<Language>SFX</Language>
+									<AudioFile>Level2_Voiceacting.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="722294309"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Level2_Voiceacting" ID="{42559F51-06FC-443B-A366-7ADE529E272F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Level4" ID="{072CF1B7-D808-4F49-BE9A-2AAE5B43D611}" ShortID="521142500">
+					<ChildrenList>
+						<Sound Name="ES_The Smallest of Miracles (Sting) - Magnus Ringblom" ID="{BE891826-68EE-437F-B0B6-B2937B64B44C}" ShortID="1052316238">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ES_The Smallest of Miracles (Sting) - Magnus Ringblom" ID="{57C66079-655A-4093-8EF3-4C784D6EE461}">
+									<Language>SFX</Language>
+									<AudioFile>ES_The Smallest of Miracles (Sting) - Magnus Ringblom.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="652670948"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ES_The Smallest of Miracles (Sting) - Magnus Ringblom" ID="{57C66079-655A-4093-8EF3-4C784D6EE461}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -36,9 +36,13 @@ public class Audio_Events : MonoBehaviour
         corals = GameObject.FindObjectsOfType<Coral>();
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
-        Audio_GameState("StartGame");
+        //Audio_GameState("StartGame");
         Audio_PlayerState(isAlive);
 
+    }
+    private void Start()
+    {
+        Audio_GameState("StartGame");
     }
     private void Update()
     {
@@ -239,6 +243,10 @@ public class Audio_Events : MonoBehaviour
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
+                    if (GameObject.FindGameObjectWithTag("CinemachineCamera"))
+                    {
+                        FindObjectOfType<Audio_Pause>().CinemaMode();
+                    }
                 }
                 break;
         }

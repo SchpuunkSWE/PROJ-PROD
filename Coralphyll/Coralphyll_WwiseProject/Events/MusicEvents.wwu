@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C6356992-30AD-489E-82B0-9E36916CFAA6}" SchemaVersion="103">
+	<Events>
+		<WorkUnit Name="MusicEvents" ID="{C6356992-30AD-489E-82B0-9E36916CFAA6}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="ResumeEverything_01" ID="{FEDE4F17-DA2A-4FD7-A64F-7E36F79004F9}">
+					<ChildrenList>
+						<Action Name="" ID="{7F317D77-05A9-41B8-BCA0-8BF04FA0D79B}" ShortID="240818228">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PauseEverything_01" ID="{F8A1C07F-3BEA-426E-A48B-34123445EECA}">
+					<ChildrenList>
+						<Action Name="" ID="{5ED35AF8-E1A3-4FEC-9A6D-8A0463253F96}" ShortID="768729469">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
