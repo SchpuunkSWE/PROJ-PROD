@@ -27,8 +27,7 @@ public class FishCounter : MonoBehaviour
     private int totalBlueFishes = 0;
 
     //Spawn some extra fishes in addition to fishes needed
-    [SerializeField]
-    private int extraMargin = 0;
+    private int extraMargin = 3;
 
     private bool recountFishes = true;
     public bool RecountFishes { get => recountFishes; set => recountFishes = value; }
