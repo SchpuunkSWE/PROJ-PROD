@@ -157,8 +157,11 @@ public class NPCFishUtil : MonoBehaviour
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
             f.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
         }
-        fishToRemove.Clear(); //Clear the fish to remove list.
-        FishCounter.fishCounterInstance.RecountFishes = true;
+        fishToRemove.Clear(); //Clear the fish to remove list.       
+        if (FishCounter.fishCounterInstance != null)
+        {
+            FishCounter.fishCounterInstance.RecountFishes = true;
+        }
     }
 
     public bool PickUpFish(GameObject player, Follower follower)
