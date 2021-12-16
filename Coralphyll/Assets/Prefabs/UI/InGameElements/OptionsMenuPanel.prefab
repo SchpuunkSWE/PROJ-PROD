@@ -9468,10 +9468,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 234667204870004013}
-        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: OffScreenIndicator
-        m_Mode: 6
+      - m_Target: {fileID: 2572357465405217182}
+        m_TargetAssemblyTypeName: Audio_Accessibility, Assembly-CSharp
+        m_MethodName: ToggleAudioAccessibility
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18458,10 +18458,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 234667204870004013}
-        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: ToggleAudioIndicator
-        m_Mode: 6
+      - m_Target: {fileID: 2572357465405217182}
+        m_TargetAssemblyTypeName: Audio_Accessibility, Assembly-CSharp
+        m_MethodName: ToggleAudioAccessibility
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -21609,6 +21609,7 @@ GameObject:
   - component: {fileID: 4631006045604877877}
   - component: {fileID: 2357862915219598032}
   - component: {fileID: 234667204870004013}
+  - component: {fileID: 2572357465405217182}
   m_Layer: 5
   m_Name: OptionsMenuPanel
   m_TagString: Untagged
@@ -21745,6 +21746,18 @@ MonoBehaviour:
   indicatorToggle: {fileID: 3239140261680525646}
   navArrowToggle: {fileID: 1824826177678509139}
   audioIndicator: {fileID: 3239140261680525646}
+--- !u!114 &2572357465405217182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032784629896653308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df9f8be43882c849883106b0170e33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8146038522576244377
 GameObject:
   m_ObjectHideFlags: 0
@@ -23142,7 +23155,7 @@ MonoBehaviour:
     m_Top: 100
     m_Bottom: 100
   m_ChildAlignment: 0
-  m_Spacing: 5
+  m_Spacing: 2
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
