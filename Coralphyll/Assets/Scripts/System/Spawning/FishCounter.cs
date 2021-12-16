@@ -31,6 +31,7 @@ public class FishCounter : MonoBehaviour
 
     private bool recountFishes = true;
     public bool RecountFishes { get => recountFishes; set => recountFishes = value; }
+    public int ExtraMargin { get => extraMargin; set => extraMargin = value; }
 
     #region Singleton Quickversion
     public static FishCounter fishCounterInstance;
@@ -70,23 +71,26 @@ public class FishCounter : MonoBehaviour
             {
                 foreach (GameObject agent in boidsSystem.agents)
                 {
-
-                    Follower f = agent.GetComponent<Follower>();
-                    switch (f.GetColour())
+                    if (agent.activeInHierarchy)
                     {
-                        case FishColour.YELLOW:
-                            totalYellowFishes++;
-                            break;
-                        case FishColour.RED:
-                            totalRedFishes++;
-                            break;
-                        case FishColour.BLUE:
-                            totalBlueFishes++;
-                            break;
-                        default:
-                            Debug.Log("Unknown Fish");
-                            break;
+                        Follower f = agent.GetComponent<Follower>();
+                        switch (f.GetColour())
+                        {
+                            case FishColour.YELLOW:
+                                totalYellowFishes++;
+                                break;
+                            case FishColour.RED:
+                                totalRedFishes++;
+                                break;
+                            case FishColour.BLUE:
+                                totalBlueFishes++;
+                                break;
+                            default:
+                                Debug.Log("Unknown Fish");
+                                break;
+                        }
                     }
+                    
                 }
             }
             
