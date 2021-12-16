@@ -16,7 +16,6 @@ public class WwAudioEmitter : MonoBehaviour
         AkSoundEngine.RegisterGameObj(this.gameObject);
         if (emitterType == "Trash")
         {
-
             AkSoundEngine.PostEvent(EventName, this.gameObject);
         }
     }
@@ -45,7 +44,6 @@ public class WwAudioEmitter : MonoBehaviour
             IsInCollider = false;
         }
     }
-
     private void OnTriggerStay(Collider other)
     {
         if (!constantEmitter)
@@ -55,8 +53,7 @@ public class WwAudioEmitter : MonoBehaviour
                 return;
             }
             IsInCollider = true;
-            AkSoundEngine.PostEvent(EventName, gameObject);
+            AkSoundEngine.PostEvent(EventName, this.gameObject);
         }
     }
-
 }
