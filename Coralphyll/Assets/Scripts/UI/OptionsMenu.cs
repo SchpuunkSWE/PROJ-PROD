@@ -24,6 +24,8 @@ public class OptionsMenu : MonoBehaviour
     public GameObject indicatorToggle;
     public GameObject navArrowToggle;
     public GameObject audioIndicator;
+    public bool voiceAssist; 
+
 
 
     void Start()
@@ -31,6 +33,7 @@ public class OptionsMenu : MonoBehaviour
         //tabGroup.OnTabSelected(startButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
+        activateVoiceAssist(voiceAssist);
         setToggles();
         //navigationArrow = GetComponent<NavigationArrow>();
 
@@ -62,6 +65,16 @@ public class OptionsMenu : MonoBehaviour
     public void EnemyOutline(bool enemyOutline)
     {
         PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        if (enemyOutlineToggle.GetComponent<Toggle>().isOn)
+        {
+            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+        }
+        else
+        {
+            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+        }
 
     }
 
@@ -99,6 +112,10 @@ public class OptionsMenu : MonoBehaviour
         {
             GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
         }*/
+
+    }
+    public void activateVoiceAssist (bool vA){
+        voiceAssist = vA;
 
     }
 

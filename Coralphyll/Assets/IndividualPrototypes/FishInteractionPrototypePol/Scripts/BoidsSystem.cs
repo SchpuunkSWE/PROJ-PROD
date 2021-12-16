@@ -114,8 +114,8 @@ public class BoidsSystem : MonoBehaviour
             {
                 FishCounter.fishCounterInstance.RemoveSchool(this);
             }
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+            //gameObject.SetActive(false);
             Debug.Log("Boids system destroyed");
         }
     }
