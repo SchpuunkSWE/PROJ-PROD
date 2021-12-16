@@ -33,6 +33,7 @@ public class OptionsMenu : MonoBehaviour
         //tabGroup.OnTabSelected(startButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
+        activateVoiceAssist(false);
         setToggles();
         //navigationArrow = GetComponent<NavigationArrow>();
 
@@ -104,7 +105,7 @@ public class OptionsMenu : MonoBehaviour
 
     }
     public void activateVoiceAssist (bool vA){
-        voiceAssist = true;
+        voiceAssist = vA;
 
     }
 
