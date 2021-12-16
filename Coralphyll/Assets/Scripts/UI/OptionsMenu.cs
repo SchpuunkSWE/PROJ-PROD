@@ -141,4 +141,8 @@ public class OptionsMenu : MonoBehaviour
         indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
     }
+    public void ToggleAudioIndicator()
+    {
+        GetComponent<Audio_Accessibility>().ToggleAudioAccessibility();
+    }
 }
