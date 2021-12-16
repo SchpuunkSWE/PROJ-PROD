@@ -153,4 +153,15 @@ public class OptionsMenu : MonoBehaviour
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
         audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
     }
+
+    public void ToggleTerrainNavIndicator()
+    {
+        GameObject o = GameObject.Find("BonkController");
+        o.GetComponent<BonkController>().switchActiveIndicator();
+    }
+    public void ToggleTerrainNavSound()
+    {
+        GameObject o = GameObject.Find("BonkController");
+        o.GetComponent<BonkController>().switchActiveSound();
+    }
 }
