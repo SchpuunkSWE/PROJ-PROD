@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Collections;
 
 public class InputManager : MonoBehaviour
 {
@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
 
     [SerializeField]
     private Keybindings keybindings;
+    private static readonly Array keyCodes = Enum.GetValues(typeof(KeyCode));
     
     private void Awake()
     {
@@ -89,5 +90,35 @@ public class InputManager : MonoBehaviour
         keybindings.keybindingsChecks[3].keyCode = KeyCode.DownArrow;
         keybindings.keybindingsChecks[4].keyCode = KeyCode.RightArrow;
         keybindings.keybindingsChecks[5].keyCode = KeyCode.LeftArrow;
+    }
+
+    public void StartKeySwapRoutine(int keybindingIndex)
+    {
+        StartCoroutine(SwapKeyBinding(keybindingIndex));
+    }
+
+    private IEnumerator SwapKeyBinding(int index)
+    {
+        bool complete = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        while (!complete)
+        {
+            if(Input.anyKeyDown)
+            {
+                foreach (KeyCode keyCode in keyCodes)
+                {
+                    if (Input.GetKey(keyCode))
+                    {
+                        keybindings.keybindingsChecks[index].keyCode = keyCode;
+                        complete = true;
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                        break;
+                    }
+                }
+            }
+            yield return null;
+        }
     }
 }

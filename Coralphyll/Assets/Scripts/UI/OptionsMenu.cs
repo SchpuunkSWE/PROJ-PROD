@@ -24,6 +24,8 @@ public class OptionsMenu : MonoBehaviour
     public GameObject indicatorToggle;
     public GameObject navArrowToggle;
     public GameObject audioIndicator;
+    public bool voiceAssist; 
+
 
 
     void Start()
@@ -31,6 +33,7 @@ public class OptionsMenu : MonoBehaviour
         //tabGroup.OnTabSelected(startButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
+        activateVoiceAssist(false);
         setToggles();
         //navigationArrow = GetComponent<NavigationArrow>();
 
@@ -99,6 +102,10 @@ public class OptionsMenu : MonoBehaviour
         {
             GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
         }*/
+
+    }
+    public void activateVoiceAssist (bool vA){
+        voiceAssist = vA;
 
     }
 
