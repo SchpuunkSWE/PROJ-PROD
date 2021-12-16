@@ -25,6 +25,7 @@ public class Audio_Events : MonoBehaviour
     private float musicStateCD;
     private int tempCoralFish;
     private int tempCoralFish2;
+    private string sceneIndex;
     // Start is called before the first frame update
     void Awake()
     {
@@ -42,6 +43,7 @@ public class Audio_Events : MonoBehaviour
     }
     private void Start()
     {
+        sceneIndex = SceneManager.GetActiveScene().name;
         Audio_GameState("StartGame");
     }
     private void Update()
@@ -209,8 +211,15 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "Exploring":
-                AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
-                AkSoundEngine.SetState("Music_State", "Exploring");
+                if(sceneIndex== "Level4")
+                {
+                    AkSoundEngine.PostEvent("MusicState_Exploring2", gameObject);
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
+                    AkSoundEngine.SetState("Music_State", "Exploring");
+                }
                 currentLevelState = "Exploring";
                 break;
             case "Combat":

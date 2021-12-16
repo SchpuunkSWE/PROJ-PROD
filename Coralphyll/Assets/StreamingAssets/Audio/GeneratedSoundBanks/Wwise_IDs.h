@@ -35,6 +35,7 @@ namespace AK
         static const AkUniqueID MINE_EXPLOSION = 3706089396U;
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
+        static const AkUniqueID MUSICSTATE_EXPLORING2 = 2633930322U;
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
         static const AkUniqueID MUSICSTATE_STARTOFLEVEL = 4090089807U;
         static const AkUniqueID NEW_EVENT = 3050945240U;

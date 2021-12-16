@@ -154,7 +154,11 @@
 										<ObjectList Name="Cues">
 											<Reference>
 												<Local>
-													<MusicCue Name="Entry Cue" ID="{060979E0-2897-45BF-BD29-734A56484267}"/>
+													<MusicCue Name="Entry Cue" ID="{060979E0-2897-45BF-BD29-734A56484267}">
+														<PropertyList>
+															<Property Name="TimeMs" Type="Real64" Value="589.696864652318"/>
+														</PropertyList>
+													</MusicCue>
 												</Local>
 											</Reference>
 											<Reference>
@@ -182,7 +186,7 @@
 													<MusicCue Name="" ID="{6E35620E-0340-43E9-A620-3038FFD01B55}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="2"/>
-															<Property Name="TimeMs" Type="Real64" Value="8148.53849337748"/>
+															<Property Name="TimeMs" Type="Real64" Value="10668.1523696192"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>
@@ -192,7 +196,7 @@
 								</MusicSegment>
 								<MusicSegment Name="ES_Don't Be Afraid MIX" ID="{25B67E24-19D2-4DD4-9282-18C5E199CBEB}" ShortID="874422986">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="105804.145833333"/>
+										<Property Name="EndPosition" Type="Real64" Value="106505.416062551"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -212,7 +216,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-1</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -272,7 +276,7 @@
 												<Local>
 													<MusicCue Name="Entry Cue" ID="{20CBD2B2-A74B-4D64-A2C9-46172768082F}">
 														<PropertyList>
-															<Property Name="TimeMs" Type="Real64" Value="2103.81068765534"/>
+															<Property Name="TimeMs" Type="Real64" Value="6311.43206296603"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>
@@ -292,7 +296,7 @@
 													<MusicCue Name="" ID="{499AAB50-976D-4C32-8621-8BF0B3419F9C}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="2"/>
-															<Property Name="TimeMs" Type="Real64" Value="9642.46565175366"/>
+															<Property Name="TimeMs" Type="Real64" Value="14113.0633630213"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>
@@ -2009,6 +2013,15 @@
 							</Path>
 							<AudioNodeInfo>
 								<AudioNodeRef Name="Victory_Loop" ID="{9D0141A4-D7AF-4057-8F0E-10532905004D}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}"/>
+								<PathElementRef Name="Dead" ID="{7474C406-E888-41DB-B549-88F6FEF467D7}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="Combat" ID="{10B31054-3D28-4F57-A3DE-D6FBF2329F44}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>
