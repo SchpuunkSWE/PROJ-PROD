@@ -65,6 +65,16 @@ public class OptionsMenu : MonoBehaviour
     public void EnemyOutline(bool enemyOutline)
     {
         PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        if (enemyOutlineToggle.GetComponent<Toggle>().isOn)
+        {
+            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+        }
+        else
+        {
+            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+        }
 
     }
 
