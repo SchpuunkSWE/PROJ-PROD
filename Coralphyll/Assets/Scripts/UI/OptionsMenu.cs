@@ -23,7 +23,7 @@ public class OptionsMenu : MonoBehaviour
     public GameObject hintToggle;
     public GameObject indicatorToggle;
     public GameObject navArrowToggle;
-
+    public GameObject audioIndicator;
 
 
     void Start()
@@ -43,8 +43,6 @@ public class OptionsMenu : MonoBehaviour
         {
             exitButton.SetActive(false);
         }
-
-
 
     }
 
@@ -88,6 +86,19 @@ public class OptionsMenu : MonoBehaviour
         {
             navigationArrow.transform.GetChild(0).gameObject.SetActive(false); //Inactivate the child object. 
         }      
+    }
+    public void ToggleAudioIndicator(bool audioInd)
+    {
+        PlayerPrefs.SetInt("AudioIndicator", BoolToInt(audioInd));
+        if (audioIndicator.GetComponent<Toggle>().isOn) //Check if the toggle is toggled.
+        {
+            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOn();
+        }
+        else
+        {
+            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
+        }
+        
     }
 
     public void startLevel1()
@@ -140,9 +151,6 @@ public class OptionsMenu : MonoBehaviour
         hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
         indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
-    }
-    public void ToggleAudioIndicator()
-    {
-        GetComponent<Audio_Accessibility>().ToggleAudioAccessibility();
+        audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
     }
 }
