@@ -23,6 +23,11 @@ public class Mine : MonoBehaviour
 
         meshRenderer = GetComponent<MeshRenderer>();
 
+        GetComponent<Renderer>().material.SetColor("_ToonRampTinting", Color.red);
+        GetComponent<Renderer>().material.color = Color.red; 
+        Debug.Log(GetComponent<Renderer>().material.GetColor("Color_f3b331c7ca4b4188b2d46fb52af77be7")); 
+
+
     }
 
     // Update is called once per frame
@@ -35,11 +40,15 @@ public class Mine : MonoBehaviour
         { 
             if (Time.realtimeSinceStartup - lastChangeTime >= fraction)
             {
-                lastChangeTime = Time.realtimeSinceStartup; 
-                meshRenderer.material.color = hasChanged ? Color.black : Color.red;
+                lastChangeTime = Time.realtimeSinceStartup;
+                //meshRenderer.material.color = hasChanged ? Color.black : Color.red;
+                meshRenderer.material.SetColor("Color_f3b331c7ca4b4188b2d46fb52af77be7", hasChanged ? Color.grey : Color.red);
                 hasChanged = !hasChanged;
+                
+                AkSoundEngine.PostEvent("Mine_Beep", gameObject);
 
-            
+
+
                 if (hasChanged)
                 {
                
@@ -67,11 +76,15 @@ public class Mine : MonoBehaviour
         if(other.tag == "Player")
         {
             Explode();
+            AkSoundEngine.PostEvent("Mine_Explosion", gameObject);
+
         }
 
-        if(other.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
             other.GetComponent<AIController>().IsDazed = true;
+            AkSoundEngine.PostEvent("Mine_Explosion", gameObject);
+
         }
     }
 
@@ -88,6 +101,8 @@ public class Mine : MonoBehaviour
         NPCFishUtil.NPCFishUtilInstance.KillAllFish();
         Debug.Log("fish died");
         EventHandler<DeathEvent>.FireEvent(new DeathEvent(d));
+
+        Destroy(gameObject);
     }
 
 }
