@@ -191,11 +191,12 @@ public class UI_Text_Settings : MonoBehaviour
                 
     }
     private void changetextsizeTT2(float value){
+        Debug.Log("jag kommer ändra tt2");
 
         switch(value) {
             case 0:
             //   StartButtonText.fontSize = DeafaultTextSizeTT1;
-               Debug.Log("jag ändrade mig till TT2");
+               Debug.Log("jag ändrade mig till TT2 0");
           
               foreach (GameObject i in tt2GO)
                 {
@@ -211,6 +212,7 @@ public class UI_Text_Settings : MonoBehaviour
               
                 break;
             case 1:
+            Debug.Log("jag ändrade mig till TT2 1");
                
                 foreach (GameObject i in tt2GO)
                 {
