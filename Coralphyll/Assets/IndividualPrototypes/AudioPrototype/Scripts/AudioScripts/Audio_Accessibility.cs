@@ -10,7 +10,7 @@ public class Audio_Accessibility : MonoBehaviour
     AIController[] sharks;
     TrashPile[] trashPiles;
     BoidsSystem[] fishes;
-    private bool toggle;
+    private bool toggle = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class Audio_Accessibility : MonoBehaviour
         corals = FindObjectsOfType<Coral>();
         fishes = FindObjectsOfType<BoidsSystem>();
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
@@ -34,6 +34,18 @@ public class Audio_Accessibility : MonoBehaviour
             }
             toggle = !toggle;
         }
+    }*/
+    public void ToggleAudioAccessibility()
+    {
+        if (toggle)
+        {
+            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOn();
+        }
+        else
+        {
+            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
+        }
+        toggle = !toggle;
     }
     public void ToggleAudioAccessibilityOn()
     {
