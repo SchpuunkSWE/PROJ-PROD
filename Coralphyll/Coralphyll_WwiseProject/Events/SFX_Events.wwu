@@ -84,7 +84,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Folder Name="NPC" ID="{FCBA2137-58BF-4B09-99A7-3D841721DCA7}" ShortID="476372907">
+				<Folder Name="NPC_Fishes" ID="{FCBA2137-58BF-4B09-99A7-3D841721DCA7}" ShortID="476372907">
 					<ChildrenList>
 						<Event Name="NPC_Friendly_Red" ID="{2CA439E7-AA90-4E8B-9023-E58754EDDE4F}">
 							<ChildrenList>
@@ -156,31 +156,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Chime_FriendlyFish3_updated" ID="{A11F7B5A-54FD-4514-AAED-BDE0F6CDF741}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="NPC_Enemy_Shark" ID="{79FC8CC7-25DC-43FE-A171-FC36FA3C69AB}">
-							<ChildrenList>
-								<Action Name="" ID="{DD0ABD88-5DB4-4647-B319-A6970B82BD02}" ShortID="1024837433">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="SharkGrowl" ID="{D4EDF6AF-6641-47DB-8EB9-D1486B6DCAAC}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="NPC_Enemy_Shark_Stop" ID="{CAB89302-6E58-4299-A7AE-E48748EE3658}">
-							<ChildrenList>
-								<Action Name="" ID="{A0D8E80B-0F72-4BEA-867D-810A92BCB407}" ShortID="379499186">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="SharkGrowl" ID="{D4EDF6AF-6641-47DB-8EB9-D1486B6DCAAC}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -319,35 +294,60 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-					</ChildrenList>
-				</Folder>
-				<Folder Name="Hazards" ID="{20390DF7-0810-4E36-BC9A-DAA0FCA1CEE0}" ShortID="6209399">
-					<ChildrenList>
-						<Event Name="Garbage_Play" ID="{148C8B25-2B6E-4573-826E-CB54125C3F2C}">
+						<Event Name="Shark_Accessibility" ID="{75E6BCDB-2F19-48E6-9E9B-3794E472DB97}">
 							<ChildrenList>
-								<Action Name="" ID="{6D724474-5005-4434-9454-161A3A47F476}" ShortID="115617184">
+								<Action Name="" ID="{7C107BDE-A707-4C97-BA90-70AD1242C301}" ShortID="993858040">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+											<ObjectRef Name="Shark_Accessibility" ID="{8F7CE11E-431C-4C85-8261-9889C1DC370A}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Garbage_Stop" ID="{F95D3402-D2C1-4283-9FB3-093A4B3C62DF}">
+						<Event Name="NPC_Enemy_Shark" ID="{79FC8CC7-25DC-43FE-A171-FC36FA3C69AB}">
 							<ChildrenList>
-								<Action Name="" ID="{881923C1-5CA6-4F62-8453-AE307F416DAB}" ShortID="758791380">
+								<Action Name="" ID="{DD0ABD88-5DB4-4647-B319-A6970B82BD02}" ShortID="1024837433">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SharkGrowl" ID="{D4EDF6AF-6641-47DB-8EB9-D1486B6DCAAC}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Enemy_Shark_Stop" ID="{CAB89302-6E58-4299-A7AE-E48748EE3658}">
+							<ChildrenList>
+								<Action Name="" ID="{A0D8E80B-0F72-4BEA-867D-810A92BCB407}" ShortID="379499186">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+											<ObjectRef Name="SharkGrowl" ID="{D4EDF6AF-6641-47DB-8EB9-D1486B6DCAAC}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Shark_Accessibility_Stop" ID="{AB21EF4C-FB1E-4041-BE7F-1B592311BBA4}">
+							<ChildrenList>
+								<Action Name="" ID="{0EF1253C-3CB5-40E3-B0D4-1ACE769B4110}" ShortID="194713514">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Shark_Accessibility" ID="{8F7CE11E-431C-4C85-8261-9889C1DC370A}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Hazards" ID="{20390DF7-0810-4E36-BC9A-DAA0FCA1CEE0}" ShortID="6209399">
+					<ChildrenList>
 						<Event Name="Mine_Beep" ID="{6A278EC7-CF66-4C78-8E84-BD2028DADCFE}">
 							<ChildrenList>
 								<Action Name="" ID="{EC2791FE-76AE-46C6-B276-7F06DC11A101}" ShortID="93724869">
@@ -727,6 +727,91 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="OtherEnemies" ID="{421E9F41-2A9D-4DD0-9987-ABCDA5CA482B}" ShortID="73738338">
+					<ChildrenList>
+						<Event Name="Trashpile_Accessibility" ID="{0C885593-D82A-4A2B-A8E6-362510B547E0}">
+							<ChildrenList>
+								<Action Name="" ID="{50CBF518-D624-4A6E-8047-3F207A01456D}" ShortID="316674538">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Trashpile_Accessibility" ID="{3DF3510F-C717-4044-B0D6-8215D7019E1F}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Trashpile_Accessibility_Stop" ID="{DFFDCD06-BBDF-4AA3-BE91-270D883A5CD9}">
+							<ChildrenList>
+								<Action Name="" ID="{90FA92C4-93BC-4DCA-8F48-99E69496E9EF}" ShortID="292379898">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Trashpile_Accessibility" ID="{3DF3510F-C717-4044-B0D6-8215D7019E1F}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Garbage_Play" ID="{148C8B25-2B6E-4573-826E-CB54125C3F2C}">
+							<ChildrenList>
+								<Action Name="" ID="{6D724474-5005-4434-9454-161A3A47F476}" ShortID="115617184">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Garbage_Stop" ID="{F95D3402-D2C1-4283-9FB3-093A4B3C62DF}">
+							<ChildrenList>
+								<Action Name="" ID="{881923C1-5CA6-4F62-8453-AE307F416DAB}" ShortID="758791380">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Garbage" ID="{60E3B298-D5A3-45CB-A7C4-69C94BDC2510}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Corals" ID="{92FF0BF8-9369-4125-850B-95D27728482E}" ShortID="176303477">
+					<ChildrenList>
+						<Event Name="Coral_Accessibility" ID="{29B344DD-1277-4741-9797-1E510E342E94}">
+							<ChildrenList>
+								<Action Name="" ID="{1D5930C4-3C11-4BCC-ADFF-F6D6A8E47E73}" ShortID="344516241">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_dingding" ID="{4F89DE2B-67F1-446B-B515-10FD7F26F73C}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Coral_Accessibility_Stop" ID="{E076A150-AFBC-478C-BB20-BF5BAD16139E}">
+							<ChildrenList>
+								<Action Name="" ID="{06332B2C-16F5-4A75-870D-878DCE743F1D}" ShortID="394275701">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chime_dingding" ID="{4F89DE2B-67F1-446B-B515-10FD7F26F73C}" WorkUnitID="{C422147A-8241-4651-9F0B-EFBA615BD38A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="NPC_Coral_Play" ID="{49AAE9CE-729B-472E-A8B9-5C8096FB427C}"/>
+						<Event Name="NPC_Coral_Stop" ID="{9AE5680E-4424-49E2-8AE4-B9A667A5785B}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

@@ -55,6 +55,11 @@
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -318,156 +323,6 @@
 					</ChildrenList>
 					<ObjectLists/>
 				</RandomSequenceContainer>
-				<ActorMixer Name="NPC_Friendly_Blue" ID="{C99DA3CF-FB42-49CE-BC4C-1C8FE9D31D61}" ShortID="76115368">
-					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="2"/>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="Chime_FriendlyFish_Updated" ID="{3EFCC4F7-EDFB-4386-8307-1F6062F0D32C}" ShortID="166455605">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-3</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Chime_FriendlyFish_Updated" ID="{9F16F33F-8BC4-470D-B55C-C275E58726F2}">
-									<Language>SFX</Language>
-									<AudioFile>Chime_FriendlyFish_Updated.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="325430453"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="Chime_FriendlyFish_Updated" ID="{9F16F33F-8BC4-470D-B55C-C275E58726F2}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-					<ObjectLists/>
-				</ActorMixer>
-				<ActorMixer Name="NPC_Friendly_Red" ID="{206C3279-FEFC-4F9B-8F27-D77E37987FFB}" ShortID="351929361">
-					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="2"/>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="Chime_FriendlyFish_2" ID="{58CA01DF-BE27-4718-B4C8-168AE78D4204}" ShortID="427276432">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-3</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Chime_FriendlyFish_2" ID="{D49C2C33-48BF-4CF7-AB44-2CEF0E010DD2}">
-									<Language>SFX</Language>
-									<AudioFile>Chime_FriendlyFish_2.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="101814616"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="Chime_FriendlyFish_2" ID="{D49C2C33-48BF-4CF7-AB44-2CEF0E010DD2}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-					<ObjectLists/>
-				</ActorMixer>
-				<ActorMixer Name="NPC_Friendly_Yellow" ID="{E0C4DD4B-BFE3-4609-92AB-509760FB8D07}" ShortID="600170797">
-					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="2"/>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="Chime_FriendlyFish3_updated" ID="{A11F7B5A-54FD-4514-AAED-BDE0F6CDF741}" ShortID="206641227">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-3</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Chime_FriendlyFish3_updated" ID="{53CF03AB-1F7B-4596-9D0F-BDE490FA6076}">
-									<Language>SFX</Language>
-									<AudioFile>Chime_FriendlyFish3_updated.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="962159150"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="Chime_FriendlyFish3_updated" ID="{53CF03AB-1F7B-4596-9D0F-BDE490FA6076}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-					<ObjectLists/>
-				</ActorMixer>
 				<ActorMixer Name="Notification_NPC_Pickup" ID="{8E6CA1EB-9404-42EE-AA86-E6B25EF5D20E}" ShortID="678980259">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
@@ -556,56 +411,6 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="HitReverb_enemySound_maybe" ID="{FCA70DCE-FB9A-4A84-B24E-719F9B2A85A3}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-					<ObjectLists/>
-				</ActorMixer>
-				<ActorMixer Name="NPC_Enemy" ID="{9FD5405A-A53D-4405-AD21-24CC8667126F}" ShortID="472408409">
-					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="2"/>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="att_enemy_70m" ID="{96AAFF3B-D233-4F85-B215-83CD8BDE0D9E}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="HitThump_EnemySound" ID="{D416B19E-6847-46D7-8D62-B9D5BEB1B1A5}" ShortID="848910928">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-2</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="HitThump_EnemySound" ID="{3ED86EA7-35C5-4FF2-88BE-C3F0F7A67FB7}">
-									<Language>SFX</Language>
-									<AudioFile>HitThump_EnemySound.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="646329306"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="HitThump_EnemySound" ID="{3ED86EA7-35C5-4FF2-88BE-C3F0F7A67FB7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -713,40 +518,350 @@
 					</ChildrenList>
 					<ObjectLists/>
 				</RandomSequenceContainer>
-				<ActorMixer Name="NPC_Friendly_Generic" ID="{3A1958AC-B16C-45CD-8D03-E067C9675084}" ShortID="500446260">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
-						</Reference>
-					</ReferenceList>
+				<Folder Name="Accessibility" ID="{5151A345-DE6F-429F-B336-BF008BEEA394}" ShortID="235031240">
 					<ChildrenList>
-						<Sound Name="Water_Sprout" ID="{A5919356-3DEF-4B35-A456-FC4EB92C1322}" ShortID="1005461017">
+						<ActorMixer Name="NPC_Friendly_Red" ID="{206C3279-FEFC-4F9B-8F27-D77E37987FFB}" ShortID="351929361">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
-								<Property Name="Highpass" Type="int16">
-									<ValueList>
-										<Value>11</Value>
-									</ValueList>
-								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Chime_FriendlyFish_2" ID="{58CA01DF-BE27-4718-B4C8-168AE78D4204}" ShortID="427276432">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Chime_FriendlyFish_2" ID="{D49C2C33-48BF-4CF7-AB44-2CEF0E010DD2}">
+											<Language>SFX</Language>
+											<AudioFile>Chime_FriendlyFish_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="101814616"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Chime_FriendlyFish_2" ID="{D49C2C33-48BF-4CF7-AB44-2CEF0E010DD2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</ActorMixer>
+						<ActorMixer Name="NPC_Friendly_Yellow" ID="{E0C4DD4B-BFE3-4609-92AB-509760FB8D07}" ShortID="600170797">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Chime_FriendlyFish3_updated" ID="{A11F7B5A-54FD-4514-AAED-BDE0F6CDF741}" ShortID="206641227">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Chime_FriendlyFish3_updated" ID="{53CF03AB-1F7B-4596-9D0F-BDE490FA6076}">
+											<Language>SFX</Language>
+											<AudioFile>Chime_FriendlyFish3_updated.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="962159150"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Chime_FriendlyFish3_updated" ID="{53CF03AB-1F7B-4596-9D0F-BDE490FA6076}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</ActorMixer>
+						<ActorMixer Name="NPC_Friendly_Blue" ID="{C99DA3CF-FB42-49CE-BC4C-1C8FE9D31D61}" ShortID="76115368">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Chime_FriendlyFish_Updated" ID="{3EFCC4F7-EDFB-4386-8307-1F6062F0D32C}" ShortID="166455605">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Chime_FriendlyFish_Updated" ID="{9F16F33F-8BC4-470D-B55C-C275E58726F2}">
+											<Language>SFX</Language>
+											<AudioFile>Chime_FriendlyFish_Updated.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="325430453"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Chime_FriendlyFish_Updated" ID="{9F16F33F-8BC4-470D-B55C-C275E58726F2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</ActorMixer>
+						<ActorMixer Name="NPC_Enemy" ID="{9FD5405A-A53D-4405-AD21-24CC8667126F}" ShortID="472408409">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_enemy_70m" ID="{96AAFF3B-D233-4F85-B215-83CD8BDE0D9E}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="HitThump_EnemySound" ID="{D416B19E-6847-46D7-8D62-B9D5BEB1B1A5}" ShortID="848910928">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="HitThump_EnemySound" ID="{3ED86EA7-35C5-4FF2-88BE-C3F0F7A67FB7}">
+											<Language>SFX</Language>
+											<AudioFile>HitThump_EnemySound.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="646329306"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="HitThump_EnemySound" ID="{3ED86EA7-35C5-4FF2-88BE-C3F0F7A67FB7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</ActorMixer>
+						<ActorMixer Name="NPC_Friendly_Generic" ID="{3A1958AC-B16C-45CD-8D03-E067C9675084}" ShortID="500446260">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Water_Sprout" ID="{A5919356-3DEF-4B35-A456-FC4EB92C1322}" ShortID="1005461017">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>11</Value>
+											</ValueList>
+										</Property>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-50</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ambience_underwater_sprout" ID="{FC3348F9-B0C0-4219-A3DB-7E94F8764AFF}">
+											<PropertyList>
+												<Property Name="CrossfadeDuration" Type="Real64" Value="332.98"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.210981304190751"/>
+												<Property Name="LoopEnd" Type="Real64" Value="9.56448578998073"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Ambience_underwater_sprout.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="815202743"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Ambience_underwater_sprout" ID="{FC3348F9-B0C0-4219-A3DB-7E94F8764AFF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</ActorMixer>
+						<Sound Name="Chime_dingding" ID="{4F89DE2B-67F1-446B-B515-10FD7F26F73C}" ShortID="289072002">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>13</Value>
-									</ValueList>
-								</Property>
-								<Property Name="OverrideOutput" Type="bool" Value="True"/>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_coral" ID="{1E584D01-EDF5-4C26-A92C-A0B779279916}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ChimeProj" ID="{D23222B2-0AE5-4830-B738-24D0BF0B8ECC}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0501063636363636"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.11494560606061"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>ChimeProj.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="640379504"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ChimeProj" ID="{D23222B2-0AE5-4830-B738-24D0BF0B8ECC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Shark_Accessibility" ID="{8F7CE11E-431C-4C85-8261-9889C1DC370A}" ShortID="949649848">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_generic_60m_npc_fish" ID="{25C0824D-4FE6-454C-ACAF-0F20788B954B}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="chime_shark" ID="{53BB128E-89B2-45C4-8430-E7BA97DD1C17}">
+									<Language>SFX</Language>
+									<AudioFile>chime_shark.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="975733869"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="chime_shark" ID="{53BB128E-89B2-45C4-8430-E7BA97DD1C17}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Trashpile_Accessibility" ID="{3DF3510F-C717-4044-B0D6-8215D7019E1F}" ShortID="363851004">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-50</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-8</Value>
+										<Value>-2050</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -762,28 +877,21 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Ambience_underwater_sprout" ID="{FC3348F9-B0C0-4219-A3DB-7E94F8764AFF}">
-									<PropertyList>
-										<Property Name="CrossfadeDuration" Type="Real64" Value="332.98"/>
-										<Property Name="LoopBegin" Type="Real64" Value="0.210981304190751"/>
-										<Property Name="LoopEnd" Type="Real64" Value="9.56448578998073"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
+								<AudioFileSource Name="trashpile_acccessibility" ID="{A9ECAF13-FC67-4629-883B-6F82364D218E}">
 									<Language>SFX</Language>
-									<AudioFile>Ambience_underwater_sprout.wav</AudioFile>
+									<AudioFile>trashpile_acccessibility.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="815202743"/>
+										<MediaID ID="1045868087"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Ambience_underwater_sprout" ID="{FC3348F9-B0C0-4219-A3DB-7E94F8764AFF}" Platform="Linked"/>
+								<ActiveSource Name="trashpile_acccessibility" ID="{A9ECAF13-FC67-4629-883B-6F82364D218E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
-					<ObjectLists/>
-				</ActorMixer>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

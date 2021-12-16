@@ -27,7 +27,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1013233131">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2277733506">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -60,6 +60,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1115036193" Name="Coral_Accessibility" ObjectPath="\Events\Default Work Unit\SFX_Events\Corals\Coral_Accessibility" MaxAttenuation="75.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="640379504" Language="SFX">
+							<ShortName>ChimeProj.wav</ShortName>
+							<Path>SFX\ChimeProj_6F4B070F.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1987841316" Name="Coral_Accessibility_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\Corals\Coral_Accessibility_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3451548568" Name="Cutscene_level2_SharkBite" ObjectPath="\Events\CutScenes\Level2\Cutscene_level2_SharkBite" DurationType="OneShot" DurationMin="0.589181" DurationMax="0.742322"/>
 				<Event Id="2968903799" Name="FishEat" ObjectPath="\Events\Default Work Unit\SFX_Events\SharkRelated\FishEat" DurationType="OneShot" DurationMin="0.589181" DurationMax="0.742322">
 					<IncludedMemoryFiles>
@@ -101,7 +110,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="143285903" Name="Garbage_Play" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Garbage_Play" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="143285903" Name="Garbage_Play" ObjectPath="\Events\Default Work Unit\SFX_Events\OtherEnemies\Garbage_Play" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="377016321" Language="SFX">
 							<ShortName>Bubble_Rise_Soft_01.wav</ShortName>
@@ -109,7 +118,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2902390157" Name="Garbage_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Garbage_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2902390157" Name="Garbage_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\OtherEnemies\Garbage_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="569341283" Name="Mine_Beep" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Mine_Beep" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="3.023669" DurationMax="3.023669">
 					<IncludedMemoryFiles>
 						<File Id="394648522" Language="SFX">
@@ -118,7 +127,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3706089396" Name="Mine_Explosion" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Mine_Explosion" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="6.402458" DurationMax="6.402458">
+				<Event Id="3706089396" Name="Mine_Explosion" ObjectPath="\Events\Default Work Unit\SFX_Events\Hazards\Mine_Explosion" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="6.402458" DurationMax="6.402458">
 					<IncludedMemoryFiles>
 						<File Id="986400805" Language="SFX">
 							<ShortName>Explosion_05_Edited.wav</ShortName>
@@ -184,7 +193,9 @@
 					</ActionSetState>
 				</Event>
 				<Event Id="3050945240" Name="New_Event" ObjectPath="\Events\Default Work Unit\SFX_Events\EffectZones\New_Event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3939156573" Name="NPC_DropOff" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_DropOff" DurationType="OneShot" DurationMin="4.117809" DurationMax="4.362667">
+				<Event Id="3584532785" Name="NPC_Coral_Play" ObjectPath="\Events\Default Work Unit\SFX_Events\Corals\NPC_Coral_Play" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="541083879" Name="NPC_Coral_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\Corals\NPC_Coral_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3939156573" Name="NPC_DropOff" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_DropOff" DurationType="OneShot" DurationMin="4.117809" DurationMax="4.362667">
 					<IncludedMemoryFiles>
 						<File Id="638976678" Language="SFX">
 							<ShortName>ES_PREL Sweeper High 7 - SFX Producer.wav</ShortName>
@@ -192,7 +203,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3909403805" Name="NPC_Enemy_Shark" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Enemy_Shark" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="3909403805" Name="NPC_Enemy_Shark" ObjectPath="\Events\Default Work Unit\SFX_Events\SharkRelated\NPC_Enemy_Shark" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="736607416" Language="SFX">
 							<ShortName>SharkSound.wav</ShortName>
@@ -200,8 +211,8 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3192907696" Name="NPC_Enemy_Shark_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Enemy_Shark_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2396901519" Name="NPC_Friendly_Blue" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="3192907696" Name="NPC_Enemy_Shark_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SharkRelated\NPC_Enemy_Shark_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2396901519" Name="NPC_Friendly_Blue" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Blue" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="325430453" Language="SFX">
 							<ShortName>Chime_FriendlyFish_Updated.wav</ShortName>
@@ -209,8 +220,8 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1686688698" Name="NPC_Friendly_Blue_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Blue_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4098783091" Name="NPC_Friendly_Fish_Generic" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Fish_Generic" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="1686688698" Name="NPC_Friendly_Blue_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Blue_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4098783091" Name="NPC_Friendly_Fish_Generic" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Fish_Generic" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="815202743" Language="SFX">
 							<ShortName>Ambience_underwater_sprout.wav</ShortName>
@@ -218,8 +229,8 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="203293054" Name="NPC_Friendly_Fish_Generic_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Fish_Generic_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="679089271" Name="NPC_Friendly_Pickup" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Pickup" DurationType="OneShot" DurationMin="1.013333" DurationMax="1.013333">
+				<Event Id="203293054" Name="NPC_Friendly_Fish_Generic_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Fish_Generic_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="679089271" Name="NPC_Friendly_Pickup" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Pickup" DurationType="OneShot" DurationMin="1.013333" DurationMax="1.013333">
 					<IncludedMemoryFiles>
 						<File Id="92155153" Language="SFX">
 							<ShortName>ping_final_pickup.wav</ShortName>
@@ -227,7 +238,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="54285700" Name="NPC_Friendly_Red" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="54285700" Name="NPC_Friendly_Red" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Red" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="101814616" Language="SFX">
 							<ShortName>Chime_FriendlyFish_2.wav</ShortName>
@@ -235,8 +246,8 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3941370595" Name="NPC_Friendly_Red_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Red_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2379275139" Name="NPC_Friendly_Yellow" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="3941370595" Name="NPC_Friendly_Red_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Red_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2379275139" Name="NPC_Friendly_Yellow" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Yellow" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="962159150" Language="SFX">
 							<ShortName>Chime_FriendlyFish3_updated.wav</ShortName>
@@ -244,7 +255,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1435982318" Name="NPC_Friendly_Yellow_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC\NPC_Friendly_Yellow_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1435982318" Name="NPC_Friendly_Yellow_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Yellow_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1671773852" Name="OneShot_CoralCompleted" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_CoralCompleted" DurationType="OneShot" DurationMin="13.813791" DurationMax="13.813791">
 					<IncludedMemoryFiles>
 						<File Id="275837605" Language="SFX">
@@ -280,7 +291,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3857701063" Name="SFX_3D_Emitter_Friendly_Fish_1_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Friendly_Fish_1_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1644260233" Name="SFX_3D_Emitter_Water_Sprout" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="1644260233" Name="SFX_3D_Emitter_Water_Sprout" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="112291669" Language="SFX">
 							<ShortName>Ambience_underwater_sprout.wav</ShortName>
@@ -289,6 +300,15 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1255022652" Name="SFX_3D_Emitter_Water_Sprout_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SFX_3D_Emitter_Water_Sprout_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="941954825" Name="Shark_Accessibility" ObjectPath="\Events\Default Work Unit\SFX_Events\SharkRelated\Shark_Accessibility" MaxAttenuation="50.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="975733869" Language="SFX">
+							<ShortName>chime_shark.wav</ShortName>
+							<Path>SFX\chime_shark_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="755647164" Name="Shark_Accessibility_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\SharkRelated\Shark_Accessibility_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="638605449" Name="SharkHuff" ObjectPath="\Events\Default Work Unit\SFX_Events\SharkRelated\SharkHuff" DurationType="OneShot" DurationMin="2.858354" DurationMax="2.858354">
 					<IncludedMemoryFiles>
 						<File Id="834333654" Language="SFX">
@@ -298,6 +318,15 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1420342416" Name="StopMainMenuMusic" ObjectPath="\Events\CutScenes\Credits\StopMainMenuMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1810689076" Name="Trashpile_Accessibility" ObjectPath="\Events\Default Work Unit\SFX_Events\OtherEnemies\Trashpile_Accessibility" MaxAttenuation="50.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="1045868087" Language="SFX">
+							<ShortName>trashpile_acccessibility.wav</ShortName>
+							<Path>SFX\trashpile_acccessibility_E62873FC.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1622604147" Name="Trashpile_Accessibility_Stop" ObjectPath="\Events\Default Work Unit\SFX_Events\OtherEnemies\Trashpile_Accessibility_Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1181390666" Name="ui_" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2008469923" Name="ui__AccecibilityOptions_mp3" ObjectPath="\Events\Default Work Unit\SFX_Events\UI_TextToSpeech\ui__AccecibilityOptions_mp3" DurationType="OneShot" DurationMin="1.345958" DurationMax="1.345958">
 					<IncludedMemoryFiles>
@@ -749,6 +778,10 @@
 					<ShortName>ES_PREL Sweeper High 7 - SFX Producer.wav</ShortName>
 					<Path>SFX\ES_PREL Sweeper High 7 - SFX Producer_10C4C929.wem</Path>
 				</File>
+				<File Id="640379504" Language="SFX">
+					<ShortName>ChimeProj.wav</ShortName>
+					<Path>SFX\ChimeProj_6F4B070F.wem</Path>
+				</File>
 				<File Id="646329306" Language="SFX">
 					<ShortName>HitThump_EnemySound.wav</ShortName>
 					<Path>SFX\HitThump_EnemySound_D79FB2B7.wem</Path>
@@ -805,9 +838,17 @@
 					<ShortName>SoundEffectSlider.wav</ShortName>
 					<Path>SFX\SoundEffectSlider_10C4C929.wem</Path>
 				</File>
+				<File Id="975733869" Language="SFX">
+					<ShortName>chime_shark.wav</ShortName>
+					<Path>SFX\chime_shark_D79FB2B7.wem</Path>
+				</File>
 				<File Id="986400805" Language="SFX">
 					<ShortName>Explosion_05_Edited.wav</ShortName>
 					<Path>SFX\Explosion_05_Edited_10C4C929.wem</Path>
+				</File>
+				<File Id="1045868087" Language="SFX">
+					<ShortName>trashpile_acccessibility.wav</ShortName>
+					<Path>SFX\trashpile_acccessibility_E62873FC.wem</Path>
 				</File>
 				<File Id="1058987339" Language="SFX">
 					<ShortName>Offscreen Indicator.wav</ShortName>

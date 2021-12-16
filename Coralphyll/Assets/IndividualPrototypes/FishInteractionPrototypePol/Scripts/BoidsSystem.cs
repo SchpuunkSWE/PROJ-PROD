@@ -103,7 +103,7 @@ public class BoidsSystem : MonoBehaviour
     {
         if (!isOnCoral && dontDelete && !isSpawnPoint && transform.childCount <= 1)
         {
-            AkSoundEngine.PostEvent("NPC_Friendly_Fish_Generic_Stop", gameObject);
+            GetComponent<WwAudioEmitter>().StopFunction();
             gameObject.SetActive(false);
             Debug.Log("Boids system inactive");
         }

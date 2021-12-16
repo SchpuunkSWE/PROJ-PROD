@@ -16,6 +16,8 @@ namespace AK
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
         static const AkUniqueID CHAR_DASH = 667507884U;
+        static const AkUniqueID CORAL_ACCESSIBILITY = 1115036193U;
+        static const AkUniqueID CORAL_ACCESSIBILITY_STOP = 1987841316U;
         static const AkUniqueID CUTSCENE_LEVEL1_AMBIENCE = 2212933930U;
         static const AkUniqueID CUTSCENE_LEVEL1_VOICE = 3304948164U;
         static const AkUniqueID CUTSCENE_LEVEL2_AMBIENCE = 2945618175U;
@@ -35,6 +37,8 @@ namespace AK
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
         static const AkUniqueID MUSICSTATE_STARTOFLEVEL = 4090089807U;
         static const AkUniqueID NEW_EVENT = 3050945240U;
+        static const AkUniqueID NPC_CORAL_PLAY = 3584532785U;
+        static const AkUniqueID NPC_CORAL_STOP = 541083879U;
         static const AkUniqueID NPC_DROPOFF = 3939156573U;
         static const AkUniqueID NPC_ENEMY_SHARK = 3909403805U;
         static const AkUniqueID NPC_ENEMY_SHARK_STOP = 3192907696U;
@@ -60,9 +64,13 @@ namespace AK
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT_STOP = 1255022652U;
+        static const AkUniqueID SHARK_ACCESSIBILITY = 941954825U;
+        static const AkUniqueID SHARK_ACCESSIBILITY_STOP = 755647164U;
         static const AkUniqueID SHARKHUFF = 638605449U;
         static const AkUniqueID SKIPCUTSCENE = 3576905580U;
         static const AkUniqueID STOPMAINMENUMUSIC = 1420342416U;
+        static const AkUniqueID TRASHPILE_ACCESSIBILITY = 1810689076U;
+        static const AkUniqueID TRASHPILE_ACCESSIBILITY_STOP = 1622604147U;
         static const AkUniqueID UI_ = 1181390666U;
         static const AkUniqueID UI__ACCECIBILITYOPTIONS_MP3 = 2008469923U;
         static const AkUniqueID UI__AMBIENTSOUNDSLIDER = 2403583691U;
