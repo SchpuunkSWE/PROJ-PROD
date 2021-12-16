@@ -26,6 +26,7 @@ public class UI_Text_Settings : MonoBehaviour
     public Text[] tt2Text;
     public Text[] tt3Text;
     private  TextMeshProUGUI font;
+    private Text fonttext;
     private RectTransform m_RectTransform;
 
     public GameObject button;
@@ -54,7 +55,7 @@ public class UI_Text_Settings : MonoBehaviour
     private float TT3;
 
     public float DeafaultTextSizeTT1;
-    public float DeafaultTextSizeTT2;
+    public int DeafaultTextSizeTT2;
     public float DeafaultTextSizeTT3;
     public float targetSize;
 
@@ -108,7 +109,7 @@ public class UI_Text_Settings : MonoBehaviour
 
     private void changeTextSize(float value){
         changetextsizeTT1(value);
-        //changetextsizeTT2(value);
+        changetextsizeTT2(value);
       //  changetextsizeTT3(value);
         PlayerPrefs.SetFloat("textSize", value);
 
@@ -193,29 +194,80 @@ public class UI_Text_Settings : MonoBehaviour
 
         switch(value) {
             case 0:
-              
+            //   StartButtonText.fontSize = DeafaultTextSizeTT1;
+               Debug.Log("jag ändrade mig till TT2");
+          
+              foreach (GameObject i in tt2GO)
+                {
+                  
+                    fonttext =  i.GetComponent<Text>();
+                    fonttext.fontSize = DeafaultTextSizeTT2;
 
+                    //måste lägga till en base size
+                    //transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+                  //  Debug.Log("jag ändrade mig till TT2 default");
+
+                }
+              
                 break;
             case 1:
                
-
+                foreach (GameObject i in tt2GO)
+                {
+                  
+                    fonttext =  i.GetComponent<Text>();
+                    fonttext.fontSize = TT2_Size1;
+                    //m_RectTransform = font.GetComponent<RectTransform>();
+                   // m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                 //  Debug.Log("jag ändrade mig till TT2 size 1");
+                }
                 break;
             case 2:
-            
-
+               
+              foreach (GameObject i in tt2GO)
+                {
+                  
+                    fonttext =  i.GetComponent<Text>();
+                    fonttext.fontSize = TT2_Size2;
+                    //m_RectTransform = font.GetComponent<RectTransform>();
+                   // m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                 //  Debug.Log("jag ändrade mig till TT2 size 2");
+                }
                 break;
             case 3:
-             
-
+               
+                foreach (GameObject i in tt2GO)
+                {
+                  
+                    fonttext =  i.GetComponent<Text>();
+                    fonttext.fontSize = TT2_Size3;
+                    //m_RectTransform = font.GetComponent<RectTransform>();
+                   // m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                   //Debug.Log("jag ändrade mig till TT2 size 3");
+                }
                 break;
             case 4:
-            
-
+               
+               foreach (GameObject i in tt2GO)
+                {
+                  
+                    fonttext =  i.GetComponent<Text>();
+                    fonttext.fontSize = TT2_Size4;
+                   m_RectTransform = font.GetComponent<RectTransform>();
+                    m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                   // Debug.Log("jag ändrade mig till TT2 size 4");
+                }
                 break;
             case 5:
-              
-                
-
+               
+                foreach (GameObject i in tt2GO)
+                {
+                  
+                    fonttext =  i.GetComponent<Text>();
+                    fonttext.fontSize = TT2_Size5;
+                    m_RectTransform = font.GetComponent<RectTransform>();
+                    m_RectTransform.sizeDelta = new Vector2(font.fontSize * 10, 100);
+                }
                 break;
             }
         
