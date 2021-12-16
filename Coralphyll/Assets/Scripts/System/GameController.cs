@@ -44,8 +44,14 @@ public class GameController : MonoBehaviour
     private bool islevelCompleted = false;
     public bool IslevelCompleted { get => islevelCompleted; }
 
+
+    [SerializeField]
+    private GameObject devMenu;
+    private bool activated = false;
+
     private void Awake()
     {
+        devMenu.SetActive(false);
         completedCoralAmount = 0;
         totalCoralAmount = CountCoralsInscene();
         runOnce = false;
@@ -70,8 +76,12 @@ public class GameController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {    
         CheckLevelProgress();
+        if (Input.GetKeyDown(KeyCode.AltGr))
+        {
+            ToggleDevMenu();
+        }
         if ((Input.GetKeyDown(KeyCode.P) && !sceneSkipped) || (Input.GetKeyDown(KeyCode.JoystickButton6) && !sceneSkipped))
         {
             currentDirector.time = timeToSkipTo;
@@ -80,6 +90,7 @@ public class GameController : MonoBehaviour
             AkSoundEngine.PostEvent("SkipCutscene", obj);
         }
     }
+
 
     public void SetCompletedCoralAmount()
     {
@@ -112,7 +123,6 @@ public class GameController : MonoBehaviour
             Logger.LoggerInstance.CreateTextFile("#LevelCompleted, " + Time.timeSinceLevelLoad + " seconds, " + "#TimeToCompleteLevel \n");
             Debug.Log("Time to complete level " + Time.timeSinceLevelLoad);
         }
-
     }
 
     private int CountCoralsInscene()
@@ -186,6 +196,23 @@ public class GameController : MonoBehaviour
             player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.RED);
         }
     }
+
+    private void ToggleDevMenu()
+    {
+        activated = !activated;
+
+        if (activated)
+        {
+            devMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            devMenu.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+
     //Methods for skipping cutscenes
     public void GetDirector(PlayableDirector director)
     {
