@@ -12,7 +12,9 @@ public class StartMenu : MonoBehaviour
    // public GameObject visionAidPanel;
    // public GameObject audioOptionsPanel;
     public bool voiceAssist;
-   
+
+    public GameObject loadPanel;
+    private bool loadOpen;
 
     private bool optionsOpen;
 
@@ -24,6 +26,7 @@ public class StartMenu : MonoBehaviour
     public void PressStartButton()
     {
         SceneManager.LoadScene("Level1");
+        AkSoundEngine.PostEvent("StopMainMenuMusic", GameObject.FindGameObjectWithTag("MainCamera"));
         Logger.LoggerInstance.CreateTextFile("#PlayTestSTARTED");
         Logger.LoggerInstance.CreateTextFile("Level 1: ");
 
@@ -33,14 +36,36 @@ public class StartMenu : MonoBehaviour
             optionsPanel.SetActive(true);
         openVisionAidPanel();
         optionsOpen = true;
-        }else 
+        
+
+        }
+        else 
         {
             optionsPanel.SetActive(false);
             optionsOpen = false;
 
         }
-       
+
+        
+
     }
+
+    public void openLoadManager()
+    {
+        if (loadOpen == false)
+        {
+            loadPanel.SetActive(true);
+            loadOpen = true;
+        }
+        else
+        {
+            loadPanel.SetActive(false);
+            loadOpen = false;
+
+        }
+    }
+
+
     public void openVisionAidPanel(){
      
     }

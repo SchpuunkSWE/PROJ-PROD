@@ -6,7 +6,8 @@ public class EnemyAttack : EnemyState
 {
     [SerializeField] private float chaseDistance;
     [SerializeField] private float cooldown;
-    [SerializeField] private float attackDistance;
+    [SerializeField] private float attackDistance; //How close player has to be to trigger an attack
+    [SerializeField] private float attackRange; //How far attack will reach
     [SerializeField] private float fishPerBite;
 
     private float currentCooldown;
@@ -27,7 +28,12 @@ public class EnemyAttack : EnemyState
 
         //set destination to player
         if (DistanceToPlayer() < attackDistance && attacking == false)
-            Attack();
+        {
+            attacking = true;
+            AIController.Animator.SetTrigger("attack");
+        }
+
+        //Attack();
         if (attacking)
             HandleCooldown();
     }
@@ -50,7 +56,6 @@ public class EnemyAttack : EnemyState
 
     private void Attack()
     {
-        attacking = true;
         //Attack stuff
         NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
         var fishes = fishUtil.getListOfFishes();
@@ -87,15 +92,13 @@ public class EnemyAttack : EnemyState
         }
     }
 
-    public override void OnAnimationStarted()
-    {
-        //Turn On AttackCollider
-        base.OnAnimationStarted();
-    }
 
     public override void OnAnimationEnded()
     {
-        //Turn Off AttackCollider
-        base.OnAnimationEnded();
+        //Trigger Attack
+        if (DistanceToPlayer() < attackRange)
+        {
+            Attack();
+        }
     }
 }

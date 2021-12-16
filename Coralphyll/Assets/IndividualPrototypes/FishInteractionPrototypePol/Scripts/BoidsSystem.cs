@@ -17,7 +17,7 @@ public class BoidsSystem : MonoBehaviour
     public List<GameObject> agents = new List<GameObject>();
 
     public float Radius { get => radius; set => radius = value; }
-
+    public int NumAgents { get => numAgents; set => numAgents = value; }
 
     private void Start()
     {
@@ -101,16 +101,35 @@ public class BoidsSystem : MonoBehaviour
 
     public void CheckBoidsSystem()
     {
-        if(!isOnCoral && dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        
+        if (!isOnCoral && dontDelete && !isSpawnPoint && !HasActiveChildren())
         {
-            AkSoundEngine.PostEvent("NPC_Friendly_Fish_Generic_Stop", gameObject);
+            GetComponent<WwAudioEmitter>().StopFunction();
             gameObject.SetActive(false);
             Debug.Log("Boids system inactive");
-        } else if (!isOnCoral && !dontDelete && !isSpawnPoint && transform.childCount <= 1)
+        }
+        else if (!isOnCoral && !dontDelete && !isSpawnPoint && !HasActiveChildren())
         {
-            FishCounter.fishCounterInstance.RemoveSchool(this);
-            Destroy(gameObject);
+            if (FishCounter.fishCounterInstance != null)
+            {
+                FishCounter.fishCounterInstance.RemoveSchool(this);
+            }
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
             Debug.Log("Boids system destroyed");
         }
+    }
+
+    private bool HasActiveChildren()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.activeInHierarchy && transform.GetChild(i).gameObject.CompareTag("NPCFish"))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
