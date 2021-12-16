@@ -859,9 +859,10 @@
 						<Sound Name="Trashpile_Accessibility" ID="{3DF3510F-C717-4044-B0D6-8215D7019E1F}" ShortID="363851004">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-2050</Value>
+										<Value>-2000</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -878,6 +879,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="trashpile_acccessibility" ID="{A9ECAF13-FC67-4629-883B-6F82364D218E}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.389171717171717"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.943062626262625"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>trashpile_acccessibility.wav</AudioFile>
 									<MediaIDList>
