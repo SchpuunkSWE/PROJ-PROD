@@ -16,8 +16,6 @@ public class InputManager : MonoBehaviour
             instance = this;
         else
             Destroy(this);
-
-        DontDestroyOnLoad(this);
     }
 
     public KeyCode GetKeyForAction(KeybindingActions keybindingAction)
