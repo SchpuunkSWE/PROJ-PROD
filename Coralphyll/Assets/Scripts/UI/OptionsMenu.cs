@@ -33,7 +33,7 @@ public class OptionsMenu : MonoBehaviour
         //tabGroup.OnTabSelected(startButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
-        activateVoiceAssist(false);
+        activateVoiceAssist(voiceAssist);
         setToggles();
         //navigationArrow = GetComponent<NavigationArrow>();
 
