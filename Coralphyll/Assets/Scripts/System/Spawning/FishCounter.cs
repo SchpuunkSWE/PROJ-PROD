@@ -27,7 +27,8 @@ public class FishCounter : MonoBehaviour
     private int totalBlueFishes = 0;
 
     //Spawn some extra fishes in addition to fishes needed
-    private int extraMargin = 3;
+    [SerializeField]
+    private int extraMargin = 0;
 
     private bool recountFishes = true;
     public bool RecountFishes { get => recountFishes; set => recountFishes = value; }
@@ -71,7 +72,7 @@ public class FishCounter : MonoBehaviour
             {
                 foreach (GameObject agent in boidsSystem.agents)
                 {
-                    if (agent.activeInHierarchy)
+                    if (agent.activeSelf)
                     {
                         Follower f = agent.GetComponent<Follower>();
                         switch (f.GetColour())
