@@ -7,14 +7,14 @@ using TMPro;
 
 public class UI_Text_Settings : MonoBehaviour
 {
-    public GameObject StartButtonObject;
-    public GameObject OptionButtonObject;
-    public GameObject HowToPlayButtonObject;
-    public GameObject VisualButtonObject;
+  //  public GameObject StartButtonObject;
+   // public GameObject OptionButtonObject;
+   // public GameObject HowToPlayButtonObject;
+   // public GameObject VisualButtonObject;
    // public GameObject AudioButtonObject;
    // public GameObject ControlButtonObject;
-    public GameObject UIOptionsObject;
-    public GameObject TextSizeObject;
+    //public GameObject UIOptionsObject;
+    //public GameObject TextSizeObject;
     //public GameObject TextBackgroundObject;
     public GameObject TextToSpeachObject;
 
@@ -48,21 +48,21 @@ public class UI_Text_Settings : MonoBehaviour
 
 // the different text types, 
 //headers are TT1, Buttons TT2, text bodies are TT3 etc
-    private int TT1;
-    private int TT2;
+    private float TT1;
+    private float TT2;
 
-    private int TT3;
+    private float TT3;
 
-    public int DeafaultTextSizeTT1;
-    public int DeafaultTextSizeTT2;
-    public int DeafaultTextSizeTT3;
+    public float DeafaultTextSizeTT1;
+    public float DeafaultTextSizeTT2;
+    public float DeafaultTextSizeTT3;
     public float targetSize;
 
-    public int TT1_Size1 = 15;
-    public int TT1_Size2 = 20;
-    public int TT1_Size3 = 25;
-    public int TT1_Size4;
-    public int TT1_Size5;
+    public float TT1_Size1 = 15f;
+    public float TT1_Size2 = 20;
+    public float TT1_Size3 = 25;
+    public float TT1_Size4;
+    public float TT1_Size5;
     
     public int TT2_Size1;
     public int TT2_Size2;
@@ -126,8 +126,8 @@ public class UI_Text_Settings : MonoBehaviour
 
     private void changeTextSize(float value){
         changetextsizeTT1(value);
-        changetextsizeTT2(value);
-        changetextsizeTT3(value);
+        //changetextsizeTT2(value);
+      //  changetextsizeTT3(value);
         PlayerPrefs.SetFloat("textSize", value);
 
     }
@@ -135,26 +135,26 @@ public class UI_Text_Settings : MonoBehaviour
     private void changetextsizeTT1(float value){
         switch(value) {
             case 0:
-               StartButtonText.fontSize = DeafaultTextSizeTT1;
+            //   StartButtonText.fontSize = DeafaultTextSizeTT1;
                Debug.Log("jag ändrade mig till TT1");
-               OptionButtonText.fontSize = DeafaultTextSizeTT1;
-               HowToPlayButtonText.fontSize  = DeafaultTextSizeTT1;
+            //   OptionButtonText.fontSize = DeafaultTextSizeTT1;
+             //  HowToPlayButtonText.fontSize  = DeafaultTextSizeTT1;
                //UIOptionsText.fontSize  = DeafaultTextSizeTT1;
               // VisualAidText.fontSize = DeafaultTextSizeTT1;
               foreach (GameObject i in tt1GO)
                 {
                   
                     font =  i.GetComponent<TextMeshProUGUI>();
-                    font.fontSize = 40f;
+                    font.fontSize = TT1_Size1;
 
                 }
               
                 break;
             case 1:
-                StartButtonText.fontSize = TT1_Size1;
-                OptionButtonText.fontSize = TT1_Size1;
-                HowToPlayButtonText.fontSize  = TT1_Size1;
-                UIOptionsText.fontSize  = TT1_Size1;
+                //StartButtonText.fontSize = TT1_Size1;
+               // OptionButtonText.fontSize = TT1_Size1;
+               // HowToPlayButtonText.fontSize  = TT1_Size1;
+               // UIOptionsText.fontSize  = TT1_Size1;
                 //VisualAidText.fontSize = TT1_Size1;
                 foreach (GameObject i in tt1GO)
                 {
@@ -166,9 +166,9 @@ public class UI_Text_Settings : MonoBehaviour
                 }
                 break;
             case 2:
-               StartButtonText.fontSize = TT1_Size2;
-               OptionButtonText.fontSize = TT1_Size2;
-               HowToPlayButtonText.fontSize  = TT1_Size2;
+               //StartButtonText.fontSize = TT1_Size2;
+              // OptionButtonText.fontSize = TT1_Size2;
+               //HowToPlayButtonText.fontSize  = TT1_Size2;
               // UIOptionsText.fontSize  = TT1_Size2;
               // VisualAidText.fontSize = TT1_Size2;
               foreach (GameObject i in tt1GO)
@@ -181,9 +181,9 @@ public class UI_Text_Settings : MonoBehaviour
                 }
                 break;
             case 3:
-                StartButtonText.fontSize = TT1_Size3;
-                OptionButtonText.fontSize = TT1_Size3;
-                HowToPlayButtonText.fontSize  = TT1_Size3;
+               // StartButtonText.fontSize = TT1_Size3;
+               // OptionButtonText.fontSize = TT1_Size3;
+                //HowToPlayButtonText.fontSize  = TT1_Size3;
                 //UIOptionsText.fontSize  = TT1_Size3;
                 //VisualAidText.fontSize = TT1_Size3;
                 foreach (GameObject i in tt1GO)
@@ -196,9 +196,9 @@ public class UI_Text_Settings : MonoBehaviour
                 }
                 break;
             case 4:
-               StartButtonText.fontSize = TT1_Size4;
-               OptionButtonText.fontSize = TT1_Size4;
-               HowToPlayButtonText.fontSize  = TT1_Size4;
+               //StartButtonText.fontSize = TT1_Size4;
+              // OptionButtonText.fontSize = TT1_Size4;
+              // HowToPlayButtonText.fontSize  = TT1_Size4;
               // UIOptionsText.fontSize  = TT1_Size4;
                //VisualAidText.fontSize = TT1_Size4;
                foreach (GameObject i in tt1GO)
@@ -211,9 +211,9 @@ public class UI_Text_Settings : MonoBehaviour
                 }
                 break;
             case 5:
-                StartButtonText.fontSize = TT1_Size5;
-                OptionButtonText.fontSize =TT1_Size5;
-                HowToPlayButtonText.fontSize  = TT1_Size5;
+               // StartButtonText.fontSize = TT1_Size5;
+               // OptionButtonText.fontSize =TT1_Size5;
+               // HowToPlayButtonText.fontSize  = TT1_Size5;
                 //UIOptionsText.fontSize  = TT2_Size5;
                 //VisualAidText.fontSize = TT2_Size5;
                 foreach (GameObject i in tt1GO)
@@ -232,45 +232,45 @@ public class UI_Text_Settings : MonoBehaviour
 
         switch(value) {
             case 0:
-               VisualButtonText.fontSize = DeafaultTextSizeTT2;
-               TextSizeText.fontSize = DeafaultTextSizeTT2;
-               UIOptionsText.fontSize = DeafaultTextSizeTT2;
-               TextToSpeachText.fontSize = DeafaultTextSizeTT2;
+              // VisualButtonText.fontSize = DeafaultTextSizeTT2;
+               //TextSizeText.fontSize = DeafaultTextSizeTT2;
+               //UIOptionsText.fontSize = DeafaultTextSizeTT2;
+               //TextToSpeachText.fontSize = DeafaultTextSizeTT2;
 
                 break;
             case 1:
-                VisualButtonText.fontSize = TT2_Size1;
-                TextSizeText.fontSize = TT2_Size1;
-                UIOptionsText.fontSize = TT2_Size1;
-                TextToSpeachText.fontSize = TT2_Size1;
+               // VisualButtonText.fontSize = TT2_Size1;
+               // TextSizeText.fontSize = TT2_Size1;
+                //UIOptionsText.fontSize = TT2_Size1;
+               // TextToSpeachText.fontSize = TT2_Size1;
 
                 break;
             case 2:
-               VisualButtonText.fontSize = TT2_Size2;
-               TextSizeText.fontSize = TT2_Size2;
-               UIOptionsText.fontSize = TT2_Size2;
-               TextToSpeachText.fontSize = TT2_Size2;
+              // VisualButtonText.fontSize = TT2_Size2;
+              // TextSizeText.fontSize = TT2_Size2;
+               //UIOptionsText.fontSize = TT2_Size2;
+               //TextToSpeachText.fontSize = TT2_Size2;
 
                 break;
             case 3:
-                VisualButtonText.fontSize = TT2_Size3;
-                TextSizeText.fontSize = TT2_Size3;
-                UIOptionsText.fontSize = TT2_Size3;
-                TextToSpeachText.fontSize = TT2_Size3;
+               // VisualButtonText.fontSize = TT2_Size3;
+               // TextSizeText.fontSize = TT2_Size3;
+               // UIOptionsText.fontSize = TT2_Size3;
+               // TextToSpeachText.fontSize = TT2_Size3;
 
                 break;
             case 4:
-               VisualButtonText.fontSize = TT2_Size4;
-               TextSizeText.fontSize = TT2_Size4;
-               UIOptionsText.fontSize = TT2_Size4;
-               TextToSpeachText.fontSize = TT2_Size4;
+               //VisualButtonText.fontSize = TT2_Size4;
+               //TextSizeText.fontSize = TT2_Size4;
+              // UIOptionsText.fontSize = TT2_Size4;
+              // TextToSpeachText.fontSize = TT2_Size4;
 
                 break;
             case 5:
-                VisualButtonText.fontSize = TT2_Size5;
-                TextSizeText.fontSize =TT2_Size5;
-                UIOptionsText.fontSize = TT2_Size5;
-                TextToSpeachText.fontSize = TT2_Size5;
+               // VisualButtonText.fontSize = TT2_Size5;
+                //TextSizeText.fontSize =TT2_Size5;
+                //UIOptionsText.fontSize = TT2_Size5;
+                //TextToSpeachText.fontSize = TT2_Size5;
                 
 
                 break;
