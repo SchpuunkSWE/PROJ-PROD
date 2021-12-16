@@ -28,6 +28,9 @@ public class ObjectPooler : MonoBehaviour
 
     [SerializeField]
     private GameObject[] spawnLocations;
+
+    private GameObject current;
+
     private int spawnIndex = 0;
     void Start()
     {
@@ -51,9 +54,27 @@ public class ObjectPooler : MonoBehaviour
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
+
+    private void FixedUpdate()
+    {
+        if(current == null) //A null check. We only want below to happen when current isn't null(when a SpawnPoint has fish).
+        {
+            return;
+        }
+        
+        if (current.transform.childCount <= 1) //If parents childcount is less than 1, aka has no fish. 
+        {
+            current.transform.GetChild(0).gameObject.SetActive(false); //Inactivate particle system.
+        }
+        else
+        {
+            current.transform.GetChild(0).gameObject.SetActive(true); //Activate particle system.
+        }
+        //Debug.Log("CURRENTS childcount is; " + current.transform.childCount);
+    }
     public void SpawnFromPool(string tag, int amountToSpawn)
     {
-        GameObject current = spawnLocations[spawnIndex % spawnLocations.Length];
+        current = spawnLocations[spawnIndex % spawnLocations.Length];
         //Choose next spawn-location in array all the time, reset when at end of array
         Vector3 pos = current.transform.position;
         spawnIndex++;
@@ -105,18 +126,6 @@ public class ObjectPooler : MonoBehaviour
         //Debug.Log("Amount in list: " + boidSystem.agents.Count);
 
         boidSystem.IncreaseNumAgents(amountToSpawn);
-
-        //Activate particle system.
-        //if (current.transform.childCount??)
-        //{
-        //    current.transform.GetChild(0).gameObject.SetActive(false);
-        //}
-        //else
-        //{
-            current.transform.GetChild(0).gameObject.SetActive(true);
-        //}
-
-        //Debug.Log("Current childcount: " + current.transform.childCount);
     }
 
     public GameObject SpawnFromPool(string tag, Vector3 pos, Quaternion rotation)
