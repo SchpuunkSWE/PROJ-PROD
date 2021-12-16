@@ -13,7 +13,7 @@ public class DeathListener : MonoBehaviour
         GameObject victim = deathEvent.Info.victim;
         Logger.LoggerInstance.CreateTextFile("#PlayerDied, " + Time.timeSinceLevelLoad + " seconds, " + "#TimeUntilPlayerDied");
         Debug.Log(victim + " died");
-
+        AkSoundEngine.PostEvent("Char_Death", GameObject.FindGameObjectWithTag("MainCamera"));
         //Respawn
         StartCoroutine(Death(victim));
     }

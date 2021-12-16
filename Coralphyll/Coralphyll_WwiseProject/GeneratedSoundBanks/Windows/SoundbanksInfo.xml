@@ -27,7 +27,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="226134985">
+		<SoundBank Id="3161908922" Language="SFX" Hash="893841463">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -57,6 +57,14 @@
 						<File Id="330193651" Language="SFX">
 							<ShortName>Water_Bubble_Whoosh_Emerge_Fast_02.wav</ShortName>
 							<Path>SFX\Water_Bubble_Whoosh_Emerge_Fast_02_5C213D77.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2748011726" Name="Char_Death" ObjectPath="\Events\Default Work Unit\character_movement\Char_Death" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.482150" DurationMax="0.482150">
+					<IncludedMemoryFiles>
+						<File Id="83371456" Language="SFX">
+							<ShortName>kame_down.wav</ShortName>
+							<Path>SFX\kame_down_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -594,6 +602,10 @@
 					<ShortName>ContrastSlider.wav</ShortName>
 					<Path>SFX\ContrastSlider_10C4C929.wem</Path>
 				</File>
+				<File Id="83371456" Language="SFX">
+					<ShortName>kame_down.wav</ShortName>
+					<Path>SFX\kame_down_10C4C929.wem</Path>
+				</File>
 				<File Id="92155153" Language="SFX">
 					<ShortName>ping_final_pickup.wav</ShortName>
 					<Path>SFX\ping_final_pickup_10C4C929.wem</Path>
@@ -890,7 +902,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3765803840" Language="SFX" Hash="458082329">
+		<SoundBank Id="3765803840" Language="SFX" Hash="1041819743">
 			<ObjectPath>\SoundBanks\Default Work Unit\Cutscenes</ObjectPath>
 			<ShortName>Cutscenes</ShortName>
 			<Path>Cutscenes.bnk</Path>

@@ -16,6 +16,7 @@ namespace AK
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
         static const AkUniqueID CHAR_DASH = 667507884U;
+        static const AkUniqueID CHAR_DEATH = 2748011726U;
         static const AkUniqueID CORAL_ACCESSIBILITY = 1115036193U;
         static const AkUniqueID CORAL_ACCESSIBILITY_STOP = 1987841316U;
         static const AkUniqueID CUTSCENE_LEVEL1_AMBIENCE = 2212933930U;
