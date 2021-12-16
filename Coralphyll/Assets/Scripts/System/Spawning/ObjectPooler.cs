@@ -55,22 +55,25 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(current == null) //A null check. We only want below to happen when current isn't null(when a SpawnPoint has fish).
+        for(int i = 0; i < spawnLocations.Length; i++)
         {
-            return;
+            if (spawnLocations[i] == null) //A null check. We only want below to happen when current isn't null(when a SpawnPoint has fish).
+            {
+                return;
+            }
+
+            if (spawnLocations[i].transform.childCount <= 1) //If parents childcount is less than 1, aka has no fish. 
+            {
+                spawnLocations[i].transform.GetChild(0).gameObject.SetActive(false); //Inactivate particle system.
+            }
+            else
+            {
+                spawnLocations[i].transform.GetChild(0).gameObject.SetActive(true); //Activate particle system.
+            }
+            //Debug.Log("CURRENTS childcount is; " + current.transform.childCount);
         }
-        
-        if (current.transform.childCount <= 1) //If parents childcount is less than 1, aka has no fish. 
-        {
-            current.transform.GetChild(0).gameObject.SetActive(false); //Inactivate particle system.
-        }
-        else
-        {
-            current.transform.GetChild(0).gameObject.SetActive(true); //Activate particle system.
-        }
-        //Debug.Log("CURRENTS childcount is; " + current.transform.childCount);
     }
     public void SpawnFromPool(string tag, int amountToSpawn)
     {

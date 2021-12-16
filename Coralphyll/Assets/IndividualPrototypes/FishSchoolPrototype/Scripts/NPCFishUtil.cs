@@ -157,7 +157,11 @@ public class NPCFishUtil : MonoBehaviour
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
             f.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
         }
-        fishToRemove.Clear(); //Clear the fish to remove list.
+        fishToRemove.Clear(); //Clear the fish to remove list.       
+        if (FishCounter.fishCounterInstance != null)
+        {
+            FishCounter.fishCounterInstance.RecountFishes = true;
+        }
     }
 
     public bool PickUpFish(GameObject player, Follower follower)
@@ -240,7 +244,7 @@ public class NPCFishUtil : MonoBehaviour
                 listOfFishes.Remove(f); //Removes fishes from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
                 nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
-                nPCFollow.fishTarget = null;
+                nPCFollow.fishTarget = null; 
                 f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
                 f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
                 StartCoroutine(MakeFishCollectible(f));
@@ -276,6 +280,13 @@ public class NPCFishUtil : MonoBehaviour
         fish.gameObject.SetActive(false);
         fishToRemove.Clear(); //Clear the fish to remove list.
         FishCounter.fishCounterInstance.RecountFishes = true;
+        fish.Collectable = true;
+        fish.GetComponent<NPCFollow>().isFollowingPlayer = false;
+        fish.GetComponent<NPCFollow>().fishTarget = null;
+        fish.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
+        fish.GetComponent<BoidsAgent>().owner = null;
+        fish.RGB.detectCollisions = true; //Turn on collision on fish.
+        fish.transform.SetParent(null); //Sets parent to null
     }
 
     public void KillAllFish()
@@ -295,6 +306,13 @@ public class NPCFishUtil : MonoBehaviour
                 listOfFishes.Remove(f);
                 //Destroy(f.gameObject);
                 f.gameObject.SetActive(false);
+                f.GetComponent<NPCFollow>().isFollowingPlayer = false;
+                f.GetComponent<NPCFollow>().fishTarget = null;
+                f.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
+                f.GetComponent<BoidsAgent>().owner = null;
+                f.Collectable = true;
+                f.RGB.detectCollisions = true; //Turn off collision on fish.
+                f.transform.SetParent(null); //Sets parent to null
             }
 
             fishToRemove.Clear(); //Clear the fish to remove list.
