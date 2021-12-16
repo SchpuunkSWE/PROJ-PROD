@@ -25,6 +25,8 @@ public class NPCFishUtil : MonoBehaviour
 
     private NavigationArrow navArrow;
 
+    public GameObject[] ArrayOfTargets { get => arrayOfTargets; set => arrayOfTargets = value; }
+
     #region Singleton Quickversion
     public static NPCFishUtil NPCFishUtilInstance;
 
@@ -36,6 +38,23 @@ public class NPCFishUtil : MonoBehaviour
 
     #endregion
 
+    public void LoopFollowTargets(int value)
+    {
+        int count = 0;
+        for(int i = 0; i < arrayOfTargets.Length; i++)
+        {
+            if(count < value)
+            {
+                arrayOfTargets[i].SetActive(true);
+            }
+            else
+            {
+                arrayOfTargets[i].SetActive(false);
+            }
+
+            count++;
+        }
+    }
     private void Start()
     {
         SelectNavArrowTarget();
@@ -253,7 +272,8 @@ public class NPCFishUtil : MonoBehaviour
         }
         Follower fish = fishToRemove[0];
         listOfFishes.Remove(fish);
-        Destroy(fish.gameObject);
+        //Destroy(fish.gameObject);
+        fish.gameObject.SetActive(false);
         fishToRemove.Clear(); //Clear the fish to remove list.
         FishCounter.fishCounterInstance.RecountFishes = true;
     }
@@ -273,7 +293,8 @@ public class NPCFishUtil : MonoBehaviour
             foreach (Follower f in fishToRemove)
             {
                 listOfFishes.Remove(f);
-                Destroy(f.gameObject);
+                //Destroy(f.gameObject);
+                f.gameObject.SetActive(false);
             }
 
             fishToRemove.Clear(); //Clear the fish to remove list.
@@ -302,4 +323,5 @@ public class NPCFishUtil : MonoBehaviour
         navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
     }
 }
+
 
