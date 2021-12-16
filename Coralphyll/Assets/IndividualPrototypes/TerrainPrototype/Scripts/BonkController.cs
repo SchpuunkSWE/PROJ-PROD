@@ -38,7 +38,6 @@ public class BonkController : MonoBehaviour
     {
         if(overlapping && enableTerrainSound)
         {
-            print("EEEEEEEEEEEEEEEEEEEEEEEEEE");
             // GamePad.SetVibration(playerIndex, .1f, .1f);
             AkSoundEngine.PostEvent("FishEat", gameObject);
         }
@@ -51,30 +50,15 @@ public class BonkController : MonoBehaviour
 
     public void switchActiveIndicator()
     {
-        print("C");
         enableTerrainIndicator = !enableTerrainIndicator;
-        if (enableTerrainIndicator)
-        {
-            print("enableTerrainIndicator");
-        }
-        if (!enableTerrainIndicator)
-        {
-            print("NOT enableTerrainIndicator");
-        }
+
     }
 
     public void switchActiveSound()
     {
-        print("D");
+
         enableTerrainSound = !enableTerrainSound;
-        if (enableTerrainSound)
-        {
-            print("enableTerrainSound");
-        }
-        if (!enableTerrainSound)
-        {
-            print("NOT enableTerrainSound");
-        }
+
     }
 
 
@@ -87,7 +71,6 @@ public class BonkController : MonoBehaviour
             if (enableTerrainIndicator)
             {
                 indicator.SetActive(true);
-                print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             }
         }
     }
