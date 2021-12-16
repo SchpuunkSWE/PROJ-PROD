@@ -47,6 +47,7 @@ public class NavigationArrow : MonoBehaviour
             }
         }
         return closestTarget;
+
     }
 
     public void SetTargetTag(string s)
@@ -60,7 +61,7 @@ public class NavigationArrow : MonoBehaviour
         Color matColour = rend.material.color;
         float dist = Vector3.Distance(arrow.transform.position, target.position);
         float alphaValue = Mathf.Clamp(((dist * arrowTransparencyMult) - (arrowTransparencyMinRange * arrowTransparencyMult)) / 100, 0f, 1f); //Calculates a transparency value between 0-1
-        Debug.Log("alpha: " + alphaValue);
+        //Debug.Log("alpha: " + alphaValue);
 
         rend.material.color = new Color(matColour.r, matColour.g, matColour.b, alphaValue);
     }
