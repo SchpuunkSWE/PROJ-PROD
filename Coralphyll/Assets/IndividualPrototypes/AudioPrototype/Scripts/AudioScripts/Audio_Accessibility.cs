@@ -103,14 +103,11 @@ public class Audio_Accessibility : MonoBehaviour
         }
         for (int i = 0; i < corals.Length; i++)
         {
-            if (corals[i].IsSafezone.Equals(true))
-            {
                 if (corals[i].GetComponent<WwAudioEmitter>() != null)
                 {
                     corals[i].GetComponent<WwAudioEmitter>().SetName("Coral");
                     corals[i].GetComponent<WwAudioEmitter>().SetStopName("Coral_Stop");
                 }
-            }
         }
         for (int i = 0; i < trashPiles.Length; i++)
         {

@@ -89,7 +89,8 @@ public class OptionsMenu : MonoBehaviour
     }
     public void ToggleAudioIndicator(bool audioInd)
     {
-        PlayerPrefs.SetInt("AudioIndicator", BoolToInt(audioInd));
+        GameObject.FindObjectOfType<Audio_Accessibility>().ToggleAudioAccessibility();
+        /*PlayerPrefs.SetInt("AudioIndicator", BoolToInt(audioInd));
         if (audioIndicator.GetComponent<Toggle>().isOn) //Check if the toggle is toggled.
         {
             GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOn();
@@ -97,8 +98,8 @@ public class OptionsMenu : MonoBehaviour
         else
         {
             GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
-        }
-        
+        }*/
+
     }
 
     public void startLevel1()
@@ -151,6 +152,6 @@ public class OptionsMenu : MonoBehaviour
         hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
         indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
-        audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
+        //audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
     }
 }
