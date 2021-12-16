@@ -11,13 +11,13 @@ public class PauseMenuUI : MonoBehaviour
     public GameObject[] otherPanels;
 
     public GameObject optionsPanel;
-    
+    public GameObject savePanel;
 
     // Start is called before the first frame update
     void Start()
     {
         optionsPanel.SetActive(false);
-        
+        savePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -60,7 +60,17 @@ public class PauseMenuUI : MonoBehaviour
     }
 
     public void Save(){
+        savePanel.SetActive(true);
+        pauseMenuUI.SetActive(false);
 
+
+    }
+
+    public void ExitSave()
+    {
+        pauseMenuUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
     }
     public void Options(){
         optionsPanel.SetActive(true);

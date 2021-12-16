@@ -16,7 +16,6 @@ public class WwAudioEmitter : MonoBehaviour
         AkSoundEngine.RegisterGameObj(this.gameObject);
         if (emitterType == "Trash")
         {
-
             AkSoundEngine.PostEvent(EventName, this.gameObject);
         }
     }
@@ -30,6 +29,7 @@ public class WwAudioEmitter : MonoBehaviour
                 return;
             }
             IsInCollider = true;
+            AkSoundEngine.PostEvent(StopEvent, this.gameObject);
             AkSoundEngine.PostEvent(EventName, this.gameObject);
         }
     }
@@ -45,8 +45,7 @@ public class WwAudioEmitter : MonoBehaviour
             IsInCollider = false;
         }
     }
-
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (!constantEmitter)
         {
@@ -55,8 +54,40 @@ public class WwAudioEmitter : MonoBehaviour
                 return;
             }
             IsInCollider = true;
-            AkSoundEngine.PostEvent(EventName, gameObject);
+            AkSoundEngine.PostEvent(EventName, this.gameObject);
         }
+    }*/
+
+    public void SetName(string newName)
+    {
+        AkSoundEngine.PostEvent(StopEvent, this.gameObject);
+        EventName = newName;
+        AkSoundEngine.PostEvent(EventName, this.gameObject);
+    }
+    public void SetType(string newName)
+    {
+        emitterType = newName;
+    }
+    public void SetStopName(string newName)
+    {
+        StopEvent = newName;
+    }
+    
+    public string getName()
+    {
+        return EventName;
+    }
+    public string GetEmitterType()
+    {
+       return emitterType;
+    }
+    public string GetStopName()
+    {
+        return StopEvent;
     }
 
+    public void StopFunction()
+    {
+        AkSoundEngine.PostEvent(StopEvent, this.gameObject);
+    }
 }
