@@ -72,7 +72,6 @@ public class NPCFishUtil : MonoBehaviour
         }
         //Om metoden inte har returnerats...
         listOfFishes.Add(fol);
-        fol.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
         return listOfFishes.IndexOf(fol);
     }
 
@@ -105,7 +104,7 @@ public class NPCFishUtil : MonoBehaviour
             TransferFish(FishColour.BLUE);
             TransferFish(FishColour.RED);
             TransferFish(FishColour.YELLOW);
-            coral.GetComponent<Coral>().ReceiveFish();
+            coral.ReceiveFish();
 
         }
 
@@ -156,6 +155,7 @@ public class NPCFishUtil : MonoBehaviour
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
+            f.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
         }
         fishToRemove.Clear(); //Clear the fish to remove list.
     }
