@@ -18,7 +18,9 @@ public class EnemyChase : EnemyState
     public override void Enter()
     {
         base.Enter();
-        //AIController.Renderer.material.color = Color.yellow;       
+        //AIController.Renderer.material.color = Color.yellow;    
+
+        AIController.Animator.SetBool("chase", true);
     }
 
     public override void HandleUpdate()
@@ -67,5 +69,11 @@ public class EnemyChase : EnemyState
             NPCFishUtil fishUtil = AIController.Player.GetComponent<NPCFishUtil>();
             fishAmount = fishUtil.getListOfFishes().Count;
         }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        AIController.Animator.SetBool("chase", false);
     }
 }

@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class GameController : MonoBehaviour
 {
+    // These are used to make it possible to skip cutscenes
+    private PlayableDirector currentDirector;
+    private bool sceneSkipped = true;
+    private float timeToSkipTo;
+
     private static GameController instance;
     public static GameController Instance
     {
@@ -66,6 +72,13 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         CheckLevelProgress();
+        if ((Input.GetKeyDown(KeyCode.P) && !sceneSkipped) || (Input.GetKeyDown(KeyCode.JoystickButton6) && !sceneSkipped))
+        {
+            currentDirector.time = timeToSkipTo;
+            sceneSkipped = true;
+            GameObject obj = GameObject.FindGameObjectWithTag("CinemachineCamera");
+            AkSoundEngine.PostEvent("SkipCutscene", obj);
+        }
     }
 
     public void SetCompletedCoralAmount()
@@ -173,4 +186,15 @@ public class GameController : MonoBehaviour
             player.GetComponent<NPCFishUtil>().FindAndPickUpFish(FishColour.RED);
         }
     }
+    //Methods for skipping cutscenes
+    public void GetDirector(PlayableDirector director)
+    {
+        sceneSkipped = false;
+        currentDirector = director;
+    }
+    public void GetSkipTime(float skipTime)
+    {
+        timeToSkipTo = skipTime;
+    }
+
 }
