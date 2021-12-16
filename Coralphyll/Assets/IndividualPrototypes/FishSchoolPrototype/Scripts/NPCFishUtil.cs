@@ -54,7 +54,7 @@ public class NPCFishUtil : MonoBehaviour
 
             count++;
         }
-
+    }
     private void Start()
     {
         SelectNavArrowTarget();
@@ -272,7 +272,8 @@ public class NPCFishUtil : MonoBehaviour
         }
         Follower fish = fishToRemove[0];
         listOfFishes.Remove(fish);
-        Destroy(fish.gameObject);
+        //Destroy(fish.gameObject);
+        fish.gameObject.SetActive(false);
         fishToRemove.Clear(); //Clear the fish to remove list.
         FishCounter.fishCounterInstance.RecountFishes = true;
     }
@@ -292,7 +293,8 @@ public class NPCFishUtil : MonoBehaviour
             foreach (Follower f in fishToRemove)
             {
                 listOfFishes.Remove(f);
-                Destroy(f.gameObject);
+                //Destroy(f.gameObject);
+                f.gameObject.SetActive(false);
             }
 
             fishToRemove.Clear(); //Clear the fish to remove list.
@@ -321,4 +323,5 @@ public class NPCFishUtil : MonoBehaviour
         navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
     }
 }
+
 

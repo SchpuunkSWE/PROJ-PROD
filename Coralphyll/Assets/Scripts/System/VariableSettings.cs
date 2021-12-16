@@ -12,7 +12,7 @@ public class VariableSettings : MonoBehaviour
     [SerializeField]
     private List<GameObject> trashPiles;
 
-    [SerializeField]
+    //[SerializeField]
     private List<GameObject> corals;
 
     [SerializeField]
@@ -100,18 +100,26 @@ public class VariableSettings : MonoBehaviour
     #region NPCFish
     public void SetInitialSchoolAmount(float value)
     {
+        //Control amount of schools in scene
         int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
         ActivateObjectsInList(fishSchools, inputValue);
     }
 
-    public void SetSchoolSizeAmount(int value)
+    public void SetSchoolSizeAmount(float value)
     {
         //Control amount of fish spawning in schools at start
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        foreach (GameObject school in fishSchools)
+        {
+            ActivateObjectsInList(school.GetComponent<BoidsSystem>().agents, inputValue);
+        }     
     }
 
-    public void SetRespawnAmount(int value)
+    public void SetRespawnAmount(float value)
     {
         //Control amount of fish respawning
+        int inputValue = Mathf.RoundToInt(value); //Should be fine, I've set slider to only use whole numbers
+        FishCounter.fishCounterInstance.ExtraMargin = inputValue;
     }
     #endregion
 
