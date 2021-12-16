@@ -1942,22 +1942,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6428701311712158472, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428701311712158472, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 132147205}
-    - target: {fileID: 6428701311712158472, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: activateVoiceAssist
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428701311712158472, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: StartMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 6475111961913492161, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3043,9 +3027,9 @@ RectTransform:
   m_Father: {fileID: 1683824225}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 337.46512, y: -905.39575}
   m_SizeDelta: {x: 574.93024, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127744779
@@ -3211,7 +3195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 132147205}
+  optionsMenu: {fileID: 0}
   audioClip: ui_ExitGame
 --- !u!1 &132147200
 GameObject:
@@ -3330,7 +3314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starmenuPanel: {fileID: 444148753}
   optionsPanel: {fileID: 326969724}
-  voiceAssist: 1
   loadPanel: {fileID: 1258849141}
 --- !u!114 &132147206
 MonoBehaviour:
@@ -3369,16 +3352,16 @@ MonoBehaviour:
   - {fileID: 864201253}
   - {fileID: 1358862002}
   - {fileID: 1838498298}
-  - {fileID: 1913145818}
-  - {fileID: 173017824}
-  - {fileID: 2062382855}
-  - {fileID: 1578676128}
-  - {fileID: 1620846093}
-  - {fileID: 191623750}
-  - {fileID: 1215917113}
-  - {fileID: 1155819873}
-  - {fileID: 683250687}
-  - {fileID: 317713562}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 224546894}
   tt3GO: []
   tt1Text: []
@@ -3773,11 +3756,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &173017824 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3936544112784776336, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &176658423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4050,11 +4028,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4613157273622814470, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
   m_PrefabInstance: {fileID: 46066258}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &191623750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3677870266988390926, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &208828183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,11 +4234,6 @@ RectTransform:
   m_AnchoredPosition: {x: 120, y: -15}
   m_SizeDelta: {x: 240, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &317713562 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6532099696957264574, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &326969724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8032784629896653308, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
@@ -4313,9 +4281,9 @@ RectTransform:
   m_Father: {fileID: 1683824225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 337.46512, y: -145.39575}
   m_SizeDelta: {x: 574.93024, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360833543
@@ -4481,7 +4449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 132147205}
+  optionsMenu: {fileID: 0}
   audioClip: ui_StartGame
 --- !u!1 &402021470
 GameObject:
@@ -4851,9 +4819,9 @@ RectTransform:
   m_Father: {fileID: 1683824225}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 337.46512, y: -335.39575}
   m_SizeDelta: {x: 574.93024, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642689602
@@ -5019,7 +4987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 132147205}
+  optionsMenu: {fileID: 0}
   audioClip: ui_LoadGame
 --- !u!1 &671735980
 GameObject:
@@ -5085,11 +5053,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &683250687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2508321205332089196, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &712672287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5410,9 +5373,9 @@ RectTransform:
   m_Father: {fileID: 1683824225}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 337.46512, y: -525.39575}
   m_SizeDelta: {x: 574.93024, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822818730
@@ -5578,7 +5541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 132147205}
+  optionsMenu: {fileID: 0}
   audioClip: ui_Options
 --- !u!1 &864201253 stripped
 GameObject:
@@ -6131,16 +6094,6 @@ CanvasRenderer:
 --- !u!1 &1073194567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7601690547664499806, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1155819873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8850940731100233098, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1215917113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8011940829597041762, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
   m_PrefabInstance: {fileID: 46066258}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1227314345
@@ -7406,9 +7359,9 @@ RectTransform:
   m_Father: {fileID: 1683824225}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 337.46512, y: -715.39575}
   m_SizeDelta: {x: 574.93024, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466747829
@@ -7562,7 +7515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 132147205}
+  optionsMenu: {fileID: 0}
   audioClip: ui_HowToPlay
 --- !u!1 &1527378446
 GameObject:
@@ -7800,11 +7753,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &1578676128 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 346683043980469012, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613588011
 GameObject:
   m_ObjectHideFlags: 0
@@ -7871,11 +7819,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1620846093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7250332782663360226, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1683824224
 GameObject:
   m_ObjectHideFlags: 0
@@ -8869,11 +8812,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &1913145818 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2785822006138952601, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1915769554 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5478223689536489418, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
@@ -9153,11 +9091,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2062382855 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1131014146182810133, guid: 3aab11ba4a88e9247a09a9a517a1cb2d, type: 3}
-  m_PrefabInstance: {fileID: 46066258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2090292527
 GameObject:
   m_ObjectHideFlags: 0
@@ -11263,7 +11196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: 
 --- !u!1 &739586530771265297
 GameObject:
@@ -12673,7 +12606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_MusicSlider
 --- !u!224 &1331407212174815042
 RectTransform:
@@ -15000,7 +14933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_ColorPicker
 --- !u!224 &2237117089163904176
 RectTransform:
@@ -16741,7 +16674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_SoundEffectSlider
 --- !u!222 &2956864964396093036
 CanvasRenderer:
@@ -17641,7 +17574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_AmbientSoundSlider
 --- !u!224 &3238100373262986366
 RectTransform:
@@ -17790,7 +17723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_AccecibilityOptions_mp3
 --- !u!222 &3283879573036026701
 CanvasRenderer:
@@ -18372,7 +18305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_BrightnettSlider
 --- !u!114 &3395312530218116450
 MonoBehaviour:
@@ -19366,7 +19299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_Controls_options
 --- !u!1 &3866548823409676339
 GameObject:
@@ -20529,6 +20462,7 @@ MonoBehaviour:
   indicatorToggle: {fileID: 1545436768909878292}
   navArrowToggle: {fileID: 2365190077636530441}
   audioIndicator: {fileID: 1545436768909878292}
+  voiceAssist: 0
 --- !u!114 &4236940377077690631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20635,7 +20569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: 
 --- !u!1 &4275112299162677323
 GameObject:
@@ -21490,7 +21424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_TextSizeSlider
 --- !u!1 &4541462456482575155
 GameObject:
@@ -21752,7 +21686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_ContrastSlider
 --- !u!1 &4661937862460143753
 GameObject:
@@ -22015,7 +21949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: 
 --- !u!222 &4809906661573717241
 CanvasRenderer:
@@ -23521,7 +23455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_Enemy_Outline
 --- !u!114 &5363507558792295368
 MonoBehaviour:
@@ -23573,7 +23507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_TextToSpeech
 --- !u!224 &5366811862777932665
 RectTransform:
@@ -25872,7 +25806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_VisualOptions
 --- !u!222 &6267045914360313407
 CanvasRenderer:
@@ -26878,7 +26812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: 
 --- !u!114 &6630569348664348858
 MonoBehaviour:
@@ -28933,7 +28867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: 
 --- !u!222 &7373033510686166524
 CanvasRenderer:
@@ -29210,7 +29144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: 
 --- !u!114 &7536169196007516611
 MonoBehaviour:
@@ -29839,7 +29773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_MainAudioASlider
 --- !u!1 &7813304607703369196
 GameObject:
@@ -33236,7 +33170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657c58c0678dfe24eb7d3a69cb7fb830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   audioClip: ui_Offscreen_Indicator
 --- !u!224 &8869787134964667438
 RectTransform:

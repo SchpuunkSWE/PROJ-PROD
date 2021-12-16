@@ -18,7 +18,10 @@ public class UI_SoundSystem : MonoBehaviour , IPointerEnterHandler
 
     //Do this when the cursor enters the rect area of this selectable UI object.
     public void OnPointerEnter(PointerEventData eventData)
-    {   if(optionsMenu.voiceAssist){
+    {  
+         if(optionsMenu.voiceAssist){
+
+        Debug.Log("i am gonna play sound");
 
         AkSoundEngine.PostEvent(audioClip, GameObject.FindGameObjectWithTag("MainCamera"));
 
