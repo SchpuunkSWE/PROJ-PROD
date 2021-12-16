@@ -33,7 +33,7 @@ public class ObjectPooler : MonoBehaviour
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
-        foreach(Pool pool in pools)
+        foreach (Pool pool in pools)
         {
             //Create a queue for each Pool we have
             Queue<GameObject> objectPool = new Queue<GameObject>();
@@ -57,7 +57,7 @@ public class ObjectPooler : MonoBehaviour
         //Choose next spawn-location in array all the time, reset when at end of array
         Vector3 pos = current.transform.position;
         spawnIndex++;
-    
+
         Quaternion rotation = Quaternion.identity;
 
         //Safety check to prevent attempts of spawning pool using non-existing pool tag
@@ -91,7 +91,6 @@ public class ObjectPooler : MonoBehaviour
             objctToSpawn.transform.position = pos;
             objctToSpawn.transform.rotation = rotation;
 
-
             //Might not be needed, test
             IPooledObject pooledObj = objctToSpawn.GetComponent<IPooledObject>();
             if (pooledObj != null)
@@ -102,15 +101,27 @@ public class ObjectPooler : MonoBehaviour
             //Add object back into queue so we can reuse it later
             poolDictionary[tag].Enqueue(objctToSpawn);
         }
-        
+
         //Debug.Log("Amount in list: " + boidSystem.agents.Count);
 
-        boidSystem.IncreaseNumAgents(amountToSpawn);       
+        boidSystem.IncreaseNumAgents(amountToSpawn);
+
+        //Activate particle system.
+        //if (current.transform.childCount??)
+        //{
+        //    current.transform.GetChild(0).gameObject.SetActive(false);
+        //}
+        //else
+        //{
+            current.transform.GetChild(0).gameObject.SetActive(true);
+        //}
+
+        //Debug.Log("Current childcount: " + current.transform.childCount);
     }
 
     public GameObject SpawnFromPool(string tag, Vector3 pos, Quaternion rotation)
     {
-         
+
         //Safety check to prevent attempts of spawning pool using non-existing pool tag
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -129,7 +140,7 @@ public class ObjectPooler : MonoBehaviour
 
         //Might not be needed, test
         IPooledObject pooledObj = objctToSpawn.GetComponent<IPooledObject>();
-        if(pooledObj != null)
+        if (pooledObj != null)
         {
             pooledObj.OnObjectSpawn();
         }

@@ -16,6 +16,13 @@ namespace AK
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
         static const AkUniqueID CHAR_DASH = 667507884U;
+        static const AkUniqueID CUTSCENE_LEVEL1_AMBIENCE = 2212933930U;
+        static const AkUniqueID CUTSCENE_LEVEL1_VOICE = 3304948164U;
+        static const AkUniqueID CUTSCENE_LEVEL2_AMBIENCE = 2945618175U;
+        static const AkUniqueID CUTSCENE_LEVEL2_SHARKBITE = 3451548568U;
+        static const AkUniqueID CUTSCENE_LEVEL2_VOICE = 1672897699U;
+        static const AkUniqueID CUTSCENE_LEVEL4_STINGER = 3295537989U;
+        static const AkUniqueID CUTSCENE_PLAYCREDITS = 650132800U;
         static const AkUniqueID FISHEAT = 2968903799U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
@@ -41,11 +48,19 @@ namespace AK
         static const AkUniqueID ONESHOT_CORALCOMPLETED = 1671773852U;
         static const AkUniqueID ONESHOT_ENEMYALERT = 1157870456U;
         static const AkUniqueID ONESHOT_SEACREATURE = 4269048160U;
+        static const AkUniqueID PAUSEEVERYTHING = 3490942038U;
+        static const AkUniqueID PAUSEEVERYTHING_01 = 1002625444U;
+        static const AkUniqueID PAUSEEVERYTHING_02 = 1002625447U;
+        static const AkUniqueID RESUMEEVERYTHING = 3714063287U;
+        static const AkUniqueID RESUMEEVERYTHING_01 = 4118159355U;
+        static const AkUniqueID RESUMEEVERYTHING_02 = 4118159352U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT_STOP = 1255022652U;
         static const AkUniqueID SHARKHUFF = 638605449U;
+        static const AkUniqueID SKIPCUTSCENE = 3576905580U;
+        static const AkUniqueID STOPMAINMENUMUSIC = 1420342416U;
     } // namespace EVENTS
 
     namespace STATES
@@ -148,8 +163,9 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID CUTSCENES = 3765803840U;
         static const AkUniqueID MAIN = 3161908922U;
-        static const AkUniqueID TEST = 3157003241U;
+        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BANKS
 
     namespace BUSSES
