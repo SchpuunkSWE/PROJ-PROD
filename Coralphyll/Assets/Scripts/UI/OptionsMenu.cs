@@ -23,14 +23,18 @@ public class OptionsMenu : MonoBehaviour
     public GameObject hintToggle;
     public GameObject indicatorToggle;
     public GameObject navArrowToggle;
+    public GameObject audioIndicator;
+    public bool voiceAssist; 
 
 
 
     void Start()
     {
+        voiceAssist = false;
         //tabGroup.OnTabSelected(startButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
+       // activateVoiceAssist(voiceAssist);
         setToggles();
         //navigationArrow = GetComponent<NavigationArrow>();
 
@@ -43,8 +47,6 @@ public class OptionsMenu : MonoBehaviour
         {
             exitButton.SetActive(false);
         }
-
-
 
     }
 
@@ -64,6 +66,16 @@ public class OptionsMenu : MonoBehaviour
     public void EnemyOutline(bool enemyOutline)
     {
         PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        if (enemyOutlineToggle.GetComponent<Toggle>().isOn)
+        {
+            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+        }
+        else
+        {
+            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+        }
 
     }
 
@@ -88,6 +100,24 @@ public class OptionsMenu : MonoBehaviour
         {
             navigationArrow.transform.GetChild(0).gameObject.SetActive(false); //Inactivate the child object. 
         }      
+    }
+    public void ToggleAudioIndicator(bool audioInd)
+    {
+        GameObject.FindObjectOfType<Audio_Accessibility>().ToggleAudioAccessibility();
+        /*PlayerPrefs.SetInt("AudioIndicator", BoolToInt(audioInd));
+        if (audioIndicator.GetComponent<Toggle>().isOn) //Check if the toggle is toggled.
+        {
+            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOn();
+        }
+        else
+        {
+            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
+        }*/
+
+    }
+    public void activateVoiceAssist (){
+        voiceAssist = !voiceAssist;
+
     }
 
     public void startLevel1()
@@ -140,5 +170,17 @@ public class OptionsMenu : MonoBehaviour
         hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
         indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
+        //audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
+    }
+
+    public void ToggleTerrainNavIndicator()
+    {
+        GameObject o = GameObject.Find("BonkController");
+        o.GetComponent<BonkController>().switchActiveIndicator();
+    }
+    public void ToggleTerrainNavSound()
+    {
+        GameObject o = GameObject.Find("BonkController");
+        o.GetComponent<BonkController>().switchActiveSound();
     }
 }

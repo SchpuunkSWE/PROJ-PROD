@@ -243,10 +243,7 @@ public class Audio_Events : MonoBehaviour
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
-                    if (GameObject.FindGameObjectWithTag("CinemachineCamera"))
-                    {
-                        FindObjectOfType<Audio_Pause>().CinemaMode();
-                    }
+
                 }
                 break;
         }

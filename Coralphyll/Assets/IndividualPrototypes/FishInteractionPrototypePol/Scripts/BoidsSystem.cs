@@ -104,7 +104,7 @@ public class BoidsSystem : MonoBehaviour
         
         if (!isOnCoral && dontDelete && !isSpawnPoint && !HasActiveChildren())
         {
-            AkSoundEngine.PostEvent("NPC_Friendly_Fish_Generic_Stop", gameObject);
+            GetComponent<WwAudioEmitter>().StopFunction();
             gameObject.SetActive(false);
             Debug.Log("Boids system inactive");
         }
@@ -114,8 +114,8 @@ public class BoidsSystem : MonoBehaviour
             {
                 FishCounter.fishCounterInstance.RemoveSchool(this);
             }
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+            //gameObject.SetActive(false);
             Debug.Log("Boids system destroyed");
         }
     }

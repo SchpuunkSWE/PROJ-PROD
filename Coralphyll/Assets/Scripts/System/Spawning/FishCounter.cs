@@ -71,7 +71,7 @@ public class FishCounter : MonoBehaviour
             {
                 foreach (GameObject agent in boidsSystem.agents)
                 {
-                    if (agent.activeInHierarchy)
+                    if (agent.activeSelf)
                     {
                         Follower f = agent.GetComponent<Follower>();
                         switch (f.GetColour())
