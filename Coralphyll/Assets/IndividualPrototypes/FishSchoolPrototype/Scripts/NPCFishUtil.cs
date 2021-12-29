@@ -14,6 +14,9 @@ public class NPCFishUtil : MonoBehaviour
     [SerializeField]
     private GameObject boidsSystemPrefab; //Set in editor
 
+    private bool runFishLogOnce = false; //Prevent fish log from running multiple times
+    private bool runFirstCoralLogOnce = false; //Prevent coral log from running multiple times
+
     private GameObject boidsSystemGO;
 
     private Coral coral;
@@ -21,6 +24,8 @@ public class NPCFishUtil : MonoBehaviour
     private FishColour fish;
 
     private NavigationArrow navArrow;
+
+    public GameObject[] ArrayOfTargets { get => arrayOfTargets; set => arrayOfTargets = value; }
 
     #region Singleton Quickversion
     public static NPCFishUtil NPCFishUtilInstance;
@@ -32,6 +37,28 @@ public class NPCFishUtil : MonoBehaviour
     }
 
     #endregion
+
+    public void LoopFollowTargets(int value)
+    {
+        int count = 0;
+        for(int i = 0; i < arrayOfTargets.Length; i++)
+        {
+            if(count < value)
+            {
+                arrayOfTargets[i].SetActive(true);
+            }
+            else
+            {
+                arrayOfTargets[i].SetActive(false);
+            }
+
+            count++;
+        }
+    }
+    private void Start()
+    {
+        SelectNavArrowTarget();
+    }
 
     private void FixedUpdate()
     {
@@ -45,7 +72,6 @@ public class NPCFishUtil : MonoBehaviour
         }
         //Om metoden inte har returnerats...
         listOfFishes.Add(fol);
-        fol.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
         return listOfFishes.IndexOf(fol);
     }
 
@@ -64,6 +90,12 @@ public class NPCFishUtil : MonoBehaviour
         {
             Debug.Log("Coral Tagged");
 
+            if (!runFirstCoralLogOnce)
+            {
+                Logger.LoggerInstance.CreateTextFile("#FoundFirstCoral");
+                runFirstCoralLogOnce = true;
+            }
+
             coral = other.GetComponentInParent<Coral>();
             boidsSystemGO = coral.boidsSystemGO; //GameObject of coral.
 
@@ -72,7 +104,7 @@ public class NPCFishUtil : MonoBehaviour
             TransferFish(FishColour.BLUE);
             TransferFish(FishColour.RED);
             TransferFish(FishColour.YELLOW);
-            coral.GetComponent<Coral>().ReceiveFish();
+            coral.ReceiveFish();
 
         }
 
@@ -123,8 +155,13 @@ public class NPCFishUtil : MonoBehaviour
             f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
+            f.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
         }
-        fishToRemove.Clear(); //Clear the fish to remove list.
+        fishToRemove.Clear(); //Clear the fish to remove list.       
+        if (FishCounter.fishCounterInstance != null)
+        {
+            FishCounter.fishCounterInstance.RecountFishes = true;
+        }
     }
 
     public bool PickUpFish(GameObject player, Follower follower)
@@ -144,6 +181,13 @@ public class NPCFishUtil : MonoBehaviour
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
+
+            if (!runFishLogOnce)
+            {
+                Logger.LoggerInstance.CreateTextFile("#FirstFishPickedUp");
+                runFishLogOnce = true;
+            }
+
             return true;
         }
         return false;
@@ -200,7 +244,7 @@ public class NPCFishUtil : MonoBehaviour
                 listOfFishes.Remove(f); //Removes fishes from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
                 nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
-                nPCFollow.fishTarget = null;
+                nPCFollow.fishTarget = null; 
                 f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
                 f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
                 StartCoroutine(MakeFishCollectible(f));
@@ -232,9 +276,17 @@ public class NPCFishUtil : MonoBehaviour
         }
         Follower fish = fishToRemove[0];
         listOfFishes.Remove(fish);
-        Destroy(fish.gameObject);
+        //Destroy(fish.gameObject);
+        fish.gameObject.SetActive(false);
         fishToRemove.Clear(); //Clear the fish to remove list.
         FishCounter.fishCounterInstance.RecountFishes = true;
+        fish.Collectable = true;
+        fish.GetComponent<NPCFollow>().isFollowingPlayer = false;
+        fish.GetComponent<NPCFollow>().fishTarget = null;
+        fish.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
+        fish.GetComponent<BoidsAgent>().owner = null;
+        fish.RGB.detectCollisions = true; //Turn on collision on fish.
+        fish.transform.SetParent(null); //Sets parent to null
     }
 
     public void KillAllFish()
@@ -252,7 +304,15 @@ public class NPCFishUtil : MonoBehaviour
             foreach (Follower f in fishToRemove)
             {
                 listOfFishes.Remove(f);
-                Destroy(f.gameObject);
+                //Destroy(f.gameObject);
+                f.gameObject.SetActive(false);
+                f.GetComponent<NPCFollow>().isFollowingPlayer = false;
+                f.GetComponent<NPCFollow>().fishTarget = null;
+                f.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
+                f.GetComponent<BoidsAgent>().owner = null;
+                f.Collectable = true;
+                f.RGB.detectCollisions = true; //Turn off collision on fish.
+                f.transform.SetParent(null); //Sets parent to null
             }
 
             fishToRemove.Clear(); //Clear the fish to remove list.
@@ -281,4 +341,5 @@ public class NPCFishUtil : MonoBehaviour
         navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
     }
 }
+
 

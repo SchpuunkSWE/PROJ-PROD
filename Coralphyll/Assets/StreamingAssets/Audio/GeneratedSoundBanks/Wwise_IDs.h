@@ -16,16 +16,30 @@ namespace AK
         static const AkUniqueID BACKGROUND_AMBIENCE = 2160339820U;
         static const AkUniqueID BACKGROUND_AMBIENCE_2 = 50319475U;
         static const AkUniqueID CHAR_DASH = 667507884U;
+        static const AkUniqueID CHAR_DEATH = 2748011726U;
+        static const AkUniqueID CORAL_ACCESSIBILITY = 1115036193U;
+        static const AkUniqueID CORAL_ACCESSIBILITY_STOP = 1987841316U;
+        static const AkUniqueID CUTSCENE_LEVEL1_AMBIENCE = 2212933930U;
+        static const AkUniqueID CUTSCENE_LEVEL1_VOICE = 3304948164U;
+        static const AkUniqueID CUTSCENE_LEVEL2_AMBIENCE = 2945618175U;
+        static const AkUniqueID CUTSCENE_LEVEL2_SHARKBITE = 3451548568U;
+        static const AkUniqueID CUTSCENE_LEVEL2_VOICE = 1672897699U;
+        static const AkUniqueID CUTSCENE_LEVEL4_STINGER = 3295537989U;
+        static const AkUniqueID CUTSCENE_PLAYCREDITS = 650132800U;
         static const AkUniqueID FISHEAT = 2968903799U;
         static const AkUniqueID FS_PLAYER_SWIM = 2996183927U;
         static const AkUniqueID FS_PLAYER_SWIM_SPRINT = 976861018U;
         static const AkUniqueID GARBAGE_PLAY = 143285903U;
         static const AkUniqueID GARBAGE_STOP = 2902390157U;
+        static const AkUniqueID MINE_BEEP = 569341283U;
+        static const AkUniqueID MINE_EXPLOSION = 3706089396U;
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
         static const AkUniqueID MUSICSTATE_STARTOFLEVEL = 4090089807U;
         static const AkUniqueID NEW_EVENT = 3050945240U;
+        static const AkUniqueID NPC_CORAL_PLAY = 3584532785U;
+        static const AkUniqueID NPC_CORAL_STOP = 541083879U;
         static const AkUniqueID NPC_DROPOFF = 3939156573U;
         static const AkUniqueID NPC_ENEMY_SHARK = 3909403805U;
         static const AkUniqueID NPC_ENEMY_SHARK_STOP = 3192907696U;
@@ -41,11 +55,56 @@ namespace AK
         static const AkUniqueID ONESHOT_CORALCOMPLETED = 1671773852U;
         static const AkUniqueID ONESHOT_ENEMYALERT = 1157870456U;
         static const AkUniqueID ONESHOT_SEACREATURE = 4269048160U;
+        static const AkUniqueID PAUSEEVERYTHING = 3490942038U;
+        static const AkUniqueID PAUSEEVERYTHING_01 = 1002625444U;
+        static const AkUniqueID PAUSEEVERYTHING_02 = 1002625447U;
+        static const AkUniqueID RESUMEEVERYTHING = 3714063287U;
+        static const AkUniqueID RESUMEEVERYTHING_01 = 4118159355U;
+        static const AkUniqueID RESUMEEVERYTHING_02 = 4118159352U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1 = 2090281704U;
         static const AkUniqueID SFX_3D_EMITTER_FRIENDLY_FISH_1_STOP = 3857701063U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT = 1644260233U;
         static const AkUniqueID SFX_3D_EMITTER_WATER_SPROUT_STOP = 1255022652U;
+        static const AkUniqueID SHARK_ACCESSIBILITY = 941954825U;
+        static const AkUniqueID SHARK_ACCESSIBILITY_STOP = 755647164U;
         static const AkUniqueID SHARKHUFF = 638605449U;
+        static const AkUniqueID SKIPCUTSCENE = 3576905580U;
+        static const AkUniqueID STOPMAINMENUMUSIC = 1420342416U;
+        static const AkUniqueID TRASHPILE_ACCESSIBILITY = 1810689076U;
+        static const AkUniqueID TRASHPILE_ACCESSIBILITY_STOP = 1622604147U;
+        static const AkUniqueID UI_ = 1181390666U;
+        static const AkUniqueID UI__EXITTOMAINMENU = 42845064U;
+        static const AkUniqueID UI_ACCECIBILITYOPTIONS_MP3 = 2796487786U;
+        static const AkUniqueID UI_AMBIENTSOUNDSLIDER = 2213029144U;
+        static const AkUniqueID UI_BRIGHNETTSLIDER = 3840711250U;
+        static const AkUniqueID UI_COLORPICKER = 2569102337U;
+        static const AkUniqueID UI_CONTRASTSLIDER = 3548601107U;
+        static const AkUniqueID UI_CONTROLS_OPTIONS = 2842327599U;
+        static const AkUniqueID UI_ENABLEOUTLINE = 4272550151U;
+        static const AkUniqueID UI_ENEMY_OUTLINE = 3166950881U;
+        static const AkUniqueID UI_EXITGAME = 4192939332U;
+        static const AkUniqueID UI_GAMEPLAYHINTS = 3851578248U;
+        static const AkUniqueID UI_HOWTOPLAY = 1261365893U;
+        static const AkUniqueID UI_LOADGAME = 2649584764U;
+        static const AkUniqueID UI_MAINAUDIOSLIDER = 1976136582U;
+        static const AkUniqueID UI_MUSICSLIDER = 3786803860U;
+        static const AkUniqueID UI_NAVIGATION_ARROW = 2416608830U;
+        static const AkUniqueID UI_OFFSCREEN_INDICATOR = 3809578915U;
+        static const AkUniqueID UI_OPTIONS = 2724623504U;
+        static const AkUniqueID UI_OUTLINEWIDTHSLIDER = 1517208803U;
+        static const AkUniqueID UI_RESUMEGAME = 3020718913U;
+        static const AkUniqueID UI_SAVEGAME = 2434109411U;
+        static const AkUniqueID UI_SLIDER = 3987036369U;
+        static const AkUniqueID UI_SOUNDEFFECTSLIDER = 169370995U;
+        static const AkUniqueID UI_START = 1219048826U;
+        static const AkUniqueID UI_STARTGAME = 2467171692U;
+        static const AkUniqueID UI_TEXTSIZE = 4141580188U;
+        static const AkUniqueID UI_TEXTSIZESLIDER = 4186243915U;
+        static const AkUniqueID UI_TEXTTOSPEECH = 4156240998U;
+        static const AkUniqueID UI_TOGGLEOFF = 1965176433U;
+        static const AkUniqueID UI_TOGGLEON = 3138968549U;
+        static const AkUniqueID UI_UIOPTIONS = 888114418U;
+        static const AkUniqueID UI_VISUALOPTIONS = 3627315268U;
     } // namespace EVENTS
 
     namespace STATES
@@ -148,8 +207,9 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID CUTSCENES = 3765803840U;
         static const AkUniqueID MAIN = 3161908922U;
-        static const AkUniqueID TEST = 3157003241U;
+        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BANKS
 
     namespace BUSSES

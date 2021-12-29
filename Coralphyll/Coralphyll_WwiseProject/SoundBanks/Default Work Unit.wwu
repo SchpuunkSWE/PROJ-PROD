@@ -13,9 +13,10 @@
 					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Music_MainMenu" ID="{B327CC15-8DC2-43C4-814D-B689EC306B9E}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Master-Mixer Hierarchy" ID="{2388DAEA-9775-46C6-A2ED-C5222A397756}" WorkUnitID="{2388DAEA-9775-46C6-A2ED-C5222A397756}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Events" ID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" WorkUnitID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Actor-Mixer Hierarchy" ID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" WorkUnitID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFX_UI" ID="{C607B1BB-9D8A-44B2-AE2C-2ECBFF0FEBD2}" WorkUnitID="{C607B1BB-9D8A-44B2-AE2C-2ECBFF0FEBD2}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" WorkUnitID="{16AD364F-CB05-44DE-A0B1-EA85F7191265}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UI_TextToSpeech" ID="{7B20E7F6-5743-4AF1-859F-62504A74DEB1}" WorkUnitID="{58C4E395-B93A-41EC-A6B3-4A2D46E4D907}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}" WorkUnitID="{B1EF94EE-5043-4BE9-9F69-5FCB339FB339}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Dynamic Dialogue" ID="{309AF5DE-031F-4CE0-9B9B-C0A536275343}" WorkUnitID="{309AF5DE-031F-4CE0-9B9B-C0A536275343}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList>
@@ -23,7 +24,7 @@
 					</ObjectExclusionList>
 					<GameSyncExclusionList/>
 				</SoundBank>
-				<SoundBank Name="Test" ID="{8A5AE650-E5D9-498C-9DE7-E96864B0B822}">
+				<SoundBank Name="Music" ID="{8A5AE650-E5D9-498C-9DE7-E96864B0B822}">
 					<PropertyList>
 						<Property Name="Maximum" Type="int32">
 							<ValueList>
@@ -32,7 +33,26 @@
 						</Property>
 					</PropertyList>
 					<ObjectInclusionList>
+						<ObjectRef Name="MusicEvents" ID="{C6356992-30AD-489E-82B0-9E36916CFAA6}" WorkUnitID="{C6356992-30AD-489E-82B0-9E36916CFAA6}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Cutscenes" ID="{7814EAE0-86CB-4FA9-9D10-47AB47F35145}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>81788928</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList>
+						<ObjectRef Name="Credits" ID="{A5EBB983-BA0C-4CD5-B210-53FCA8D2F498}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CutScenes" ID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}" WorkUnitID="{DF0A412A-B1C0-4CE1-AF2B-FB9D1648F272}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CutScenes" ID="{575B1DE0-7F0A-4E43-88E7-38494A49CE82}" WorkUnitID="{575B1DE0-7F0A-4E43-88E7-38494A49CE82}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

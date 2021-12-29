@@ -24,8 +24,15 @@ public class TrashPile : MonoBehaviour
     private float timeWhenEntered; //Which point in time the player came into contact with trash pile.
     private bool inTrashPile = false; //Bool to see if player is currently in contact with trash pile.
     private Transform patrolPoint;
+    private bool trashRemovesPlayerBoost = false;
+
+    public float TimeAllowed { get => timeAllowed; set => timeAllowed = value; }
+    public float TrashPileSpeed { get => trashPileSpeed; set => trashPileSpeed = value; }
+    public float PlayerSlowedSpeed { get => playerSlowedSpeed; set => playerSlowedSpeed = value; }
+    public bool TrashRemovesPlayerBoost { get => trashRemovesPlayerBoost; set => trashRemovesPlayerBoost = value; }
+
     //private Animator anim; //Reference to animator on gameobject
-  
+
     private void Start()
     {
         playerController = FindObjectOfType(typeof(Controller3DKeybinds)) as Controller3DKeybinds;
@@ -43,6 +50,11 @@ public class TrashPile : MonoBehaviour
         KillTimer();
         MoveTrashPile();
     }
+
+    public void RemovePlayerBoost(Collider playerCol, bool value)
+    {
+        playerCol.GetComponent<Controller3DKeybinds>().IsBoostReady = value;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -52,6 +64,10 @@ public class TrashPile : MonoBehaviour
             anim.SetTrigger("TriggerTrashBlackScreen");
             timeWhenEntered = Time.time;
             SlowPlayer();
+            if (trashRemovesPlayerBoost)
+            {
+                RemovePlayerBoost(other, false);
+            }
         }
 
         //if (other.tag == "Enemy")
@@ -67,6 +83,10 @@ public class TrashPile : MonoBehaviour
             inTrashPile = false;
             trashPileDarkAnimGO.SetActive(false);
             RestorePlayerSpeed();
+            if (trashRemovesPlayerBoost)
+            {
+                RemovePlayerBoost(other, true);
+            }//TODO: test this out
         }
     }
 

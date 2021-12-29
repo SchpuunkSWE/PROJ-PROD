@@ -21,6 +21,7 @@ public class Controller3DKeybinds : MonoBehaviour
     [SerializeField]
     private float maxVelocityValue = 5f;
     public float MaxVelocityValue { get => maxVelocityValue; set => maxVelocityValue = value; }
+    
 
     public Vector3 playerInput;
     public float decelerateValue = 7f;
@@ -82,7 +83,8 @@ public class Controller3DKeybinds : MonoBehaviour
     private void ApplyVelocity()
     {
         velocity *= Mathf.Pow(airResistance, Time.deltaTime);
-        transform.position += velocity * Time.deltaTime;
+        if(AllowedToMove(skinWidth))
+            transform.position += velocity * Time.deltaTime;
     }
     
     private void DecelerateVelocity()
@@ -98,11 +100,6 @@ public class Controller3DKeybinds : MonoBehaviour
         {
             velocity.y = Mathf.SmoothDamp(velocity.y, 0, ref velocityYSmoothValue, 0.2f);
         }
-        //absValue = Mathf.Abs(velocity.z);
-        //if (decelerateValue > absValue)
-        //{
-            
-        //}
         absValue = Mathf.Abs(velocity.magnitude);
         if (decelerateValue < absValue)
         {
@@ -117,41 +114,33 @@ public class Controller3DKeybinds : MonoBehaviour
     private void HitDetection()
     {
         //Sphere cast to check for collissions. 
-        RaycastHit hit;
-        Physics.SphereCast(transform.position + sphereCollider.center, sphereCollider.radius, velocity.normalized, out hit, Mathf.Infinity, collisionMask);
+        RaycastHit[] hitColliders = Physics.SphereCastAll(transform.position + sphereCollider.center, sphereCollider.radius, velocity.normalized, Mathf.Max(velocity.magnitude + skinWidth, 5f), collisionMask);
 
-        //Raycast to check if player is grounded.
-        RaycastHit checkGround;
-        Physics.Raycast(transform.position, Vector3.down, out checkGround, Mathf.Infinity, collisionMask);
-        if (checkGround.collider)
+        Vector3 moveDistance = Vector3.zero;
+        if (hitColliders.Length > 0) //If the spherecast hit anything within velocity.normalized range
         {
-            float distanceToCollisionPoint = skinWidth / Vector3.Dot(velocity.normalized, hit.normal);
-            float allowedMovementDistance = hit.distance + distanceToCollisionPoint;
-            if (allowedMovementDistance > velocity.magnitude * Time.deltaTime)
+            for(int i = 0; i < hitColliders.Length; i++)
             {
-                isGrounded = false;
-                return;
+                float distanceToCollisionPoint = skinWidth / Vector3.Dot(velocity.normalized, hitColliders[i].normal);
+                float allowedMovementDistance = hitColliders[i].distance + distanceToCollisionPoint;
+                if (allowedMovementDistance > velocity.magnitude * Time.deltaTime)
+                {
+                    continue;
+                }
+                moveDistance += hitColliders[i].normal * (skinWidth + Vector3.Dot(velocity.normalized * hitColliders[i].distance, hitColliders[i].normal));
+
+                Vector3 dotProd = DotFunction(velocity.normalized, hitColliders[i].normal);
+                velocity += dotProd;
+                FrictionFunction(dotProd.magnitude);
             }
-            isGrounded = true;
-
         }
+        transform.position += moveDistance;
+    }
 
-        if (hit.collider) //If the spherecast hit anything within velocity.normalized range
-        {
-            float distanceToCollisionPoint = skinWidth / Vector3.Dot(velocity.normalized, hit.normal);
-            float allowedMovementDistance = hit.distance + distanceToCollisionPoint;
-            if (allowedMovementDistance > velocity.magnitude * Time.deltaTime)
-            {
-                return;
-            }
-            transform.position += hit.normal * (skinWidth + Vector3.Dot(velocity.normalized * hit.distance, hit.normal));
-
-            Vector3 dotProd = DotFunction(velocity, hit.normal);
-            velocity += dotProd;
-            FrictionFunction(dotProd.magnitude);
-
-
-        }
+    private bool AllowedToMove(float distance)
+    {
+        RaycastHit[] hitColliders = Physics.SphereCastAll(transform.position + sphereCollider.center, sphereCollider.radius, velocity.normalized, distance, collisionMask);
+        return hitColliders.Length == 0;
     }
     #endregion
     private Vector3 DotFunction(Vector3 velocityV, Vector3 hitNormal)
@@ -193,34 +182,13 @@ public class Controller3DKeybinds : MonoBehaviour
     public void AxisXFunction(float input)
     {
         playerInput += transform.right * input;
-        //transform.rotation *= Quaternion.AngleAxis(input, Vector3.up);
-        //angularVelocity.y += input * rotationSpeed * Time.deltaTime;
-        //if (Mathf.Abs(angularVelocity.y) < 0.1f)
-        //    angularVelocity.y = 0;
-        //if (angularVelocity.y > maxRotationSpeed)
-        //    angularVelocity.y = maxRotationSpeed;
-        //if (angularVelocity.y < -maxRotationSpeed)
-        //    angularVelocity.y = -maxRotationSpeed;
-
-        //transform.rotation *= Quaternion.AngleAxis(angularVelocity.y * 0.5f, Vector3.up);
     }
 
-    // private void Rotate()
-    // { 
-    //     angularVelocity -= angularVelocity.normalized * angularDrag * Time.deltaTime;
-    // }
-    // [SerializeField]
-    // private Vector3 angularVelocity = Vector3.zero;
-    // [SerializeField]
-    // private float rotationSpeed = 10;
-    // [SerializeField]
-    // private float angularDrag = 3;
-    // [SerializeField]
-    // private float maxRotationSpeed = 2;
-    // [SerializeField]
     private float boostCooldown = 4;
+
     public bool isBoostReady = true;
-    private bool boostComplete = true;
+    public bool boostComplete = true;
+
     [SerializeField]
     private float boostPower = 5;
     [SerializeField]
@@ -228,7 +196,11 @@ public class Controller3DKeybinds : MonoBehaviour
     [SerializeField]
     private float maxBoostSpeed = 40f;
 
- 
+    public float BoostDuration { get => boostDuration; set => boostDuration = value; }
+    public float BoostCooldown { get => boostCooldown; set => boostCooldown = value; }
+    public float MaxBoostSpeed { get => maxBoostSpeed; set => maxBoostSpeed = value; }
+    public bool IsBoostReady { get => isBoostReady; set => isBoostReady = value; }
+
     public void StartBoost()
     {
         isBoostReady = false;
@@ -245,7 +217,8 @@ public class Controller3DKeybinds : MonoBehaviour
         {
             if (velocity.magnitude < maxBoostSpeed)
             {
-                velocity += transform.forward * speed * boostPower * Time.deltaTime;
+                if(AllowedToMove(2f))
+                    velocity += transform.forward * speed * boostPower * Time.deltaTime;
             }
             yield return null;
         }
