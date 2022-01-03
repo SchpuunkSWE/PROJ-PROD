@@ -47,7 +47,7 @@ public class OptionsMenu : MonoBehaviour
         {
             exitButton.SetActive(false);
         }
-
+        
     }
 
     // Update is called once per frame
@@ -66,15 +66,19 @@ public class OptionsMenu : MonoBehaviour
     public void EnemyOutline(bool enemyOutline)
     {
         PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
-        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
         if (enemyOutlineToggle.GetComponent<Toggle>().isOn)
         {
-            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+            enemy[0].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+            enemy[1].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+            enemy[2].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
         }
         else
         {
-            enemy.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+            enemy[0].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+            enemy[1].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+            enemy[2].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
         }
 
     }
@@ -83,9 +87,24 @@ public class OptionsMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("HintSystem", BoolToInt(hintSystem));
     }
+
     public void OffScreenIndicator(bool offScreen)
     {
         PlayerPrefs.SetInt("OffscreenIndicator", BoolToInt(offScreen));
+        GameObject CanvasOffScreenIndicators = GameObject.FindGameObjectWithTag("OSIndicator");
+
+        if (indicatorToggle.GetComponent<Toggle>().isOn)
+        {
+            CanvasOffScreenIndicators.transform.GetChild(0).gameObject.SetActive(true);
+            CanvasOffScreenIndicators.transform.GetChild(1).gameObject.SetActive(true);
+            CanvasOffScreenIndicators.transform.GetChild(2).gameObject.SetActive(true);
+        }
+        else 
+        {
+            CanvasOffScreenIndicators.transform.GetChild(0).gameObject.SetActive(false);
+            CanvasOffScreenIndicators.transform.GetChild(1).gameObject.SetActive(false);
+            CanvasOffScreenIndicators.transform.GetChild(2).gameObject.SetActive(false);
+        }
     }
 
     public void NavigationArrow(bool navArrow)
