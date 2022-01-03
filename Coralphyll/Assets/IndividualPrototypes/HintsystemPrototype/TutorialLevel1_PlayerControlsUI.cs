@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HintSystemUI : MonoBehaviour
+public class TutorialLevel1_PlayerControlsUI : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     //public GameObject hintSystemCanvas;
@@ -14,23 +14,23 @@ public class HintSystemUI : MonoBehaviour
     public GameObject xboxcontrols;
     public GameObject letstryit;
 
-    //therest
+    //the rest
     public GameObject howtopickupfish;
     public GameObject leavefishatcoral;
     public GameObject progressbarexplained;
     public GameObject differentfish;
     public GameObject finishlevel;
 
+    //The Trigger
+    public GameObject level1trigger;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
             // un-disable:ar level 1 gameobjektet
             level1.SetActive(true);
             Pause();
-
-            Debug.Log ("Sahel");
         }
 
     }
@@ -57,11 +57,12 @@ public class HintSystemUI : MonoBehaviour
     public void ExitFirst()
     {
         level1.SetActive(false);
+        level1trigger.SetActive(false);
         Resume();
     }
 
     // Start is called before the first frame update
-    void Start()
+ /*   void Start()
     {
         
     }
@@ -72,7 +73,7 @@ public class HintSystemUI : MonoBehaviour
     {
         
     }
-
+ */
 
 void Pause()
     {
@@ -84,7 +85,6 @@ void Pause()
     {
         Time.timeScale = 1f;
         GameIsPaused = true;
-
     }
 
 }
