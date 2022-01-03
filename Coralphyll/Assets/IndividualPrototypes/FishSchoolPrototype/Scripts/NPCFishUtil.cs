@@ -180,7 +180,7 @@ public class NPCFishUtil : MonoBehaviour
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
-            follower.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
+            //follower.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
 
             if (!runFishLogOnce)
             {
