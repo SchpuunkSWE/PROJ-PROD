@@ -14,7 +14,9 @@ public class VisualAidSettingsMenu : MonoBehaviour
     public LiftGammaGain lgg;
     private ColorAdjustments colorAdjustments;
     private Vector4 defaultGammaValue;
+    private float defaultBrightnessSliderValue;
     private float defaultContrastValue;
+    private float defaultContrastSliderValue;
 
     public SliderSettings brightnessSlider;
     public SliderSettings contrastSlider;
@@ -50,9 +52,11 @@ public class VisualAidSettingsMenu : MonoBehaviour
 
         //get default Gamma Value
         defaultGammaValue = lgg.gamma.value;
+        defaultBrightnessSliderValue = brightnessSlider.slider.value;
 
         //get default contrast value
         defaultContrastValue = colorAdjustments.contrast.value;
+        defaultContrastSliderValue = contrastSlider.slider.value;
 
         //listen to the sliders values
         brightnessSlider.slider.onValueChanged.AddListener(delegate { SetBrightness(brightnessSlider.slider.value); });
@@ -71,13 +75,25 @@ public class VisualAidSettingsMenu : MonoBehaviour
 
         //set brightness to 0 again
         //colorAdjustments.postExposure.value = 0;
-        lgg.gamma.value = defaultGammaValue;
+        ResetBrightness();
 
         //set contrast to default again
-        colorAdjustments.contrast.value = defaultContrastValue;
+        ResetContrast();
 
         //turn on depth of field
         //dof.active = true;
+    }
+
+    public void ResetBrightness()
+    {
+        lgg.gamma.value = defaultGammaValue;
+        brightnessSlider.slider.value = defaultBrightnessSliderValue;
+    }
+
+    public void ResetContrast()
+    {
+        colorAdjustments.contrast.value = defaultContrastValue;
+        contrastSlider.slider.value = defaultContrastSliderValue;
     }
 
     public void SetBrightness (float currentValue)
