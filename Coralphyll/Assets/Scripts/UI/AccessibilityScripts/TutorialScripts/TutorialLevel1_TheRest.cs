@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialLevel1_PlayerControlsUI : MonoBehaviour
+public class TutorialLevel1_TheRest : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     //public GameObject hintSystemCanvas;
     public GameObject level1;
-
-    //PlayerControls
-    public GameObject helloandwelcome;
-    public GameObject pcControls;
-    public GameObject xboxcontrols;
-    public GameObject letstryit;
 
     //the rest
     public GameObject howtopickupfish;
@@ -22,14 +16,16 @@ public class TutorialLevel1_PlayerControlsUI : MonoBehaviour
     public GameObject finishlevel;
 
     //The Trigger
-    public GameObject level1trigger;
+    public GameObject level1trigger2;
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("Player"))
         {
             // un-disable:ar level 1 gameobjektet
             level1.SetActive(true);
+            StartSlide();
             Pause();
         }
 
@@ -37,45 +33,43 @@ public class TutorialLevel1_PlayerControlsUI : MonoBehaviour
 
     //Buttonhappenings
 
+    public void StartSlide()
+    {
+        howtopickupfish.SetActive(true);
+    }
     public void NextSlide()
     {
-        helloandwelcome.SetActive(false);
-        pcControls.SetActive(true);
+        howtopickupfish.SetActive(false);
+        leavefishatcoral.SetActive(true);
     }
+
     public void NextSlide2()
     {
-        pcControls.SetActive(false);
-        xboxcontrols.SetActive(true);
+        leavefishatcoral.SetActive(false);
+        progressbarexplained.SetActive(true);
     }
 
     public void NextSlide3()
     {
-        xboxcontrols.SetActive(false);
-        letstryit.SetActive(true);
+        progressbarexplained.SetActive(false);
+        differentfish.SetActive(true);
+    }
+
+    public void NextSlide4()
+    {
+        differentfish.SetActive(false);
+        finishlevel.SetActive(true);
     }
 
     public void ExitFirst()
     {
         level1.SetActive(false);
-        level1trigger.SetActive(false);
+        level1trigger2.SetActive(false);
         Resume();
     }
 
-    // Start is called before the first frame update
- /*   void Start()
-    {
-        
-    }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
- */
-
-void Pause()
+    void Pause()
     {
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -86,5 +80,4 @@ void Pause()
         Time.timeScale = 1f;
         GameIsPaused = true;
     }
-
 }
