@@ -56,6 +56,13 @@ public class Coral : MonoBehaviour
     [SerializeField]
     private GameObject deSpawnableDecor;
 
+    //Populate the GameObjects below in the inspector
+    [SerializeField]
+    private GameObject yellowTargetTag;
+    [SerializeField]
+    private GameObject redTargetTag;
+    [SerializeField]
+    private GameObject blueTargetTag;
     public bool Completable { get => completable; }
 
 
@@ -76,21 +83,19 @@ public class Coral : MonoBehaviour
 
     private void SetUITexts()
     {
-       // yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
-       // redFishesText.text = redBaseTxt + redFishesAmount + "/" + redFishesNeeded;
-      //  blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
+        // yellowFishesText.text = yellowBaseTxt + yellowFishesAmount + "/" + yellowFishesNeeded;
+        // redFishesText.text = redBaseTxt + redFishesAmount + "/" + redFishesNeeded;
+        //  blueFishesText.text = blueBaseTxt + blueFishesAmount + "/" + blueFishesNeeded;
     }
 
     private void GiveGlobalProgression()
     {
-        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr,0,yellowFishesAmount,yellowFishesNeeded);
-        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr,1,redFishesAmount,redFishesNeeded);
-        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr,2,blueFishesAmount,blueFishesNeeded);
-        
-
+        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr, 0, yellowFishesAmount, yellowFishesNeeded);
+        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr, 1, redFishesAmount, redFishesNeeded);
+        gp.GetComponent<UI_GlobalProgression>().setGlobalProgression(thisCoralNr, 2, blueFishesAmount, blueFishesNeeded);
     }
 
-    public void ReceiveFish() 
+    public void ReceiveFish()
     {
         Debug.Log("ReceiveFish Reached");
         //foreach (Follower fish in fishes) //Counter for fish recieved.(We have a better counter below)
@@ -131,7 +136,7 @@ public class Coral : MonoBehaviour
         redFishesAmount = CountFish(FishColour.RED);
         //SetUITexts();
         GiveGlobalProgression();
-
+        UpdateTargetTags();
     }
 
     private void CheckProgress()
@@ -187,13 +192,34 @@ public class Coral : MonoBehaviour
         foreach (GameObject go in boidsSystem.agents)
         {
             Follower f = go.GetComponent<Follower>();
-            
-            if(f.GetColour() == fishColour)
+
+            if (f.GetColour() == fishColour)
             {
                 count++;
             }
         }
 
         return count;
+    }
+
+    private void UpdateTargetTags()
+    {
+        if (fishSlotsAvailable(FishColour.YELLOW) <= 0) //If the coral has all the yellow fish it needs...
+        {
+            yellowTargetTag.SetActive(false); //...Inactivate the gameObject 
+            yellowTargetTag.tag = "Untagged";// And change it's tag to Untagged.
+        }
+
+        if (fishSlotsAvailable(FishColour.RED) <= 0)
+        {
+            redTargetTag.SetActive(false);
+            redTargetTag.tag = "Untagged";
+        }
+
+        if (fishSlotsAvailable(FishColour.BLUE) <= 0)
+        {
+            blueTargetTag.SetActive(false);
+            blueTargetTag.tag = "Untagged";
+        }
     }
 }
