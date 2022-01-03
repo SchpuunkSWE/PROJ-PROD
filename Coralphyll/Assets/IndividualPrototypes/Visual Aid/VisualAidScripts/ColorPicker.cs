@@ -92,18 +92,23 @@ public class ColorPicker : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        ResetColors();
+        //Debug.Log("default putback");
+    }
+
+    void ResetColors()
+    {
         //turn everything back to default
         material1.color = material1DefaultColor;
         material2.color = material2DefaultColor;
         material3.color = material3DefaultColor;
-        //Debug.Log("default putback");
     }
 
     void SaveTheDefaultColors()
     {
-        material1DefaultColor = color1Image.color;
-        material2DefaultColor = color2Image.color;
-        material3DefaultColor = color3Image.color;
+        material1DefaultColor = material1.color;
+        material2DefaultColor = material2.color;
+        material3DefaultColor = material3.color;
         //Debug.Log("default saved");
     }
 
