@@ -26,8 +26,8 @@ public class BonkController : MonoBehaviour
     {
 
         overlapping = false;
-        enableTerrainSound = false;
-        enableTerrainIndicator = false;
+        enableTerrainSound = true;
+        enableTerrainIndicator = true;
 
         indicator = GameObject.Find("Indicator");
 
@@ -44,7 +44,7 @@ public class BonkController : MonoBehaviour
         }
         else if (overlappingSide && enableTerrainSound)
         {
-            AkSoundEngine.PostEvent("OneShot_SeaCreature", gameObject);
+            AkSoundEngine.PostEvent("NPC_DropOff", gameObject);
         }
 
         //if(!overlapping)
