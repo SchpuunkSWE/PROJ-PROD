@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3942037610979228553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3162450306045781606}
+  - component: {fileID: 6266924631671686874}
+  - component: {fileID: 685439037193953388}
+  m_Layer: 0
+  m_Name: TutorialLevel2_Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3162450306045781606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942037610979228553}
+  m_LocalRotation: {x: -0, y: 0.41096523, z: -0, w: 0.9116511}
+  m_LocalPosition: {x: 59.77, y: 42.31, z: 82.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 48.531, z: 0}
+--- !u!65 &6266924631671686874
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942037610979228553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 13.590664, z: 12.3656845}
+  m_Center: {x: -0.0000005380461, y: -1.0681438, z: -0.14256859}
+--- !u!114 &685439037193953388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942037610979228553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7aa1c249e9518439b24e82395b4f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level2: {fileID: 0}
+  explainEnemy: {fileID: 0}
+  explainSafezone: {fileID: 0}
+  explainDash: {fileID: 0}
+  explainCorals: {fileID: 0}
+  goodLuck: {fileID: 0}
+  level2trigger: {fileID: 3942037610979228553}
