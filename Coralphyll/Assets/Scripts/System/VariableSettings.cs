@@ -7,6 +7,7 @@ public class VariableSettings : MonoBehaviour
     private PlayerControllerKeybinds playerControllerKeybinds;
     private Controller3DKeybinds player;
 
+    #region Collections
     private TrashPile trashPile;
 
     [SerializeField]
@@ -26,7 +27,7 @@ public class VariableSettings : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> fishSchools;
-
+    #endregion
 
     private void Awake()
     {
