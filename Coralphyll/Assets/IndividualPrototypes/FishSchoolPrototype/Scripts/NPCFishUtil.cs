@@ -391,7 +391,7 @@ public class NPCFishUtil : MonoBehaviour
             NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
             //int posInList = listOfFishes.IndexOf(f); //Get the index of the fish in listOfFishes. 
             //nPCFollow.PositionInList = posInList; //Set fish pos in list. 
-            nPCFollow.fishTarget = GetTargetPositionObject(listOfFishes.IndexOf(f)); //Change fish target so that it's the same as it's pos in list. 
+            nPCFollow.fishTarget = GetTargetPositionObject(listOfFishes.IndexOf(f)); //Change fish target so that it's the same as it's index in list. 
         }
     }
 
