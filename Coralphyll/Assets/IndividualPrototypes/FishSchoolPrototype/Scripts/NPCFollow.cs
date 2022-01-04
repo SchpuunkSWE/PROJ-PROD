@@ -11,7 +11,6 @@ public class NPCFollow : MonoBehaviour
     private float followSpeed = 2f;
 
     private int positionInList = -1;
-
     public int PositionInList { get => positionInList; set => positionInList = value; }
 
     private float targetDistance;
