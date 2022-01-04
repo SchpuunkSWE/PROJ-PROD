@@ -28,11 +28,11 @@ public class TargetIndicator : MonoBehaviour
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        
+        anim = GetComponent<Animator>();
     }
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        
     }
 
 
@@ -61,11 +61,11 @@ public class TargetIndicator : MonoBehaviour
 
         if(distanceBetweenObjects < targetDistance) // If player is close enough to enemy, animation plays and size changes
         {
-            OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(150, 150);
+            //OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(150, 150);
             anim.SetBool("ArrowShakeAnim", true);
         } else if (distanceBetweenObjects > targetDistance) // If player is away from enemy but in range for arrow to show, animation stops and size changes
         {
-            OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(100, 100);
+            //OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(100, 100);
             anim.SetBool("ArrowShakeAnim", false);
         }
         
