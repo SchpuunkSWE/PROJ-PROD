@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveUI : MonoBehaviour
 {
-    //public int level;
+    public int level;
 
 
     [SerializeField] GameObject autosaveUI;
@@ -23,11 +23,15 @@ public class SaveUI : MonoBehaviour
 
     public void SaveGame()
     {
+        SaveSystem.SaveGame();
 
     }
 
     public void LoadGame()
     {
+        SaveSystem.LoadGame();
+        //level = data.level;
+
 
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class SaveData : MonoBehaviour
+public class SaveData
 {
 
     public int level;
@@ -15,6 +15,7 @@ public class SaveData : MonoBehaviour
     public SaveData ()
     {
         level = SceneManager.GetActiveScene().buildIndex;
+        
     }
 
     /*

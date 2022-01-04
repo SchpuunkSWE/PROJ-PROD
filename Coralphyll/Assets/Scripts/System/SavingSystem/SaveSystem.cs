@@ -17,19 +17,20 @@ public static class SaveSystem
         set => isLoading = value;
     }
 
+
+    
     static void OnSceneLoaded(Scene scene, LoadSceneMode mode) //Method added to scenemanager to run when scene has finished loading, Loading our player and scene data
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
-        /*
+        
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         if (player == null)
         {
             return;
         }
-        */
-
+        
 
         if (isLoading == true)
         {
@@ -37,11 +38,14 @@ public static class SaveSystem
             SaveSystem.IsLoading = false;
             Debug.Log("Loaded");
         }
-    }
+    } 
+
+    /*
     public static void LoadBetweenLevels() //Method used för loading data between scenes(use for all corals??)
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    */
 
     public static void LoadGame() //Method för loading data from menu after complete save
     {
