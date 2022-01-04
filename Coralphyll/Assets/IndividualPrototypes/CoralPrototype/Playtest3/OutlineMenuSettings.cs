@@ -17,6 +17,8 @@ public class OutlineMenuSettings : MonoBehaviour
         {
             go.GetComponentInChildren<Outline>().enabled = false;
         }
+
+        colourPicker.gameObject.SetActive(false);
     }
     public void ToggleOutline(bool toggled)
     {
@@ -26,10 +28,16 @@ public class OutlineMenuSettings : MonoBehaviour
             if (toggled)
             {
                 go.GetComponentInChildren<Outline>().enabled = true;
+
+                //also toggle on colorpicker
+                colourPicker.gameObject.SetActive(true);
             }
             else
             {
                 go.GetComponentInChildren<Outline>().enabled = false;
+                //also toggle off colorpicker
+                colourPicker.gameObject.SetActive(false);
+
             }
         }
     }
