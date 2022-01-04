@@ -1,26 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-public class SaveSystem : MonoBehaviour
+public static class SaveSystem
 {
     private static bool isLoading = false; //Used to see if we need to load data or not
     private static SaveData data; //Variable to save our data as
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public static bool IsLoading
     {

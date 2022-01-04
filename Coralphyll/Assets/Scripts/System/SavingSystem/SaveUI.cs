@@ -6,20 +6,31 @@ using UnityEngine.SceneManagement;
 
 public class SaveUI : MonoBehaviour
 {
-    public int level;
+    //public int level;
 
 
     [SerializeField] GameObject autosaveUI;
     public static bool isAutoSaving = false;
-    
     [SerializeField] Animator animator;
     [SerializeField] RectTransform fxHolder;
     [SerializeField] Image AutoSaveCircle;
-    
     [SerializeField] [Range(0, 1)] float progress = 0;
+
 
     //[SerializeField] Animation anim;
     //[SerializeField] Text txtProgress;
+
+
+    public void SaveGame()
+    {
+
+    }
+
+    public void LoadGame()
+    {
+
+    }
+
 
     void Start()
     {
@@ -31,6 +42,8 @@ public class SaveUI : MonoBehaviour
     {
         //level = SceneManager.GetActiveScene().buildIndex;
         //level = SceneManager.GetSceneAt().buildIndex;
+        
+        /*
         string output = "";
         for (int n = 0; n < SceneManager.sceneCount; ++n)
         {
@@ -40,7 +53,7 @@ public class SaveUI : MonoBehaviour
             //output += scene.isDirty ? "Dirty, " : "Clean, ";
             output += scene.buildIndex >= 0 ? " in build)\n" : " NOT in build)\n";
         }
-
+        */
 
 
 
@@ -49,14 +62,12 @@ public class SaveUI : MonoBehaviour
         AutoSaveCircle.fillAmount = progress;
         //txtProgress.text = Mathf.Floor(progress * 100).ToString();
         fxHolder.rotation = Quaternion.Euler(new Vector3(0f, 0f, -progress * 360));
-        
         //animator.SetBool("isAutoSaving", false);
         
         if(isAutoSaving)
         {
             PlaySavingAnim();
         }
-
     }
 
     public void PlaySavingAnim()
@@ -64,7 +75,6 @@ public class SaveUI : MonoBehaviour
 
         
         animator.SetBool("isAutoSaving", true);
-        
         StartCoroutine(wait());
         
         //autosaveUI.SetActive(true);
