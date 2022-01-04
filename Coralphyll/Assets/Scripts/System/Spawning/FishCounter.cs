@@ -129,7 +129,7 @@ public class FishCounter : MonoBehaviour
         if (yellowFishToSpawn > 0)
         {
             //Spawna Gul fisk
-            ObjectPooler.poolerInstance.SpawnFromPool("YellowFish", yellowFishToSpawn + extraMargin);
+            ObjectPooler.poolerInstance.SpawnFromPool("YELLOW", yellowFishToSpawn + extraMargin);
 
             //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("YellowFish"));
             //fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(yellowFishToSpawn + extraMargin);
@@ -139,7 +139,7 @@ public class FishCounter : MonoBehaviour
         if (redFishToSpawn > 0)
         {
             //Spawna Röd fisk
-            ObjectPooler.poolerInstance.SpawnFromPool("RedFish", redFishToSpawn + extraMargin);
+            ObjectPooler.poolerInstance.SpawnFromPool("RED", redFishToSpawn + extraMargin);
 
             //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("RedFish"));
             //fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(redFishToSpawn + extraMargin);
@@ -149,7 +149,7 @@ public class FishCounter : MonoBehaviour
         if (blueFishToSpawn > 0)
         {
             //Spawna blå fisk
-            ObjectPooler.poolerInstance.SpawnFromPool("BlueFish", blueFishToSpawn + extraMargin);
+            ObjectPooler.poolerInstance.SpawnFromPool("BLUE", blueFishToSpawn + extraMargin);
 
             //fishSchoolsInScene.Add(ObjectPooler.poolerInstance.SpawnFromPool("BlueFish"));
             //fishSchoolsInScene.Last<GameObject>().GetComponent<BoidsSystem>().SetNumAgents(blueFishToSpawn + extraMargin);
