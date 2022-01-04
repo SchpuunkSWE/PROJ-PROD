@@ -24,7 +24,11 @@ public class SaveUI : MonoBehaviour
     public void SaveGame()
     {
         SaveSystem.SaveGame();
+        
+        if (SaveData.SaveData(level) = "1")
+        {
 
+        }
     }
 
     public void LoadGame()
@@ -44,25 +48,7 @@ public class SaveUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //level = SceneManager.GetActiveScene().buildIndex;
-        //level = SceneManager.GetSceneAt().buildIndex;
-        
-        /*
-        string output = "";
-        for (int n = 0; n < SceneManager.sceneCount; ++n)
-        {
-            Scene scene = SceneManager.GetSceneAt(n);
-            output += scene.name;
-            output += scene.isLoaded ? " (Loaded, " : " (Not Loaded, ";
-            //output += scene.isDirty ? "Dirty, " : "Clean, ";
-            output += scene.buildIndex >= 0 ? " in build)\n" : " NOT in build)\n";
-        }
-        */
-
-
-
-
-
+       
         AutoSaveCircle.fillAmount = progress;
         //txtProgress.text = Mathf.Floor(progress * 100).ToString();
         fxHolder.rotation = Quaternion.Euler(new Vector3(0f, 0f, -progress * 360));
@@ -81,19 +67,6 @@ public class SaveUI : MonoBehaviour
         animator.SetBool("isAutoSaving", true);
         StartCoroutine(wait());
         
-        //autosaveUI.SetActive(true);
-        //isAutoSaving = true;
-        //new WaitForSeconds(5);
-        //animator.SetBool("isAutoSaving", false);
-        /*
-        if (isAutoSaving)
-        {
-            new WaitForSeconds(5);
-            animator.SetBool("isAutoSaving", false);
-            //anim.Play("NewAutoSave");
-            isAutoSaving = false;
-            //autosaveUI.SetActive(false);
-        }*/
 
     }
 
