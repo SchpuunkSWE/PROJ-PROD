@@ -83,7 +83,7 @@ public class NPCFollow : MonoBehaviour
         //BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>();
         if (other.CompareTag("Player") && follower.Collectable == true)
         {
-            bool addedFish = other.GetComponent<NPCFishUtil>().PickUpFish(other.gameObject, follower);
+            bool addedFish = other.GetComponent<NPCFishUtil>().PickUpFish(follower);
             if(addedFish)
                 playerControllerScript = fishTarget.transform.parent.transform.parent.GetComponent<Controller3DKeybinds>();
             //boidsSystem.transform.DetachChildren();
