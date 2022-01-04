@@ -98,8 +98,16 @@ public class ObjectPooler : MonoBehaviour
         //Add fish to boidsystems list of agents
         for (int i = 0; i < amountToSpawn; i++)
         {
+
             //Fetch object out of queue
             objctToSpawn = poolDictionary[tag].Dequeue();
+
+            if (objctToSpawn.activeInHierarchy)
+            {
+                poolDictionary[tag].Enqueue(objctToSpawn);
+                i--;
+                continue;
+            }
 
             //set boids-system owner to be boids-system at chosen location
             objctToSpawn.GetComponent<BoidsAgent>().owner = boidSystem;

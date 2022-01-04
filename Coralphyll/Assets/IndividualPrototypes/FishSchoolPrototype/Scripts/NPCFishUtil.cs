@@ -276,8 +276,11 @@ public class NPCFishUtil : MonoBehaviour
         }
         Follower fish = fishToRemove[0];
         listOfFishes.Remove(fish);
+
         //Destroy(fish.gameObject);
-        fish.gameObject.SetActive(false);
+        fish.gameObject.SetActive(false); //M
+        ObjectPooler.poolerInstance.poolDictionary[fish.GetColour().ToString()].Enqueue(fish.gameObject);
+
         fishToRemove.Clear(); //Clear the fish to remove list.
         FishCounter.fishCounterInstance.RecountFishes = true;
         fish.Collectable = true;
