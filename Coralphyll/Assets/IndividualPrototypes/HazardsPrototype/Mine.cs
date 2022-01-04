@@ -21,11 +21,7 @@ public class Mine : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         playerController = FindObjectOfType(typeof(Controller3DKeybinds)) as Controller3DKeybinds;
 
-        meshRenderer = GetComponent<MeshRenderer>();
-
-        GetComponent<Renderer>().material.SetColor("_ToonRampTinting", Color.red);
-        GetComponent<Renderer>().material.color = Color.red; 
-        Debug.Log(GetComponent<Renderer>().material.GetColor("Color_f3b331c7ca4b4188b2d46fb52af77be7")); 
+        meshRenderer = GetComponent<MeshRenderer>(); 
 
 
     }
@@ -67,14 +63,23 @@ public class Mine : MonoBehaviour
 
         }
 
+        else if (hasChanged)
+        {
+            meshRenderer.material.SetColor("Color_f3b331c7ca4b4188b2d46fb52af77be7", Color.grey );
 
-       
+        }
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+       
+
+        if (other.tag == "Player")
         {
+           
             Explode();
             AkSoundEngine.PostEvent("Mine_Explosion", gameObject);
 
@@ -90,7 +95,8 @@ public class Mine : MonoBehaviour
 
     private void Explode()
     {
-        //Add animation or whatever here
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.DetachChildren();  
 
         //Respawn Player (Instakill)
         DeathInfo d = new DeathInfo
