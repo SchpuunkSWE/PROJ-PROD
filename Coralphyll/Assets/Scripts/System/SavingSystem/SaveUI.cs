@@ -24,11 +24,12 @@ public class SaveUI : MonoBehaviour
     public void SaveGame()
     {
         SaveSystem.SaveGame();
-        
+        /*
         if (SaveData.SaveData(level) = "1")
         {
 
         }
+        */
     }
 
     public void LoadGame()
