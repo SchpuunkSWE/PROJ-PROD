@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8398317953121806624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4803117988476112276}
+  - component: {fileID: 6916390166033548160}
+  - component: {fileID: 2024298675552659984}
+  m_Layer: 0
+  m_Name: TutorialLevel1_TheRest_Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4803117988476112276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398317953121806624}
+  m_LocalRotation: {x: 0, y: -0.42129695, z: 0, w: 0.90692276}
+  m_LocalPosition: {x: 36.46, y: 15.71, z: 67.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -49.833, z: 0}
+--- !u!65 &6916390166033548160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398317953121806624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28.747196, y: 24.760916, z: 31.331003}
+  m_Center: {x: 10.416078, y: 2.8928385, z: -0.72418505}
+--- !u!114 &2024298675552659984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398317953121806624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb26bd01267e2419a750c3eb094003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level1: {fileID: 0}
+  howtopickupfish: {fileID: 0}
+  leavefishatcoral: {fileID: 0}
+  progressbarexplained: {fileID: 0}
+  differentfish: {fileID: 0}
+  finishlevel: {fileID: 0}
+  level1trigger2: {fileID: 8398317953121806624}

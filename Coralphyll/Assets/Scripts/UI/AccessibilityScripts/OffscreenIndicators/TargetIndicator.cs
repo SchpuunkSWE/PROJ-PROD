@@ -9,7 +9,7 @@ public class TargetIndicator : MonoBehaviour
     public Image OffScreenTargetIndicator;
     public float IndicatorOutOfSightOffset = 20f;
 
-    private float outOfSightOffset { get { return IndicatorOutOfSightOffset /* canvasRect.localScale.x*/; } }
+    private float outOfSightOffset { get { return IndicatorOutOfSightOffset; } }
 
     private GameObject target;
     private Camera mainCamera;
@@ -49,22 +49,21 @@ public class TargetIndicator : MonoBehaviour
         
 
         SetIndicatorPosition();
-        //Adjust distance display
         //Turn on or off when in range/out of range
-        //Do stuff if picked as main target
+        //Change size and play animation on/off
 
         float distanceBetweenObjects = Vector3.Distance(mainCamera.transform.parent.GetChild(1).transform.position, target.transform.position);
         if (!(distanceBetweenObjects < indicatorRange)) 
         {
-            
             if (OffScreenTargetIndicator.gameObject.activeSelf == true) OffScreenTargetIndicator.gameObject.SetActive(false);
             if (TargetIndicatorImage.isActiveAndEnabled == false) TargetIndicatorImage.enabled = true;
         }
-        if(distanceBetweenObjects < targetDistance)
+
+        if(distanceBetweenObjects < targetDistance) // If player is close enough to enemy, animation plays and size changes
         {
             OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(150, 150);
             anim.SetBool("ArrowShakeAnim", true);
-        } else if (distanceBetweenObjects > targetDistance)
+        } else if (distanceBetweenObjects > targetDistance) // If player is away from enemy but in range for arrow to show, animation stops and size changes
         {
             OffScreenTargetIndicator.rectTransform.sizeDelta = new Vector2(100, 100);
             anim.SetBool("ArrowShakeAnim", false);
@@ -164,13 +163,6 @@ public class TargetIndicator : MonoBehaviour
 
             //Set the rotation of the OutOfSight direction indicator
             OffScreenTargetIndicator.rectTransform.rotation = Quaternion.Euler(RotationOutOfSightTargetindicator(indicatorPosition));
-
-            //outOfSightArrow.rectTransform.rotation  = Quaternion.LookRotation(indicatorPosition- new Vector3(canvasRect.rect.width/2f,canvasRect.rect.height/2f,0f)) ;
-            /*outOfSightArrow.rectTransform.rotation = Quaternion.LookRotation(indicatorPosition);
-            viewVector = indicatorPosition- new Vector3(canvasRect.rect.width/2f,canvasRect.rect.height/2f,0f);
-            
-            //Debug.Log("CanvasRectCenter: " + canvasRect.rect.center);
-            outOfSightArrow.rectTransform.rotation *= Quaternion.Euler(0f,90f,0f);*/
         }
 
         //In case that the indicator is InSight, turn on the inSight stuff and turn off the OOS stuff.

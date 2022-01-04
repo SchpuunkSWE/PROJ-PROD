@@ -41,9 +41,9 @@ public class NPCFishUtil : MonoBehaviour
     public void LoopFollowTargets(int value)
     {
         int count = 0;
-        for(int i = 0; i < arrayOfTargets.Length; i++)
+        for (int i = 0; i < arrayOfTargets.Length; i++)
         {
-            if(count < value)
+            if (count < value)
             {
                 arrayOfTargets[i].SetActive(true);
             }
@@ -111,7 +111,6 @@ public class NPCFishUtil : MonoBehaviour
         if (other.CompareTag("SafeZone"))
         {
             Debug.Log("SafeZone Tagged");
-
             coral = other.GetComponentInParent<Coral>();
             boidsSystemGO = coral.boidsSystemGO; //GameObject of SafeZone.
             AIController.CanFollowPlayer = false;
@@ -181,6 +180,7 @@ public class NPCFishUtil : MonoBehaviour
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
+            //follower.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
 
             if (!runFishLogOnce)
             {
@@ -244,7 +244,7 @@ public class NPCFishUtil : MonoBehaviour
                 listOfFishes.Remove(f); //Removes fishes from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
                 nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
-                nPCFollow.fishTarget = null; 
+                nPCFollow.fishTarget = null;
                 f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
                 f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
                 StartCoroutine(MakeFishCollectible(f));
@@ -319,6 +319,46 @@ public class NPCFishUtil : MonoBehaviour
             FishCounter.fishCounterInstance.RecountFishes = true;
         }
     }
+
+    private void CheckFishColour()
+    {
+        List<FishColour> fishColours = new List<FishColour>();
+        string plannedTarget = "NPCFish"; //Default tag.
+
+        foreach (Follower f in listOfFishes)
+        {
+            if (f.GetComponent<NPCFollow>().isFollowingPlayer && !fishColours.Contains(f.GetColour())) //Checks if fish is following player and if the fish colour already exists in fishColours list.
+            {
+                fishColours.Add(f.GetColour()); //Adds the fish colour to the list.
+            }
+        }
+
+        foreach (FishColour fishColour in fishColours)
+        {
+            switch (fishColour)
+            {
+                case FishColour.YELLOW:
+                    if (GameObject.FindGameObjectWithTag("YellowFishTag") != null) //Check so that the tag exists. 
+                    {
+                        plannedTarget = "YellowFishTag"; //sets plannedTarget to YellowFishTag. 
+                    }
+                    break;
+                case FishColour.RED:
+                    if (GameObject.FindGameObjectWithTag("RedFishTag") != null)
+                    {
+                        plannedTarget = "RedFishTag";
+                    }
+                    break;
+                case FishColour.BLUE:
+                    if (GameObject.FindGameObjectWithTag("BlueFishTag") != null)
+                    {
+                        plannedTarget = "BlueFishTag";
+                    }
+                    break;
+            }
+        }
+        navArrow.SetTargetTag(plannedTarget); //Set the tag that the arrow should point at to plannedTarget.
+    }
     private void SelectNavArrowTarget()
     {
         if (navArrow == null)
@@ -338,8 +378,10 @@ public class NPCFishUtil : MonoBehaviour
             return;
         }
 
-        navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
+        CheckFishColour();
+        //navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
     }
+
 }
 
 
