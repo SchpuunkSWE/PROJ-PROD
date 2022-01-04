@@ -41,6 +41,9 @@
         },
         {
             "m_Id": "cc0b2bbbcf9c4a6eb8a48bc95df84860"
+        },
+        {
+            "m_Id": "0bb1612b7c7d41e4942e899044cf5bd8"
         }
     ],
     "m_Keywords": [],
@@ -128,6 +131,9 @@
         },
         {
             "m_Id": "59451c7cac6f4615b4da5c5d18027790"
+        },
+        {
+            "m_Id": "9d240f63cfa1456a91593f5827e89761"
         }
     ],
     "m_GroupDatas": [],
@@ -313,6 +319,20 @@
                     "m_Id": "5e756dc8448e476c81834d56725cb5bd"
                 },
                 "m_SlotId": 483814542
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "9d240f63cfa1456a91593f5827e89761"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "c2e93fecfe354b499b674d0ecbf1ebe7"
+                },
+                "m_SlotId": -166612171
             }
         },
         {
@@ -666,6 +686,29 @@
     },
     "m_Property": {
         "m_Id": "b8a686d09f5b46d8a963bd404d3300b4"
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "0bb1612b7c7d41e4942e899044cf5bd8",
+    "m_Guid": {
+        "m_GuidSerialized": "02f49018-e910-4f49-8466-dc1ee55253e8"
+    },
+    "m_Name": "Caustic Brightness",
+    "m_DefaultReferenceName": "",
+    "m_OverrideReferenceName": "Vector1_96b4932f7cd041b699b2244584ee4ec8",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.15000000596046449,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
     }
 }
 
@@ -1938,6 +1981,41 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "9d240f63cfa1456a91593f5827e89761",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 1514.0,
+            "y": 273.0,
+            "width": 174.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "f01b9da96251430eaf6c09981445f891"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "0bb1612b7c7d41e4942e899044cf5bd8"
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "9d339af1bc00492081914f53319e7310",
     "m_Id": 1690282851,
@@ -2754,6 +2832,21 @@
         "e32": 0.0,
         "e33": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "f01b9da96251430eaf6c09981445f891",
+    "m_Id": 0,
+    "m_DisplayName": "Caustic Brightness",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
