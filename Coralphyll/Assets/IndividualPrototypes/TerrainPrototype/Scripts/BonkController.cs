@@ -7,6 +7,7 @@ using static Audio_Events;
 public class BonkController : MonoBehaviour
 {
     bool overlapping;
+    bool overlappingSide;
 
     private GameObject indicator;
 
@@ -40,6 +41,10 @@ public class BonkController : MonoBehaviour
         {
             // GamePad.SetVibration(playerIndex, .1f, .1f);
             AkSoundEngine.PostEvent("FishEat", gameObject);
+        }
+        else if (overlappingSide && enableTerrainSound)
+        {
+            AkSoundEngine.PostEvent("OneShot_SeaCreature", gameObject);
         }
 
         //if(!overlapping)
@@ -83,4 +88,23 @@ public class BonkController : MonoBehaviour
             indicator.SetActive(false);
         }
     }
+
+
+    public void SideOverlapping(bool isTouching)
+    {
+
+        if (isTouching)
+        {
+            overlappingSide = true;
+            indicator.SetActive(true);
+        }
+        else
+        {
+            overlappingSide = false;
+            indicator.SetActive(false);
+
+        }
+
+    }
+
 }

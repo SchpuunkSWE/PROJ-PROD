@@ -5,11 +5,12 @@ using UnityEngine;
 public class BonkSideCheck : MonoBehaviour
 {
     bool overlapping;
+    GameObject bonkCtrl;
 
     void Start()
     {
         overlapping = false;
-
+        bonkCtrl = this.transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class BonkSideCheck : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Collidable"))
         {
             overlapping = true;
-
+            bonkCtrl.GetComponent<BonkController>().SideOverlapping(overlapping);
         }
     }
 
@@ -35,7 +36,7 @@ public class BonkSideCheck : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Collidable"))
         {
             overlapping = false;
-
+            bonkCtrl.GetComponent<BonkController>().SideOverlapping(overlapping);
         }
     }
 }
