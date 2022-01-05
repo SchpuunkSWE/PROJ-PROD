@@ -38,13 +38,20 @@ public class Audio_Events : MonoBehaviour
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
         //Audio_GameState("StartGame");
-        Audio_PlayerState(isAlive);
+        //Audio_PlayerState(isAlive);
 
     }
     private void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().name;
-        Audio_GameState("StartGame");
+        if(AudioScene.Levels < 2)
+        {
+            Audio_GameState("StartGame");
+        }
+        else
+        {
+            Audio_GameState("ResumeMusic");
+        }
     }
     private void Update()
     {
@@ -212,7 +219,6 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "Exploring":
-                Debug.Log("Scene is: "+sceneIndex);
                 switch (sceneIndex)
                 {
                     case "Level4":
@@ -220,10 +226,11 @@ public class Audio_Events : MonoBehaviour
                         break;
                     case "Level3":
                         AkSoundEngine.PostEvent("MusicState_Exploring3", gameObject);
+                        Debug.Log("Scene is: " + sceneIndex);
                         break;
                     default:
                         AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
-                        AkSoundEngine.SetState("Music_State", "Exploring");
+                  //      AkSoundEngine.SetState("Music_State", "Exploring");
                         break;
                 }
                 currentLevelState = "Exploring";
@@ -252,18 +259,15 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "StartGame":
-                if (AudioScene.Levels < 2)
-                {
-                    if (sceneIndex != "Level3")
-                    {
-                        AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
-                    }
-                    else
-                    {
-                        AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
-                    }
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
+
                     AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
+                break;
+            case "ResumeGame":
+                if (sceneIndex == "Level3")
+                {
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
                 }
                 break;
         }

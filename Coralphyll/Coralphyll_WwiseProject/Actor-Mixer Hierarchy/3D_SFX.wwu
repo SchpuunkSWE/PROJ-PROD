@@ -999,6 +999,9 @@
 						<Sound Name="SharkAlertSound" ID="{C9FBF477-0CED-40DC-B180-7A7D80963BB4}" ShortID="754826506">
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{62093884-46C9-45F4-9DC5-CD04D6C6F3C5}">
@@ -1012,13 +1015,16 @@
 									</ModifierList>
 								</Property>
 								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>16</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{F2D4F344-0A4D-41DF-8A85-F603C917C7E3}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="12"/>
-													<Property Name="Min" Type="Real64" Value="-12"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-5"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>

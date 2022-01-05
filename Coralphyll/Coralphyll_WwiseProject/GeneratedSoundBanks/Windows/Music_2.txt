@@ -1,14 +1,21 @@
 Event	ID	Name			Wwise Object Path	Notes
 	364150639	MusicState_StartOfLevel2			\Default Work Unit\Music\MusicState_StartOfLevel2	
 	815172640	MusicState_Exploring			\Default Work Unit\Music\MusicState_Exploring	
+	1002625444	PauseEverything_01			\MusicEvents\PauseEverything_01	
 	2633930322	MusicState_Exploring2			\Default Work Unit\Music\MusicState_Exploring2	
 	2633930323	MusicState_Exploring3			\Default Work Unit\Music\MusicState_Exploring3	
 	3409594792	MusicState_Combat			\Default Work Unit\Music\MusicState_Combat	
+	4090089807	MusicState_StartOfLevel			\Default Work Unit\Music\MusicState_StartOfLevel	
+	4118159355	ResumeEverything_01			\MusicEvents\ResumeEverything_01	
 
 State Group	ID	Name			Wwise Object Path	Notes
+	444815956	PlayerLife			\Default Work Unit\PlayerLife	
 	3826569560	Music_State			\Default Work Unit\Music_State	
 
 State	ID	Name	State Group			Notes
+	655265632	Alive	PlayerLife			
+	748895195	None	PlayerLife			
+	2044049779	Dead	PlayerLife			
 	748895195	None	Music_State			
 	1593864692	Defeat	Music_State			
 	1823678183	Exploring	Music_State			
