@@ -340,13 +340,13 @@ public class NPCFishUtil : MonoBehaviour
             switch (fishColour)
             {
                 case FishColour.YELLOW:
-                    if (GameObject.FindGameObjectWithTag("YellowFishTag") != null) //Check so that the tag exists. 
+                    if (GameObject.FindGameObjectWithTag("YellowFishTag") != null) //Check so that the tag exists. If it exists...
                     {
-                        plannedTarget = "YellowFishTag"; //sets plannedTarget to YellowFishTag. 
+                        plannedTarget = "YellowFishTag"; //...set plannedTarget to YellowFishTag. 
                     }
                     else
                     {
-                        navArrow.IgnoreYellow(true);
+                        navArrow.IgnoreYellow = true; //...Otherwise ignore the yellow fish.
                     }
                     break;
                 case FishColour.RED:
@@ -356,7 +356,7 @@ public class NPCFishUtil : MonoBehaviour
                     }
                     else
                     {
-                        navArrow.IgnoreRed(true);
+                        navArrow.IgnoreRed = true;
                     }
                     break;
                 case FishColour.BLUE:
@@ -366,7 +366,7 @@ public class NPCFishUtil : MonoBehaviour
                     }
                     else
                     {
-                        navArrow.IgnoreBlue(true);
+                        navArrow.IgnoreBlue = true;
                     }
                     break;
             }
