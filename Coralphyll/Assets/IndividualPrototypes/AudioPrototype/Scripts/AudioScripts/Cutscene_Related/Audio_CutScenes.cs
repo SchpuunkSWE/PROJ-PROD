@@ -23,30 +23,33 @@ public class Audio_CutScenes : MonoBehaviour
                 AkSoundEngine.PostEvent("Cutscene_Level1_Voice", gameObject);
                 AkSoundEngine.PostEvent("Cutscene_Level1_Ambience", gameObject);
                // FindObjectOfType<Audio_Pause>().CinemaMode();
-                Debug.Log("Playing");
                 break;
             case "Cutscene_Level1":
                 AkSoundEngine.PostEvent("Cutscene_Level1_Voice", gameObject);
                 AkSoundEngine.PostEvent("Cutscene_Level1_Ambience", gameObject);
-                Debug.Log("Playing");
                 break;
             case "Level2":
                 AkSoundEngine.PostEvent("Cutscene_Level2_Voice", gameObject);
                 AkSoundEngine.PostEvent("Cutscene_Level2_Ambience", gameObject);
-                Debug.Log("Playing");
                 break;
             case "Cutscene_Level2":
                 AkSoundEngine.PostEvent("Cutscene_Level2_Voice", gameObject);
                 AkSoundEngine.PostEvent("Cutscene_Level2_Ambience", gameObject);
-                Debug.Log("Playing");
                 break;
             case "Level3":
+               // AkSoundEngine.PostEvent("Cutscene_Level3_Voice", gameObject);
+                AkSoundEngine.PostEvent("Cutscene_Level3_Ambience", gameObject);
+                break;
+            case "Cutscene_Level3":
+                // AkSoundEngine.PostEvent("Cutscene_Level3_Voice", gameObject);
+                AkSoundEngine.PostEvent("Cutscene_Level3_Ambience", gameObject);
+                Debug.Log("Playing");
                 break;
             case "Level4":
-                AkSoundEngine.PostEvent("Cutscene_level4_stinger", gameObject);            
+                AkSoundEngine.PostEvent("Cutscene_Level4_Stinger", gameObject);            
                 break;
             case "Cutscene_Level4":
-                AkSoundEngine.PostEvent("Cutscene_level4_stinger", gameObject);
+                AkSoundEngine.PostEvent("Cutscene_Level4_Stinger", gameObject);
                 break;
             case "Credits":
                 AkSoundEngine.PostEvent("Cutscene_PlayCredits", gameObject);
