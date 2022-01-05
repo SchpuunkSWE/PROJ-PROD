@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public static class SaveSystem
 {
     private static bool isLoading = false; //Used to see if we need to load data or not
-    private static SaveData data; //Variable to save our data as
+    public static SaveData data; //Variable to save our data as
 
     // Start is called before the first frame update
     
