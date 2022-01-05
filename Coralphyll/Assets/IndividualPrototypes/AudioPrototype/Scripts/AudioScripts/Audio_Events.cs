@@ -260,14 +260,21 @@ public class Audio_Events : MonoBehaviour
         {
             case "StartGame":
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
-
-                    AkSoundEngine.PostEvent("Background_Ambience", gameObject);
+                if (sceneIndex == "Level3")
+                {
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
+                }
+                AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
                 break;
             case "ResumeGame":
                 if (sceneIndex == "Level3")
                 {
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
+                }
+                if(sceneIndex == "Level4")
+                {
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                 }
                 break;
         }
