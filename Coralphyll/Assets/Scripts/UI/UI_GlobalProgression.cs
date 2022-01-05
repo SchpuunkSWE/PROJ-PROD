@@ -194,7 +194,7 @@ public class UI_GlobalProgression : MonoBehaviour
             Debug.Log(coral2UI);
             coral3I = coral3UI.GetComponent<Image>();
             coral3I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.3f);
-            Debug.Log("Grayout 2 and 3");
+          //  Debug.Log("Grayout 2 and 3");
 
                 break;
             case 2:
@@ -204,7 +204,7 @@ public class UI_GlobalProgression : MonoBehaviour
             coral2I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
             coral3I = coral3UI.GetComponent<Image>();
             coral3I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.3f);
-            Debug.Log("Grayout 1 and 3");
+           // Debug.Log("Grayout 1 and 3");
                 
                 
                 break;
@@ -215,7 +215,7 @@ public class UI_GlobalProgression : MonoBehaviour
             coral2I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 0.3f);
             coral3I = coral3UI.GetComponent<Image>();
             coral3I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
-            Debug.Log("Grayout 1 and 2");
+           // Debug.Log("Grayout 1 and 2");
                 
                 
                 break;
@@ -229,13 +229,13 @@ public class UI_GlobalProgression : MonoBehaviour
     public void setDefaultCoralImageColor(){
         coral1I = coral1UI.GetComponent<Image>();
         coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
-        Debug.Log("DefaultCoral1");
+      //  Debug.Log("DefaultCoral1");
         coral2I = coral2UI.GetComponent<Image>();
         coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
-        Debug.Log("DefaultCoral2");
+        //Debug.Log("DefaultCoral2");
         coral3I = coral3UI.GetComponent<Image>();
         coral1I.color = new Color(coral1I.color.r,coral1I.color.g,coral1I.color.b, 1f);
-        Debug.Log("DefaultCoral3");
+       // Debug.Log("DefaultCoral3");
 
     }
 }
