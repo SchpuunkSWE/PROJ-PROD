@@ -26,8 +26,8 @@ public class BonkController : MonoBehaviour
     {
 
         overlapping = false;
-        enableTerrainSound = true;
-        enableTerrainIndicator = true;
+        enableTerrainSound = false;
+        enableTerrainIndicator = false;
 
         indicator = GameObject.Find("Indicator");
 
