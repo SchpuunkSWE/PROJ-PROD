@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
 
+
     public GameObject pauseMenu;
     public GameObject OptionMenu;
     //lägg in enemy outline script
@@ -26,6 +27,8 @@ public class OptionsMenu : MonoBehaviour
     public GameObject audioIndicator;
     public bool voiceAssist;
     public int checkNoOfEnemies;
+    public OptionsData OD;
+
 
 
 
@@ -36,7 +39,7 @@ public class OptionsMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
        // activateVoiceAssist(voiceAssist);
-        //setToggles();
+        setToggles();
         //navigationArrow = GetComponent<NavigationArrow>();
         
         
@@ -50,7 +53,7 @@ public class OptionsMenu : MonoBehaviour
             exitButton.SetActive(false);
         }
 
-        setToggles();
+       // setToggles();
     }
 
     // Update is called once per frame
@@ -126,7 +129,7 @@ public class OptionsMenu : MonoBehaviour
         GameObject CanvasOffScreenIndicators = GameObject.FindGameObjectWithTag("OSIndicator"); // Find gameobject with tag that gets children during playmode that are the offscreen indicators
         checkNoOfEnemies = CountEnemies(); //Check how many enemies there are in the scene that the offscreen indicators checks
 
-        if (indicatorToggle.GetComponent<Toggle>().isOn) // If the toggle is on, the offscreen indicator shows 
+        if (indicatorToggle.GetComponent<Toggle>().isOn && !isStartMenu) // If the toggle is on, the offscreen indicator shows 
         {
             for (int i = 0; i < checkNoOfEnemies; i++) //Checks in scene for every enemy 
             {
@@ -147,9 +150,12 @@ public class OptionsMenu : MonoBehaviour
 
     public void NavigationArrow(bool navArrow)
     {
-        PlayerPrefs.SetInt("NavigationArrow", BoolToInt(navArrow));
+        //PlayerPrefs.SetInt("NavigationArrow", BoolToInt(navArrow));
+        Debug.Log(navArrow + "Saheel");
+        OD.navigationArrow = navArrowToggle.GetComponent<Toggle>().isOn;
+        Debug.Log(navArrow + "Frej");
         GameObject navigationArrow = GameObject.FindGameObjectWithTag("Arrow"); //Find gameObject with tag Arrow. In this case this should be ArrowParent. 
-        if (navArrowToggle.GetComponent<Toggle>().isOn) //Check if the toggle is toggled.
+        if (navArrowToggle.GetComponent<Toggle>().isOn && !isStartMenu) //Check if the toggle is toggled.
         {
             navigationArrow.transform.GetChild(0).gameObject.SetActive(true); //Activate the child object to the object we found before. In this case it should be the Arrow.
         }
@@ -226,14 +232,20 @@ public class OptionsMenu : MonoBehaviour
         //enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("EnemyOutline"));
         // hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
         //indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
-        navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
+        Debug.Log(OD.navigationArrow + "hampus");
+        Debug.Log(navArrowToggle.GetComponent<Toggle>().isOn + "David");
+        Debug.Log("My");
+        navArrowToggle.GetComponent<Toggle>().isOn = OD.navigationArrow;
+        Debug.Log(navArrowToggle.GetComponent<Toggle>().isOn + "Filip");
         //audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
+        
     }
 
     public void ToggleTerrainNavIndicator()
     {
         GameObject o = GameObject.Find("BonkController");
         o.GetComponent<BonkController>().switchActiveIndicator();
+        
     }
     public void ToggleTerrainNavSound()
     {
