@@ -124,13 +124,51 @@
 						</Sound>
 						<Sound Name="Kame_Death" ID="{18EB6E77-CEE7-4ECF-AE48-9FD72B3901C8}" ShortID="579863412">
 							<PropertyList>
-								<Property Name="Pitch" Type="int32">
+								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>990</Value>
+										<Value>9</Value>
 									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>38</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{6DDFFBBD-8FD2-44B1-B06D-D4BA2A45C3A4}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="5"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{72600E73-956C-4102-8E3A-BCBBBB11C25E}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="50"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_sharkAlert" ID="{A4BA70C0-F63F-42F8-BA00-EC3DA47EA9F0}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
 								</Reference>
@@ -139,17 +177,24 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="kame_down" ID="{7686C4B0-051B-4190-AE62-C994F992C237}">
+								<AudioFileSource Name="Death sound" ID="{B20FAF73-1E65-461B-A69D-9DE72004CFF4}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.14636183763587"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.550118631114131"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0857983186141304"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.40739988111413"/>
+									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>kame_down.wav</AudioFile>
+									<AudioFile>Death sound.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="83371456"/>
+										<MediaID ID="644972561"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="kame_down" ID="{7686C4B0-051B-4190-AE62-C994F992C237}" Platform="Linked"/>
+								<ActiveSource Name="Death sound" ID="{B20FAF73-1E65-461B-A69D-9DE72004CFF4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -928,6 +973,128 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<ActorMixer Name="Shark_Sounds" ID="{D4873FD0-234A-4DE3-9A99-42EC95123F74}" ShortID="50636501">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="att_sharkAlert" ID="{A4BA70C0-F63F-42F8-BA00-EC3DA47EA9F0}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="SharkAlertSound" ID="{C9FBF477-0CED-40DC-B180-7A7D80963BB4}" ShortID="754826506">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{62093884-46C9-45F4-9DC5-CD04D6C6F3C5}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="12"/>
+													<Property Name="Min" Type="Real64" Value="-12"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F2D4F344-0A4D-41DF-8A85-F603C917C7E3}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="12"/>
+													<Property Name="Min" Type="Real64" Value="-12"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{81FED559-EA7A-4C3C-91BF-93F41096683A}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+													<Property Name="Min" Type="Real64" Value="-1"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-200</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A0E9115E-C91B-4ED0-AEFF-26D91B4AC369}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="150"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{08F1A45A-53A5-416E-A6D9-27EA5E59B5C5}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+													<Property Name="Min" Type="Real64" Value="-1"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SharkAlertSound" ID="{A43CA740-0394-488B-96C3-CA8495945CA8}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.363168648097826"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.517851590806159"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.712886605525362"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.19453903419385"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SharkAlertSound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="891198028"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="SharkAlertSound" ID="{A43CA740-0394-488B-96C3-CA8495945CA8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{D534D97C-E87C-4946-B5F7-E689F3EC5D6B}"/>
+					</PositioningInfo>
+					<ObjectLists/>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

@@ -26,6 +26,9 @@
 							</ReferenceList>
 						</Action>
 						<Action Name="" ID="{8E8B37EB-9964-4962-8A84-4EB570856862}" ShortID="935206439">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
@@ -35,6 +38,7 @@
 						<Action Name="" ID="{D460CE91-D1A7-4A82-BCA2-F0E566EF4A92}" ShortID="341467687">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -48,9 +52,10 @@
 					<ChildrenList>
 						<Action Name="" ID="{6A3D9222-F60C-4D10-A877-697B09DDB37A}" ShortID="1028938421">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="ActionType" Type="int16" Value="12"/>
 								<Property Name="FadeOutCurve" Type="int16" Value="5"/>
-								<Property Name="FadeTime" Type="Real64" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+								<Property Name="Volume" Type="Real64" Value="-15"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -80,14 +85,28 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
-						<Action Name="" ID="{EDCA83BA-F365-43C2-92FE-6A6B9B1B3CFF}" ShortID="894793288">
+						<Action Name="" ID="{E3A7BA63-D022-4290-876A-CB5FD74C77F4}" ShortID="866427604">
 							<PropertyList>
-								<Property Name="FadeInCurve" Type="int16" Value="5"/>
-								<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+								<Property Name="ActionType" Type="int16" Value="12"/>
+								<Property Name="FadeInCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+								<Property Name="Volume" Type="Real64" Value="-14"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Combat_Ambience" ID="{9F4FAB50-D781-471B-8EAC-27E668608D3B}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+									<ObjectRef Name="Music_SwitchContainer_2" ID="{A844F430-172F-45FD-8B44-B06F9F9068D0}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{CC414BC3-D376-4062-8BF2-94B082B14B95}" ShortID="187805837">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="1"/>
+								<Property Name="FadeInCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience_Heartbeat" ID="{E911D1F5-57FF-4F14-96C0-A9CA71E09E68}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -97,9 +116,10 @@
 					<ChildrenList>
 						<Action Name="" ID="{0382DD1A-6023-48C4-9264-7F3571131606}" ShortID="981614979">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="ActionType" Type="int16" Value="12"/>
 								<Property Name="FadeInCurve" Type="int16" Value="5"/>
 								<Property Name="FadeTime" Type="Real64" Value="2"/>
+								<Property Name="Volume" Type="Real64" Value="-4"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -139,6 +159,29 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{C24D065F-6010-4582-B2E3-6FE48FED4C35}" ShortID="727694358">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer_2" ID="{A844F430-172F-45FD-8B44-B06F9F9068D0}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9E6DB5C9-561C-4690-B0B3-8B3C6372D67D}" ShortID="648635127">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience_Heartbeat" ID="{E911D1F5-57FF-4F14-96C0-A9CA71E09E68}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="MusicEvent_Victory" ID="{EFC25002-69CF-4A3A-BE51-368C019C9137}">
@@ -173,7 +216,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Dead" ID="{7474C406-E888-41DB-B549-88F6FEF467D7}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+									<ObjectRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -200,9 +243,10 @@
 					<ChildrenList>
 						<Action Name="" ID="{C3FCB49E-5AA1-4580-A9EA-F9854FD37899}" ShortID="463081663">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="ActionType" Type="int16" Value="12"/>
 								<Property Name="FadeInCurve" Type="int16" Value="5"/>
-								<Property Name="FadeTime" Type="Real64" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+								<Property Name="Volume" Type="Real64" Value="-5"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -239,6 +283,157 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Combat_Ambience" ID="{9F4FAB50-D781-471B-8EAC-27E668608D3B}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{EB522C66-7987-4B9C-A461-6CB2438720FE}" ShortID="475892110">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer_2" ID="{A844F430-172F-45FD-8B44-B06F9F9068D0}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{46CF77DF-FECF-4E57-9C4C-F8C26EEBE468}" ShortID="42967770">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience_Heartbeat" ID="{E911D1F5-57FF-4F14-96C0-A9CA71E09E68}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicState_Exploring3" ID="{A891006A-7FDA-4FD4-AAB4-F864276F0577}">
+					<ChildrenList>
+						<Action Name="" ID="{4EB34AB3-DDD1-4409-8813-EC8C811C572C}" ShortID="581406885">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="12"/>
+								<Property Name="FadeInCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+								<Property Name="Volume" Type="Real64" Value="-4"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer_2" ID="{A844F430-172F-45FD-8B44-B06F9F9068D0}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{3D251EFB-49FE-4566-8190-F1574C059521}" ShortID="313492650">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BE915828-9DB1-4907-AD89-0FC730673A4F}" ShortID="486743272">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Alive" ID="{92F785FF-4936-44BE-8F68-D51E2B08776F}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{EA5979BD-8D19-4AB9-9957-42BEF4EC3DCA}" ShortID="323400170">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{CE966287-82CB-4987-B046-A2053E9AF4FB}" ShortID="318035115">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience" ID="{9F4FAB50-D781-471B-8EAC-27E668608D3B}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{711C906C-4586-42E7-923E-A6FE82C99B40}" ShortID="1027836967">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat_Ambience_Heartbeat" ID="{E911D1F5-57FF-4F14-96C0-A9CA71E09E68}" WorkUnitID="{01DBDA59-355A-4D41-A190-FF868E46A7B2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicState_StartOfLevel2" ID="{80D03DED-DC9C-4218-8FA3-2BA9DB720868}">
+					<ChildrenList>
+						<Action Name="" ID="{F62BBFC1-6120-4334-9030-39175AF19D68}" ShortID="146173898">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Exploring" ID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{64FC732F-5E56-4262-8737-97C35F3C1431}" ShortID="369578162">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Alive" ID="{92F785FF-4936-44BE-8F68-D51E2B08776F}" WorkUnitID="{E7411F9A-FAED-4B3A-B8A8-0F5753FCB2E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1C899AAC-7809-4AC8-902B-775AFF589652}" ShortID="529933640">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer_2" ID="{A844F430-172F-45FD-8B44-B06F9F9068D0}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{798CB6DA-EF38-4993-9D6A-765AFC289175}" ShortID="692374382">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_MainMenu" ID="{B327CC15-8DC2-43C4-814D-B689EC306B9E}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9CA9BA29-693D-45A4-8441-4BA5F531C869}" ShortID="878560418">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer" ID="{4B484BF6-2958-4DBE-9828-39FB99E7F76C}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -172,7 +172,8 @@ public class Audio_Events : MonoBehaviour
                 {
                     if (!hasPlayedAlert)
                     {
-                        Audio_StingerCue("EnemyAlert");
+                        AkSoundEngine.PostEvent("OneShot_EnemyAlert", aiContr[i].gameObject);
+                       // Audio_StingerCue("EnemyAlert");
                         Debug.Log("Incombat: CD: " + musicStateCD + " Time: " + time);
                         Audio_LevelState("Combat");
                     }
@@ -211,14 +212,19 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "Exploring":
-                if(sceneIndex== "Level4")
+                Debug.Log("Scene is: "+sceneIndex);
+                switch (sceneIndex)
                 {
-                    AkSoundEngine.PostEvent("MusicState_Exploring2", gameObject);
-                }
-                else
-                {
-                    AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
-                    AkSoundEngine.SetState("Music_State", "Exploring");
+                    case "Level4":
+                        AkSoundEngine.PostEvent("MusicState_Exploring2", gameObject);
+                        break;
+                    case "Level3":
+                        AkSoundEngine.PostEvent("MusicState_Exploring3", gameObject);
+                        break;
+                    default:
+                        AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
+                        AkSoundEngine.SetState("Music_State", "Exploring");
+                        break;
                 }
                 currentLevelState = "Exploring";
                 break;
@@ -245,14 +251,19 @@ public class Audio_Events : MonoBehaviour
         Debug.Log(AudioScene.Levels);
         switch (state)
         {
-
             case "StartGame":
                 if (AudioScene.Levels < 2)
                 {
-                    AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
+                    if (sceneIndex != "Level3")
+                    {
+                        AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
+                    }
+                    else
+                    {
+                        AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
+                    }
                     AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
-
                 }
                 break;
         }

@@ -6,6 +6,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	144300286	MusicState_MainMenu			\Default Work Unit\Music\MusicState_MainMenu	
 	169370995	ui_SoundEffectSlider			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_SoundEffectSlider	
 	203293054	NPC_Friendly_Fish_Generic_Stop			\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Fish_Generic_Stop	
+	364150639	MusicState_StartOfLevel2			\Default Work Unit\Music\MusicState_StartOfLevel2	
 	541083879	NPC_Coral_Stop			\Default Work Unit\SFX_Events\Corals\NPC_Coral_Stop	
 	569341283	Mine_Beep			\Default Work Unit\SFX_Events\Hazards\Mine_Beep	
 	638605449	SharkHuff			\Default Work Unit\SFX_Events\SharkRelated\SharkHuff	
@@ -44,6 +45,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2467171692	ui_StartGame			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_StartGame	
 	2569102337	ui_ColorPicker			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ColorPicker	
 	2633930322	MusicState_Exploring2			\Default Work Unit\Music\MusicState_Exploring2	
+	2633930323	MusicState_Exploring3			\Default Work Unit\Music\MusicState_Exploring3	
 	2649584764	ui_LoadGame			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_LoadGame	
 	2724623504	ui_Options			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Options	
 	2748011726	Char_Death			\Default Work Unit\character_movement\Char_Death	
@@ -105,7 +107,6 @@ Effect plug-ins	ID	Name	Type				Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	17199714	StartGame	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\StartGame_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\StartGame		39326
 	39524040	ContrastSlider	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\ContrastSlider_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\ContrastSlider		48542
-	83371456	Kame_Death	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\kame_down_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Hazards\Kame_Death		164060
 	92155153	ping_final_pickup	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\ping_final_pickup_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Notification_NPC_Pickup\ping_final_pickup		194624
 	96701241	Combat_Ambience	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\ES_The Ridge_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\Combat_Ambience		24220864
 	97199819	SaveGame	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\SaveGame_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\SaveGame		38174
@@ -153,6 +154,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	631719852	Controls options	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\Controls options_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\Controls options		55454
 	638976678	ES_PREL Sweeper High 7 - SFX Producer	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\ES_PREL Sweeper High 7 - SFX Producer_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\NPC_DropOff\ES_PREL Sweeper High 7 - SFX Producer		837696
 	640379504	Chime_dingding	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\ChimeProj_879B5ABF.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Accessibility\Chime_dingding		598132
+	644972561	Kame_Death	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\Death sound_F10B1CD3.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Hazards\Kame_Death		445812
 	646329306	HitThump_EnemySound	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\HitThump_EnemySound_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Accessibility\NPC_Enemy\HitThump_EnemySound		481344
 	736607416	SharkGrowl	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\SharkSound_BD060FD4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\SharkGrowl		2760000
 	752514042	ES_Sea Creature Moan 5 - SFX Producer	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\ES_Sea Creature Moan 5 - SFX Producer_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Ambience_OneShots\ES_Sea Creature Moan 5 - SFX Producer		1173568
@@ -163,7 +165,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	833513687	AmbientSoundSlider	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\AmbientSoundSlider_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\AmbientSoundSlider		58910
 	834333654	SharkHuff	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\SharkHuff_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\SharkHuff		260868
 	842372335	Whoosh_Slow_01	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\Whoosh_Slow_01_6C6AE246.wem		\Actor-Mixer Hierarchy\Default Work Unit\SwimBeats_swim_2\Whoosh_Slow_01		196104
+	873549461	Combat_Ambience_Heartbeat	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\Heartbeat_Pulse_Accelerating_01_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\Combat_Ambience_Heartbeat		4302616
 	887289873	OutlineWidthSlider	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\OutlineWidthSlider_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\OutlineWidthSlider		58910
+	891198028	SharkAlertSound	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\SharkAlertSound_81ED1AA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Shark_Sounds\SharkAlertSound		476540
 	948809142	413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\Alert\413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx		284796
 	962159150	Chime_FriendlyFish3_updated	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\Chime_FriendlyFish3_updated_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Accessibility\NPC_Friendly_Yellow\Chime_FriendlyFish3_updated		361420
 	973053950	SoundEffectSlider	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Windows\SFX\SoundEffectSlider_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\SoundEffectSlider		53150
