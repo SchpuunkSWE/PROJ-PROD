@@ -9,7 +9,7 @@ public class MorayChase : MorayState
     [SerializeField]
     private float chaseSpeed = 2f;
 
-    private float chaseDistance = 10f;
+    private float chaseDistance = 20f; //changed from 10f
     public override void Enter()
     {
         base.Enter();

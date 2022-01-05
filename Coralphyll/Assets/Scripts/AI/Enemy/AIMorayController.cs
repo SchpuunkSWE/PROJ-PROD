@@ -9,6 +9,9 @@ public class AIMorayController : MonoBehaviour
     private Transform lungePoint;
 
     [SerializeField]
+    private float lungeRadius = 5f;
+
+    [SerializeField]
     private LayerMask playerLayer;
 
     [SerializeField] 
@@ -28,6 +31,10 @@ public class AIMorayController : MonoBehaviour
         player = PlayerControllerKeybinds.Player.gameObject;
     }
 
+    public float GetLungeRadius()
+    {
+        return lungeRadius;
+    }
     public GameObject GetPlayerObject()
     {
         return player;
