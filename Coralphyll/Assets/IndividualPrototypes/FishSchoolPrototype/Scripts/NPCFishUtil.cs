@@ -344,17 +344,29 @@ public class NPCFishUtil : MonoBehaviour
                     {
                         plannedTarget = "YellowFishTag"; //sets plannedTarget to YellowFishTag. 
                     }
+                    else
+                    {
+                        navArrow.IgnoreYellow(true);
+                    }
                     break;
                 case FishColour.RED:
                     if (GameObject.FindGameObjectWithTag("RedFishTag") != null)
                     {
                         plannedTarget = "RedFishTag";
                     }
+                    else
+                    {
+                        navArrow.IgnoreRed(true);
+                    }
                     break;
                 case FishColour.BLUE:
                     if (GameObject.FindGameObjectWithTag("BlueFishTag") != null)
                     {
                         plannedTarget = "BlueFishTag";
+                    }
+                    else
+                    {
+                        navArrow.IgnoreBlue(true);
                     }
                     break;
             }
