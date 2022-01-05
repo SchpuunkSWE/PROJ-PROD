@@ -28,6 +28,7 @@ public class OptionsMenu : MonoBehaviour
     public int checkNoOfEnemies;
 
 
+
     void Start()
     {
         voiceAssist = false;
@@ -91,7 +92,32 @@ public class OptionsMenu : MonoBehaviour
 
     public void HintSystem(bool hintSystem)
     {
-        PlayerPrefs.SetInt("HintSystem", BoolToInt(hintSystem));
+        //PlayerPrefs.SetInt("HintSystem", BoolToInt(hintSystem));
+
+
+
+        GameObject TutorialCanvas = GameObject.FindGameObjectWithTag("Tutorial");
+       // checkNoOfTutorialTriggers = CountTutorialTriggers();
+
+        if (hintToggle.GetComponent<Toggle>().isOn)
+        {
+            for (int i = 0; i < TutorialCanvas.transform.childCount; i++)
+            {
+                TutorialCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                Debug.Log("Saheel");
+            }
+                    }
+        else
+        {
+            for (int i = 0; i < TutorialCanvas.transform.childCount; i++)
+            {
+
+                TutorialCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+
+
+
     }
 
     public void OffScreenIndicator(bool offScreen)
@@ -198,7 +224,7 @@ public class OptionsMenu : MonoBehaviour
     public void setToggles()
     {
         //enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("EnemyOutline"));
-        hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
+        // hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
         //indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
         //audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
@@ -220,4 +246,6 @@ public class OptionsMenu : MonoBehaviour
         GameObject[] noOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         return noOfEnemies.Length;
     }
+
+
 }
