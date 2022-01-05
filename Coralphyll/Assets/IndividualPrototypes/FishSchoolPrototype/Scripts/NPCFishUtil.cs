@@ -66,16 +66,16 @@ public class NPCFishUtil : MonoBehaviour
     }
     public int AddToSchool(Follower fol) //Kanske döpa om (till AddTOInventory)
     {
-        if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//Om det inte finns plats eller om fisken redan finns i listan...
+        if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//If the list is full or already contains the fish...
         {
-            return -1; //returner default v�rde eftersom positionInList inte kan s�ttas till null
+            return -1; //Return default value because positionInList cannot be set to null
         }
-        //Om metoden inte har returnerats...
-        listOfFishes.Add(fol);
-        return listOfFishes.IndexOf(fol);
+        //If the method has not been returned...
+        listOfFishes.Add(fol); //Add fish to the list.
+        return listOfFishes.IndexOf(fol); //Return the index of the fish.
     }
 
-    public GameObject GetTargetPositionObject(int i) //H�mtar TargetObject fr�n array
+    public GameObject GetTargetPositionObject(int i) //Get TargetObject from array.
     {
         return arrayOfTargets[i];
     }
@@ -139,13 +139,10 @@ public class NPCFishUtil : MonoBehaviour
             if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
             {
                 fishToRemove.Add(f);
-
-
             } //else if (f.GetComponent<NPCFollow>().isFollowingPlayer && !coral.Completable && f.GetColour() == fishColour) //Add fish even if full. remove if safezones should have a limit(obs dont forget to remove coral.Completable in above aswell)
             //{
             //    fishToRemove.Add(f);
             //}
-
         }
         foreach (Follower f in fishToRemove)
         {
@@ -161,22 +158,23 @@ public class NPCFishUtil : MonoBehaviour
         {
             FishCounter.fishCounterInstance.RecountFishes = true;
         }
+
+        UpdateTargetPoints();
     }
 
-    public bool PickUpFish(GameObject player, Follower follower)
+    public bool PickUpFish(Follower follower)
     {
-        NPCFishUtil listScript = player.gameObject.GetComponent<NPCFishUtil>(); //H�mtar det andra scriptet från spelare s� vi kommer �t det.
         NPCFollow nPCFollow = follower.GetComponent<NPCFollow>();
-        BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>(); //Hämtar Boids Systemet som fisken är child till.
+        BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>(); //Retrieves the Boids System to which the fish is a child.
         int positionInList = nPCFollow.PositionInList;
-        positionInList = listScript.AddToSchool(follower.transform.gameObject.GetComponent<Follower>()); //L�gger till fisken till listan och returnerar platsen i listan den f�r.
-        if (positionInList >= 0) //Om vi f�r tillbaka ett v�rde �ver 0... 
+        positionInList = AddToSchool(follower.transform.gameObject.GetComponent<Follower>()); //Adds the fish to the list and returns the place in the list it receives.
+        if (positionInList >= 0) //If we get back a value above 0 ...
         {
             nPCFollow.PositionInList = positionInList;
-            nPCFollow.fishTarget = listScript.GetTargetPositionObject(positionInList); //Vi s�tter fiskens target till det targetObject som har samma pos i arrayen som fisken har i sin lista.
-            boidsSystem.RemoveAgent(follower.gameObject); //Tar bort agent från listan av agents.
+            nPCFollow.fishTarget = GetTargetPositionObject(positionInList); //We set the fish's target to the targetObject that has the same position in the array as the fish has in its list.
+            boidsSystem.RemoveAgent(follower.gameObject); //Removes agent from the list of agents.
             follower.transform.SetParent(null);
-            nPCFollow.isFollowingPlayer = true; //Vi s�tter fiskens status till att f�lja spelaren.
+            nPCFollow.isFollowingPlayer = true; //We set the status of the fish to follow the player.
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
@@ -211,8 +209,8 @@ public class NPCFishUtil : MonoBehaviour
         foreach (Follower f in toRemoveFromSafezone)
         {
             Debug.Log("Picking up fish");
-            PickUpFish(gameObject, f); //Reuse the method where we pick up fish with the player
-            coral.UpdateProgress(); //Update the UI
+            PickUpFish(f); //Reuse the method where we pick up fish.
+            coral.UpdateProgress(); //Update the UI.
 
         }
 
@@ -241,7 +239,7 @@ public class NPCFishUtil : MonoBehaviour
             foreach (Follower f in fishToRemove)
             {
                 NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
-                listOfFishes.Remove(f); //Removes fishes from the list of fishes 
+                listOfFishes.Remove(f); //Removes fish from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
                 nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
                 nPCFollow.fishTarget = null;
@@ -251,7 +249,6 @@ public class NPCFishUtil : MonoBehaviour
                 Debug.Log("StartCoroutine KÖRD");
             }
             fishToRemove.Clear(); //Clear the fish to remove list.
-
         }
     }
 
@@ -290,6 +287,8 @@ public class NPCFishUtil : MonoBehaviour
         fish.GetComponent<BoidsAgent>().owner = null;
         fish.RGB.detectCollisions = true; //Turn on collision on fish.
         fish.transform.SetParent(null); //Sets parent to null
+
+        UpdateTargetPoints();
     }
 
     public void KillAllFish()
@@ -381,8 +380,19 @@ public class NPCFishUtil : MonoBehaviour
             return;
         }
 
-        CheckFishColour();
+        CheckFishColour(); //Otherwise run the CheckFishColour method.
         //navArrow.SetTargetTag("Coral"); //Otherwise set tag to coral.
+    }
+
+    private void UpdateTargetPoints()
+    {
+        foreach (Follower f in listOfFishes)
+        {
+            NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
+            //int posInList = listOfFishes.IndexOf(f); //Get the index of the fish in listOfFishes. 
+            //nPCFollow.PositionInList = posInList; //Set fish pos in list. 
+            nPCFollow.fishTarget = GetTargetPositionObject(listOfFishes.IndexOf(f)); //Change fish target so that it's the same as it's index in list. 
+        }
     }
 
 }
