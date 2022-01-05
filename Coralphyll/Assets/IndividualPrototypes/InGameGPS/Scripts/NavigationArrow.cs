@@ -15,6 +15,10 @@ public class NavigationArrow : MonoBehaviour
     [SerializeField]
     private float arrowTransparencyMinRange = 15f; //Minimun range from target for arrow to be visible
 
+    private bool ignoreYellow;
+    private bool ignoreRed;
+    private bool ignoreBlue;
+
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +42,16 @@ public class NavigationArrow : MonoBehaviour
         Vector3 currentPosition = transform.position;
         foreach (GameObject potentialTarget in arrayOfTargets)
         {
+            if (targetTag == "NPCFish")
+            {
+                if (potentialTarget.GetComponent<Follower>().GetColour().ToString() == "YELLOW" && ignoreYellow
+                        || potentialTarget.GetComponent<Follower>().GetColour().ToString() == "RED" && ignoreRed
+                        || potentialTarget.GetComponent<Follower>().GetColour().ToString() == "BLUE" && ignoreBlue)
+                {
+                    continue; //Skip to next element in the foreach loop
+                }
+            }
+
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if (dSqrToTarget < closestDistanceSqr)
@@ -95,5 +109,18 @@ public class NavigationArrow : MonoBehaviour
         {
             rendArrow.material.color = Color.white;
         }
+    }
+
+    public void IgnoreYellow(bool yellow)
+    {
+        ignoreYellow = yellow;
+    }
+    public void IgnoreRed(bool red)
+    {
+        ignoreRed = red;
+    }
+    public void IgnoreBlue(bool blue)
+    {
+        ignoreBlue = blue;
     }
 }
