@@ -419,6 +419,21 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Music_StopLevel3" ID="{FC0AB18C-F33A-4268-A478-FA10E3E87B9B}">
+					<ChildrenList>
+						<Action Name="" ID="{2E10F6F5-21D9-4603-B0D3-23BACD66E77B}" ShortID="1016037933">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_SwitchContainer_2" ID="{A844F430-172F-45FD-8B44-B06F9F9068D0}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
