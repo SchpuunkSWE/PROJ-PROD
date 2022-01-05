@@ -35,6 +35,7 @@ public class OutlineMenuSettings : MonoBehaviour
             else
             {
                 go.GetComponentInChildren<Outline>().enabled = false;
+
                 //also toggle off colorpicker
                 colourPicker.gameObject.SetActive(false);
 
