@@ -9,6 +9,9 @@ public class UI_Trigger : MonoBehaviour
     private GameObject coralPanel; //Set in inspector
 
     [SerializeField]
+    private GameObject safeZoneHaze; 
+
+    [SerializeField]
     private GameObject inGameCanvas;
 
     [SerializeField]
@@ -39,12 +42,13 @@ public class UI_Trigger : MonoBehaviour
             myCoral.GetComponent<Coral>().UpdateProgress();
             if (myCoral.GetComponent<Coral>().IsSafezone) //If the gamobject is checked as a safezone...
             {
-                safezonePanel.SetActive(true); //... Activate the UI for the safezone...
-                safezonePanel.GetComponent<FishWheel>().panelEnabled= true;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
+                //safezonePanel.SetActive(true); //... Activate the UI for the safezone...
+                //safezonePanel.GetComponent<FishWheel>().panelEnabled= true;
+                //Cursor.lockState = CursorLockMode.Locked;
+                //Cursor.lockState = CursorLockMode.None;
+                //Cursor.lockState = CursorLockMode.Confined;
+                //Cursor.visible = true;
+                safeZoneHaze.SetActive(true);
                 
             }
             else
@@ -76,10 +80,11 @@ public class UI_Trigger : MonoBehaviour
 
             if (myCoral.GetComponent<Coral>().IsSafezone) //If the gamobject is checked as a safezone...
             {
-                safezonePanel.SetActive(false); //... Activate the UI for the safezone...
-                safezonePanel.GetComponent<FishWheel>().panelEnabled= false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+               // safezonePanel.SetActive(false); //... Activate the UI for the safezone...
+               // safezonePanel.GetComponent<FishWheel>().panelEnabled= false;
+                //Cursor.lockState = CursorLockMode.Locked;
+                //Cursor.visible = false;
+                safeZoneHaze.SetActive(false);
             }
             if(!uiOpened){
                coralPanel.SetActive(false); 
