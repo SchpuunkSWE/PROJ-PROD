@@ -9,7 +9,6 @@ public class StartMenu : MonoBehaviour
  //  public GameObject interactionPanel;
    // public GameObject accessibilitypanel;
     public GameObject optionsPanel;
-    public GameObject howToPlayPanel;
    // public GameObject visionAidPanel;
    // public GameObject audioOptionsPanel;
    
@@ -18,7 +17,6 @@ public class StartMenu : MonoBehaviour
     private bool loadOpen;
 
     private bool optionsOpen;
-    private bool howToPlayOpen;
 
     void Start()
     {
@@ -45,25 +43,6 @@ public class StartMenu : MonoBehaviour
         {
             optionsPanel.SetActive(false);
             optionsOpen = false;
-
-        }
-
-        
-
-    }
-
-    public void OpenHowToPlayButton(){
-        if(howToPlayOpen == false){
-            howToPlayPanel.SetActive(true);
-        
-        howToPlayOpen = true;
-        
-
-        }
-        else 
-        {
-            howToPlayPanel.SetActive(false);
-            howToPlayOpen = false;
 
         }
 

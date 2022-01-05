@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID CUTSCENE_LEVEL2_AMBIENCE = 2945618175U;
         static const AkUniqueID CUTSCENE_LEVEL2_SHARKBITE = 3451548568U;
         static const AkUniqueID CUTSCENE_LEVEL2_VOICE = 1672897699U;
+        static const AkUniqueID CUTSCENE_LEVEL3_AMBIENCE = 930059492U;
         static const AkUniqueID CUTSCENE_LEVEL4_STINGER = 3295537989U;
         static const AkUniqueID CUTSCENE_PLAYCREDITS = 650132800U;
         static const AkUniqueID FISHEAT = 2968903799U;
@@ -35,8 +36,11 @@ namespace AK
         static const AkUniqueID MINE_EXPLOSION = 3706089396U;
         static const AkUniqueID MUSICSTATE_COMBAT = 3409594792U;
         static const AkUniqueID MUSICSTATE_EXPLORING = 815172640U;
+        static const AkUniqueID MUSICSTATE_EXPLORING2 = 2633930322U;
+        static const AkUniqueID MUSICSTATE_EXPLORING3 = 2633930323U;
         static const AkUniqueID MUSICSTATE_MAINMENU = 144300286U;
         static const AkUniqueID MUSICSTATE_STARTOFLEVEL = 4090089807U;
+        static const AkUniqueID MUSICSTATE_STARTOFLEVEL2 = 364150639U;
         static const AkUniqueID NEW_EVENT = 3050945240U;
         static const AkUniqueID NPC_CORAL_PLAY = 3584532785U;
         static const AkUniqueID NPC_CORAL_STOP = 541083879U;
@@ -210,6 +214,7 @@ namespace AK
         static const AkUniqueID CUTSCENES = 3765803840U;
         static const AkUniqueID MAIN = 3161908922U;
         static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID MUSIC_2 = 508837813U;
     } // namespace BANKS
 
     namespace BUSSES
