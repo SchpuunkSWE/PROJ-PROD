@@ -86,6 +86,7 @@ public class UI_Trigger : MonoBehaviour
             }
             
             inGameCanvas.GetComponent<UI_GlobalProgression>().setDefaultCoralImageColor();
+            Debug.Log("SetDefaultintrigger");
             //fishWheelPanel.SetActive(false);
             //fishWheelPanel.GetComponent<FishWheel>().exitHovering = true;
             //Debug.Log("Trigger Exited!");
