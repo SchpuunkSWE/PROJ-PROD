@@ -278,6 +278,7 @@ public class Audio_Events : MonoBehaviour
                 }
                 if(sceneIndex == "Level4")
                 {
+                    Debug.Log("HELLO");
                     AkSoundEngine.PostEvent("Music_StopLevel3", gameObject);
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                 }
