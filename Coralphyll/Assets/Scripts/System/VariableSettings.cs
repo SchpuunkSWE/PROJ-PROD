@@ -7,8 +7,6 @@ public class VariableSettings : MonoBehaviour
     private PlayerControllerKeybinds playerControllerKeybinds;
     private Controller3DKeybinds player;
 
-    private TrashPile trashPile;
-
     [SerializeField]
     private List<GameObject> trashPiles;
 
@@ -32,7 +30,6 @@ public class VariableSettings : MonoBehaviour
     {
         playerControllerKeybinds = PlayerControllerKeybinds.Player;
         player = playerControllerKeybinds.gameObject.GetComponent<Controller3DKeybinds>();
-        trashPile = FindObjectOfType<TrashPile>();
     }
 
     private void ActivateObjectsInList(List<GameObject> listToPopulate, int amount)
@@ -93,6 +90,7 @@ public class VariableSettings : MonoBehaviour
 
     public void SetPlayerCanDropFishAnywhere(bool value)
     {
+        //player.GetComponent<PlayerControllerKeybinds>().CanDropFish = value;
         playerControllerKeybinds.CanDropFish = value;
     }
     #endregion
@@ -162,17 +160,26 @@ public class VariableSettings : MonoBehaviour
     #region TrashPile
     public void SetTimeBeforeKill(float value)
     {
-        trashPile.TimeAllowed = value;
+        foreach(GameObject t in trashPiles)
+        {
+            t.GetComponentInChildren<TrashPile>().TimeAllowed = value;
+        }
     }
 
     public void SetTrashPileSpeed(float value)
     {
-        trashPile.TrashPileSpeed = value;
+        foreach (GameObject t in trashPiles)
+        {
+            t.GetComponentInChildren<TrashPile>().TrashPileSpeed = value;
+        }
     }
 
     public void SetTrashSlowAmount(float value)
     {
-        trashPile.PlayerSlowedSpeed = value;
+        foreach (GameObject t in trashPiles)
+        {
+            t.GetComponentInChildren<TrashPile>().PlayerSlowedSpeed = value;
+        }
     }
 
     public void SetTotalAmountOfTrashPiles(float value)
@@ -183,7 +190,10 @@ public class VariableSettings : MonoBehaviour
 
     public void TrashPileRemovesPlayerBoost(bool value)
     {
-        trashPile.TrashRemovesPlayerBoost = value;
+        foreach (GameObject t in trashPiles)
+        {
+            t.GetComponentInChildren<TrashPile>().TrashRemovesPlayerBoost = value;
+        }
     }
 
 
