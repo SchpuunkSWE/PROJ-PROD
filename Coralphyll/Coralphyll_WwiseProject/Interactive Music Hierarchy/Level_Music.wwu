@@ -96,7 +96,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-2</Value>
+														<Value>-3</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -187,6 +187,11 @@
 								<MusicSegment Name="Cody_Martin_Season_of_Foliage_instrumental_2_54_LOWQUALITY_SHORT" ID="{34DEA525-4420-4DC1-AB6B-7BF5AF0B0145}" ShortID="759059692">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="139663.109490947"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -201,7 +206,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-8</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2054,7 +2059,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+							<ObjectRef Name="Music" ID="{1814FE67-649C-4173-8DFB-6BE1BE083860}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -2241,11 +2246,13 @@
 					<ObjectLists/>
 					<ArgumentList>
 						<ArgumentRef Name="Music_State" ID="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}"/>
+						<ArgumentRef Name="PlayerLife" ID="{E5007303-F886-48F0-9BBF-63CC74A9BE15}"/>
 					</ArgumentList>
 					<EntryList>
 						<Entry>
 							<Path>
 								<PathElementRef Name="MainMenu" ID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}"/>
+								<PathElementRef Name="Alive" ID="{92F785FF-4936-44BE-8F68-D51E2B08776F}"/>
 							</Path>
 							<AudioNodeInfo>
 								<AudioNodeRef Name="MainTheme" ID="{ED69C65C-8C1A-49AE-8869-A46431514EF2}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
@@ -2398,7 +2405,7 @@
 										<Property Name="EndPosition" Type="Real64" Value="200394.854166667"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>-4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2415,7 +2422,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-7</Value>
+														<Value>-9</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2692,8 +2699,8 @@
 					<EntryList>
 						<Entry>
 							<Path>
-								<PathElementRef Name="MainMenu" ID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}"/>
-								<PathElementRef Name="Dead" ID="{7474C406-E888-41DB-B549-88F6FEF467D7}"/>
+								<PathElementRef Name="Music_State" ID="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}"/>
+								<PathElementRef Name="PlayerLife" ID="{E5007303-F886-48F0-9BBF-63CC74A9BE15}"/>
 							</Path>
 							<AudioNodeInfo>
 								<AudioNodeRef Name="Explore_Level3" ID="{D5A6560B-75B8-4D31-99D3-CB8171C88469}" WorkUnitID="{03318BC5-CB28-45B1-AF5C-018E18E7F470}" Platform="Linked"/>
