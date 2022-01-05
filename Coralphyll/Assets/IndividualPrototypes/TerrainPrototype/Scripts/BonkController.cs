@@ -85,7 +85,8 @@ public class BonkController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Collidable"))
         {
             overlapping = false;
-            indicator.SetActive(false);
+            if(!overlappingSide)
+                indicator.SetActive(false);
         }
     }
 
@@ -96,12 +97,16 @@ public class BonkController : MonoBehaviour
         if (isTouching)
         {
             overlappingSide = true;
-            indicator.SetActive(true);
+            if (enableTerrainIndicator)
+            {
+                indicator.SetActive(true);
+            }
         }
         else
         {
             overlappingSide = false;
-            indicator.SetActive(false);
+            if(!overlapping)
+                indicator.SetActive(false);
 
         }
 
