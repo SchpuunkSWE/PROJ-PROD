@@ -6,6 +6,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	144300286	MusicState_MainMenu			\Default Work Unit\Music\MusicState_MainMenu	
 	169370995	ui_SoundEffectSlider			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_SoundEffectSlider	
 	203293054	NPC_Friendly_Fish_Generic_Stop			\Default Work Unit\SFX_Events\NPC_Fishes\NPC_Friendly_Fish_Generic_Stop	
+	364150639	MusicState_StartOfLevel2			\Default Work Unit\Music\MusicState_StartOfLevel2	
 	541083879	NPC_Coral_Stop			\Default Work Unit\SFX_Events\Corals\NPC_Coral_Stop	
 	569341283	Mine_Beep			\Default Work Unit\SFX_Events\Hazards\Mine_Beep	
 	638605449	SharkHuff			\Default Work Unit\SFX_Events\SharkRelated\SharkHuff	
@@ -43,6 +44,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	2434109411	ui_SaveGame			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_SaveGame	
 	2467171692	ui_StartGame			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_StartGame	
 	2569102337	ui_ColorPicker			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_ColorPicker	
+	2633930322	MusicState_Exploring2			\Default Work Unit\Music\MusicState_Exploring2	
+	2633930323	MusicState_Exploring3			\Default Work Unit\Music\MusicState_Exploring3	
 	2649584764	ui_LoadGame			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_LoadGame	
 	2724623504	ui_Options			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_Options	
 	2748011726	Char_Death			\Default Work Unit\character_movement\Char_Death	
@@ -82,9 +85,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	4272550151	ui_EnableOutline			\Default Work Unit\SFX_Events\UI_TextToSpeech\ui_EnableOutline	
 
 State Group	ID	Name			Wwise Object Path	Notes
+	444815956	PlayerLife			\Default Work Unit\PlayerLife	
 	3826569560	Music_State			\Default Work Unit\Music_State	
 
 State	ID	Name	State Group			Notes
+	655265632	Alive	PlayerLife			
+	748895195	None	PlayerLife			
+	2044049779	Dead	PlayerLife			
 	748895195	None	Music_State			
 	1593864692	Defeat	Music_State			
 	1823678183	Exploring	Music_State			
@@ -162,7 +169,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	833513687	AmbientSoundSlider	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\AmbientSoundSlider_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\AmbientSoundSlider		58910
 	834333654	SharkHuff	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\SharkHuff_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\SharkHuff		260868
 	842372335	Whoosh_Slow_01	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Whoosh_Slow_01_6C6AE246.wem		\Actor-Mixer Hierarchy\Default Work Unit\SwimBeats_swim_2\Whoosh_Slow_01		196104
+	873549461	Combat_Ambience_Heartbeat	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Heartbeat_Pulse_Accelerating_01_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\Combat_Ambience_Heartbeat		4302616
 	887289873	OutlineWidthSlider	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\OutlineWidthSlider_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\OutlineWidthSlider		58910
+	891198028	SharkAlertSound	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\SharkAlertSound_81ED1AA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Shark_Sounds\SharkAlertSound		476540
 	948809142	413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stingers\Alert\413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx		284796
 	962159150	Chime_FriendlyFish3_updated	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\Chime_FriendlyFish3_updated_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D_SFX\Accessibility\NPC_Friendly_Yellow\Chime_FriendlyFish3_updated		361420
 	973053950	SoundEffectSlider	C:\UnityProjects\PROJ-PROD\Coralphyll\Coralphyll_WwiseProject\.cache\Mac\SFX\SoundEffectSlider_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_UI\SoundEffectSlider		53150

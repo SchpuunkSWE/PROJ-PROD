@@ -11,6 +11,86 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
+		<SoundBank Id="508837813" Language="SFX" Hash="363863274">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_2</ObjectPath>
+			<ShortName>Music_2</ShortName>
+			<Path>Music_2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3632114732" Name="Music_StopLevel3" ObjectPath="\Events\Default Work Unit\Music\Music_StopLevel3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" DurationType="OneShot" DurationMin="43.302792" DurationMax="48.483284"/>
+				<Event Id="2633930323" Name="MusicState_Exploring3" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
+						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="364150639" Name="MusicState_StartOfLevel2" ObjectPath="\Events\Default Work Unit\Music\MusicState_StartOfLevel2" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="94465988" Language="SFX">
+							<ShortName>Markus_Huber_Ocean_Tide_instrumental_3_14_SHORT.wav</ShortName>
+							<Path>SFX\Markus_Huber_Ocean_Tide_instrumental_3_14_SHORT_D79FB2B7.wem</Path>
+						</File>
+						<File Id="779089053" Language="SFX">
+							<ShortName>Cody_Martin_Seaworthy_instrumental_3_20_LOWQUALITY.wav</ShortName>
+							<Path>SFX\Cody_Martin_Seaworthy_instrumental_3_20_LOWQUALITY_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}">
+							<Children>
+								<SwitchContainer SwitchValue="{E5007303-F886-48F0-9BBF-63CC74A9BE15}">
+									<Media>
+										<File Id="94465988"/>
+										<File Id="779089053"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
+						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1002625444" Name="PauseEverything_01" ObjectPath="\Events\MusicEvents\PauseEverything_01" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4118159355" Name="ResumeEverything_01" ObjectPath="\Events\MusicEvents\ResumeEverything_01" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="94465988" Language="SFX">
+					<ShortName>Markus_Huber_Ocean_Tide_instrumental_3_14_SHORT.wav</ShortName>
+					<Path>SFX\Markus_Huber_Ocean_Tide_instrumental_3_14_SHORT_D79FB2B7.wem</Path>
+				</File>
+				<File Id="779089053" Language="SFX">
+					<ShortName>Cody_Martin_Seaworthy_instrumental_3_20_LOWQUALITY.wav</ShortName>
+					<Path>SFX\Cody_Martin_Seaworthy_instrumental_3_20_LOWQUALITY_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+			<StateGroups>
+				<StateGroup Id="444815956" Name="PlayerLife" ObjectPath="\States\Default Work Unit\PlayerLife" GUID="{E5007303-F886-48F0-9BBF-63CC74A9BE15}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\PlayerLife\None" GUID="{71334147-F197-498B-AC33-632DAF1FD8A6}"/>
+						<State Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive" GUID="{92F785FF-4936-44BE-8F68-D51E2B08776F}"/>
+						<State Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead" GUID="{7474C406-E888-41DB-B549-88F6FEF467D7}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead" GUID="{7474C406-E888-41DB-B549-88F6FEF467D7}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3826569560" Name="Music_State" ObjectPath="\States\Default Work Unit\Music_State" GUID="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Music_State\None" GUID="{3E90E05C-8156-4C61-AFF4-3CC120C92187}"/>
+						<State Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring" GUID="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}"/>
+						<State Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Music_State\Combat" GUID="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}"/>
+						<State Id="2716678721" Name="Victory" ObjectPath="\States\Default Work Unit\Music_State\Victory" GUID="{71016D14-1C72-437D-9D62-829C3176B568}"/>
+						<State Id="1593864692" Name="Defeat" ObjectPath="\States\Default Work Unit\Music_State\Defeat" GUID="{34F51EA6-18B9-4EDA-960F-3BB515F47A66}"/>
+						<State Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX" Hash="1273557024">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
@@ -27,7 +107,7 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="893841463">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2485441044">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -60,7 +140,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2748011726" Name="Char_Death" ObjectPath="\Events\Default Work Unit\character_movement\Char_Death" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.482150" DurationMax="0.482150">
+				<Event Id="2748011726" Name="Char_Death" ObjectPath="\Events\Default Work Unit\character_movement\Char_Death" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.829830" DurationMax="0.904936">
 					<IncludedMemoryFiles>
 						<File Id="83371456" Language="SFX">
 							<ShortName>kame_down.wav</ShortName>
@@ -143,22 +223,45 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" DurationType="OneShot" DurationMin="126.150002" DurationMax="126.150002"/>
+				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" DurationType="OneShot" DurationMin="43.302792" DurationMax="48.483284"/>
 				<Event Id="815172640" Name="MusicState_Exploring" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
+						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
 						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="2633930322" Name="MusicState_Exploring2" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2633930323" Name="MusicState_Exploring3" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
+						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="144300286" Name="MusicState_MainMenu" ObjectPath="\Events\Default Work Unit\Music\MusicState_MainMenu" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="103774500" Language="SFX">
+							<ShortName>ES_The Proposition_Short.wav</ShortName>
+							<Path>SFX\ES_The Proposition_Short_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">
-							<Media>
-								<File Id="103774500"/>
-							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{92F785FF-4936-44BE-8F68-D51E2B08776F}">
+									<Media>
+										<File Id="103774500"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
 					<ActionSetState>
-						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
+						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
 						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
 					</ActionSetState>
 				</Event>
@@ -179,7 +282,7 @@
 								<SwitchContainer SwitchValue="{92F785FF-4936-44BE-8F68-D51E2B08776F}">
 									<Media>
 										<File Id="458301427"/>
-										<File Id="581889451"/>
+										<File Id="660719875"/>
 									</Media>
 								</SwitchContainer>
 							</Children>
@@ -194,10 +297,38 @@
 								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
+						<SwitchContainer SwitchValue="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}">
+							<Children>
+								<SwitchContainer SwitchValue="{7474C406-E888-41DB-B549-88F6FEF467D7}">
+									<Media>
+										<File Id="458301427"/>
+										<File Id="660719875"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
 					</SwitchContainers>
 					<ActionSetState>
 						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
 						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="364150639" Name="MusicState_StartOfLevel2" ObjectPath="\Events\Default Work Unit\Music\MusicState_StartOfLevel2" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{5C3E733F-DBCC-40CA-AA8B-9C98762C11FD}">
+							<Children>
+								<SwitchContainer SwitchValue="{E5007303-F886-48F0-9BBF-63CC74A9BE15}">
+									<Media>
+										<File Id="94465988"/>
+										<File Id="779089053"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
+						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
 					</ActionSetState>
 				</Event>
 				<Event Id="3050945240" Name="New_Event" ObjectPath="\Events\Default Work Unit\SFX_Events\EffectZones\New_Event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -272,11 +403,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1157870456" Name="OneShot_EnemyAlert" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_EnemyAlert" DurationType="OneShot" DurationMin="1.614127" DurationMax="1.614127">
+				<Event Id="1157870456" Name="OneShot_EnemyAlert" ObjectPath="\Events\Default Work Unit\SFX_Events\OneShots\OneShot_EnemyAlert" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="2.554370" DurationMax="3.037676">
 					<IncludedMemoryFiles>
-						<File Id="948809142" Language="SFX">
-							<ShortName>413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx.wav</ShortName>
-							<Path>SFX\413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx_10C4C929.wem</Path>
+						<File Id="891198028" Language="SFX">
+							<ShortName>SharkAlertSound.wav</ShortName>
+							<Path>SFX\SharkAlertSound_81ED1AA7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -834,9 +965,17 @@
 					<ShortName>Whoosh_Slow_01.wav</ShortName>
 					<Path>SFX\Whoosh_Slow_01_6C6AE246.wem</Path>
 				</File>
+				<File Id="873549461" Language="SFX">
+					<ShortName>Heartbeat_Pulse_Accelerating_01.wav</ShortName>
+					<Path>SFX\Heartbeat_Pulse_Accelerating_01_D79FB2B7.wem</Path>
+				</File>
 				<File Id="887289873" Language="SFX">
 					<ShortName>OutlineWidthSlider.wav</ShortName>
 					<Path>SFX\OutlineWidthSlider_10C4C929.wem</Path>
+				</File>
+				<File Id="891198028" Language="SFX">
+					<ShortName>SharkAlertSound.wav</ShortName>
+					<Path>SFX\SharkAlertSound_81ED1AA7.wem</Path>
 				</File>
 				<File Id="948809142" Language="SFX">
 					<ShortName>413641__djlprojects__metal-gear-solid-inspired-alert-surprise-sfx.wav</ShortName>
@@ -902,7 +1041,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3765803840" Language="SFX" Hash="1041819743">
+		<SoundBank Id="3765803840" Language="SFX" Hash="2753184728">
 			<ObjectPath>\SoundBanks\Default Work Unit\Cutscenes</ObjectPath>
 			<ShortName>Cutscenes</ShortName>
 			<Path>Cutscenes.bnk</Path>
@@ -947,7 +1086,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3295537989" Name="Cutscene_level4_stinger" ObjectPath="\Events\CutScenes\Level4\Cutscene_level4_stinger" DurationType="OneShot" DurationMin="20.331730" DurationMax="20.331730">
+				<Event Id="930059492" Name="Cutscene_Level3_Ambience" ObjectPath="\Events\CutScenes\Level3\Cutscene_Level3_Ambience" DurationType="OneShot" DurationMin="20.815887" DurationMax="20.815887">
+					<IncludedMemoryFiles>
+						<File Id="820668900" Language="SFX">
+							<ShortName>Wild_Wonder_Colors_And_Patterns_instrumental_1_10_SHORT.wav</ShortName>
+							<Path>SFX\Wild_Wonder_Colors_And_Patterns_instrumental_1_10_SHORT_B28A57F4.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3295537989" Name="Cutscene_Level4_Stinger" ObjectPath="\Events\CutScenes\Level4\Cutscene_Level4_Stinger" DurationType="OneShot" DurationMin="20.331730" DurationMax="20.331730">
 					<IncludedMemoryFiles>
 						<File Id="652670948" Language="SFX">
 							<ShortName>ES_The Smallest of Miracles (Sting) - Magnus Ringblom.wav</ShortName>
@@ -994,6 +1141,10 @@
 					<ShortName>Level2_Voiceacting.wav</ShortName>
 					<Path>SFX\Level2_Voiceacting_10C4C929.wem</Path>
 				</File>
+				<File Id="820668900" Language="SFX">
+					<ShortName>Wild_Wonder_Colors_And_Patterns_instrumental_1_10_SHORT.wav</ShortName>
+					<Path>SFX\Wild_Wonder_Colors_And_Patterns_instrumental_1_10_SHORT_B28A57F4.wem</Path>
+				</File>
 				<File Id="1014736026" Language="SFX">
 					<ShortName>LostPortalsINtoTheWater_Short.wav</ShortName>
 					<Path>SFX\LostPortalsINtoTheWater_Short_D79FB2B7.wem</Path>
@@ -1006,24 +1157,111 @@
 				<GameParameter Id="3644905565" Name="RTPC_AmbienceVolume" ObjectPath="\Game Parameters\Default Work Unit\Volume\RTPC_AmbienceVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3991942870" Language="SFX" Hash="4270680969">
+		<SoundBank Id="3991942870" Language="SFX" Hash="3832491776">
 			<ObjectPath>\SoundBanks\Default Work Unit\Music</ObjectPath>
 			<ShortName>Music</ShortName>
 			<Path>Music.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" DurationType="OneShot" DurationMin="126.150002" DurationMax="126.150002"/>
+				<Event Id="160134941" Name="MusicEvent_Victory" ObjectPath="\Events\Default Work Unit\Music\MusicEvent_Victory" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="2716678721" Name="Victory" ObjectPath="\States\Default Work Unit\Music_State\Victory"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="3409594792" Name="MusicState_Combat" ObjectPath="\Events\Default Work Unit\Music\MusicState_Combat" DurationType="OneShot" DurationMin="43.302792" DurationMax="48.483284">
+					<IncludedMemoryFiles>
+						<File Id="873549461" Language="SFX">
+							<ShortName>Heartbeat_Pulse_Accelerating_01.wav</ShortName>
+							<Path>SFX\Heartbeat_Pulse_Accelerating_01_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="815172640" Name="MusicState_Exploring" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
+						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
 						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2633930322" Name="MusicState_Exploring2" ObjectPath="\Events\Default Work Unit\Music\MusicState_Exploring2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
 					</ActionSetState>
 				</Event>
 				<Event Id="144300286" Name="MusicState_MainMenu" ObjectPath="\Events\Default Work Unit\Music\MusicState_MainMenu" DurationType="Infinite">
 					<ActionSetState>
-						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead"/>
+						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
 						<ActionSetStateEntry Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu"/>
 					</ActionSetState>
 				</Event>
 				<Event Id="4090089807" Name="MusicState_StartOfLevel" ObjectPath="\Events\Default Work Unit\Music\MusicState_StartOfLevel" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="252260266" Language="SFX">
+							<ShortName>ES_Paint Me with Courage_Victory_Part2_Loop.wav</ShortName>
+							<Path>SFX\ES_Paint Me with Courage_Victory_Part2_Loop_D79FB2B7.wem</Path>
+						</File>
+						<File Id="297170815" Language="SFX">
+							<ShortName>Courage_Part1.wav</ShortName>
+							<Path>SFX\Courage_Part1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="458301427" Language="SFX">
+							<ShortName>ES_Don't Be Afraid MIX.wav</ShortName>
+							<Path>SFX\ES_Don't Be Afraid MIX_D79FB2B7.wem</Path>
+						</File>
+						<File Id="660719875" Language="SFX">
+							<ShortName>Cody_Martin_Season_of_Foliage_instrumental_2_54_LOWQUALITY_SHORT.wav</ShortName>
+							<Path>SFX\Cody_Martin_Season_of_Foliage_instrumental_2_54_LOWQUALITY_SHORT_D79FB2B7.wem</Path>
+						</File>
+						<File Id="721467564" Language="SFX">
+							<ShortName>ES_Paint Me with Courage_Victory_Part1.wav</ShortName>
+							<Path>SFX\ES_Paint Me with Courage_Victory_Part1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="760993504" Language="SFX">
+							<ShortName>ES_Our Future Pages - Golden Fern SHORT.wav</ShortName>
+							<Path>SFX\ES_Our Future Pages - Golden Fern SHORT_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}">
+							<Children>
+								<SwitchContainer SwitchValue="{92F785FF-4936-44BE-8F68-D51E2B08776F}">
+									<Media>
+										<File Id="297170815"/>
+										<File Id="760993504"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{CDDE20D0-8C37-40E3-B1F4-D57ADB592C38}">
+							<Children>
+								<SwitchContainer SwitchValue="{92F785FF-4936-44BE-8F68-D51E2B08776F}">
+									<Media>
+										<File Id="458301427"/>
+										<File Id="660719875"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{71016D14-1C72-437D-9D62-829C3176B568}">
+							<Children>
+								<SwitchContainer SwitchValue="{E5007303-F886-48F0-9BBF-63CC74A9BE15}">
+									<Media>
+										<File Id="252260266"/>
+										<File Id="721467564"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{D97ADEFC-A491-4BBC-B6E9-D720ED75CEC3}">
+							<Children>
+								<SwitchContainer SwitchValue="{7474C406-E888-41DB-B549-88F6FEF467D7}">
+									<Media>
+										<File Id="458301427"/>
+										<File Id="660719875"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
 					<ActionSetState>
 						<ActionSetStateEntry Id="655265632" Name="Alive" ObjectPath="\States\Default Work Unit\PlayerLife\Alive"/>
 						<ActionSetStateEntry Id="1823678183" Name="Exploring" ObjectPath="\States\Default Work Unit\Music_State\Exploring"/>
@@ -1050,9 +1288,9 @@
 					<ShortName>ES_Don't Be Afraid MIX.wav</ShortName>
 					<Path>SFX\ES_Don't Be Afraid MIX_D79FB2B7.wem</Path>
 				</File>
-				<File Id="581889451" Language="SFX">
-					<ShortName>ES_Eyes of Yours_short.wav</ShortName>
-					<Path>SFX\ES_Eyes of Yours_short_D79FB2B7.wem</Path>
+				<File Id="660719875" Language="SFX">
+					<ShortName>Cody_Martin_Season_of_Foliage_instrumental_2_54_LOWQUALITY_SHORT.wav</ShortName>
+					<Path>SFX\Cody_Martin_Season_of_Foliage_instrumental_2_54_LOWQUALITY_SHORT_D79FB2B7.wem</Path>
 				</File>
 				<File Id="721467564" Language="SFX">
 					<ShortName>ES_Paint Me with Courage_Victory_Part1.wav</ShortName>
@@ -1084,6 +1322,9 @@
 					<States/>
 				</StateGroup>
 				<StateGroup Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerLife\Dead" GUID="{7474C406-E888-41DB-B549-88F6FEF467D7}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2716678721" Name="Victory" ObjectPath="\States\Default Work Unit\Music_State\Victory" GUID="{71016D14-1C72-437D-9D62-829C3176B568}">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="3604647259" Name="MainMenu" ObjectPath="\States\Default Work Unit\Music_State\MainMenu" GUID="{F2948D7F-F90D-44C7-AB88-BE16A608A479}">

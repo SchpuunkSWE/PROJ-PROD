@@ -169,6 +169,46 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Level3" ID="{294DF7A5-6862-4807-BDAB-D436CCF0F606}" ShortID="897091376">
+					<ChildrenList>
+						<Sound Name="Wild_Wonder_Wilderness_instrumental_1_17_SHORT" ID="{F4DE1148-8798-4387-8A0C-9AAD7F979DFE}" ShortID="700337879">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Wild_Wonder_Colors_And_Patterns_instrumental_1_10_SHORT" ID="{0E5C855C-E5AE-48C9-AD40-CEF6E543304A}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.39869595205789"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.658209859791953"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="20.8158868159204"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Wild_Wonder_Colors_And_Patterns_instrumental_1_10_SHORT.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="820668900"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Wild_Wonder_Colors_And_Patterns_instrumental_1_10_SHORT" ID="{0E5C855C-E5AE-48C9-AD40-CEF6E543304A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

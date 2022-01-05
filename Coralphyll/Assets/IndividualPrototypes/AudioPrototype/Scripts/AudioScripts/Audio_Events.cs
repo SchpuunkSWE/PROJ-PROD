@@ -25,6 +25,7 @@ public class Audio_Events : MonoBehaviour
     private float musicStateCD;
     private int tempCoralFish;
     private int tempCoralFish2;
+    private string sceneIndex;
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,13 +37,21 @@ public class Audio_Events : MonoBehaviour
         corals = GameObject.FindObjectsOfType<Coral>();
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
-        //Audio_GameState("StartGame");
-        Audio_PlayerState(isAlive);
+        sceneIndex = SceneManager.GetActiveScene().name;
+        if (AudioScene.Levels < 2)
+        {
+            Audio_GameState("StartGame");
+        }
+        else
+        {
+            Debug.Log("I should be playing FIRST");
+            Audio_GameState("ResumeGame");
+        }
 
     }
     private void Start()
     {
-        Audio_GameState("StartGame");
+
     }
     private void Update()
     {
@@ -170,7 +179,8 @@ public class Audio_Events : MonoBehaviour
                 {
                     if (!hasPlayedAlert)
                     {
-                        Audio_StingerCue("EnemyAlert");
+                        AkSoundEngine.PostEvent("OneShot_EnemyAlert", aiContr[i].gameObject);
+                       // Audio_StingerCue("EnemyAlert");
                         Debug.Log("Incombat: CD: " + musicStateCD + " Time: " + time);
                         Audio_LevelState("Combat");
                     }
@@ -209,8 +219,20 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "Exploring":
-                AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
-                AkSoundEngine.SetState("Music_State", "Exploring");
+                switch (sceneIndex)
+                {
+                    case "Level4":
+                        AkSoundEngine.PostEvent("MusicState_Exploring2", gameObject);
+                        break;
+                    case "Level3":
+                        AkSoundEngine.PostEvent("MusicState_Exploring3", gameObject);
+                        Debug.Log("Scene is: " + sceneIndex);
+                        break;
+                    default:
+                        AkSoundEngine.PostEvent("MusicState_Exploring", gameObject);
+                  //      AkSoundEngine.SetState("Music_State", "Exploring");
+                        break;
+                }
                 currentLevelState = "Exploring";
                 break;
             case "Combat":
@@ -236,14 +258,29 @@ public class Audio_Events : MonoBehaviour
         Debug.Log(AudioScene.Levels);
         switch (state)
         {
-
             case "StartGame":
-                if (AudioScene.Levels < 2)
+                if (sceneIndex == "Level3")
+                {
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
+                }
+                else
                 {
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
-                    AkSoundEngine.PostEvent("Background_Ambience", gameObject);
+                }
+                AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
-
+                break;
+            case "ResumeGame":
+                if (sceneIndex == "Level3")
+                {
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
+                    Debug.Log(" I SHOULD BE PLAYING!");
+                }
+                if(sceneIndex == "Level4")
+                {
+                    Debug.Log("HELLO");
+                    AkSoundEngine.PostEvent("Music_StopLevel3", gameObject);
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                 }
                 break;
         }
