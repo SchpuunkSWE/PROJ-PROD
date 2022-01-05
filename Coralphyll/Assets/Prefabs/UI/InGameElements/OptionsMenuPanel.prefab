@@ -1630,7 +1630,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 234667204870004013}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: soundEffects
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1244787005023409716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5448,7 +5460,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 234667204870004013}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: ambience
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1535483036281003680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7586,10 +7610,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2572357465405217182}
-        m_TargetAssemblyTypeName: Audio_Accessibility, Assembly-CSharp
-        m_MethodName: ToggleAudioAccessibility
-        m_Mode: 1
+      - m_Target: {fileID: 234667204870004013}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: OffScreenIndicator
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7597,7 +7621,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 1
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &4796290876512430174
 MonoBehaviour:
@@ -7901,7 +7925,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 234667204870004013}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: HintSystem
+        m_MethodName: EnableOutline
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8238,7 +8262,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 234667204870004013}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: mainAudio
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6174187166585971225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11620,7 +11656,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 234667204870004013}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: music
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3167500777223630099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15198,6 +15246,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 234667204870004013}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: audioIndicator
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &8867236124655545825
 MonoBehaviour:
@@ -17562,7 +17622,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 234667204870004013}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: HintSystem
+        m_MethodName: navigationSound
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17675,7 +17735,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 234667204870004013}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: HintSystem
+        m_MethodName: navigationIndicator
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18094,7 +18154,19 @@ MonoBehaviour:
   hintToggle: {fileID: 1041461234804199019}
   indicatorToggle: {fileID: 3239140261680525646}
   navArrowToggle: {fileID: 1824826177678509139}
-  audioIndicator: {fileID: 3239140261680525646}
+  audioIndicatorToggle: {fileID: 7130767680745601056}
+  navigationSoundToggle: {fileID: 7914289520489693115}
+  navigationIndicatorToggle: {fileID: 7943936824694595834}
+  textToSpeachToggle: {fileID: 3697194423698784342}
+  enableOutlineToggle: {fileID: 3257925477898273311}
+  mainAudioSlider: {fileID: 3406996149846449936}
+  musicSlider: {fileID: 5022201621829342069}
+  soundEffectsSlider: {fileID: 743693841250522025}
+  ambienceSlider: {fileID: 2334118869535384420}
+  textSizeSlider: {fileID: 7728229761328237852}
+  brightnessSlider: {fileID: 8733400709895040467}
+  contrastSlider: {fileID: 3073420254440540415}
+  outlineWidthSlider: {fileID: 5526647310721090272}
   voiceAssist: 1
   checkNoOfEnemies: 0
   OD: {fileID: 11400000, guid: fb409151b86c094459b9bd87ab7665f2, type: 2}

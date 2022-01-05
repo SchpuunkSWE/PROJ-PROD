@@ -27,7 +27,7 @@ public class StartMenu : MonoBehaviour
     }
     public void PressStartButton()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(7);
         AkSoundEngine.PostEvent("StopMainMenuMusic", GameObject.FindGameObjectWithTag("MainCamera"));
         Logger.LoggerInstance.CreateTextFile("#PlayTestSTARTED");
         Logger.LoggerInstance.CreateTextFile("Level 1: ");
