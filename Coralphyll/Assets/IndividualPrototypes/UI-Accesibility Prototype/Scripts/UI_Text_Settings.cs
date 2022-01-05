@@ -29,7 +29,7 @@ public class UI_Text_Settings : MonoBehaviour
     private Text fonttext;
     private RectTransform m_RectTransform;
 
-    public GameObject button;
+    //public GameObject button;
 
 
 
@@ -57,7 +57,7 @@ public class UI_Text_Settings : MonoBehaviour
     public float DeafaultTextSizeTT1;
     public int DeafaultTextSizeTT2;
     public float DeafaultTextSizeTT3;
-    public float targetSize;
+    private float targetSize;
 
     public float TT1_Size1 = 15f;
     public float TT1_Size2 = 20;
