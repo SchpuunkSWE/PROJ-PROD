@@ -24,7 +24,8 @@ public class OptionsMenu : MonoBehaviour
     public GameObject indicatorToggle;
     public GameObject navArrowToggle;
     public GameObject audioIndicator;
-    public bool voiceAssist; 
+    public bool voiceAssist;
+    public int checkNoOfEnemies;
 
 
 
@@ -35,9 +36,10 @@ public class OptionsMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
        // activateVoiceAssist(voiceAssist);
-        setToggles();
+        //setToggles();
         //navigationArrow = GetComponent<NavigationArrow>();
-
+        
+        
 
     }
     void Awake()
@@ -47,7 +49,8 @@ public class OptionsMenu : MonoBehaviour
         {
             exitButton.SetActive(false);
         }
-        
+
+        setToggles();
     }
 
     // Update is called once per frame
@@ -65,45 +68,80 @@ public class OptionsMenu : MonoBehaviour
 
     public void EnemyOutline(bool enemyOutline)
     {
-        PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
+        //PlayerPrefs.SetInt("EnemyOutline", BoolToInt(enemyOutline));
         GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        
 
         if (enemyOutlineToggle.GetComponent<Toggle>().isOn)
         {
-            enemy[0].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
-            enemy[1].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
-            enemy[2].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+            for (int i = 0; i < enemy.Length; i++)
+            {
+                enemy[i].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(true);
+            }
+
         }
         else
         {
-            enemy[0].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
-            enemy[1].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
-            enemy[2].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+            for (int i = 0; i < enemy.Length; i++)
+            {
+                enemy[i].transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject.SetActive(false);
+            }
         }
 
     }
 
     public void HintSystem(bool hintSystem)
     {
-        PlayerPrefs.SetInt("HintSystem", BoolToInt(hintSystem));
+        //PlayerPrefs.SetInt("HintSystem", BoolToInt(hintSystem));
+
+
+
+        GameObject TutorialCanvas = GameObject.FindGameObjectWithTag("Tutorial");
+       // checkNoOfTutorialTriggers = CountTutorialTriggers();
+
+        if (hintToggle.GetComponent<Toggle>().isOn)
+        {
+            for (int i = 0; i < TutorialCanvas.transform.childCount; i++)
+            {
+                TutorialCanvas.transform.GetChild(i).gameObject.SetActive(true);
+                Debug.Log("Saheel");
+            }
+                    }
+        else
+        {
+            for (int i = 0; i < TutorialCanvas.transform.childCount; i++)
+            {
+
+                TutorialCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+
+
+
     }
 
     public void OffScreenIndicator(bool offScreen)
     {
-        PlayerPrefs.SetInt("OffscreenIndicator", BoolToInt(offScreen));
-        GameObject CanvasOffScreenIndicators = GameObject.FindGameObjectWithTag("OSIndicator");
+        //PlayerPrefs.SetInt("OffscreenIndicator", BoolToInt(offScreen));
+        GameObject CanvasOffScreenIndicators = GameObject.FindGameObjectWithTag("OSIndicator"); // Find gameobject with tag that gets children during playmode that are the offscreen indicators
+        checkNoOfEnemies = CountEnemies(); //Check how many enemies there are in the scene that the offscreen indicators checks
 
-        if (indicatorToggle.GetComponent<Toggle>().isOn)
+        if (indicatorToggle.GetComponent<Toggle>().isOn) // If the toggle is on, the offscreen indicator shows 
         {
-            CanvasOffScreenIndicators.transform.GetChild(0).gameObject.SetActive(true);
-            CanvasOffScreenIndicators.transform.GetChild(1).gameObject.SetActive(true);
-            CanvasOffScreenIndicators.transform.GetChild(2).gameObject.SetActive(true);
+            for (int i = 0; i < checkNoOfEnemies; i++) //Checks in scene for every enemy 
+            {
+                CanvasOffScreenIndicators.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            
         }
-        else 
+        else  //If the toggle is off, the offscreen indicators does not show
         {
-            CanvasOffScreenIndicators.transform.GetChild(0).gameObject.SetActive(false);
-            CanvasOffScreenIndicators.transform.GetChild(1).gameObject.SetActive(false);
-            CanvasOffScreenIndicators.transform.GetChild(2).gameObject.SetActive(false);
+            for (int i = 0; i < checkNoOfEnemies; i++) 
+            {
+                CanvasOffScreenIndicators.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+
         }
     }
 
@@ -185,9 +223,9 @@ public class OptionsMenu : MonoBehaviour
 
     public void setToggles()
     {
-        enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("EnemyOutline"));
-        hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
-        indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
+        //enemyOutlineToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("EnemyOutline"));
+        // hintToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("HintSystem"));
+        //indicatorToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("OffscreenIndicator"));
         navArrowToggle.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("NavigationArrow"));
         //audioIndicator.GetComponent<Toggle>().isOn = IntToBool(PlayerPrefs.GetInt("AudioIndicator"));
     }
@@ -202,4 +240,12 @@ public class OptionsMenu : MonoBehaviour
         GameObject o = GameObject.Find("BonkController");
         o.GetComponent<BonkController>().switchActiveSound();
     }
+
+    public int CountEnemies() // count number of enemies in every scene
+    {
+        GameObject[] noOfEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return noOfEnemies.Length;
+    }
+
+
 }

@@ -26,7 +26,11 @@ public class UIController : MonoBehaviour
         {
             for (int i = 0; i < targetIndicators.Count; i++)
             {
-                targetIndicators[i].UpdateTargetIndicator();
+                if (targetIndicators[i].isActiveAndEnabled)
+                {
+                   targetIndicators[i].UpdateTargetIndicator();
+                }
+                
             }
         }
     }
