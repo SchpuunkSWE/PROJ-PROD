@@ -7,6 +7,7 @@ using static Audio_Events;
 public class BonkController : MonoBehaviour
 {
     bool overlapping;
+    bool overlappingSide;
 
     private GameObject indicator;
 
@@ -40,6 +41,10 @@ public class BonkController : MonoBehaviour
         {
             // GamePad.SetVibration(playerIndex, .1f, .1f);
             AkSoundEngine.PostEvent("FishEat", gameObject);
+        }
+        else if (overlappingSide && enableTerrainSound)
+        {
+            AkSoundEngine.PostEvent("NPC_DropOff", gameObject);
         }
 
         //if(!overlapping)
@@ -80,7 +85,31 @@ public class BonkController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Collidable"))
         {
             overlapping = false;
-            indicator.SetActive(false);
+            if(!overlappingSide)
+                indicator.SetActive(false);
         }
     }
+
+
+    public void SideOverlapping(bool isTouching)
+    {
+
+        if (isTouching)
+        {
+            overlappingSide = true;
+            if (enableTerrainIndicator)
+            {
+                indicator.SetActive(true);
+            }
+        }
+        else
+        {
+            overlappingSide = false;
+            if(!overlapping)
+                indicator.SetActive(false);
+
+        }
+
+    }
+
 }

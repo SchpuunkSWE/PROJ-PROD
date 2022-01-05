@@ -9,7 +9,7 @@ public abstract class MorayState : State
     public AIMorayController AIMorayController => morayController = morayController != null ? morayController : (AIMorayController)owner;
 
     protected float baseSpeed = 2f;
-    protected float attackDistance = 1f;
+    protected float attackDistance = 2f; //changed from 1f
 
     public override void Enter()
     {
@@ -47,11 +47,17 @@ public abstract class MorayState : State
         Vector3 fwd = AIMorayController.transform.TransformDirection(Vector3.forward);
         Debug.DrawRay(AIMorayController.transform.position, fwd * distance, Color.green);
         //return Physics.Raycast(morayController.transform.position, fwd, out objectHit, distance, playerLayer);
-        if(Physics.Raycast(morayController.transform.position, fwd, out objectHit, distance, AIMorayController.GetPlayerLayer()))
+
+        //if (Physics.Raycast(morayController.transform.position, fwd, out objectHit, distance, AIMorayController.GetPlayerLayer()))
+        //{
+        //    Debug.Log("Hit: " + objectHit.transform.gameObject.name);
+        //    return true;
+        //}
+        if (Physics.SphereCast(morayController.transform.position, AIMorayController.GetLungeRadius(), fwd, out objectHit, distance, AIMorayController.GetPlayerLayer()))
         {
             Debug.Log("Hit: " + objectHit.transform.gameObject.name);
             return true;
-        }
+        }        
         else
         {
             return false;
