@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -51,6 +52,19 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        #region DisabledInStartMenu
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        //Get name of current scene
+        string sceneName = currentScene.name;
+
+        //If in startmenu, disable OutlineMenuSettings script to avoid error msgs
+        if (sceneName == "StartMenu 1")
+        {
+            GetComponent<OutlineMenuSettings>().enabled = false;
+        }
+        #endregion
+
         devMenu.SetActive(false);
         completedCoralAmount = 0;
         totalCoralAmount = CountCoralsInscene();
