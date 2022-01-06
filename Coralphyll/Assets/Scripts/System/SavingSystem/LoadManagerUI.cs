@@ -37,12 +37,12 @@ public class LoadManagerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         //data.level = level;
-        
-        if (sceneCount > 0)
+        SaveData data = SaveSystem.data;
+        if (data != null)
         {
-            SaveData data = SaveSystem.data;
+            //SaveData data = SaveSystem.data;
 
             if (data.level == 1)
             {
