@@ -978,6 +978,56 @@
 								<ActiveSource Name="trashpile_acccessibility" ID="{A9ECAF13-FC67-4629-883B-6F82364D218E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="ChimeObj" ID="{BA3CABDD-DFF9-4435-B9C3-DE7C74200E8C}" ShortID="501075243">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{679156FF-2A21-4591-9753-B1D11850AECD}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="att_coralObj" ID="{9895295F-697A-44CF-AC67-708495FFDF90}" WorkUnitID="{F3BBA799-FABE-48A8-97CC-1297279114C7}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D1B11C0F-B9F1-4FDC-8A49-2E2D5A88914D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ChimeObj" ID="{8B1EDB7A-43AF-470B-BB1B-5B054241699C}">
+									<Language>SFX</Language>
+									<AudioFile>ChimeObj.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="44757149"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{AA8813EF-1F52-4195-92AA-D5CC7C3B2CDE}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-0.675675675675656"/>
+										<Property Name="PanY" Type="Real64" Value="1.44927536231884"/>
+									</PropertyList>
+								</Panner>
+								<Position Name="" ID="{9C5ECB96-7758-42DF-989B-C38B3B852CD3}"/>
+							</PositioningInfo>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ChimeObj" ID="{8B1EDB7A-43AF-470B-BB1B-5B054241699C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<ActorMixer Name="Shark_Sounds" ID="{D4873FD0-234A-4DE3-9A99-42EC95123F74}" ShortID="50636501">
