@@ -82,6 +82,11 @@
 								<MusicSegment Name="ES_Don't Be Afraid MIX" ID="{25B67E24-19D2-4DD4-9282-18C5E199CBEB}" ShortID="874422986">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="119917.209196354"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -96,7 +101,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -189,7 +194,7 @@
 										<Property Name="EndPosition" Type="Real64" Value="139663.109490947"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>-4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -206,7 +211,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-7</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2273,6 +2278,11 @@
 						<MusicSegment Name="LostPortalsINtoTheWater_Short" ID="{36D271DF-D357-4B3F-8CDA-B3DE9EA7196D}" ShortID="245874314">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="173027.375"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2518,7 +2528,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2664,6 +2674,7 @@
 									<PropertyList>
 										<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 									</PropertyList>
 									<TransitionInfo>
 										<SourceFadeOut>
