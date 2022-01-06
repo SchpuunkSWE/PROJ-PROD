@@ -156,6 +156,7 @@ public class Coral : MonoBehaviour
             //Increment number of completed corals in GameController
             gameController.SetCompletedCoralAmount();
 
+            SaveUI.isAutoSaving = true; //Autosaves the game
             SpreadColour();
         }
     }

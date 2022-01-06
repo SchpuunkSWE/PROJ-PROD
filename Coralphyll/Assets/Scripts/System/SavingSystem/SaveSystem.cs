@@ -1,26 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-public class SaveSystem : MonoBehaviour
+public static class SaveSystem
 {
     private static bool isLoading = false; //Used to see if we need to load data or not
-    private static SaveData data; //Variable to save our data as
+    public static SaveData data; //Variable to save our data as
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public static bool IsLoading
     {
@@ -28,19 +17,20 @@ public class SaveSystem : MonoBehaviour
         set => isLoading = value;
     }
 
+
+    
     static void OnSceneLoaded(Scene scene, LoadSceneMode mode) //Method added to scenemanager to run when scene has finished loading, Loading our player and scene data
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
-        /*
+        
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         if (player == null)
         {
             return;
         }
-        */
-
+        
 
         if (isLoading == true)
         {
@@ -48,11 +38,14 @@ public class SaveSystem : MonoBehaviour
             SaveSystem.IsLoading = false;
             Debug.Log("Loaded");
         }
-    }
+    } 
+
+    /*
     public static void LoadBetweenLevels() //Method used för loading data between scenes(use for all corals??)
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    */
 
     public static void LoadGame() //Method för loading data from menu after complete save
     {
