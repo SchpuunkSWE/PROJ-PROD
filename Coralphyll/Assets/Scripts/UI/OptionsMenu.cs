@@ -124,15 +124,17 @@ public class OptionsMenu : MonoBehaviour
     }
 
     public void soundEffects(float floatnumber){
-        //OD.mainAudio = slider;
+       OD.soundEffects = soundEffectsSlider.value;
     }
 
     public void ambience(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.ambience = ambienceSlider.value;
     }
 
     public void textSize(float floatnumber){
-        //OD.mainAudio = slider;
+    
+        OD.textSize = textSizeSlider.value;
+      
     }
     public void brightness(float floatnumber){
         //OD.mainAudio = slider;
@@ -315,7 +317,7 @@ public class OptionsMenu : MonoBehaviour
        // musicSlider
        // soundEffectsSlider
         //ambienceSlider
-        //textSizeSlider
+        textSizeSlider.value = OD.textSize;
        // brightnessSlider
         //contrastSlider
         //outlineWidthSlider,

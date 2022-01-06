@@ -1271,6 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_VisualOptions
+  activateVoiceAssist: 0
 --- !u!1 &651705334755545490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_Enemy_Outline
+  activateVoiceAssist: 0
 --- !u!1 &659810607265410507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_SoundEffectSlider
+  activateVoiceAssist: 0
 --- !u!1 &746641567436106223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,6 +2417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: 
+  activateVoiceAssist: 0
 --- !u!1 &1069305621735367114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,6 +3245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: 
+  activateVoiceAssist: 0
 --- !u!1 &1606685781674284029
 GameObject:
   m_ObjectHideFlags: 0
@@ -4378,6 +4383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: 
+  activateVoiceAssist: 0
 --- !u!1 &1832065724149392816
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,6 +5493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_AmbientSoundSlider
+  activateVoiceAssist: 0
 --- !u!1 &2347479041845258130
 GameObject:
   m_ObjectHideFlags: 0
@@ -7366,6 +7373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_ContrastSlider
+  activateVoiceAssist: 0
 --- !u!1 &3109541613655951843
 GameObject:
   m_ObjectHideFlags: 0
@@ -7637,6 +7645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_Offscreen_Indicator
+  activateVoiceAssist: 0
 --- !u!1 &3245389013854251697
 GameObject:
   m_ObjectHideFlags: 0
@@ -8289,6 +8298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_MainAudioASlider
+  activateVoiceAssist: 0
 --- !u!1 &3501328538636003121
 GameObject:
   m_ObjectHideFlags: 0
@@ -9179,6 +9189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_TextToSpeech
+  activateVoiceAssist: 0
 --- !u!1 &3699725749383672312
 GameObject:
   m_ObjectHideFlags: 0
@@ -11683,6 +11694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_MusicSlider
+  activateVoiceAssist: 0
 --- !u!1 &5026048285523817829
 GameObject:
   m_ObjectHideFlags: 0
@@ -12372,6 +12384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_Enable_Outline
+  activateVoiceAssist: 0
 --- !u!1 &5478082972367221609
 GameObject:
   m_ObjectHideFlags: 0
@@ -14455,6 +14468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_Controls_options
+  activateVoiceAssist: 0
 --- !u!1 &6715483059063492318
 GameObject:
   m_ObjectHideFlags: 0
@@ -15273,6 +15287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: 
+  activateVoiceAssist: 0
 --- !u!1 &7147311941183634142
 GameObject:
   m_ObjectHideFlags: 0
@@ -15603,6 +15618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_ColorPicker
+  activateVoiceAssist: 0
 --- !u!1 &7253332011080839838
 GameObject:
   m_ObjectHideFlags: 0
@@ -17124,6 +17140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_AccecibilityOptions_mp3
+  activateVoiceAssist: 0
 --- !u!1 &7728229761328237852
 GameObject:
   m_ObjectHideFlags: 0
@@ -17227,6 +17244,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 234667204870004013}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: textSize
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &535575619235344171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17241,6 +17270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_TextSizeSlider
+  activateVoiceAssist: 0
 --- !u!1 &7754765902573615251
 GameObject:
   m_ObjectHideFlags: 0
@@ -17647,6 +17677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: 
+  activateVoiceAssist: 0
 --- !u!1 &7943936824694595834
 GameObject:
   m_ObjectHideFlags: 0
@@ -17760,6 +17791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: 
+  activateVoiceAssist: 0
 --- !u!1 &7963738041304042406
 GameObject:
   m_ObjectHideFlags: 0
@@ -18170,6 +18202,7 @@ MonoBehaviour:
   voiceAssist: 1
   checkNoOfEnemies: 0
   OD: {fileID: 11400000, guid: fb409151b86c094459b9bd87ab7665f2, type: 2}
+  soundSystem: {fileID: 0}
 --- !u!114 &2572357465405217182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19083,6 +19116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 234667204870004013}
   audioClip: ui_BrightnettSlider
+  activateVoiceAssist: 0
 --- !u!1 &8747039399816989154
 GameObject:
   m_ObjectHideFlags: 0

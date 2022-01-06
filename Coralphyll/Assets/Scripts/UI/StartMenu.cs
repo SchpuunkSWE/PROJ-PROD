@@ -17,13 +17,14 @@ public class StartMenu : MonoBehaviour
     private bool loadOpen;
 
     private bool optionsOpen;
-    private bool howtoplay;
+    private bool howtoplay = false;
 
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         OM.voiceAssist = false;
+        
     }
     public void PressStartButton()
     {
@@ -38,6 +39,9 @@ public class StartMenu : MonoBehaviour
             optionsPanel.SetActive(true);
         openVisionAidPanel();
         optionsOpen = true;
+        if(howtoplay){
+            openHowToPlay();
+        }
 
         
 
@@ -82,7 +86,7 @@ public class StartMenu : MonoBehaviour
     }
 
     public void openHowToPlay(){
-        howToPlayPanel.SetActive(howtoplay!);
+        howToPlayPanel.SetActive(!howtoplay);
         howtoplay = !howtoplay;
         if(optionsOpen){
             OpenOptionsButton();
