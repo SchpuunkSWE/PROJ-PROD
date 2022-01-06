@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class LoadManagerUI : MonoBehaviour
 {
@@ -11,13 +12,14 @@ public class LoadManagerUI : MonoBehaviour
     [SerializeField] GameObject level3UI;
     [SerializeField] GameObject level4UI;
 
-    public static int sceneCount;
 
+    [SerializeField] Text saveText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        TextMeshPro saveText = gameObject.GetComponent<TextMeshPro>();
+
     }
 
 
@@ -30,8 +32,6 @@ public class LoadManagerUI : MonoBehaviour
         //SaveData data = SaveSystem.data;
         //data.level = 
     }
-
-
 
 
     // Update is called once per frame
@@ -50,6 +50,7 @@ public class LoadManagerUI : MonoBehaviour
                 level2UI.SetActive(false);
                 level3UI.SetActive(false);
                 level4UI.SetActive(false);
+                saveText.text = "The beginning";
             }
             else if (data.level == 2)
             {
@@ -57,6 +58,7 @@ public class LoadManagerUI : MonoBehaviour
                 level1UI.SetActive(false);
                 level3UI.SetActive(false);
                 level4UI.SetActive(false);
+                saveText.text = "Kelp Forest";
             }
             else if (data.level == 3)
             {
@@ -64,6 +66,7 @@ public class LoadManagerUI : MonoBehaviour
                 level1UI.SetActive(false);
                 level2UI.SetActive(false);
                 level4UI.SetActive(false);
+                saveText.text = "Pirate Bay";
             }
             else if (data.level == 4)
             {
@@ -71,12 +74,14 @@ public class LoadManagerUI : MonoBehaviour
                 level1UI.SetActive(false);
                 level2UI.SetActive(false);
                 level3UI.SetActive(false);
+                saveText.text = "The Ruins";
             } else
             {
                 level1UI.SetActive(false);
                 level2UI.SetActive(false);
                 level3UI.SetActive(false);
                 level4UI.SetActive(false);
+                saveText.text = "Save Slot";
             }
 
         }
