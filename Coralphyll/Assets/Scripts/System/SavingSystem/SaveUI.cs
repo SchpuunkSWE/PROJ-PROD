@@ -16,10 +16,7 @@ public class SaveUI : MonoBehaviour
     [SerializeField] Image AutoSaveCircle;
     [SerializeField] [Range(0, 1)] float progress = 0;
 
-    [SerializeField] GameObject level1UI;
-    [SerializeField] GameObject level2UI;
-    [SerializeField] GameObject level3UI;
-    [SerializeField] GameObject level4UI;
+    
 
     //[SerializeField] Animation anim;
     //[SerializeField] Text txtProgress;
@@ -69,37 +66,7 @@ public class SaveUI : MonoBehaviour
             PlaySavingAnim();
         }
 
-        SaveData data = SaveSystem.data;
-        //data.level = level;
-
-        if (data.level == 1)
-        {
-            level1UI.SetActive(true);
-            level2UI.SetActive(false);
-            level3UI.SetActive(false);
-            level4UI.SetActive(false);
-        }
-        if (data.level == 2)
-        {
-            level2UI.SetActive(true);
-            level1UI.SetActive(false);
-            level3UI.SetActive(false);
-            level4UI.SetActive(false);
-        }
-        if (data.level == 3)
-        {
-            level3UI.SetActive(true);
-            level1UI.SetActive(false);
-            level2UI.SetActive(false);
-            level4UI.SetActive(false);
-        }
-        if (data.level == 4)
-        {
-            level4UI.SetActive(true);
-            level1UI.SetActive(false);
-            level2UI.SetActive(false);
-            level3UI.SetActive(false);
-        }
+        
     }
 
     public void PlaySavingAnim()
