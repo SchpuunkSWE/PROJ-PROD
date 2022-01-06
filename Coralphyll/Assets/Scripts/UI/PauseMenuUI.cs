@@ -84,6 +84,8 @@ public class PauseMenuUI : MonoBehaviour
 
     public void howtoplay(){
         howToPlayPanel.SetActive(true);
+        optionsPanel.SetActive(false);
+        pauseMenuUI.SetActive(false);
     }
 
     
