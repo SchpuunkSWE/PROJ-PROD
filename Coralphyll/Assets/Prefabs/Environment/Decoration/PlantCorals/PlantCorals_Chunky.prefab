@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8833800750446905086}
+  - component: {fileID: 232775078257395441}
   m_Layer: 0
   m_Name: PlantCorals_Chunky
   m_TagString: Untagged
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &232775078257395441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2524137579402583444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec21b79cb4706b74aba4b12ff921e15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScale: 1
+  minScale: 0
 --- !u!1001 &907412070159376129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,6 +97,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 425422b55f2973b478b0fcec98232376, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d84c3d37da39e004e9522e4ecead998c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 425422b55f2973b478b0fcec98232376, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92838116cf280ea4aa7d317a51b98e79, type: 2}
     - target: {fileID: 919132149155446097, guid: 425422b55f2973b478b0fcec98232376, type: 3}
       propertyPath: m_Name
       value: SM_PlantCorals_Chunky
