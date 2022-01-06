@@ -31,21 +31,26 @@ public class OptionsMenu : MonoBehaviour
     public Slider textSizeSlider, brightnessSlider, contrastSlider, outlineWidthSlider;
 
 
-    public bool voiceAssist;
+    public bool voiceAssist = false;
     public int checkNoOfEnemies;
     public OptionsData OD;
+    public UI_SoundSystem soundSystem;
 
 
 
 
     void Start()
     {
+        
         voiceAssist = false;
         //tabGroup.OnTabSelected(startButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
        // activateVoiceAssist(voiceAssist);
         setToggles();
+        setSliders();
+        
+        
         //navigationArrow = GetComponent<NavigationArrow>();
         
         
@@ -53,6 +58,7 @@ public class OptionsMenu : MonoBehaviour
     }
     void Awake()
     {
+        voiceAssist = false;
         //tabGroup.OnTabSelected(startButton);
         if (isStartMenu)
         {
@@ -233,9 +239,15 @@ public class OptionsMenu : MonoBehaviour
         }*/
 
     }
-    public void activateVoiceAssist (){
+    public void activateVoiceAssist (bool boolean){
         OD.textToSpeach = textToSpeachToggle.GetComponent<Toggle>().isOn;
-        voiceAssist = !voiceAssist;
+       if(OD.textToSpeach){
+           voiceAssist = true;
+
+       }
+       else{
+           voiceAssist = false;
+       }
 
     }
 

@@ -6,22 +6,24 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     public GameObject starmenuPanel;
- //  public GameObject interactionPanel;
-   // public GameObject accessibilitypanel;
+    public GameObject howToPlayPanel;
+
     public GameObject optionsPanel;
-   // public GameObject visionAidPanel;
-   // public GameObject audioOptionsPanel;
+
    
 
     public GameObject loadPanel;
+    public OptionsMenu OM;
     private bool loadOpen;
 
     private bool optionsOpen;
+    private bool howtoplay;
 
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        OM.voiceAssist = false;
     }
     public void PressStartButton()
     {
@@ -36,6 +38,7 @@ public class StartMenu : MonoBehaviour
             optionsPanel.SetActive(true);
         openVisionAidPanel();
         optionsOpen = true;
+
         
 
         }
@@ -76,6 +79,14 @@ public class StartMenu : MonoBehaviour
     public void exitGame()
     {
         Application.Quit();
+    }
+
+    public void openHowToPlay(){
+        howToPlayPanel.SetActive(howtoplay!);
+        howtoplay = !howtoplay;
+        if(optionsOpen){
+            OpenOptionsButton();
+        }
     }
 
      
