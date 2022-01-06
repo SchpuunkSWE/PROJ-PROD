@@ -120,7 +120,7 @@ public class OptionsMenu : MonoBehaviour
         OD.mainAudio = mainAudioSlider.value;
     }
     public void music(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.music = musicSlider.value;
     }
 
     public void soundEffects(float floatnumber){
@@ -137,13 +137,13 @@ public class OptionsMenu : MonoBehaviour
       
     }
     public void brightness(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.brightness = brightnessSlider.value;
     }
     public void Contrast(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.contrast = contrastSlider.value;
     }
     public void OutlineWidth(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.outlineWidth = outlineWidthSlider.value;
     }
     
     public void EnableOutline(bool boolean){
@@ -314,13 +314,13 @@ public class OptionsMenu : MonoBehaviour
     public void setSliders()
     {
         mainAudioSlider.value = OD.mainAudio;
-       // musicSlider
-       // soundEffectsSlider
-        //ambienceSlider
+        musicSlider.value = OD.music;
+        soundEffectsSlider.value = OD.soundEffects;
+        ambienceSlider.value = OD.ambience;
         textSizeSlider.value = OD.textSize;
-       // brightnessSlider
-        //contrastSlider
-        //outlineWidthSlider,
+        brightnessSlider.value = OD.brightness;
+        contrastSlider.value = OD.contrast;
+        outlineWidthSlider.value = OD.outlineWidth;
 
     }
 
