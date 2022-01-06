@@ -11,6 +11,7 @@ public class PauseMenuUI : MonoBehaviour
     public GameObject[] otherPanels;
 
     public GameObject optionsPanel;
+    public GameObject howToPlayPanel;
     public GameObject savePanel;
 
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class PauseMenuUI : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         optionsPanel.SetActive(false);
+        howToPlayPanel.SetActive(false);
         Time.timeScale = 1f;
         FindObjectOfType<Audio_Pause>().ResumeFunction();
         GameisPaused = false;
@@ -78,6 +80,12 @@ public class PauseMenuUI : MonoBehaviour
         pauseMenuUI.SetActive(false);
 
 
+    }
+
+    public void howtoplay(){
+        howToPlayPanel.SetActive(true);
+        optionsPanel.SetActive(false);
+        pauseMenuUI.SetActive(false);
     }
 
     

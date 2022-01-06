@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class NPCFollow : MonoBehaviour
 {
-    public GameObject fishTarget;
     [SerializeField]
-    private float allowedDistance = 0.15f;    
+    private GameObject fishTarget;
+    public GameObject FishTarget { get => fishTarget; set => fishTarget = value; }
+
+    [SerializeField]
+    private bool isFollowingPlayer = false;
+    public bool IsFollowingPlayer { get => isFollowingPlayer; set => isFollowingPlayer = value; }
+
+    [SerializeField]
+    private float allowedDistance = 0.15f;
     [SerializeField]
     private float followSpeed = 2f;
 
-    private int positionInList = -1;
-    public int PositionInList { get => positionInList; set => positionInList = value; }
+    //private int positionInList = -1;
+    //public int PositionInList { get => positionInList; set => positionInList = value; }
 
     private float targetDistance;
-
     private RaycastHit shot;
-    public bool isFollowingPlayer = false;
     private Controller3DKeybinds playerControllerScript;
 
     //[SerializeField]
@@ -43,9 +48,9 @@ public class NPCFollow : MonoBehaviour
     {
         if (isFollowingPlayer)
         {
-            Vector3 direction = (fishTarget.transform.position + fishTarget.transform.TransformDirection(Vector3.forward)) - transform.position; //Räknar ut vart NPC ska titta.
-            
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 10f * Time.deltaTime); //Ser till att NPC roterar mot sitt mål.
+            Vector3 direction = (fishTarget.transform.position + fishTarget.transform.TransformDirection(Vector3.forward)) - transform.position; //Calculates where the NPC should look.
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 10f * Time.deltaTime); //Ensures that the NPC rotates towards its target.
 
 
             followSpeed = (playerControllerScript.velocity.magnitude >= 0.1f) ? playerControllerScript.velocity.magnitude - 0.1f : 5f;
@@ -56,7 +61,7 @@ public class NPCFollow : MonoBehaviour
 
                 if (targetDistance >= allowedDistance)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed * Time.deltaTime); //G�r s� att NPC r�r sig mot spelaren.
+                    transform.position = Vector3.MoveTowards(transform.position, fishTarget.transform.position, followSpeed * Time.deltaTime); //Make the NPC move towards the player.
                 }
             }
         }
@@ -79,13 +84,13 @@ public class NPCFollow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         follower = GetComponent<Follower>();
-        //BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>();
         if (other.CompareTag("Player") && follower.Collectable == true)
         {
             bool addedFish = other.GetComponent<NPCFishUtil>().PickUpFish(follower);
-            if(addedFish)
+            if (addedFish)
+            {
                 playerControllerScript = fishTarget.transform.parent.transform.parent.GetComponent<Controller3DKeybinds>();
-            //boidsSystem.transform.DetachChildren();
+            }
         }
     }
 
