@@ -16,8 +16,13 @@ public class NavigationArrow : MonoBehaviour
     private float arrowTransparencyMinRange = 15f; //Minimun range from target for arrow to be visible
 
     private bool ignoreYellow;
+    public bool IgnoreYellow { get => ignoreYellow; set => ignoreYellow = value; }
+
     private bool ignoreRed;
+    public bool IgnoreRed { get => ignoreRed; set => ignoreRed = value; }
+
     private bool ignoreBlue;
+    public bool IgnoreBlue { get => ignoreBlue; set => ignoreBlue = value; }
 
     // Update is called once per frame
     void Update()
@@ -44,14 +49,14 @@ public class NavigationArrow : MonoBehaviour
         {
             if (targetTag == "NPCFish")
             {
-                if (potentialTarget.GetComponent<Follower>().GetColour().ToString() == "YELLOW" && ignoreYellow
+                if (potentialTarget.GetComponent<Follower>().GetColour().ToString() == "YELLOW" && ignoreYellow //If the fish colour is yellow and ignoreYellow is true...
                         || potentialTarget.GetComponent<Follower>().GetColour().ToString() == "RED" && ignoreRed
                         || potentialTarget.GetComponent<Follower>().GetColour().ToString() == "BLUE" && ignoreBlue)
                 {
-                    continue; //Skip to next element in the foreach loop
+                    continue; //...Skip to next element in the foreach loop.
                 }
             }
-
+            //Otherwise get closests target as usual.
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if (dSqrToTarget < closestDistanceSqr)
@@ -111,16 +116,16 @@ public class NavigationArrow : MonoBehaviour
         }
     }
 
-    public void IgnoreYellow(bool yellow)
-    {
-        ignoreYellow = yellow;
-    }
-    public void IgnoreRed(bool red)
-    {
-        ignoreRed = red;
-    }
-    public void IgnoreBlue(bool blue)
-    {
-        ignoreBlue = blue;
-    }
+    //public void IgnoreYellow(bool yellow)
+    //{
+    //    ignoreYellow = yellow;
+    //}
+    //public void IgnoreRed(bool red)
+    //{
+    //    ignoreRed = red;
+    //}
+    //public void IgnoreBlue(bool blue)
+    //{
+    //    ignoreBlue = blue;
+    //}
 }
