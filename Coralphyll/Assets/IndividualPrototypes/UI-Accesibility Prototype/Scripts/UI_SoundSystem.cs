@@ -11,6 +11,7 @@ public class UI_SoundSystem : MonoBehaviour , IPointerEnterHandler
     //private AudioSource audioSource;
     public OptionsMenu optionsMenu;
     public string audioClip;
+    public bool activateVoiceAssist;
 
 
 
@@ -19,7 +20,7 @@ public class UI_SoundSystem : MonoBehaviour , IPointerEnterHandler
     //Do this when the cursor enters the rect area of this selectable UI object.
     public void OnPointerEnter(PointerEventData eventData)
     {  
-         if(optionsMenu.voiceAssist){
+        if(optionsMenu.voiceAssist){
 
         Debug.Log("i am gonna play sound");
 
@@ -28,5 +29,9 @@ public class UI_SoundSystem : MonoBehaviour , IPointerEnterHandler
             
         Debug.Log("I played script");
         }
+    }
+
+    public void activateTextToSpeach(bool boolean){
+
     }
 }

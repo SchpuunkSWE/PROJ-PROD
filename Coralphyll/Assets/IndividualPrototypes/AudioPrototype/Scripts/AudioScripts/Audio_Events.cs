@@ -37,21 +37,21 @@ public class Audio_Events : MonoBehaviour
         corals = GameObject.FindObjectsOfType<Coral>();
         aiContr = GameObject.FindObjectsOfType<AIController>();
         AkSoundEngine.RegisterGameObj(gameObject);
-        //Audio_GameState("StartGame");
-        //Audio_PlayerState(isAlive);
-
-    }
-    private void Start()
-    {
         sceneIndex = SceneManager.GetActiveScene().name;
-        if(AudioScene.Levels < 2)
+        if (AudioScene.Levels < 2)
         {
             Audio_GameState("StartGame");
         }
         else
         {
-            Audio_GameState("ResumeMusic");
+            Debug.Log("I should be playing FIRST");
+            Audio_GameState("ResumeGame");
         }
+
+    }
+    private void Start()
+    {
+
     }
     private void Update()
     {
@@ -259,15 +259,28 @@ public class Audio_Events : MonoBehaviour
         switch (state)
         {
             case "StartGame":
+                if (sceneIndex == "Level3")
+                {
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
+                }
+                else
+                {
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
-
-                    AkSoundEngine.PostEvent("Background_Ambience", gameObject);
+                }
+                AkSoundEngine.PostEvent("Background_Ambience", gameObject);
                     AkSoundEngine.PostEvent("Background_Ambience_2", gameObject);
                 break;
             case "ResumeGame":
                 if (sceneIndex == "Level3")
                 {
                     AkSoundEngine.PostEvent("MusicState_StartOfLevel2", gameObject);
+                    Debug.Log(" I SHOULD BE PLAYING!");
+                }
+                if(sceneIndex == "Level4")
+                {
+                    Debug.Log("HELLO");
+                    AkSoundEngine.PostEvent("Music_StopLevel3", gameObject);
+                    AkSoundEngine.PostEvent("MusicState_StartOfLevel", gameObject);
                 }
                 break;
         }

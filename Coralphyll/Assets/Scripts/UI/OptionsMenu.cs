@@ -31,21 +31,26 @@ public class OptionsMenu : MonoBehaviour
     public Slider textSizeSlider, brightnessSlider, contrastSlider, outlineWidthSlider;
 
 
-    public bool voiceAssist;
+    public bool voiceAssist = false;
     public int checkNoOfEnemies;
     public OptionsData OD;
+    public UI_SoundSystem soundSystem;
 
 
 
 
     void Start()
     {
+        
         voiceAssist = false;
         //tabGroup.OnTabSelected(startButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
        // activateVoiceAssist(voiceAssist);
         setToggles();
+        setSliders();
+        
+        
         //navigationArrow = GetComponent<NavigationArrow>();
         
         
@@ -53,6 +58,7 @@ public class OptionsMenu : MonoBehaviour
     }
     void Awake()
     {
+        voiceAssist = false;
         //tabGroup.OnTabSelected(startButton);
         if (isStartMenu)
         {
@@ -114,28 +120,30 @@ public class OptionsMenu : MonoBehaviour
         OD.mainAudio = mainAudioSlider.value;
     }
     public void music(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.music = musicSlider.value;
     }
 
     public void soundEffects(float floatnumber){
-        //OD.mainAudio = slider;
+       OD.soundEffects = soundEffectsSlider.value;
     }
 
     public void ambience(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.ambience = ambienceSlider.value;
     }
 
     public void textSize(float floatnumber){
-        //OD.mainAudio = slider;
+    
+        OD.textSize = textSizeSlider.value;
+      
     }
     public void brightness(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.brightness = brightnessSlider.value;
     }
     public void Contrast(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.contrast = contrastSlider.value;
     }
     public void OutlineWidth(float floatnumber){
-        //OD.mainAudio = slider;
+        OD.outlineWidth = outlineWidthSlider.value;
     }
     
     public void EnableOutline(bool boolean){
@@ -156,7 +164,7 @@ public class OptionsMenu : MonoBehaviour
         GameObject TutorialCanvas = GameObject.FindGameObjectWithTag("Tutorial");
        // checkNoOfTutorialTriggers = CountTutorialTriggers();
 
-        if (hintToggle.GetComponent<Toggle>().isOn)
+        if (hintToggle.GetComponent<Toggle>().isOn && !isStartMenu)
         {
             for (int i = 0; i < TutorialCanvas.transform.childCount; i++)
             {
@@ -233,9 +241,15 @@ public class OptionsMenu : MonoBehaviour
         }*/
 
     }
-    public void activateVoiceAssist (){
+    public void activateVoiceAssist (bool boolean){
         OD.textToSpeach = textToSpeachToggle.GetComponent<Toggle>().isOn;
-        voiceAssist = !voiceAssist;
+       if(OD.textToSpeach){
+           voiceAssist = true;
+
+       }
+       else{
+           voiceAssist = false;
+       }
 
     }
 
@@ -300,13 +314,13 @@ public class OptionsMenu : MonoBehaviour
     public void setSliders()
     {
         mainAudioSlider.value = OD.mainAudio;
-       // musicSlider
-       // soundEffectsSlider
-        //ambienceSlider
-        //textSizeSlider
-       // brightnessSlider
-        //contrastSlider
-        //outlineWidthSlider,
+        musicSlider.value = OD.music;
+        soundEffectsSlider.value = OD.soundEffects;
+        ambienceSlider.value = OD.ambience;
+        textSizeSlider.value = OD.textSize;
+        brightnessSlider.value = OD.brightness;
+        contrastSlider.value = OD.contrast;
+        outlineWidthSlider.value = OD.outlineWidth;
 
     }
 
