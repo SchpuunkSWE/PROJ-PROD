@@ -15,10 +15,10 @@ public class Audio_Accessibility : MonoBehaviour
     private float pingTimer;
     private float distanceTemp;
     private Coral closestCoral;
-    private bool setCoralPing = true;
+    private bool coralToggle;
     [SerializeField] private GameObject coralPingObj;
     // Start is called before the first frame update
-    private void Awake()
+     void Start()
     {
         toggle = true;
        // sharks = FindObjectsOfType<AIController>();
@@ -26,10 +26,11 @@ public class Audio_Accessibility : MonoBehaviour
         corals = FindObjectsOfType<Coral>();
         fishes = FindObjectsOfType<BoidsSystem>();
     }
-    private void FixedUpdate()
-    {
-        if (!toggle)
+    void FixedUpdate(){
+       // Debug.Log("CORALTOGGLE ISS" + coralToggle);
+        if (coralToggle == true)
         {
+            //Debug.Log("AUDIO ACCESSSSSSS" + corals.Length + " asdfasd " + fishes.Length);
             FindClosestCoral();
             CoralPing();
         }
@@ -58,7 +59,7 @@ public class Audio_Accessibility : MonoBehaviour
             if (corals[i].GetComponent<WwAudioEmitter>() != null)
             {
                 distanceTemp = Vector3.Distance(this.transform.position, corals[i].transform.position);
-                //     Debug.Log("Player is at: " + transform.position + " And coral is at: " + corals[i].transform.position + " and shortest distance is now: "+ distance);
+                    // Debug.Log("Player is at: " + transform.position + " And coral is at: " + corals[i].transform.position + " and shortest distance is now: "+ distance);
                 if (distanceTemp < distanceTemp2)
                 {
                     closestCoral = corals[i];
@@ -79,7 +80,7 @@ public class Audio_Accessibility : MonoBehaviour
 
         coralPingObj.transform.position = Vector3.Lerp(transform.position, closestCoral.transform.position, 0.5f);
         float frequency = (distance / 60f) + 0.5f;
-        Debug.Log("Distance is: " + distance + " and fraction is: "+ frequency + " and ping timer is: " + pingTimer);
+        //Debug.Log("Distance is: " + distance + " and fraction is: "+ frequency + " and ping timer is: " + pingTimer);
         if (distance <= 100f)
         {
             if (Time.realtimeSinceStartup - pingTimer >= frequency)
@@ -91,18 +92,20 @@ public class Audio_Accessibility : MonoBehaviour
     }
     public void ToggleAudioAccessibility()
     {
+       // Debug.Log("TOGGLE IS: " + toggle);
         if (toggle)
         {
-            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOn();
+            ToggleAudioAccessibilityOn();
         }
         else
         {
-            GetComponent<Audio_Accessibility>().ToggleAudioAccessibilityOff();
+            ToggleAudioAccessibilityOff();
         }
         toggle = !toggle;
     }
     public void ToggleAudioAccessibilityOn()
     {
+        coralToggle = true;
         /* for (int i = 0; i < sharks.Length; i++)
          {
              sharks[i].GetComponent<WwAudioEmitter>().SetName("Shark_Accessibility");
@@ -126,35 +129,39 @@ public class Audio_Accessibility : MonoBehaviour
                 coralPingObj.GetComponent<WwAudioEmitter>().SetName("Coral_Accessibility");
         coralPingObj.GetComponent<WwAudioEmitter>().SetStopName("Coral_Accessibility_Stop");
         */
-
-        for (int i = 0; i < fishes.Length; i++)
+        if (fishes!=null)
         {
-            if(fishes[i].GetComponent<WwAudioEmitter>() != null)
+            for (int i = 0; i < fishes.Length; i++)
             {
-                string tempType = fishes[i].GetComponent<WwAudioEmitter>().GetEmitterType();
-                switch (tempType)
+                if (fishes[i].GetComponent<WwAudioEmitter>() != null)
                 {
-                    case "RedFish":
-                        Debug.Log("Redfish");
-                        fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Red");
-                        fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Red_Stop");
-                        break;
-                    case "YellowFish":
-                        fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Yellow");
-                        fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Yellow_Stop");
-                        break;
-                    case "BlueFish":
-                        fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Blue");
-                        fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Blue_Stop");
-                        break;
+                    string tempType = fishes[i].GetComponent<WwAudioEmitter>().GetEmitterType();
+                    switch (tempType)
+                    {
+                        case "RedFish":
+                            Debug.Log("Redfish");
+                            fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Red");
+                            fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Red_Stop");
+                            break;
+                        case "YellowFish":
+                            fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Yellow");
+                            fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Yellow_Stop");
+                            break;
+                        case "BlueFish":
+                            fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Blue");
+                            fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Blue_Stop");
+                            break;
+                    }
                 }
+
             }
-            
         }
+        
 
     }
     public void ToggleAudioAccessibilityOff()
     {
+        coralToggle = false;
         /*
         for (int i = 0; i < sharks.Length; i++)
         {
@@ -178,14 +185,17 @@ public class Audio_Accessibility : MonoBehaviour
                 coralPingObj.GetComponent<WwAudioEmitter>().SetName("Coral");
          coralPingObj.GetComponent<WwAudioEmitter>().SetStopName("Coral_Stop");
         */
-
-        for (int i = 0; i < fishes.Length; i++)
+        if(fishes!=null)
         {
-            if (fishes[i].GetComponent<WwAudioEmitter>() != null)
+            for (int i = 0; i < fishes.Length; i++)
             {
-                fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Fish_Generic");
-                fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Fish_Generic_Stop");
+                if (fishes[i].GetComponent<WwAudioEmitter>() != null)
+                {
+                    fishes[i].GetComponent<WwAudioEmitter>().SetName("NPC_Friendly_Fish_Generic");
+                    fishes[i].GetComponent<WwAudioEmitter>().SetStopName("NPC_Friendly_Fish_Generic_Stop");
+                }
             }
         }
+
     }
 }
