@@ -82,6 +82,11 @@
 								<MusicSegment Name="ES_Don't Be Afraid MIX" ID="{25B67E24-19D2-4DD4-9282-18C5E199CBEB}" ShortID="874422986">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="119917.209196354"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -96,7 +101,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -189,7 +194,7 @@
 										<Property Name="EndPosition" Type="Real64" Value="139663.109490947"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>-4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -206,7 +211,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-7</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2273,6 +2278,11 @@
 						<MusicSegment Name="LostPortalsINtoTheWater_Short" ID="{36D271DF-D357-4B3F-8CDA-B3DE9EA7196D}" ShortID="245874314">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="173027.375"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2284,6 +2294,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<MusicTrack Name="LostPortalsINtoTheWater_Short" ID="{09942D1D-F9A0-4161-948A-48B7BFB531D2}" ShortID="195283862">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="SFX" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{05F747B4-1083-4FF8-8E6E-B2A50EC85669}"/>
@@ -2518,7 +2535,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2643,12 +2660,6 @@
 											</PropertyList>
 											<SegmentRef Name="Cody_Martin_Seaworthy_instrumental_3_20_LOWQUALITY" ID="{0246BE4F-642F-4EAC-92FC-F1C54C36F2CE}"/>
 										</MusicPlaylistItem>
-										<MusicPlaylistItem Name="" ID="{FEA88563-040F-4F25-AE33-8B32C6E0D63F}" ShortID="91026436">
-											<PropertyList>
-												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-											</PropertyList>
-											<SegmentRef Name="Markus_Huber_Ocean_Tide_instrumental_3_14_SHORT" ID="{89475D35-F389-4CD2-B3BA-61A5597BF2BF}"/>
-										</MusicPlaylistItem>
 									</ChildrenList>
 								</MusicPlaylistItem>
 							</Playlist>
@@ -2664,6 +2675,7 @@
 									<PropertyList>
 										<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 									</PropertyList>
 									<TransitionInfo>
 										<SourceFadeOut>

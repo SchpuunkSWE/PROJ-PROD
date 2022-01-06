@@ -24,6 +24,7 @@ public class Audio_Cutscenes_Events : MonoBehaviour
     }
     public void LoadMainMenu()
     {
+       
         controller.GetComponent<SceneController>().LoadScene("StartMenu 1");
     }
     public void LoadLevel1()

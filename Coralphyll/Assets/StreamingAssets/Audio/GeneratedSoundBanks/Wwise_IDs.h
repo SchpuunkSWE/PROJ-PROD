@@ -19,6 +19,7 @@ namespace AK
         static const AkUniqueID CHAR_DEATH = 2748011726U;
         static const AkUniqueID CORAL_ACCESSIBILITY = 1115036193U;
         static const AkUniqueID CORAL_ACCESSIBILITY_STOP = 1987841316U;
+        static const AkUniqueID CORAL_PING = 2831695839U;
         static const AkUniqueID CUTSCENE_LEVEL1_AMBIENCE = 2212933930U;
         static const AkUniqueID CUTSCENE_LEVEL1_VOICE = 3304948164U;
         static const AkUniqueID CUTSCENE_LEVEL2_AMBIENCE = 2945618175U;
