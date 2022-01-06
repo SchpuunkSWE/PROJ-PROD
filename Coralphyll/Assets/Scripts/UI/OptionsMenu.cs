@@ -156,7 +156,7 @@ public class OptionsMenu : MonoBehaviour
         GameObject TutorialCanvas = GameObject.FindGameObjectWithTag("Tutorial");
        // checkNoOfTutorialTriggers = CountTutorialTriggers();
 
-        if (hintToggle.GetComponent<Toggle>().isOn)
+        if (hintToggle.GetComponent<Toggle>().isOn && !isStartMenu)
         {
             for (int i = 0; i < TutorialCanvas.transform.childCount; i++)
             {
