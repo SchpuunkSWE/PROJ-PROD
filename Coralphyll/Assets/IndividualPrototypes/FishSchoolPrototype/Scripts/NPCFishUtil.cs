@@ -136,7 +136,7 @@ public class NPCFishUtil : MonoBehaviour
 
         foreach (Follower f in listOfFishes)
         {
-            if (f.GetComponent<NPCFollow>().isFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
+            if (f.GetComponent<NPCFollow>().IsFollowingPlayer && f.GetColour() == fishColour && fishToRemove.Count < coral.fishSlotsAvailable(fishColour))
             {
                 fishToRemove.Add(f);
             } //else if (f.GetComponent<NPCFollow>().isFollowingPlayer && !coral.Completable && f.GetColour() == fishColour) //Add fish even if full. remove if safezones should have a limit(obs dont forget to remove coral.Completable in above aswell)
@@ -148,7 +148,7 @@ public class NPCFishUtil : MonoBehaviour
         {
             listOfFishes.Remove(f); //Removes fishes from the list of fishes 
             boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
-            f.GetComponent<NPCFollow>().isFollowingPlayer = false; //Set fish to no longer follow player.
+            f.GetComponent<NPCFollow>().IsFollowingPlayer = false; //Set fish to no longer follow player.
             f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
             f.transform.SetParent(boidsSystemGO.transform); //Adds fish as child to coral Boid System.
             f.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
@@ -166,19 +166,16 @@ public class NPCFishUtil : MonoBehaviour
     {
         NPCFollow nPCFollow = follower.GetComponent<NPCFollow>();
         BoidsSystem boidsSystem = follower.GetComponentInParent<BoidsSystem>(); //Retrieves the Boids System to which the fish is a child.
-        int positionInList = nPCFollow.PositionInList;
-        positionInList = AddToSchool(follower.transform.gameObject.GetComponent<Follower>()); //Adds the fish to the list and returns the place in the list it receives.
+        int positionInList = AddToSchool(follower.transform.gameObject.GetComponent<Follower>()); //Adds the fish to the list and returns the place in the list it receives.
         if (positionInList >= 0) //If we get back a value above 0 ...
         {
-            nPCFollow.PositionInList = positionInList;
-            nPCFollow.fishTarget = GetTargetPositionObject(positionInList); //We set the fish's target to the targetObject that has the same position in the array as the fish has in its list.
+            nPCFollow.FishTarget = GetTargetPositionObject(positionInList); //We set the fish's target to the targetObject that has the same position in the array as the fish has in its list.
             boidsSystem.RemoveAgent(follower.gameObject); //Removes agent from the list of agents.
-            follower.transform.SetParent(null);
-            nPCFollow.isFollowingPlayer = true; //We set the status of the fish to follow the player.
+            follower.transform.SetParent(null); //Set fish parent to null. AKA they don't have a parent anymore.
+            nPCFollow.IsFollowingPlayer = true; //We set the status of the fish to follow the player.
             follower.Collectable = false; //So that you can only pick up the fishes ones.
             follower.RGB.detectCollisions = false; //Turn off collision on fish.
             follower.GetComponent<BoidsAgent>().enabled = false; //Disable Boids Agent script on fish.
-            //follower.transform.gameObject.tag = "Untagged"; //Changes the tag of the fish to Untagged to avoid being a target for the arrow
 
             if (!runFishLogOnce)
             {
@@ -191,24 +188,21 @@ public class NPCFishUtil : MonoBehaviour
         return false;
     }
 
-    public void FindAndPickUpFish(FishColour fishColour)
+    public void FindAndPickUpFish(FishColour fishColour) //Is no longer used due to we dont stash fish in safezone anymore.
     {
         BoidsSystem boidsSystem = boidsSystemGO.GetComponent<BoidsSystem>(); //The corals Boids System
         List<Follower> toRemoveFromSafezone = new List<Follower>(); //Made a new list for fish to remove from the safezone
-        Debug.Log(toRemoveFromSafezone);
+
         foreach (GameObject go in boidsSystem.agents)
         {
             Follower f = go.GetComponent<Follower>();
             if (f.GetColour() == fishColour && (listOfFishes.Count < arrayOfTargets.Length || listOfFishes.Contains(f)))
             {
                 toRemoveFromSafezone.Add(f);
-                Debug.Log("Added fish");
-                Debug.Log(toRemoveFromSafezone);
             }
         }
         foreach (Follower f in toRemoveFromSafezone)
         {
-            Debug.Log("Picking up fish");
             PickUpFish(f); //Reuse the method where we pick up fish.
             coral.UpdateProgress(); //Update the UI.
 
@@ -227,22 +221,22 @@ public class NPCFishUtil : MonoBehaviour
             {
                 FishCounter.fishCounterInstance.AddSchool(boidsSystem);
             }
+            AddFollowingFishToRemoveList();
+            //foreach (Follower f in listOfFishes)
+            //{
+            //    if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+            //    {
+            //        fishToRemove.Add(f);
+            //    }
 
-            foreach (Follower f in listOfFishes)
-            {
-                if (f.GetComponent<NPCFollow>().isFollowingPlayer)
-                {
-                    fishToRemove.Add(f);
-                }
-
-            }
+            //}
             foreach (Follower f in fishToRemove)
             {
                 NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
                 listOfFishes.Remove(f); //Removes fish from the list of fishes 
                 boidsSystem.AddAgent(f.transform.gameObject); //Adds agent/fish to the agent list.
-                nPCFollow.isFollowingPlayer = false; //Set fish to no longer follow player.
-                nPCFollow.fishTarget = null;
+                nPCFollow.IsFollowingPlayer = false; //Set fish to no longer follow player.
+                nPCFollow.FishTarget = null;
                 f.GetComponent<BoidsAgent>().enabled = true; //Reenable Boids Agent script on fish.
                 f.transform.SetParent(newBoidsSystem.transform); //Adds fish as child to the new Boids System.
                 StartCoroutine(MakeFishCollectible(f));
@@ -264,29 +258,29 @@ public class NPCFishUtil : MonoBehaviour
 
     public void KillFish()
     {
-        foreach (Follower f in listOfFishes)
-        {
-            if (f.GetComponent<NPCFollow>().isFollowingPlayer)
-            {
-                fishToRemove.Add(f);
-            }
-        }
+        AddFollowingFishToRemoveList();
+        //foreach (Follower f in listOfFishes)
+        //{
+        //    if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+        //    {
+        //        fishToRemove.Add(f);
+        //    }
+        //}
         Follower fish = fishToRemove[0];
         listOfFishes.Remove(fish);
-
-        //Destroy(fish.gameObject);
-        fish.gameObject.SetActive(false); //M
-        ObjectPooler.poolerInstance.poolDictionary[fish.GetColour().ToString()].Enqueue(fish.gameObject);
+        PrepareFishForObjectPool(fish);
+        //fish.gameObject.SetActive(false); //M
+        //ObjectPooler.poolerInstance.poolDictionary[fish.GetColour().ToString()].Enqueue(fish.gameObject);
 
         fishToRemove.Clear(); //Clear the fish to remove list.
         FishCounter.fishCounterInstance.RecountFishes = true;
-        fish.Collectable = true;
-        fish.GetComponent<NPCFollow>().isFollowingPlayer = false;
-        fish.GetComponent<NPCFollow>().fishTarget = null;
-        fish.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
-        fish.GetComponent<BoidsAgent>().owner = null;
-        fish.RGB.detectCollisions = true; //Turn on collision on fish.
-        fish.transform.SetParent(null); //Sets parent to null
+        //fish.Collectable = true;
+        //fish.GetComponent<NPCFollow>().isFollowingPlayer = false;
+        //fish.GetComponent<NPCFollow>().fishTarget = null;
+        //fish.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
+        //fish.GetComponent<BoidsAgent>().owner = null;
+        //fish.RGB.detectCollisions = true; //Turn on collision on fish.
+        //fish.transform.SetParent(null); //Sets parent to null
 
         UpdateTargetPoints();
     }
@@ -295,31 +289,57 @@ public class NPCFishUtil : MonoBehaviour
     {
         if (listOfFishes.Count > 0)
         {
-            foreach (Follower f in listOfFishes)
-            {
-                if (f.GetComponent<NPCFollow>().isFollowingPlayer)
-                {
-                    fishToRemove.Add(f);
-                }
-            }
+            AddFollowingFishToRemoveList();
+            //foreach (Follower f in listOfFishes)
+            //{
+            //    if (f.GetComponent<NPCFollow>().isFollowingPlayer)
+            //    {
+            //        fishToRemove.Add(f);
+            //    }
+            //}
 
             foreach (Follower f in fishToRemove)
             {
                 listOfFishes.Remove(f);
-                //Destroy(f.gameObject);
-                f.gameObject.SetActive(false);
-                f.GetComponent<NPCFollow>().isFollowingPlayer = false;
-                f.GetComponent<NPCFollow>().fishTarget = null;
-                f.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
-                f.GetComponent<BoidsAgent>().owner = null;
-                f.Collectable = true;
-                f.RGB.detectCollisions = true; //Turn off collision on fish.
-                f.transform.SetParent(null); //Sets parent to null
+                PrepareFishForObjectPool(f);
+                //f.gameObject.SetActive(false);
+                //f.GetComponent<NPCFollow>().isFollowingPlayer = false;
+                //f.GetComponent<NPCFollow>().fishTarget = null;
+                //f.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
+                //f.GetComponent<BoidsAgent>().owner = null;
+                //f.Collectable = true;
+                //f.RGB.detectCollisions = true; //Turn on collision on fish.
+                //f.transform.SetParent(null); //Sets parent to null
             }
 
             fishToRemove.Clear(); //Clear the fish to remove list.
             FishCounter.fishCounterInstance.RecountFishes = true;
+            UpdateTargetPoints();
         }
+    }
+
+    private void AddFollowingFishToRemoveList()
+    {
+        foreach (Follower f in listOfFishes)
+        {
+            if (f.GetComponent<NPCFollow>().IsFollowingPlayer)
+            {
+                fishToRemove.Add(f);
+            }
+        }
+    }
+
+    private void PrepareFishForObjectPool(Follower fish)
+    {
+        fish.gameObject.SetActive(false); //M
+        ObjectPooler.poolerInstance.poolDictionary[fish.GetColour().ToString()].Enqueue(fish.gameObject);
+        fish.Collectable = true;
+        fish.GetComponent<NPCFollow>().IsFollowingPlayer = false;
+        fish.GetComponent<NPCFollow>().FishTarget = null;
+        fish.GetComponent<BoidsAgent>().enabled = true; //Disable Boids Agent script on fish.
+        fish.GetComponent<BoidsAgent>().owner = null;
+        fish.RGB.detectCollisions = true; //Turn on collision on fish.
+        fish.transform.SetParent(null); //Sets parent to null
     }
 
     private void CheckFishColour()
@@ -329,7 +349,7 @@ public class NPCFishUtil : MonoBehaviour
 
         foreach (Follower f in listOfFishes)
         {
-            if (f.GetComponent<NPCFollow>().isFollowingPlayer && !fishColours.Contains(f.GetColour())) //Checks if fish is following player and if the fish colour already exists in fishColours list.
+            if (f.GetComponent<NPCFollow>().IsFollowingPlayer && !fishColours.Contains(f.GetColour())) //Checks if fish is following player and if the fish colour already exists in fishColours list.
             {
                 fishColours.Add(f.GetColour()); //Adds the fish colour to the list.
             }
@@ -340,13 +360,13 @@ public class NPCFishUtil : MonoBehaviour
             switch (fishColour)
             {
                 case FishColour.YELLOW:
-                    if (GameObject.FindGameObjectWithTag("YellowFishTag") != null) //Check so that the tag exists. 
+                    if (GameObject.FindGameObjectWithTag("YellowFishTag") != null) //Check so that the tag exists. If it exists...
                     {
-                        plannedTarget = "YellowFishTag"; //sets plannedTarget to YellowFishTag. 
+                        plannedTarget = "YellowFishTag"; //...set plannedTarget to YellowFishTag. 
                     }
                     else
                     {
-                        navArrow.IgnoreYellow(true);
+                        navArrow.IgnoreYellow = true; //...Otherwise ignore the yellow fish.
                     }
                     break;
                 case FishColour.RED:
@@ -356,7 +376,7 @@ public class NPCFishUtil : MonoBehaviour
                     }
                     else
                     {
-                        navArrow.IgnoreRed(true);
+                        navArrow.IgnoreRed = true;
                     }
                     break;
                 case FishColour.BLUE:
@@ -366,7 +386,7 @@ public class NPCFishUtil : MonoBehaviour
                     }
                     else
                     {
-                        navArrow.IgnoreBlue(true);
+                        navArrow.IgnoreBlue = true;
                     }
                     break;
             }
@@ -403,7 +423,7 @@ public class NPCFishUtil : MonoBehaviour
             NPCFollow nPCFollow = f.GetComponent<NPCFollow>();
             //int posInList = listOfFishes.IndexOf(f); //Get the index of the fish in listOfFishes. 
             //nPCFollow.PositionInList = posInList; //Set fish pos in list. 
-            nPCFollow.fishTarget = GetTargetPositionObject(listOfFishes.IndexOf(f)); //Change fish target so that it's the same as it's index in list. 
+            nPCFollow.FishTarget = GetTargetPositionObject(listOfFishes.IndexOf(f)); //Change fish target so that it's the same as it's index in list. 
         }
     }
 
