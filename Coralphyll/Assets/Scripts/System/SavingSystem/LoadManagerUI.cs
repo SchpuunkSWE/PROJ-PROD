@@ -50,7 +50,7 @@ public class LoadManagerUI : MonoBehaviour
                 level2UI.SetActive(false);
                 level3UI.SetActive(false);
                 level4UI.SetActive(false);
-                saveText.text = "The beginning";
+                saveText.text = "Level 1: The beginning";
             }
             else if (data.level == 2)
             {
@@ -58,7 +58,7 @@ public class LoadManagerUI : MonoBehaviour
                 level1UI.SetActive(false);
                 level3UI.SetActive(false);
                 level4UI.SetActive(false);
-                saveText.text = "Kelp Forest";
+                saveText.text = "Level 2: Kelp Forest";
             }
             else if (data.level == 3)
             {
@@ -66,7 +66,7 @@ public class LoadManagerUI : MonoBehaviour
                 level1UI.SetActive(false);
                 level2UI.SetActive(false);
                 level4UI.SetActive(false);
-                saveText.text = "Pirate Bay";
+                saveText.text = "Level 3: Pirate Bay";
             }
             else if (data.level == 4)
             {
@@ -74,14 +74,14 @@ public class LoadManagerUI : MonoBehaviour
                 level1UI.SetActive(false);
                 level2UI.SetActive(false);
                 level3UI.SetActive(false);
-                saveText.text = "The Ruins";
+                saveText.text = "Level 4: The Ruins";
             } else
             {
                 level1UI.SetActive(false);
                 level2UI.SetActive(false);
                 level3UI.SetActive(false);
                 level4UI.SetActive(false);
-                saveText.text = "Save Slot";
+                saveText.text = "Empty Save Slot";
             }
 
         }

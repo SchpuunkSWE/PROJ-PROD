@@ -71,11 +71,12 @@ public class SaveUI : MonoBehaviour
 
     public void PlaySavingAnim()
     {
-
+        
         SaveSystem.SaveGame();
+        Debug.Log("saved game");
         animator.SetBool("isAutoSaving", true);
         StartCoroutine(wait());
-        
+        Debug.Log("plays anim");
 
     }
 
@@ -83,5 +84,6 @@ public class SaveUI : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         animator.SetBool("isAutoSaving", false);
+        Debug.Log("auto false");
     }
 }
