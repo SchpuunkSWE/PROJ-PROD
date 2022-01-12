@@ -50,7 +50,7 @@ public class SaveUI : MonoBehaviour
     void Start()
     {
         //anim = gameObject.GetComponent<Animation>();
-        autosaveUI.SetActive(true);
+        //autosaveUI.SetActive(true);
     }
     // Update is called once per frame
     void Update()
@@ -63,6 +63,7 @@ public class SaveUI : MonoBehaviour
         
         if(isAutoSaving)
         {
+            autosaveUI.SetActive(true);
             PlaySavingAnim();
         }
 
@@ -82,8 +83,9 @@ public class SaveUI : MonoBehaviour
 
     IEnumerator wait()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
         animator.SetBool("isAutoSaving", false);
         Debug.Log("auto false");
+        autosaveUI.SetActive(false);
     }
 }
