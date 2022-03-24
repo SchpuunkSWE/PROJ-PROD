@@ -47,7 +47,10 @@ public class TrashPile : MonoBehaviour
 
     private void Update()
     {
-        KillTimer();
+        if (inTrashPile)
+        {
+            KillTimer();
+        }
         MoveTrashPile();
     }
 
@@ -92,8 +95,8 @@ public class TrashPile : MonoBehaviour
 
     private void KillTimer()
     {
-        if (inTrashPile)
-        {
+        //if (inTrashPile)
+        //{
             float timeInTrashPile = Time.time - timeWhenEntered;
             Debug.Log("time in trash pile " + timeInTrashPile);
 
@@ -110,7 +113,7 @@ public class TrashPile : MonoBehaviour
                 Debug.Log("player died");
                 inTrashPile = false;
             }
-        }
+        //}
     }
 
     private void SlowPlayer()

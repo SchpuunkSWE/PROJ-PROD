@@ -9,13 +9,13 @@ public class NPCFishUtil : MonoBehaviour
     private List<Follower> fishToRemove = new List<Follower>();
 
     [SerializeField]
-    private GameObject[] arrayOfTargets; //Populera i editorn
+    private GameObject[] arrayOfTargets; //Populate in editor.
 
     [SerializeField]
-    private GameObject boidsSystemPrefab; //Set in editor
+    private GameObject boidsSystemPrefab; //Set in editor.
 
-    private bool runFishLogOnce = false; //Prevent fish log from running multiple times
-    private bool runFirstCoralLogOnce = false; //Prevent coral log from running multiple times
+    private bool runFishLogOnce = false; //Prevent fish log from running multiple times.
+    private bool runFirstCoralLogOnce = false; //Prevent coral log from running multiple times.
 
     private GameObject boidsSystemGO;
 
@@ -64,7 +64,7 @@ public class NPCFishUtil : MonoBehaviour
     {
         SelectNavArrowTarget();
     }
-    public int AddToSchool(Follower fol) //Kanske döpa om (till AddTOInventory)
+    public int AddToSchool(Follower fol)
     {
         if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//If the list is full or already contains the fish...
         {
