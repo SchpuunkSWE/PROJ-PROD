@@ -11,6 +11,12 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private ParticleSystem openedParticles; //Bara ngt för att visa att den finns när den aktiveras 
 
+    [SerializeField]
+    private Animator transition; //Reference to animator. Populate in inspector.
+
+    [SerializeField]
+    private float transitionTime = 1f;
+
     //[SerializeField]
     //private Image fadeImage;
 
@@ -43,7 +49,8 @@ public class SceneController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //StartCoroutine(FadeOut());
-            SceneManager.LoadScene(sceneToLoad);
+            //SceneManager.LoadScene(sceneToLoad);
+            StartCoroutine(LoadLevel());
             Logger.LoggerInstance.CreateTextFile("Level " + sceneToLoad + ":");
         }
     }
@@ -52,6 +59,16 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         Logger.LoggerInstance.CreateTextFile("Level " + sceneToLoad + ":");
+    }
+
+
+    private IEnumerator LoadLevel()
+    {
+        transition.SetTrigger("Start"); //Play animation.
+
+        yield return new WaitForSeconds(transitionTime); //Wait for x amount of seconds.
+        
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     //private IEnumerator FadeOut()
