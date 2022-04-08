@@ -51,6 +51,7 @@ public class SceneController : MonoBehaviour
             //StartCoroutine(FadeOut());
             //SceneManager.LoadScene(sceneToLoad);
             StartCoroutine(LoadLevel());
+            Debug.Log("Corutine started");
             Logger.LoggerInstance.CreateTextFile("Level " + sceneToLoad + ":");
         }
     }
