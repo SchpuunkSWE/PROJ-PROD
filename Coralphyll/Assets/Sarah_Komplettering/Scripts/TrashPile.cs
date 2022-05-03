@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TrashPile : MonoBehaviour
@@ -16,9 +16,10 @@ public class TrashPile : MonoBehaviour
     private float trashPileSpeed = 1f;
     [SerializeField] 
     private float stoppingDistance;
-    [SerializeField] 
-    private GameObject trashPileDarkAnimGO; //Animation to play when player enters trash pile.
-    private Animator anim;
+
+    [SerializeField]
+    private Image fadeImage; //UI Image to fade.
+    private float alpha; //Alpha value of the image.
 
     private Controller3DKeybinds playerController;
     private float timeWhenEntered; //Which point in time the player came into contact with trash pile.
@@ -31,18 +32,11 @@ public class TrashPile : MonoBehaviour
     public float PlayerSlowedSpeed { get => playerSlowedSpeed; set => playerSlowedSpeed = value; }
     public bool TrashRemovesPlayerBoost { get => trashRemovesPlayerBoost; set => trashRemovesPlayerBoost = value; }
 
-    //private Animator anim; //Reference to animator on gameobject
-
     private void Start()
     {
         playerController = FindObjectOfType(typeof(Controller3DKeybinds)) as Controller3DKeybinds;
-        //path = GetComponent<AIPath>();
         patrolPoint = path.GetPath[0];
         Debug.Log("Start patrolpoint: " + patrolPoint);
-
-        anim = trashPileDarkAnimGO.GetComponent<Animator>();
-
-
     }
 
     private void Update()
@@ -58,13 +52,12 @@ public class TrashPile : MonoBehaviour
     {
         playerCol.GetComponent<Controller3DKeybinds>().IsBoostReady = value;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //Check if player is in the trashPile.
     {
         if (other.tag == "Player")
         {           
             inTrashPile = true;
-            trashPileDarkAnimGO.SetActive(true);
-            anim.SetTrigger("TriggerTrashBlackScreen");
+            StartCoroutine(FadeOut());
             timeWhenEntered = Time.time;
             SlowPlayer();
             if (trashRemovesPlayerBoost)
@@ -72,31 +65,25 @@ public class TrashPile : MonoBehaviour
                 RemovePlayerBoost(other, false);
             }
         }
-
-        //if (other.tag == "Enemy")
-        //{
-        //    other.GetComponent<AIController>().IsDazed = true;
-        //}
     }
 
-    private void OnTriggerExit(Collider other) //Checks if player has left the mire
+    private void OnTriggerExit(Collider other) //Check if player has left the trashPile.
     {
         if (other.CompareTag("Player"))
         {
             inTrashPile = false;
-            trashPileDarkAnimGO.SetActive(false);
+            StartCoroutine(FadeIn());
             RestorePlayerSpeed();
+
             if (trashRemovesPlayerBoost)
             {
                 RemovePlayerBoost(other, true);
-            }//TODO: test this out
+            }
         }
     }
 
     private void KillTimer()
     {
-        //if (inTrashPile)
-        //{
             float timeInTrashPile = Time.time - timeWhenEntered;
             Debug.Log("time in trash pile " + timeInTrashPile);
 
@@ -113,7 +100,6 @@ public class TrashPile : MonoBehaviour
                 Debug.Log("player died");
                 inTrashPile = false;
             }
-        //}
     }
 
     private void SlowPlayer()
@@ -135,4 +121,31 @@ public class TrashPile : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, patrolPoint.position, trashPileSpeed * Time.deltaTime);
     }
+
+    private IEnumerator FadeIn()
+    {
+        alpha = fadeImage.color.a;
+
+        while (alpha > 0 && !inTrashPile)
+        {
+            alpha -= Time.deltaTime / timeAllowed;
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return new WaitForSeconds(0);
+            Debug.Log("Fade in Alpha " + alpha);
+        }
+    }
+
+    private IEnumerator FadeOut()
+    {
+        alpha = fadeImage.color.a;
+
+        while (alpha < 1 && inTrashPile)
+        {
+            alpha += Time.deltaTime / timeAllowed;
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return new WaitForSeconds(0);
+            Debug.Log("Fade out Alpha " + alpha);
+        }
+    }
 }
+

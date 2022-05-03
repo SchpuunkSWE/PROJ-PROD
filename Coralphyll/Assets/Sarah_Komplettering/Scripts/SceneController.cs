@@ -17,11 +17,6 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private float transitionTime = 1f;
 
-    //[SerializeField]
-    //private Image fadeImage;
-
-    //private float alpha;
-
     public ParticleSystem GetParticles()
     {
         return openedParticles;
@@ -31,25 +26,12 @@ public class SceneController : MonoBehaviour
         //sceneToload = SceneManager.GetActiveScene().buildIndex + 1; //Switches to the scene after the current one
         //StartCoroutine(FadeIn());
     }
-    //private IEnumerator FadeIn()
-    //{
-    //    alpha = 1;
 
-    //    while (alpha > 0)
-    //    {
-    //        alpha -= Time.deltaTime;
-    //        fadeImage.color = new Color(0, 0, 0, alpha);
-    //        yield return new WaitForSeconds(0);
-    //    }
-    //    fadeImage.gameObject.SetActive(false);
-    //}
     private void OnTriggerEnter(Collider other)
     {
-        //fadeImage.gameObject.SetActive(true);
+
         if (other.CompareTag("Player"))
         {
-            //StartCoroutine(FadeOut());
-            //SceneManager.LoadScene(sceneToLoad);
             StartCoroutine(LoadLevel());
             Debug.Log("Corutine started");
             Logger.LoggerInstance.CreateTextFile("Level " + sceneToLoad + ":");
@@ -62,7 +44,6 @@ public class SceneController : MonoBehaviour
         Logger.LoggerInstance.CreateTextFile("Level " + sceneToLoad + ":");
     }
 
-
     private IEnumerator LoadLevel()
     {
         transition.SetTrigger("Start"); //Play animation.
@@ -71,18 +52,4 @@ public class SceneController : MonoBehaviour
         
         SceneManager.LoadScene(sceneToLoad);
     }
-
-    //private IEnumerator FadeOut()
-    //{
-    //    alpha = 0;
-
-    //    while (alpha < 1)
-    //    {
-    //        alpha += Time.deltaTime;
-    //        fadeImage.color = new Color(0, 0, 0, alpha);
-    //        yield return new WaitForSeconds(0);
-    //    }
-
-    //    SceneManager.LoadScene(sceneToLoad);
-    //}
 }
