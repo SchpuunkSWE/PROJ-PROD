@@ -14,6 +14,9 @@ public class NPCFishUtil : MonoBehaviour
     [SerializeField]
     private GameObject boidsSystemPrefab; //Set in editor.
 
+    [Range (0, 9)]
+    public int numberOfFollowers;
+
     private bool runFishLogOnce = false; //Prevent fish log from running multiple times.
     private bool runFirstCoralLogOnce = false; //Prevent coral log from running multiple times.
 
@@ -58,15 +61,20 @@ public class NPCFishUtil : MonoBehaviour
     private void Start()
     {
         SelectNavArrowTarget();
+        LoopFollowTargets(numberOfFollowers);
     }
 
     private void FixedUpdate()
     {
         SelectNavArrowTarget();
+
+        //if(numberOfFollowers){
+        //    LoopFollowTargets(numberOfFollowers);
+        //}
     }
     public int AddToSchool(Follower fol)
     {
-        if (listOfFishes.Count >= arrayOfTargets.Length || listOfFishes.Contains(fol))//If the list is full or already contains the fish...
+        if (listOfFishes.Count >= numberOfFollowers || listOfFishes.Contains(fol))//If the list is full or already contains the fish...
         {
             return -1; //Return default value because positionInList cannot be set to null
         }
