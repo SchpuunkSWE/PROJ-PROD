@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class NPCFishUtil : MonoBehaviour
 {
-    [SerializeField]
     private List<Follower> listOfFishes = new List<Follower>();
     private List<Follower> fishToRemove = new List<Follower>();
 
+    [Header("Populated GameObjects")]
     [SerializeField]
     private GameObject[] arrayOfTargets; //Populate in editor.
-
     [SerializeField]
     private GameObject boidsSystemPrefab; //Set in editor.
 
+    [Header("Slider")]
+    [SerializeField]
     [Range (0, 9)]
-    public int numberOfFollowers;
+    private int numberOfFollowers;
 
     private bool runFishLogOnce = false; //Prevent fish log from running multiple times.
     private bool runFirstCoralLogOnce = false; //Prevent coral log from running multiple times.

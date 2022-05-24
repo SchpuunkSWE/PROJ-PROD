@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NPCFollow : MonoBehaviour
 {
+    [Header("Checks")]
     [SerializeField]
     private GameObject fishTarget;
     public GameObject FishTarget { get => fishTarget; set => fishTarget = value; }
@@ -12,6 +13,7 @@ public class NPCFollow : MonoBehaviour
     private bool isFollowingPlayer = false;
     public bool IsFollowingPlayer { get => isFollowingPlayer; set => isFollowingPlayer = value; }
 
+    [Header("Values")]
     [SerializeField]
     private float allowedDistance = 0.15f;
     [SerializeField]
