@@ -7,11 +7,12 @@ public class NPCFishUtil : MonoBehaviour
     private List<Follower> listOfFishes = new List<Follower>();
     private List<Follower> fishToRemove = new List<Follower>();
 
-    [Header("Populated GameObjects")]
-    [SerializeField]
-    private GameObject[] arrayOfTargets; //Populate in editor.
+    [Header("Populate")]
     [SerializeField]
     private GameObject boidsSystemPrefab; //Set in editor.
+
+    [SerializeField]
+    private GameObject[] arrayOfTargets; //Populate in editor.
 
     [Header("Slider")]
     [SerializeField]
